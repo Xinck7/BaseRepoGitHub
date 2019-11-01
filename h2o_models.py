@@ -53,30 +53,35 @@ def get_day():
 
 #tried using classes asking about this tuesday
 #Organizes a Social Post
-# class SocialPost:
-#     #def __class__(self, Insta_Usernam, Insta_Password, GroupMe_Username, Facebook_Username, Facebook_Password, DayofWeek, TimeofDay, Picture, PostText, StorageLocation):
-#         # self.Insta_Username = init_username
-#         # self.Insta_Password = init_password
-#         # self.GroupMe_Username = init_username
-#         # self.GroupMe_Password = init_password
-#         # self.Facebook_Username = init_username
-#         # self.Facebook_Password = init_password
-#         # self.DayofWeek = day_of_week #day of week
-#         # self.TimeofDay = time_of_day #time of day function
-#         # self.Picture = 'x' #Picture
-#         # self.PostText = 'y' 
-#         # self.StorageLocation = 'z'
-#     Post.Insta_Username = init_username
-#     Post.Insta_Password = init_password
-#     Post.GroupMe_Username = init_username
-#     Post.GroupMe_Password = init_password
-#     Post.Facebook_Username = init_username
-#     Post.Facebook_Password = init_password
-#     Post.DayofWeek = 'day_of_week' #day of week
-#     Post.TimeofDay = 'time_of_day' #time of day function
-#     Post.Picture = 'x' #Picture
-#     Post.PostText = 'y' 
-#     Post.StorageLocation = 'z'
+
+class Credentials:
+    def __init__(self):
+
+
+class SocialPost:
+    def __class__(self, Insta_Usernam, Insta_Password, GroupMe_Username, Facebook_Username, Facebook_Password, DayofWeek, TimeofDay, Picture, PostText, StorageLocation):
+        self.Insta_Username = init_username
+        self.Insta_Password = init_password
+        self.GroupMe_Username = init_username
+        self.GroupMe_Password = init_password
+        self.Facebook_Username = init_username
+        self.Facebook_Password = init_password
+        self.DayofWeek = day_of_week #day of week
+        self.TimeofDay = time_of_day #time of day function
+        self.Picture = 'x' #Picture
+        self.PostText = 'y'
+        self.StorageLocation = 'z'
+    Post.Insta_Username = init_username
+    Post.Insta_Password = init_password
+    Post.GroupMe_Username = init_username
+    Post.GroupMe_Password = init_password
+    Post.Facebook_Username = init_username
+    Post.Facebook_Password = init_password
+    Post.DayofWeek = 'day_of_week' #day of week
+    Post.TimeofDay = 'time_of_day' #time of day function
+    Post.Picture = 'x' #Picture
+    Post.PostText = 'y'
+    Post.StorageLocation = 'z'
 
 
 #######Flow of actual operations##########
