@@ -12,7 +12,7 @@
 <header>H2O Social Media Tool</header>
 
 <body>
-  <h1>Make a selection</h1>
+  <h1>Make a Selection</h1>
   <div id="options1">
     <ul id="selections">
       <li><button class="button" onclick="RevealWindow('CredDisp')">Manage Credentials</button></li>
@@ -21,26 +21,76 @@
       <li><button class="button" onclick="RevealWindow('DelSchPostsDisp')">Delete Scheduled Posts</button></li>
       <li><button class="button" onclick="RevealWindow('CompPostsDisp')">Completed Posts</button></li>
     </ul>
-
-
-    <div id="CredDisp" class="revealpane">
-      <p>Credential Pane</p>
-    </div>
-    <div id="CreatePostDisp" class="revealpane">
-      <p>Create Post Pane</p>
-    </div>
-    <div id="ListSchPostsDisp" class="revealpane">
-      <p>List Scheduled Pane</p>
-    </div>
-    <div id="DelSchPostsDisp" class="revealpane">
-      <p>Delete Scheduled Pane</p>
-    </div> 
-    <div id="CompPostsDisp" class="revealpane">
-      <p>Completed Pane</p>
-    </div> 
-    
   </div>
+  <div id="CredDisp" class="revealpane">     
+    <button class="SelectionButton" onclick="RevealCheckBox('RevealFacebookLogin')"> Facebook </button>
+      <div id="RevealFacebookLogin">
+        <form action="" method="post">
+          <div class="imgcontainer">
+            <img src="h2o_portal/facebooklogo.png" alt="Facebooklogo" class="smallpic">
+          </div>
+          <div class="container">
+            <label for="uname"><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" name="uname" required>
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" required>
+            <button type="submit" class="submitbutton" >Login</button>
+          </div>
+        </form> 
+      </div>
 
+    <button class="SelectionButton" onclick="RevealCheckBox('RevealInstagramLogin')">Instagram</button>
+      <div id="RevealInstagramLogin">
+        <form action="" method="post">
+          <div class="imgcontainer">
+            <img src="h2o_portal/InstagramLogo.png" alt="InstagramLogo" class="smallpic">
+          </div>
+          <div class="container">
+            <label for="uname"><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" name="uname" required>
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" required>
+            <button type="submit" class="submitbutton" >Login</button>
+          </div>
+        </form>
+      </div>
+    
+    <label>
+      <input type="checkbox" name="RevealGroupMeLogin" class="checkbox" oninput="RevealCheckBox('RevealGroupMeLogin')"> 
+      GroupMe
+    </label>
+      <div id="RevealGroupMeLogin">
+        <form action="" method="post">
+          <div class="imgcontainer">
+            <img src="h2o_portal/groupme.jpg" alt="GroupMeLogo" class="smallpic">
+          </div>
+          <div class="container">
+            <label for="uname"><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" name="uname" required>
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" required>
+            <button type="submit" class="submitbutton" >Login</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div> <!--Closes Credential Pane-->
+
+  <div id="CreatePostDisp" class="revealpane">
+    <p>Create Post Pane</p>
+  </div> <!--Closes Create Post Pane-->
+
+  <div id="ListSchPostsDisp" class="revealpane">
+    <p>List Scheduled Pane</p>
+  </div> <!--Closes List Scheduled Pane-->
+
+  <div id="DelSchPostsDisp" class="revealpane">
+    <p>Delete Scheduled Pane</p>
+  </div> <!--Closes Delete Scheduled Pane-->
+
+  <div id="CompPostsDisp" class="revealpane">
+    <p>Completed Pane</p>
+  </div> <!--Closes Completed Pane-->
 </body>
 
 <script src="h2o_portal/H2O_JS.js" type="text/javascript"></script>

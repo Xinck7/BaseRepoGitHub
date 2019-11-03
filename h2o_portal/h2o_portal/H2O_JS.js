@@ -5,17 +5,28 @@ function HideWindows(){
   var i;
   for (i = 0; i < RevealPanes.length; i++) {
     RevealPanes[i].style.display = "none";
-}  
+  }  
 }
-function RevealWindow(windowidname){      
+function RevealWindow(id){      
     HideWindows()
-    var RevealPane = document.getElementById(windowidname);
+    var RevealPane = document.getElementById(id);
     if (RevealPane.style.display === "none") {
       RevealPane.style.display = "block";
     } 
     else {
       RevealPane.style.display = "none";
     } 
+}
+
+function RevealCheckBox(id){
+    var RevealCheckBox = document.getElementById(id);  
+
+    if (RevealCheckBox.style.display == "none") {
+        RevealCheckBox.style.display = "block";
+    } 
+    else {
+        RevealCheckBox.style.display = "none";
+    }  
 }
 //state management and lazy loading
 //redux
