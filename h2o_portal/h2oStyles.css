@@ -38,5 +38,7 @@ h1 {
   text-decoration: none;
   
 }
-
+.revealpane{
+  display: none;
+}
 /*Specific Styles*/
