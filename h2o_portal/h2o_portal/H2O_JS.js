@@ -5,6 +5,11 @@ function HideWindows(){
   var i;
   for (i = 0; i < RevealPanes.length; i++) {
     RevealPanes[i].style.display = "none";
+  }
+  var RevealPanesInner = document.getElementsByClassName("revealpaneinner")
+  var i;
+  for (i = 0; i < RevealPanesInner.length; i++) {
+    RevealPanesInner[i].style.display = "none";
   }  
 }
 function RevealWindow(id){      
@@ -20,11 +25,11 @@ function RevealWindow(id){
 
 function RevealCheckBox(id){
     var RevealCheckBox = document.getElementById(id);  
-
-    if (RevealCheckBox.style.display == "none") {
+       
+    if (RevealCheckBox.style.display === "none") {
         RevealCheckBox.style.display = "block";
     } 
-    else {
+    else{
         RevealCheckBox.style.display = "none";
     }  
 }

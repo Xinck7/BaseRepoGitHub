@@ -23,8 +23,8 @@
     </ul>
   </div>
   <div id="CredDisp" class="revealpane">     
-    <button class="SelectionButton" onclick="RevealCheckBox('RevealFacebookLogin')"> Facebook </button>
-      <div id="RevealFacebookLogin">
+    <button class="SelectionButton" onclick="RevealCheckBox('RevealFacebookLogin')">Facebook</button>
+      <div id="RevealFacebookLogin" class="revealpaneinner">
         <form action="" method="post">
           <div class="imgcontainer">
             <img src="h2o_portal/facebooklogo.png" alt="Facebooklogo" class="smallpic">
@@ -34,13 +34,13 @@
             <input type="text" placeholder="Enter Username" name="uname" required>
             <label for="psw"><b>Password</b></label>
             <input type="password" placeholder="Enter Password" name="psw" required>
-            <button type="submit" class="submitbutton" >Login</button>
+            <button type="submit" class="submitbutton">Store Credentials</button>
           </div>
         </form> 
       </div>
 
     <button class="SelectionButton" onclick="RevealCheckBox('RevealInstagramLogin')">Instagram</button>
-      <div id="RevealInstagramLogin">
+      <div id="RevealInstagramLogin" class="revealpaneinner">
         <form action="" method="post">
           <div class="imgcontainer">
             <img src="h2o_portal/InstagramLogo.png" alt="InstagramLogo" class="smallpic">
@@ -50,16 +50,13 @@
             <input type="text" placeholder="Enter Username" name="uname" required>
             <label for="psw"><b>Password</b></label>
             <input type="password" placeholder="Enter Password" name="psw" required>
-            <button type="submit" class="submitbutton" >Login</button>
+            <button type="submit" class="submitbutton">Store Credentials</button>
           </div>
         </form>
       </div>
     
-    <label>
-      <input type="checkbox" name="RevealGroupMeLogin" class="checkbox" oninput="RevealCheckBox('RevealGroupMeLogin')"> 
-      GroupMe
-    </label>
-      <div id="RevealGroupMeLogin">
+    <button class="SelectionButton" onclick="RevealCheckBox('RevealGroupMeLogin')">GroupMe</button>
+      <div id="RevealGroupMeLogin" class="revealpaneinner">
         <form action="" method="post">
           <div class="imgcontainer">
             <img src="h2o_portal/groupme.jpg" alt="GroupMeLogo" class="smallpic">
@@ -69,7 +66,7 @@
             <input type="text" placeholder="Enter Username" name="uname" required>
             <label for="psw"><b>Password</b></label>
             <input type="password" placeholder="Enter Password" name="psw" required>
-            <button type="submit" class="submitbutton" >Login</button>
+            <button type="submit" class="submitbutton">Store Credentials</button>
           </div>
         </form>
       </div>

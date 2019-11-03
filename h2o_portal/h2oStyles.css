@@ -92,7 +92,6 @@ span.psw {
 }
 #RevealFacebookLogin, #RevealInstagramLogin, #RevealGroupMeLogin{
   /*This changes with the JS file only the display for now*/
-  display: initial none;
   display: none;
   /*End JS changes*/
 }
