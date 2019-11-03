@@ -15,32 +15,28 @@
   <h1>Make a selection</h1>
   <div id="options1">
     <ul id="selections">
-      <li><button class="button" onclick="RevealWindow()">Manage Credentials</button></li>
-      <li><button class="button" onclick="RevealWindow()">Create Post</button></li>
-      <!--<li><button class="button">Schedule Post</button></li>-->
-      <li><button class="button" onclick="RevealWindow()">List Scheduled Posts</button></li>
-      <li><button class="button" onclick="RevealWindow()">Delete Scheduled Posts</button></li>
-      <li><button class="button" onclick="RevealWindow()">Completed Posts</button></li>
+      <li><button class="button" onclick="RevealWindow('CredDisp')">Manage Credentials</button></li>
+      <li><button class="button" onclick="RevealWindow('CreatePostDisp')">Create Post</button></li>
+      <li><button class="button" onclick="RevealWindow('ListSchPostsDisp')">List Scheduled Posts</button></li>
+      <li><button class="button" onclick="RevealWindow('DelSchPostsDisp')">Delete Scheduled Posts</button></li>
+      <li><button class="button" onclick="RevealWindow('CompPostsDisp')">Completed Posts</button></li>
     </ul>
 
 
-    <div id="Manage Credentials Display" class="revealpane">
-      <p>test</p>
+    <div id="CredDisp" class="revealpane">
+      <p>Credential Pane</p>
     </div>
-    <div id="Create Post Display" class="revealpane">
-      <p>test</p>
+    <div id="CreatePostDisp" class="revealpane">
+      <p>Create Post Pane</p>
     </div>
-    <div id="Schedule Post Display" class="revealpane">
-      <p>test</p>
+    <div id="ListSchPostsDisp" class="revealpane">
+      <p>List Scheduled Pane</p>
     </div>
-    <div id="List Scheduled Posts Display" class="revealpane">
-      <p>test</p>
-    </div>
-    <div id="Delete Scheduled Posts Display" class="revealpane">
-      <p>test</p>
+    <div id="DelSchPostsDisp" class="revealpane">
+      <p>Delete Scheduled Pane</p>
     </div> 
-    <div id="Completed Posts Display" class="revealpane">
-      <p>test</p>
+    <div id="CompPostsDisp" class="revealpane">
+      <p>Completed Pane</p>
     </div> 
     
   </div>
