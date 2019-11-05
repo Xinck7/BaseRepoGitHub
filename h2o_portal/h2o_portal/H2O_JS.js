@@ -11,6 +11,11 @@ function HideWindows(){
   var i;
   for (i = 0; i < RevealPanesInner.length; i++) {
     RevealPanesInner[i].style.display = "none";
+  }
+  var Modal = document.getElementsByClassName("Modal")
+  var i;
+  for (i = 0; i < Modal.length; i++) {
+    Modal[i].style.display = "none";
   }  
 }
 
@@ -33,6 +38,15 @@ function RevealCheckBox(id){
     else{
         RevealCheckBox.style.display = "none";
     }  
+}
+
+function CloseModal(id){
+    var modal = document.getElementById(id);
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
 }
 //state management and lazy loading
 //redux
