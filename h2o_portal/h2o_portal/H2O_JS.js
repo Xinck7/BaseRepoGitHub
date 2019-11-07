@@ -6,7 +6,7 @@ function HideWindows(){
   for (i = 0; i < RevealPanes.length; i++) {
     RevealPanes[i].style.display = "none";
   }
-  
+
   var RevealPanesInner = document.getElementsByClassName("revealpaneinner")
   var i;
   for (i = 0; i < RevealPanesInner.length; i++) {
