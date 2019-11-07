@@ -9,3 +9,4 @@ class Post(models.Model):
 class Credentials(models.Model):
     username = models.CharField()
     password = models.CharField()
+    authtype = models.CharField()

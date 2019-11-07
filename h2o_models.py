@@ -45,9 +45,10 @@ def get_day():
 
 
 class Credentials:
-    def __init__(self, username, password):
+    def __init__(self, username, password, authtype):
         self.username = username
         self.password = password
+        self.authtype = authtype
 
 
 class Post:
