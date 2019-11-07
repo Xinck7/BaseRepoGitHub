@@ -1,5 +1,6 @@
 // H2O Social Tool Methods
 //var isAuth = ('{{ user.isauthenticated}}');
+
 function HideWindows(){
   var RevealPanes = document.getElementsByClassName("revealpane")
   var i;

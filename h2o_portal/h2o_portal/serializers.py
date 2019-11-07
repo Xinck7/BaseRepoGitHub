@@ -1,14 +1,15 @@
 from django.contrib.auth.models import User, Group
 from rest_framework import serializers
+from h2o_models import Credentials, Post
 
 #PostSerializer, CredentialSerializer
-class PostSerializer(serializers.HyperlinkedModelSerializer):
+class PostSerializer(serializers.ModelSerializer):
     class Meta:
-        model = User
-        fields = ['url', 'username', 'email', 'groups']
+        model = Post
+        fields = ['__all__']
 
 
-class CredentialSerializer(serializers.HyperlinkedModelSerializer):
+class CredentialSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Group
-        fields = ['url', 'name']
+        model = Credentials
+        fields = ['__all__']
