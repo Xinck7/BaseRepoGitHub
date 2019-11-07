@@ -1,0 +1,128 @@
+/*Start out sanitize */
+/*Global Styles*/
+*{
+  box-sizing: border-box;
+}
+#h2opic{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+header {
+  text-align: center;
+  font-size: 40px;
+  color: grey;
+}
+h1 {
+  font-size: 20px;
+  padding-bottom: 10px;
+  margin-left: 10px;
+  border-bottom: 1px solid grey;
+}
+#selections{
+  width: 49%;
+  padding-top: 10px;
+  float: left;
+  position: fixed;
+}
+.button {
+  background-color: rgba(255, 144, 12, 0.70);
+  border: 2px solid grey;
+  border-radius: 8px;
+  color: black;
+  cursor: pointer;
+  display: inline-block;
+  font-family: sans-serif;
+  font-size: 16px;
+  margin: 5px;
+  padding: 10px; 
+  text-align: center;
+}
+.revealpane{
+  display: none;
+  float: right;
+  padding: 1%;
+  width: 50%;
+  text-align: auto;
+}
+
+/*Add some screen size functionality here*/
+
+/*Login/Sign Up button #modal*/
+.appauth{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.modal{
+  display: none;
+}
+.modal-content{
+  display: none;
+}
+
+/*Credential Pane*/
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+.submitbutton {
+  background-color: rgba(255, 144, 12, 0.70);
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+button:hover {
+  opacity: 0.8;
+}
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+}
+img.smallpic {
+  width: 30%;
+  border-radius: 50%;
+}
+.container {
+  background-color:#f1f1f1;
+  padding: 16px;
+}
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+#RevealFacebookLogin, #RevealInstagramLogin, #RevealGroupMeLogin{
+  display: none;
+}
+.SelectionButton{
+  background-color: rgba(255, 144, 12, 0.70);
+  border: 2px solid grey;
+  border-radius: 8px;
+  color: black;
+  cursor: pointer;
+  display: inline-block;
+  font-family: sans-serif;
+  font-size: 16px;
+  margin: 5px;
+  padding: 5px; 
+  text-align: center;
+  text-decoration: none;
+}
+/*Create Post Pane*/
+/*List Scheduled Posts Pane*/
+/*Delete Scheduled Posts Pane*/
+/*Completed Posts Pane*/

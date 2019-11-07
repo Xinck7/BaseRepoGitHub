@@ -1,8 +1,13 @@
-## Welcome to GitHub Pages
+## Welcome the H2O Social Media Portal
 
-You can use the [editor on GitHub](https://github.com/Xinck7/BaseRepoGitHub/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+This tool is to help schedule posts and allow others to see what posts are scheduled through the various apps the church uses for social media currently.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+This app supports currently:
+Facebook
+Instagram
+Groupme
+
+If there are any issues you'd like to report, contact Nick or Sean.
 
 ### Markdown
 
