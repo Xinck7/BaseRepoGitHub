@@ -15,9 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from h2o_portal import views
+from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name="H2O Home"),
+    path('api/h2o_portal/', views.PostViewSet.as_view() ),
+    path('api/h2o_portal/' views.CredentialViewSet.as_view() )
 ]

@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'h2o_portal'
+    'h2o_portal',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
