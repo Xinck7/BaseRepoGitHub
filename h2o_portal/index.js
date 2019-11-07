@@ -7,3 +7,4 @@ class test extends React.component{
     }
 }
 ReactDOM.render(<test />, document.getElementById('root'));
+//https://www.valentinog.com/blog/drf/
