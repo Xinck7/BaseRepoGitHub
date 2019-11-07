@@ -1,6 +1,6 @@
-## Welcome the H2O Social Media Portal
+## Welcome to GitHub Pages
 
-This tool is to help schedule posts and allow others to see what posts are scheduled through the various apps the church uses for social media currently.
+You can use the [editor on GitHub](https://github.com/Xinck7/BaseRepoGitHub/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 
 This app supports currently:
 Facebook
