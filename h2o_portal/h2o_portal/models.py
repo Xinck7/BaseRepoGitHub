@@ -5,3 +5,7 @@ class Post(models.Model):
     post_time = models.DateTimeField()
     text = models.CharField()
     picture = models.ImageField()
+
+class Credentials(models.Model):
+    username = models.CharField()
+    password = models.CharField()

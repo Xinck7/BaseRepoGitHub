@@ -20,4 +20,20 @@ class Migration(migrations.Migration):
                 ('picture', models.ImageField(upload_to='')),
             ],
         ),
+        migrations.CreateModel(
+            name='User',
+            fields=[
+                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('username', models.CharField(max_length=30)),
+                ('password', models.CharField(max_length=30)),
+            ],
+        ),
+        migrations.CreateModel(
+            name='UserSocial',
+            fields=[
+                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('username', models.CharField(max_length=30)),
+                ('password', models.CharField(max_length=30)),
+            ],
+        ),
     ]

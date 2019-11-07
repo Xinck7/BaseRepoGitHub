@@ -45,6 +45,9 @@ h1 {
   width: 50%;
   text-align: auto;
 }
+
+/*Add some screen size functionality here*/
+
 /*Login/Sign Up button #modal*/
 .appauth{
   position: absolute;
@@ -57,6 +60,7 @@ h1 {
 .modal-content{
   display: none;
 }
+
 /*Credential Pane*/
 input[type=text], input[type=password] {
   width: 100%;
