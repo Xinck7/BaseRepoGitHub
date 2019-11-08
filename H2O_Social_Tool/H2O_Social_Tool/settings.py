@@ -128,11 +128,3 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
-
-# STATIC_ROOT = os.path.join(BASE_DIR, '/H2O_portal/static')
-
-# STATICFILES_DIRS = [
-#     os.path.join(BASE_DIR, "static"),
-#     'C:/Users/Nickolaus/Documents/GitHub/BaseRepoGitHub/H2O_Social_Tool/H2O_Portal/',
-# ]
-#BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
