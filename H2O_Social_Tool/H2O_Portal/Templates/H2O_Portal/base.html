@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>H2O Social Media Tool</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'h2oStyles.css' %}">
+</head>
+
+<body>
+    {% block content %}{% endblock content %}
+</body>
+
+<script type="text/javascript" src="{% static 'H2O_JS.js' %}"></script>
+<!--
+<script src="H2O_JS.js" type="text/javascript"></script>
+-->
+</html>

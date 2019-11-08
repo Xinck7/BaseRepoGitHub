@@ -1,18 +1,6 @@
-<!doctype html>
-<html lang="en-US">
-    
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>H2O Social Media Tool</title>
-  <link rel="stylesheet" href="h2o_portal/reset.css" type="text/css">
-  <link rel="stylesheet" href="h2oStyles.css" type="text/css">
-</head>
-<img id="h2opic" src="h2o_portal/h2oLogo.png" alt="H2O Logo" width="360" height="187">
-<header>H2O Social Media Tool</header>
-
-<body>
-  <h1>Make a Selection</h1>
+{% extends "H2O_Portal/base.html" %}
+{% block content %}
+<h1>Make a Selection</h1>
   <div id="options1">
     <ul id="selections">
       <li><button class="button" onclick="RevealWindow('CredDisp')">Manage Credentials</button></li>
@@ -37,7 +25,7 @@
       <div id="RevealFacebookLogin" class="revealpaneinner">
         <form action="" method="post">
           <div class="imgcontainer">
-            <img src="h2o_portal/facebooklogo.png" alt="Facebooklogo" class="smallpic">
+            <img src="facebooklogo.png" alt="Facebooklogo" class="smallpic">
           </div>
           <div class="container">
             <label for="uname"><b>Username</b></label>
@@ -53,7 +41,7 @@
       <div id="RevealInstagramLogin" class="revealpaneinner">
         <form action="" method="post">
           <div class="imgcontainer">
-            <img src="h2o_portal/InstagramLogo.png" alt="InstagramLogo" class="smallpic">
+            <img src="InstagramLogo.png" alt="InstagramLogo" class="smallpic">
           </div>
           <div class="container">
             <label for="uname"><b>Username</b></label>
@@ -69,7 +57,7 @@
       <div id="RevealGroupMeLogin" class="revealpaneinner">
         <form action="" method="post">
           <div class="imgcontainer">
-            <img src="h2o_portal/groupme.jpg" alt="GroupMeLogo" class="smallpic">
+            <img src="groupme.jpg" alt="GroupMeLogo" class="smallpic">
           </div>
           <div class="container">
             <label for="uname"><b>Username</b></label>
@@ -109,7 +97,4 @@
     <p>Once post is completed display latest 10</p>
     <p>Next 10 posts</p>
   </div> <!--Closes Completed Pane-->
-</body>
-
-<script src="h2o_portal/H2O_JS.js" type="text/javascript"></script>
-</html>
+{% endblock content %}
