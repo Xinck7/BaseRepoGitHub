@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.template import context, loader
+from H2O_Portal.models import *
 
 # Create your views here.
 
