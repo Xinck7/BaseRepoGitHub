@@ -9,7 +9,9 @@ class Post(models.Model):
     post_time = models.DateTimeField(max_length=30)
     text = models.TextField(blank=True)
     picture = models.ImageField(upload_to='media/')
-
+    
+    def __str__(self):
+        return self.title
 
 class Credentials(models.Model):
     username = models.CharField(max_length=30)
@@ -20,6 +22,7 @@ class Credentials(models.Model):
         ('G', 'GroupMe')
     ) 
     account = models.CharField(max_length=1, choices=ACCOUNT_TYPES)
-    
+
 class Users(models.Model):
+    
     pass 
