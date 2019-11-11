@@ -5,7 +5,7 @@ import json
 # Create your models here.
 
 class Post(models.Model):
-    title = models.TextField(blank=False)
+    title = models.TextField(blank=True)
     post_time = models.DateTimeField(max_length=30)
     text = models.TextField(blank=True)
     picture = models.ImageField(upload_to='media/')
@@ -21,8 +21,4 @@ class Credentials(models.Model):
         ('I', 'Instagram'),
         ('G', 'GroupMe')
     ) 
-    account = models.CharField(max_length=1, choices=ACCOUNT_TYPES)
-
-class Users(models.Model):
-    
-    pass 
+    account = models.CharField(max_length=1, choices=ACCOUNT_TYPES, default='Facebook')

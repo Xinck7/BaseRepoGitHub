@@ -8,4 +8,4 @@ def home(request):
     return render(request, 'H2O_Portal/base.html')
 
 def post(request, title, post_time, text, picture):
-    
+    pass
