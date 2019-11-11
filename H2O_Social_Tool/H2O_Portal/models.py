@@ -21,5 +21,5 @@ class Credentials(models.Model):
         ('I', 'Instagram'),
         ('G', 'GroupMe')
     ) 
-    account = models.CharField(max_length=1, choices=ACCOUNT_TYPES, default='Facebook')
+    account = models.CharField(max_length=1, choices=ACCOUNT_TYPES, default='test')
     #Not sure how i need to not specify this as default but I suspect will make sense later
