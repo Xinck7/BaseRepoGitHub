@@ -5,4 +5,4 @@ Facebook
 Instagram
 Groupme
 
-If there are any issues you'd like to report, contact Nick or Sean.
+If there are any issues you'd like to report, contact Nick or Sean. 
