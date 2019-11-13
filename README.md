@@ -12,4 +12,5 @@ This app will support:
 <li>Instagram</li>
 <li>Groupme</li>
 </ul>
+<br>
 If there are any issues you'd like to report, contact Nick or Sean. 
