@@ -1,4 +1,4 @@
-"""h2o_portal URL Configuration
+"""H2O_Social_Tool URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.2/topics/http/urls/
@@ -14,12 +14,10 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from . import views
+from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.home, name="H2O Home"),
-    path('api/h2o_portal/', views.PostViewSet.as_view() ),
-    path('api/h2o_portal/' views.CredentialViewSet.as_view() )
+    path('', include('H2O_Portal.urls')),
+    path('api/auth/', include('rest_framework.urls')),
 ]

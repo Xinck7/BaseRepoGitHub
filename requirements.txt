@@ -1,4 +1,4 @@
-django
 python3
-node.js
-React
+pillow
+django
+djangorestframework
