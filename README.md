@@ -4,7 +4,7 @@
 
 <h2>This app is to help schedule and view scheduled posts through various social media tools for H2O Church.</h2>
 <br>
-<h3>This is to help better manage the teams that work on social media and ensure everyone is able to view the most current information regarding the social media postings for the week/month.</h3>
+<h3>This tool will help manage the teams that work on social media. <br> It ensure everyone is able to view the most current information regarding the social media postings for the week/month.</h3>
 
 This app will support:
 <ul>
