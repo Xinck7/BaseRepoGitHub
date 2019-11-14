@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}Posts for {{ Posts }}{% endblock %}
+{% block title %}Posts for {{ Posts }}{% endblock title %}
 
 {% block content %}
 <h1>Posts for {{ Posts }}</h1>
@@ -12,4 +12,4 @@
     <p>Published {{ article.pub_date|date:"F j, Y" }}</p>
 -->
 {% endfor %}
-{% endblock %}
+{% endblock content %}

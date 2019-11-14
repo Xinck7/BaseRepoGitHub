@@ -1,17 +1,16 @@
 from django.db import models
 from django.contrib.auth.models import User
-import json
 
 # Create your models here.
 
 class Post(models.Model):
-    title = models.TextField(blank=True)
+    title = models.TextField(blank=True, max_length=200)
     post_time = models.DateTimeField(max_length=30)
-    text = models.TextField(blank=True)
-    picture = models.ImageField(upload_to='media/')
-    
-    def __str__(self):
-        return self.title
+    text = models.TextField(blank=True, max_length=2000)
+    picture = models.ImageField(blank=True)
+    author = models.ForeignKey(User, null=True, related_name='+', on_delete=models.CASCADE)
+    destination = models.ForeignKey(User, null=True, related_name='Credentials', on_delete=models.CASCADE)
+
 
 class Credentials(models.Model):
     username = models.CharField(max_length=30)
@@ -21,5 +20,6 @@ class Credentials(models.Model):
         ('I', 'Instagram'),
         ('G', 'GroupMe')
     ) 
-    account = models.CharField(max_length=1, choices=ACCOUNT_TYPES, default='test')
-    #Not sure how i need to not specify this as default but I suspect will make sense later
+    account = models.CharField(max_length=1, choices=ACCOUNT_TYPES)
+
+
