@@ -8,18 +8,21 @@ class Post(models.Model):
     post_time = models.DateTimeField(max_length=30)
     text = models.TextField(blank=True, max_length=2000)
     picture = models.ImageField(blank=True)
-    author = models.ForeignKey(User, null=True, related_name='+', on_delete=models.CASCADE)
-    destination = models.ForeignKey(User, null=True, related_name='Credentials', on_delete=models.CASCADE)
-
+    
+    def __str__(self):
+        return '{} {} {} {}'.format(self.title, self,post_time, self.text, self.picture)
 
 class Credentials(models.Model):
     username = models.CharField(max_length=30)
     password = models.CharField(max_length=30)
-    ACCOUNT_TYPES = (
+    ACCOUNTTYPES = [
         ('F', 'Facebook'),
         ('I', 'Instagram'),
-        ('G', 'GroupMe')
-    ) 
-    account = models.CharField(max_length=1, choices=ACCOUNT_TYPES)
+        ('G', 'GroupMe'),
+    ] 
+    accounttype = models.CharField(max_length=1, choices=ACCOUNTTYPES)
+    accountowner = models.ForeignKey(User, related_name='Credentials', on_delete=models.CASCADE)
 
+    def __str__(self):
+        return '{} {} {} {}'.format(self.username, self,password, self.accounttype, self.accountowner)
 
