@@ -1,0 +1,140 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>H2O Social Media Tool</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'H2O_Portal/h2oStyles.css' %}">
+</head>
+
+<img id="h2opic" src="{% static 'H2O_Portal/h2oLogo.png' %}" alt="H2O Logo" width="360" height="187">
+<header>H2O Social Media Tool</header>
+
+<body>
+<h1>Make a Selection</h1>
+  <div id="options1">
+    <ul id="selections">
+      <li><button class="button" onclick="RevealWindow('CredDisp')">Manage Credentials</button></li>
+      <li><button class="button" onclick="RevealWindow('CreatePostDisp')">Create Post</button></li>
+      <li><button class="button" onclick="RevealWindow('ListSchPostsDisp')">List Scheduled Posts</button></li>
+      <li><button class="button" onclick="RevealWindow('CompPostsDisp')">Completed Posts</button></li>
+    </ul>
+  </div>
+
+  <div class="appauth">
+    <button class="button" onclick="RevealWindow('AppAuth')">Login/Signup</button>
+    <div id="AppAuth" class="revealpane"> 
+      <form action="" method="post">
+        <div id="modalcontiner" class="revealpaneinner">
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="CredDisp" class="revealpane">     
+    <button class="SelectionButton" onclick="RevealCheckBox('RevealFacebookLogin')">Facebook</button>
+      <div id="RevealFacebookLogin" class="revealpaneinner">
+        <form action="" method="post">
+          <div class="imgcontainer">
+            <img src="{% static 'H2O_Portal/facebooklogo.png' %}" alt="Facebooklogo" class="smallpic">
+          </div>
+          <div class="container">
+            <label for="uname"><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" name="uname" required>
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" required>
+            <button type="submit" class="submitbutton">Store Credentials</button>
+          </div>
+        </form> 
+      </div>
+
+    <button class="SelectionButton" onclick="RevealCheckBox('RevealInstagramLogin')">Instagram</button>
+      <div id="RevealInstagramLogin" class="revealpaneinner">
+        <form action="" method="post">
+          <div class="imgcontainer">
+            <img src="{% static 'H2O_Portal/InstagramLogo.png' %}" alt="InstagramLogo" class="smallpic">
+          </div>
+          <div class="container">
+            <label for="uname"><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" name="uname" required>
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" required>
+            <button type="submit" class="submitbutton">Store Credentials</button>
+          </div>
+        </form>
+      </div>
+    
+    <button class="SelectionButton" onclick="RevealCheckBox('RevealGroupMeLogin')">GroupMe</button>
+      <div id="RevealGroupMeLogin" class="revealpaneinner">
+        <form action="" method="post">
+          <div class="imgcontainer">
+            <img src="{% static 'H2O_Portal/groupme.jpg' %}" alt="GroupMeLogo" class="smallpic">
+          </div>
+          <div class="container">
+            <label for="uname"><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" name="uname" required>
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" required>
+            <button type="submit" class="submitbutton">Store Credentials</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div> <!--Closes Credential Pane-->
+
+  <!--Create Post Pane-->
+  <div id="CreatePostDisp" class="revealpane">
+    <form action="" class="Postdestination" method="POST">
+      <input type="checkbox" name="Facebook" value="Facebook">Post to Facebook<br>
+      <input type="checkbox" name="Instagram" value="Instagram">Post to Instagram<br>
+      <input type="checkbox" name="GroupMe" value="GroupMe">Post to GroupMe<br><br>
+      <label for="Title"><b>Title:</b></label>
+      <input type="text" placeholder="Title" name="Title">
+      <br><br>
+      <label for="picture"><b>Select a Picture:</b></label>
+      <input type="submit" name="picture" value="File...">
+      <br><br>
+      <label for="text"><b>Text:</b></label>
+      <input type="text" placeholder="text" name="text">
+      <br><br>
+      <input type="submit" value="Submit">
+    </form>
+  </div> <!--Closes Create Post Pane-->
+  
+  <!--List Scheduled Pane-->
+  <div id="ListSchPostsDisp" class="revealpane">
+    <p>In Progress</p>
+    
+    <!--
+    <ul id="listpostcontainer">
+      <li>placeholder for items1</li>
+      <li>item2</li>
+    </ul>
+    <button>Next 10</button>
+    <button>Edit</button>
+    <button>Delete</button>
+    -->
+
+  </div> <!--Closes List Scheduled Pane-->
+  
+  <!--List Completed Pane-->
+  <div id="CompPostsDisp" class="revealpane">
+    <p>In Progress</p>
+    
+    {% block title %}  
+    {% endblock title  %}
+
+    {% block content %}  
+    {% endblock content %}
+    <!--
+    <p>Completed Pane</p>
+    <p>Structure same as list but pull different table</p>
+    -->
+
+  </div> <!--Closes Completed Pane-->
+
+</body>
+<script type="text/javascript" src="{% static 'H2O_Portal/H2O_JS.js' %}"></script>
+</html>
