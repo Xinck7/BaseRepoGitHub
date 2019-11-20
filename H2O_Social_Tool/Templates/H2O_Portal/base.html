@@ -107,9 +107,11 @@
       <p>Scheduled Pane</p>
       <br>
       <ul>
-      {% for post in Posts %}
-        <li>{{ post }} </li><br>
-      {% endfor %}
+        {% for post in Posts %}
+          {% if post.completed == False %}
+            <li>{{ post }} </li><br>
+          {% endif %}
+        {% endfor %}
       </ul>
     </div> <!--Closes List Scheduled Pane-->
     
@@ -118,9 +120,11 @@
       <p>Completed Pane</p>
       <br>
       <ul>
-      {% for post in Posts %}
-        <li>{{ post }} </li><br>
-      {% endfor %}
+        {% for post in Posts %}
+          {% if post.completed == True %}
+            <li>{{ post }} </li><br>
+          {% endif %}
+        {% endfor %}
       </ul>
     </div> <!--Closes Completed Pane-->
 
