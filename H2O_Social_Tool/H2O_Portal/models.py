@@ -8,9 +8,11 @@ class Post(models.Model):
     post_time = models.DateTimeField(max_length=30)
     text = models.TextField(blank=True, max_length=2000)
     picture = models.ImageField(blank=True)
+    completed = models.BooleanField(default=False)
     
     def __str__(self):
-        return '{} {} {} {}'.format(self.title, self.post_time, self.text, self.picture)
+        return '{} {} {} {} {}'.format(self.title, self.post_time, self.text, self.picture, self.completed)
+
 
 class Credentials(models.Model):
     username = models.CharField(max_length=30)
