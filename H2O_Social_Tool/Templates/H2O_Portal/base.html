@@ -104,8 +104,6 @@
     
     <!--List Scheduled Pane-->
     <div id="ListSchPostsDisp" class="revealpane">
-      <p>Scheduled Pane</p>
-      <br>
       <ul>
         {% for post in Posts %}
           {% if post.completed == False %}
@@ -117,8 +115,6 @@
     
     <!--List Completed Pane-->
     <div id="CompPostsDisp" class="revealpane">
-      <p>Completed Pane</p>
-      <br>
       <ul>
         {% for post in Posts %}
           {% if post.completed == True %}
