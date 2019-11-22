@@ -14,7 +14,7 @@ class Post(models.Model):
     completed = models.BooleanField(default=False)
     
     def __str__(self):
-        return '{} {} {} {} {} {} {} {}'.format(self.title, self.post_time, self.text, self.picture, self.dest_fb, self.dest_insta, self.dest_gm, self.completed)
+        return '{} {} {} {} {} {} {}'.format(self.title, self.post_time, self.text, self.picture, self.dest_fb, self.dest_insta, self.dest_gm)
 
     #def fbpost
 
@@ -25,22 +25,13 @@ class Post(models.Model):
     #def gmpost
 
 #In progress to fixing users within the specific user and linking them together
-class PasswordField(CharField):
-    widget = PasswordInput()
 
-class PasswordModelField(models.CharField):
-
-    def formfield(self, **kwargs):
-        defaults = {'form_class': PasswordField}
-        defaults.update(kwargs)
-        return super(PasswordModelField, self).formfield(**defaults)
-
-class Social(models.Model):
+class SocialAccount(models.Model):
     ACCOUNT = (
-        ('f', ('facebook')),
-        ('i', ('instagram')),
-        ('g', ('groupme')),
-        ('n', ('null'))
+        ('f', ('Facebook')),
+        ('i', ('Instagram')),
+        ('g', ('GroupMe')),
+        ('n', ('Choose an Account type'))
     )
     account_type = models.CharField(
         max_length=30,
@@ -48,7 +39,7 @@ class Social(models.Model):
         default='n',
     )
     username = models.CharField(blank=True, max_length=40)
-    password = PasswordModelField()
+    password = models.CharField(blank=True, max_length=40)
 
     def __str__(self):
-        return '{} {} {}'.format(self.account_type, self.username, self.password)
+        return '{} {}'.format(self.account_type, self.username)

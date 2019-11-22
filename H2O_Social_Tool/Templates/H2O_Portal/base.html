@@ -12,16 +12,14 @@
 <img id="h2opic" src="{% static 'H2O_Portal/h2oLogo.png' %}" alt="H2O Logo" width="360" height="187">
 <header>H2O Social Media Tool</header>
   <body>
-  <h1>Make a Selection</h1>
-    <div id="options1">
-      <ul id="selections">
-        <li><button class="button" onclick="RevealWindow('CredDisp')">Manage Credentials</button></li>
-        <li><button class="button" onclick="RevealWindow('CreatePostDisp')">Create Post</button></li>
-        <li><button class="button" onclick="RevealWindow('ListSchPostsDisp')">List Scheduled Posts</button></li>
-        <li><button class="button" onclick="RevealWindow('CompPostsDisp')">Completed Posts</button></li>
-      </ul>
+    <div id="nav">
+      <div id="navbuttons">
+        <button class="button" onclick="RevealWindow('CredDisp')">Manage Credentials</button>
+        <button class="button" onclick="RevealWindow('CreatePostDisp')">Create Post</button>
+        <button class="button" onclick="RevealWindow('ListSchPostsDisp')">List Scheduled Posts</button>
+        <button class="button" onclick="RevealWindow('CompPostsDisp')">Completed Posts</button>
+      </div>
     </div>
-
     <div class="appauth">
       <button class="button" onclick="RevealWindow('AppAuth')">Login/Signup</button>
       <div id="AppAuth" class="revealpane"> 
@@ -84,33 +82,48 @@
     </div> <!--Closes Credential Pane-->
 
     <!--Create Post Pane-->
-    <div id="CreatePostDisp" class="revealpane">
-      <form action="" class="Postdestination" method="POST">
-        <input type="checkbox" name="Facebook" value="Facebook">Post to Facebook<br>
-        <input type="checkbox" name="Instagram" value="Instagram">Post to Instagram<br>
-        <input type="checkbox" name="GroupMe" value="GroupMe">Post to GroupMe<br><br>
-        <label for="Title"><b>Title:</b></label>
-        <input type="text" placeholder="Title" name="Title">
-        <br><br>
-        <label for="picture"><b>Select a Picture:</b></label>
-        <input type="submit" name="picture" value="File...">
-        <br><br>
-        <label for="text"><b>Text:</b></label>
-        <input type="text" placeholder="text" name="text">
-        <br><br>
-        <input type="submit" value="Submit">
-      </form>
+    <div class="centeringbox">
+      <div id="CreatePostDisp" class="revealpane">
+        <form action="" class="Postdestination" method="POST">
+          <input type="checkbox" name="Facebook" value="Facebook">Post to Facebook<br>
+          <input type="checkbox" name="Instagram" value="Instagram">Post to Instagram<br>
+          <input type="checkbox" name="GroupMe" value="GroupMe">Post to GroupMe<br><br>
+          <label for="Title"><b>Title:</b></label>
+          <input type="text" placeholder="Title" name="Title">
+          <br><br>
+          <label for="picture"><b>Select a Picture:</b></label>
+          <input type="submit" name="picture" value="File...">
+          <br><br>
+          <label for="text"><b>Text:</b></label>
+          <input type="text" placeholder="text" name="text">
+          <br><br>
+          <input type="submit" value="Submit">
+        </form>
+      </div>
     </div> <!--Closes Create Post Pane-->
     
     <!--List Scheduled Pane-->
     <div id="ListSchPostsDisp" class="revealpane">
-      <ul>
-        {% for post in Posts %}
-          {% if post.completed == False %}
-            <li> {{ post }} </li><br>
-          {% endif %}
-        {% endfor %}
-      </ul>
+      <div class="table">
+        <table>
+          <thead>
+            <th>Title</th>
+            <th>Post Time</th>
+            <th>Message</th>
+            <th>Picture</th>
+            <th>Facebook?</th>
+            <th>Instagram?</th>
+            <th>GroupMe?</th>
+          </thead>
+          <ul>
+            {% for post in Posts %}
+              {% if post.completed == False %}
+                <li> {{ post }} </li><br>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </table>
+      </div>
     </div> <!--Closes List Scheduled Pane-->
     
     <!--List Completed Pane-->
