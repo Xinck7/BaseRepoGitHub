@@ -165,6 +165,7 @@ button:hover {
     margin: 8px 0;
     display: inline-block;
     border: 1px solid #ccc;
+    background-color: whitesmoke;
     border-radius: 8px;
     box-sizing: border-box;
   }
@@ -241,20 +242,24 @@ button:hover {
     padding: 5px; 
     text-decoration: none;
   }
+  .createpostbutton{
+    border: 1px solid grey;
+    border-radius: 8px;
+    background-color: whitesmoke;
+    font-family: Arial, Helvetica, sans-serif
+  }
 /*Posts Pane*/
-.posttables{
-  padding: 1%;
-  
-  background-color: lightgray;
-  display: inline-block;
-  flex: 1;
-  min-width: 5px;
-  text-align: center;
-}
-th,td{
-  padding: 15px;
-  border: 2px solid grey;
-  border-collapse: collapse;
-  background-color: rgba(241, 121, 44, 0.787);
-}
+  .posttables{
+    padding: 1%;
+    display: inline-block;
+    flex: 1;
+    min-width: 5px;
+    text-align: center;
+  }
+  th,td{
+    padding: 15px;
+    border: 2px solid grey;
+    border-collapse: collapse;
+    background-color: rgba(241, 121, 44, 0.787);
+  }
 
