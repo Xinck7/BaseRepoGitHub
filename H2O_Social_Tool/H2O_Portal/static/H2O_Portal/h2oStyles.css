@@ -117,7 +117,7 @@ input, select {
 header {
   text-align: center;
   font-size: 40px;
-  color: grey;
+  color: rgb(99, 100, 102);
 }
 #navbuttons{
   margin-top: 10px;
@@ -128,7 +128,7 @@ header {
 }
 .button {
   background-color: rgba(241, 121, 44, 0.787);
-  border: 2px solid grey;
+  border: 2px solid rgb(99, 100, 102);
   border-radius: 8px;
   color: black;
   cursor: pointer;
@@ -156,7 +156,7 @@ button:hover {
   .modalcontainer{
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4);
-    border: 2px solid grey;
+    border: 2px solid rgb(99, 100, 102);
     border-radius: 8px;
     display: block;
     position: fixed;
@@ -226,7 +226,7 @@ button:hover {
   }
   .SelectionButton{
     background-color: rgba(241, 121, 44, 0.787);
-    border: 2px solid grey;
+    border: 2px solid rgb(99, 100, 102);
     border-radius: 8px;
     color: black;
     cursor: pointer;
@@ -242,7 +242,7 @@ button:hover {
 /*Create Post Pane*/
   .Postdestination{
     background-color: rgba(241, 121, 44, 0.787);
-    border: 2px solid grey;
+    border: 2px solid rgb(99, 100, 102);
     border-radius: 8px;
     color: black;
     cursor: pointer;
@@ -256,7 +256,7 @@ button:hover {
     text-decoration: none;
   }
   .createpostbutton{
-    border: 1px solid grey;
+    border: 1px solid rgb(99, 100, 102);
     border-radius: 8px;
     background-color: whitesmoke;
     
@@ -271,7 +271,7 @@ button:hover {
   }
   th,td{
     padding: 15px;
-    border: 2px solid grey;
+    border: 2px solid rgb(99, 100, 102);
     border-collapse: collapse;
     background-color: rgba(241, 121, 44, 0.787);
   }
