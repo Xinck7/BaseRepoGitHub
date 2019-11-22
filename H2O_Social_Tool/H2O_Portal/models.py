@@ -1,5 +1,6 @@
 from django.db import models
 from django.forms import forms, PasswordInput, CharField
+from django.contrib.auth.models import User
 # Create your models here.
 
 class Post(models.Model):
@@ -23,20 +24,31 @@ class Post(models.Model):
     
     #def gmpost
 
-class Social(forms.Form):
+#In progress to fixing users within the specific user and linking them together
+class PasswordField(CharField):
+    widget = PasswordInput()
+
+class PasswordModelField(models.CharField):
+
+    def formfield(self, **kwargs):
+        defaults = {'form_class': PasswordField}
+        defaults.update(kwargs)
+        return super(PasswordModelField, self).formfield(**defaults)
+
+class Social(models.Model):
     ACCOUNT = (
         ('f', ('facebook')),
         ('i', ('instagram')),
         ('g', ('groupme')),
         ('n', ('null'))
     )
-    account_type = CharField(
+    account_type = models.CharField(
         max_length=30,
         choices=ACCOUNT,
         default='n',
     )
-    username = CharField(blank=True, max_length=30)
-    password = CharField(widget=PasswordInput)
+    username = models.CharField(blank=True, max_length=40)
+    password = PasswordModelField()
 
     def __str__(self):
         return '{} {} {}'.format(self.account_type, self.username, self.password)
