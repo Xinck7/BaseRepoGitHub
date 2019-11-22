@@ -17,14 +17,14 @@ class Post(models.Model):
 class Credentials(models.Model):
     username = models.CharField(max_length=30)
     password = models.CharField(max_length=30)
-    ACCOUNTTYPES = [
-        ('F', 'Facebook'),
-        ('I', 'Instagram'),
-        ('G', 'GroupMe'),
-    ] 
-    accounttype = models.CharField(max_length=1, choices=ACCOUNTTYPES)
-    accountowner = models.ForeignKey(User, related_name='Credentials', on_delete=models.CASCADE)
+    # ACCOUNTTYPES = [
+    #     ('F', 'Facebook'),
+    #     ('I', 'Instagram'),
+    #     ('G', 'GroupMe'),
+    # ] 
+    #accounttype = models.CharField(max_length=1, choices=ACCOUNTTYPES, blank=True)
+    #accountowner = models.ForeignKey(User, related_name='Credentials', on_delete=models.CASCADE, default=0)
 
     def __str__(self):
-        return '{} {} {} {}'.format(self.username, self,password, self.accounttype, self.accountowner)
-
+        #return '{} {} {} {}'.format(self.username, self.password, self.accounttype, self.accountowner)
+        return '{} {}'.format(self.username, self.password)
