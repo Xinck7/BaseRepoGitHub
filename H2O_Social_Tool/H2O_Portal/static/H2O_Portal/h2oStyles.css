@@ -107,6 +107,7 @@ input, select {
 
 *{
   box-sizing: border-box;
+  font-family: 'Lato', sans-serif;
 }
 #h2opic{
   display: block;
@@ -131,7 +132,6 @@ header {
   border-radius: 8px;
   color: black;
   cursor: pointer;
-  font-family: sans-serif;
   font-size: 16px;
   margin-bottom: 5px;
   padding: 10px; 
@@ -216,7 +216,6 @@ button:hover {
     color: black;
     cursor: pointer;
     display: inline-block;
-    font-family: sans-serif;
     font-size: 16px;
     margin-top: 5px;
     align-items:center;
@@ -233,7 +232,6 @@ button:hover {
     color: black;
     cursor: pointer;
     display: inline-block;
-    font-family: sans-serif;
     font-size: 16px;
     margin-top: 5px;
     flex: 1;
@@ -246,7 +244,7 @@ button:hover {
     border: 1px solid grey;
     border-radius: 8px;
     background-color: whitesmoke;
-    font-family: Arial, Helvetica, sans-serif
+    
   }
 /*Posts Pane*/
   .posttables{
