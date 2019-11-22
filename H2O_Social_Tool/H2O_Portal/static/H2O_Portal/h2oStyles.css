@@ -153,6 +153,21 @@ button:hover {
     top: 10px;
     right: 10px;
   }
+  .modalcontainer{
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4);
+    border: 2px solid grey;
+    border-radius: 8px;
+    display: block;
+    position: fixed;
+    overflow: auto; /* Enable scroll if needed */
+    padding-top: 60px;
+    left: 0;
+    top: 0;    
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    z-index: 1;
+  }
 
 /*Credential Pane*/
   form {

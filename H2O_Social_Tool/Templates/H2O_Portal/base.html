@@ -21,13 +21,24 @@
         <button class="button" onclick="RevealWindow('CompPostsDisp')">Completed Posts</button>
       </div>
     </div>
+    
     <div class="appauth">
       <button class="button" onclick="RevealWindow('AppAuth')">Login/Signup</button>
       <div id="AppAuth" class="revealpane"> 
-        <form action="" method="post">
-          <div id="modalcontiner" class="revealpaneinner">
+        <div class="modalcontainer">
+          <form action="" method="post">
+              <div class="container">
+                <label for="uname"><b>Username</b></label>
+                <input type="text" placeholder="Enter Username" name="uname">
+                <label for="psw"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="psw">
+                <label for="psw"><b>Haven't signed up yet? <br> Enter username/password/email <br> Then click Signup!</b></label>
+                <input type="text" placeholder="Enter Email" name="text">
+                <button type="submit" class="submitbutton">Login/Signup</button>
+                <button onclick="">Forgot password?</button>
+              </div>
+            </form> 
           </div>
-        </form>
       </div>
     </div>
 
@@ -124,8 +135,8 @@
                 {% if post.completed == False %}
                 <td>{{ post.title }}</td>
                 <td>{{ post.post_time }}</td>
+                <td>{{ post.text }}</td>
                 <td>{{ post.picture }}</td>
-                <td>{{ post.dest_fb }}</td>
                 <td>{{ post.dest_fb }}</td>
                 <td>{{ post.dest_insta }}</td>
                 <td>{{ post.dest_gm }}</td>
@@ -158,8 +169,8 @@
                 {% if post.completed == True %}
                 <td>{{ post.title }}</td>
                 <td>{{ post.post_time }}</td>
+                <td>{{ post.text }}</td>
                 <td>{{ post.picture }}</td>
-                <td>{{ post.dest_fb }}</td>
                 <td>{{ post.dest_fb }}</td>
                 <td>{{ post.dest_insta }}</td>
                 <td>{{ post.dest_gm }}</td>
