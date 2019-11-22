@@ -101,9 +101,13 @@ hr {
 input, select {
     vertical-align:middle;
 }
+/***************/
 /*Global Styles*/
+/***************/
+
 *{
   box-sizing: border-box;
+  font-family: 'Lato', sans-serif;
 }
 #h2opic{
   display: block;
@@ -115,37 +119,30 @@ header {
   font-size: 40px;
   color: grey;
 }
-h1 {
-  font-size: 20px;
-  padding-bottom: 10px;
-  margin-left: 10px;
-  border-bottom: 1px solid grey;
+#navbuttons{
+  margin-top: 10px;
+  text-align: center;
 }
-#selections{
-  width: 49%;
-  padding-top: 10px;
-  float: left;
-  position: fixed;
+.centeringbox{
+  text-align: center;
 }
 .button {
-  background-color: rgba(255, 144, 12, 0.70);
+  background-color: rgba(241, 121, 44, 0.787);
   border: 2px solid grey;
   border-radius: 8px;
   color: black;
   cursor: pointer;
-  display: inline-block;
-  font-family: sans-serif;
   font-size: 16px;
-  margin: 5px;
+  margin-bottom: 5px;
   padding: 10px; 
-  text-align: center;
 }
+button:hover {
+    opacity: 0.8;
+  }
 .revealpane{
   display: none;
-  float: right;
+  text-align: center;
   padding: 1%;
-  width: 50%;
-  text-align: auto;
 }
 
 /*Add some screen size functionality here*/
@@ -156,19 +153,39 @@ h1 {
     top: 10px;
     right: 10px;
   }
+  .modalcontainer{
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4);
+    border: 2px solid grey;
+    border-radius: 8px;
+    display: block;
+    position: fixed;
+    overflow: auto; /* Enable scroll if needed */
+    padding-top: 60px;
+    left: 0;
+    top: 0;    
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    z-index: 1;
+  }
 
 /*Credential Pane*/
+  form {
+    display: inline-block;
+  }
+
   input[type=text], input[type=password] {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
     border: 1px solid #ccc;
+    background-color: whitesmoke;
     border-radius: 8px;
     box-sizing: border-box;
   }
   .submitbutton {
-    background-color: rgba(255, 144, 12, 0.70);
+    background-color: rgba(241, 121, 44, 0.787);
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
@@ -177,9 +194,7 @@ h1 {
     cursor: pointer;
     width: 100%;
   }
-  button:hover {
-    opacity: 0.8;
-  }
+  
   .cancelbtn {
     width: auto;
     padding: 10px 18px;
@@ -188,6 +203,9 @@ h1 {
   .imgcontainer {
     text-align: center;
     margin: 24px 0 12px 0;
+    flex: 0;
+    min-width: 5px;
+    max-width: 500px;
   }
   img.smallpic {
     width: 30%;
@@ -196,24 +214,26 @@ h1 {
   .container {
     background-color:#f1f1f1;
     padding: 16px;
+    flex: 1;
+    min-width: 5px;
+    max-width: 500px;
   }
   span.psw {
-    float: right;
     padding-top: 16px;
   }
   #RevealFacebookLogin, #RevealInstagramLogin, #RevealGroupMeLogin{
     display: none;
   }
   .SelectionButton{
-    background-color: rgba(255, 144, 12, 0.70);
+    background-color: rgba(241, 121, 44, 0.787);
     border: 2px solid grey;
     border-radius: 8px;
     color: black;
     cursor: pointer;
     display: inline-block;
-    font-family: sans-serif;
     font-size: 16px;
-    margin: 5px;
+    margin-top: 5px;
+    align-items:center;
     padding: 5px; 
     text-align: center;
     text-decoration: none;
@@ -221,21 +241,38 @@ h1 {
 
 /*Create Post Pane*/
   .Postdestination{
-    background-color: rgba(255, 144, 12, 0.70);
+    background-color: rgba(241, 121, 44, 0.787);
     border: 2px solid grey;
     border-radius: 8px;
     color: black;
     cursor: pointer;
     display: inline-block;
-    font-family: sans-serif;
     font-size: 16px;
-    margin: 5px;
+    margin-top: 5px;
+    flex: 1;
+    min-width: 5px;
+    max-width: 500px;
     padding: 5px; 
-    text-align: left;
     text-decoration: none;
   }
-/*List Scheduled Posts Pane*/
+  .createpostbutton{
+    border: 1px solid grey;
+    border-radius: 8px;
+    background-color: whitesmoke;
+    
+  }
+/*Posts Pane*/
+  .posttables{
+    padding: 1%;
+    display: inline-block;
+    flex: 1;
+    min-width: 5px;
+    text-align: center;
+  }
+  th,td{
+    padding: 15px;
+    border: 2px solid grey;
+    border-collapse: collapse;
+    background-color: rgba(241, 121, 44, 0.787);
+  }
 
-/*Delete Scheduled Posts Pane*/
-
-/*Completed Posts Pane*/

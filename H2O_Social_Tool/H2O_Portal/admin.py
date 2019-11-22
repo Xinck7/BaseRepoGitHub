@@ -1,5 +1,5 @@
 from django.contrib import admin
-from . import models
+from .models import Post, SocialAccount
 # Register your models here.
-admin.site.register(models.Credentials)
-admin.site.register(models.Post)
+admin.site.register(Post)
+admin.site.register(SocialAccount)
