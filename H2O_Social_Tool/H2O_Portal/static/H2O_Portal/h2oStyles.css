@@ -241,8 +241,20 @@ button:hover {
     padding: 5px; 
     text-decoration: none;
   }
-/*List Scheduled Posts Pane*/
+/*Posts Pane*/
+.posttables{
+  padding: 1%;
+  
+  background-color: lightgray;
+  display: inline-block;
+  flex: 1;
+  min-width: 5px;
+  text-align: center;
+}
+th,td{
+  padding: 15px;
+  border: 2px solid grey;
+  border-collapse: collapse;
+  background-color: rgba(241, 121, 44, 0.787);
+}
 
-/*Delete Scheduled Posts Pane*/
-
-/*Completed Posts Pane*/

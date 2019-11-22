@@ -104,37 +104,70 @@
     
     <!--List Scheduled Pane-->
     <div id="ListSchPostsDisp" class="revealpane">
-      <div class="table">
+      <div class="posttables">
         <table>
           <thead>
-            <th>Title</th>
-            <th>Post Time</th>
-            <th>Message</th>
-            <th>Picture</th>
-            <th>Facebook?</th>
-            <th>Instagram?</th>
-            <th>GroupMe?</th>
+            <tr>
+              <th>Title</th>
+              <th>Post Time</th>
+              <th>Message</th>
+              <th>Picture</th>
+              <th>Facebook?</th>
+              <th>Instagram?</th>
+              <th>GroupMe?</th>
+            </tr>
           </thead>
-          <ul>
+          <tbody>
             {% for post in Posts %}
-              {% if post.completed == False %}
-                <li> {{ post }} </li><br>
-              {% endif %}
+              <tr>
+                {% if post.completed == False %}
+                <td>{{ post.title }}</td>
+                <td>{{ post.post_time }}</td>
+                <td>{{ post.picture }}</td>
+                <td>{{ post.dest_fb }}</td>
+                <td>{{ post.dest_fb }}</td>
+                <td>{{ post.dest_insta }}</td>
+                <td>{{ post.dest_gm }}</td>
+                {% endif %}
+              </tr>
             {% endfor %}
-          </ul>
+          </tbody>
         </table>
       </div>
     </div> <!--Closes List Scheduled Pane-->
     
     <!--List Completed Pane-->
     <div id="CompPostsDisp" class="revealpane">
-      <ul>
-        {% for post in Posts %}
-          {% if post.completed == True %}
-            <li> {{ post }} </li><br>
-          {% endif %}
-        {% endfor %}
-      </ul>
+      <div class="posttables">
+        <table>
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Post Time</th>
+              <th>Message</th>
+              <th>Picture</th>
+              <th>Facebook?</th>
+              <th>Instagram?</th>
+              <th>GroupMe?</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for post in Posts %}
+              <tr>
+                {% if post.completed == True %}
+                <td>{{ post.title }}</td>
+                <td>{{ post.post_time }}</td>
+                <td>{{ post.picture }}</td>
+                <td>{{ post.dest_fb }}</td>
+                <td>{{ post.dest_fb }}</td>
+                <td>{{ post.dest_insta }}</td>
+                <td>{{ post.dest_gm }}</td>
+                {% endif %}
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
     </div> <!--Closes Completed Pane-->
 
   </body>
