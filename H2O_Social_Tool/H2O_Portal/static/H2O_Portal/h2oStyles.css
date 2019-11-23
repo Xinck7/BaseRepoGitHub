@@ -109,6 +109,9 @@ input, select {
   box-sizing: border-box;
   font-family: 'Lato', sans-serif;
 }
+body{
+  background-color: rgb(240, 240, 240);
+}
 #h2opic{
   display: block;
   margin-left: auto;
@@ -127,7 +130,7 @@ header {
   text-align: center;
 }
 .button {
-  background-color: rgba(241, 121, 44, 0.787);
+  background-color: rgba(241, 120, 44, 0.90);
   border: 2px solid rgb(99, 100, 102);
   border-radius: 8px;
   color: black;
@@ -175,6 +178,23 @@ button:hover {
     text-align: center;
     z-index: 1;
   }
+.myfieldclass{
+  background-color: rgba(241, 120, 44, 0.90);
+  border: 3px solid rgb(99, 100, 102);
+  border-radius: 8px;
+  color: black;
+  display: inline-block;
+  font-size: 18px;
+  margin-top: 5px;
+  flex: 1;
+  min-width: 5px;
+  max-width: 600px;
+  padding: 5px; 
+  text-decoration: none;
+}
+li{
+  list-style-type: none;
+}
   .close {
     color: #aaaaaa;
     float: right;
@@ -194,7 +214,7 @@ button:hover {
     display: inline-block;
   }
 
-  input[type=text], input[type=password] {
+  input[type=text], input[type=password], input[type=email] {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -205,7 +225,7 @@ button:hover {
     box-sizing: border-box;
   }
   .submitbutton {
-    background-color: rgba(241, 121, 44, 0.787);
+    background-color: rgba(241, 120, 44, 0.90);
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
@@ -218,7 +238,7 @@ button:hover {
   .cancelbtn {
     width: auto;
     padding: 10px 18px;
-    background-color: #f44336;
+    background-color: rgba(241, 120, 44, 0.90);
   }
   .imgcontainer {
     text-align: center;
@@ -245,7 +265,7 @@ button:hover {
     display: none;
   }
   .SelectionButton{
-    background-color: rgba(241, 121, 44, 0.787);
+    background-color: rgba(241, 120, 44, 0.90);
     border: 2px solid rgb(99, 100, 102);
     border-radius: 8px;
     color: black;
@@ -261,7 +281,7 @@ button:hover {
 
 /*Create Post Pane*/
   .Postdestination{
-    background-color: rgba(241, 121, 44, 0.787);
+    background-color: rgba(241, 120, 44, 0.90);
     border: 2px solid rgb(99, 100, 102);
     border-radius: 8px;
     color: black;
@@ -293,6 +313,6 @@ button:hover {
     padding: 15px;
     border: 2px solid rgb(99, 100, 102);
     border-collapse: collapse;
-    background-color: rgba(241, 121, 44, 0.787);
+    background-color: rgba(241, 120, 44, 0.90);
   }
 

@@ -46,7 +46,7 @@
     <div class="applogin">
       <button class="button" onclick="ToggleModal('applogin')">Login</button>
       <div id="applogin" class="modalcontainer">
-        <form method="post" class="container">
+        <form method="post" class="authcontainer">
         <span class="close" onclick="ToggleModal('applogin')">&times;</span>  
           {% csrf_token %}
           <button type="submit">Login</button>
@@ -56,24 +56,21 @@
     <div class="appauth">
       <button class="button" onclick="ToggleModal('appauth')">Signup</button>
       <div id="appauth" class="modalcontainer">
-        <form method="post" class="container">
-          <div class="container">
+        <form method="post" class="myfieldclass">
           <span class="close" onclick="ToggleModal('appauth')">&times;</span>  
           {% csrf_token %}
           {% for field in form %}
-            <p>
-              {{ field.label_tag }}<br>
-              {{ field }}
-              {% if field.help_text %}
-                <small style="color: grey">{{ field.help_text }}</small>
-              {% endif %}
-              {% for error in field.errors %}
-                <p style="color: red">{{ error }}</p>
-              {% endfor %}
-            </p>
+            {{ field.label_tag }}<br>
+            {{ field }}
+            <br>
+            {% if field.help_text %}
+              {{ field.help_text }}
+            {% endif %}<br>
+            {% for error in field.errors %}
+              <p style="color: red">{{ error }}</p>
+            {% endfor %}
           {% endfor %}
           <button type="submit">Sign up</button>
-          </div>
         </form> 
       </div>
     </div>
