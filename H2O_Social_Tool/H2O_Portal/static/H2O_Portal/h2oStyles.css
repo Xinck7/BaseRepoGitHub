@@ -178,23 +178,24 @@ button:hover {
     text-align: center;
     z-index: 1;
   }
-.myfieldclass{
-  background-color: rgba(241, 120, 44, 0.90);
-  border: 3px solid rgb(99, 100, 102);
-  border-radius: 8px;
-  color: black;
-  display: inline-block;
-  font-size: 18px;
-  margin-top: 5px;
-  flex: 1;
-  min-width: 5px;
-  max-width: 600px;
-  padding: 5px; 
-  text-decoration: none;
-}
-li{
-  list-style-type: none;
-}
+  /*Sign Up button #modal*/
+  .myfieldclass{
+    background-color: rgba(243, 130, 60, 1);
+    border: 3px solid rgb(99, 100, 102);
+    border-radius: 8px;
+    color: black;
+    display: inline-block;
+    font-size: 18px;
+    margin-top: 5px;
+    flex: 1;
+    min-width: 5px;
+    max-width: 700px;
+    padding: 5px; 
+    text-decoration: none;
+  }
+  li{
+    list-style-type: none;
+  }
   .close {
     color: #aaaaaa;
     float: right;
