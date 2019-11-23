@@ -158,7 +158,7 @@ button:hover {
     background-color: rgba(0,0,0,0.4);
     border: 2px solid rgb(99, 100, 102);
     border-radius: 8px;
-    display: block;
+    visibility: hidden;
     position: fixed;
     overflow: auto; /* Enable scroll if needed */
     padding-top: 60px;
@@ -166,7 +166,22 @@ button:hover {
     top: 0;    
     width: 100%; /* Full width */
     height: 100%; /* Full height */
+    margin: auto;
+    text-align: center;
     z-index: 1;
+  }
+  .close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
   }
 
 /*Credential Pane*/

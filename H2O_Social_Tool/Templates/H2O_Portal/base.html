@@ -23,23 +23,22 @@
     </div>
     
     <div class="appauth">
-      <button class="button" onclick="RevealWindow('AppAuth')">Login/Signup</button>
-      <div id="AppAuth" class="revealpane"> 
-        <div class="modalcontainer">
-          <form action="" method="post">
-              <div class="container">
-                <label for="uname"><b>Username</b></label>
-                <input type="text" placeholder="Enter Username" name="uname">
-                <label for="psw"><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" name="psw">
-                <button type="submit" class="submitbutton">Login</button>
-                <label for="psw"><b>Haven't signed up yet? </b></label>
-                <input type="text" placeholder="Enter Email" name="text">
-                <button type="submit" class="submitbutton">Signup</button>
-                <button onclick="">Forgot password?</button>
-              </div>
-            </form> 
+      <button class="button" onclick="ToggleModal('appauth')">Login/Signup</button>
+      <div id="appauth" class="modalcontainer"> 
+        <form action="" method="post">
+          <div class="container">
+            <span class="close" onclick="ToggleModal('appauth')">&times;</span>  
+            <label for="uname"><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" name="uname">
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw">
+            <button type="submit" class="submitbutton">Login</button>
+            <label for="psw"><b>Haven't signed up yet? </b></label>
+            <input type="text" placeholder="Enter Email" name="text">
+            <button type="submit" class="submitbutton">Signup</button>
+            <button onclick="">Forgot password?</button>
           </div>
+        </form> 
       </div>
     </div>
 
