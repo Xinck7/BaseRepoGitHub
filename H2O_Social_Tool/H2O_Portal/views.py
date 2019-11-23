@@ -1,7 +1,7 @@
 from django.contrib.auth import login, authenticate
 from django.shortcuts import render, redirect
-from H2O_Portal.models import *
-from accounts.models import *
+from H2O_Portal.models import Post
+from H2O_Portal.forms import SignUpForm
 # Create your views here.
 
 def home(request):

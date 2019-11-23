@@ -43,16 +43,14 @@
     </div>
     end before django-->
     <!--Redesign with django-->
-    <div class="appauth">
+        <div class="appauth">
       <button class="button" onclick="ToggleModal('appauth')">Login/Signup</button>
       <div id="appauth" class="modalcontainer">
-        <form method="post" novalidate>
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit" class="btn btn-primary">Create an account</button>
-          </form>   
+        {% block content %}
+        {% endblock content %}  
       </div>
     </div>
+
 
     <div id="CredDisp" class="revealpane">     
       <button class="SelectionButton" onclick="RevealCheckBox('RevealFacebookLogin')">Facebook</button>
