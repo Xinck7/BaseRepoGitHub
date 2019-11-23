@@ -1,7 +1,7 @@
 from django.contrib.auth import login as auth_login, authenticate
 from django.shortcuts import render, redirect
 from H2O_Portal.models import *
-from H2O_Portal.forms import SignUpForm
+from H2O_Portal.forms import SignUpForm#, LoginForm
 # Create your views here.
 
 def home(request):
@@ -17,6 +17,11 @@ def home(request):
             return redirect('')
     else:
         form = SignUpForm()
+        # if form.is_valid():
+        #     username = form.cleaned_data.get('username')
+        #     raw_password = form.cleaned_data.get('password1')
+        #     auth_login(request, user)
+        #     return redirect('')    
     return render(request, 'H2O_Portal/base.html', {'Posts': all_posts, 'form':form })
 
 # https://api.groupme.com/v3/groups/:group_id/messages

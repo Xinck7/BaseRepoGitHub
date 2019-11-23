@@ -52,6 +52,7 @@
         <form method="post" class="authcontainer">
         <span class="close" onclick="ToggleModal('applogin')">&times;</span>  
           {% csrf_token %}
+          {{ form.as_p }}
           <button type="submit">Login</button>
         </form> 
       </div>
