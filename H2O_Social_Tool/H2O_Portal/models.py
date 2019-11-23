@@ -1,6 +1,4 @@
 from django.db import models
-from django.forms import forms, PasswordInput, CharField
-from django.contrib.auth.models import User
 # Create your models here.
 
 class Post(models.Model):

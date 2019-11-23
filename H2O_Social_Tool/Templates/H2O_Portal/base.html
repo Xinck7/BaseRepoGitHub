@@ -21,7 +21,7 @@
         <button class="button" onclick="RevealWindow('CompPostsDisp')">Completed Posts</button>
       </div>
     </div>
-    
+    <!--Before Django 
     <div class="appauth">
       <button class="button" onclick="ToggleModal('appauth')">Login/Signup</button>
       <div id="appauth" class="modalcontainer"> 
@@ -39,6 +39,18 @@
             <button onclick="">Forgot password?</button>
           </div>
         </form> 
+      </div>
+    </div>
+    end before django-->
+    <!--Redesign with django-->
+    <div class="appauth">
+      <button class="button" onclick="ToggleModal('appauth')">Login/Signup</button>
+      <div id="appauth" class="modalcontainer">
+        <form method="post" novalidate>
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Create an account</button>
+          </form>   
       </div>
     </div>
 
