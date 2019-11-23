@@ -30,12 +30,18 @@ function ToggleModal(id){
   modalwindow.style.visibility = (modalwindow.style.visibility =="visible") ? "hidden" : "visible";
 }
 
-window.onclick = function(event) {
-  var modal = document.getElementById('appauth');
-  if (event.target == modal) {
-    modal.style.visibility = "hidden"
-  }
-}
+//Handle this sometime in the future
+// window.onclick = function(event) {
+//   var modal = document.getElementsByClassName('modalcontainer');
+//   var i;
+//   for (i = 0; i < modal.length; i++) {
+//     if (event.target == modal) {
+//       modal[i].style.visibility = "hidden";
+//     }
+//   }
+
+// }
+
 
 //state management and lazy loading?
 //redux?

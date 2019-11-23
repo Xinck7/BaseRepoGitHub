@@ -43,11 +43,38 @@
     </div>
     end before django-->
     <!--Redesign with django-->
-        <div class="appauth">
-      <button class="button" onclick="ToggleModal('appauth')">Login/Signup</button>
+    <div class="applogin">
+      <button class="button" onclick="ToggleModal('applogin')">Login</button>
+      <div id="applogin" class="modalcontainer">
+        <form method="post" class="container">
+        <span class="close" onclick="ToggleModal('applogin')">&times;</span>  
+          {% csrf_token %}
+          <button type="submit">Login</button>
+        </form> 
+      </div>
+    </div>
+    <div class="appauth">
+      <button class="button" onclick="ToggleModal('appauth')">Signup</button>
       <div id="appauth" class="modalcontainer">
-        {% block content %}
-        {% endblock content %}  
+        <form method="post" class="container">
+          <div class="container">
+          <span class="close" onclick="ToggleModal('appauth')">&times;</span>  
+          {% csrf_token %}
+          {% for field in form %}
+            <p>
+              {{ field.label_tag }}<br>
+              {{ field }}
+              {% if field.help_text %}
+                <small style="color: grey">{{ field.help_text }}</small>
+              {% endif %}
+              {% for error in field.errors %}
+                <p style="color: red">{{ error }}</p>
+              {% endfor %}
+            </p>
+          {% endfor %}
+          <button type="submit">Sign up</button>
+          </div>
+        </form> 
       </div>
     </div>
 
@@ -55,7 +82,7 @@
     <div id="CredDisp" class="revealpane">     
       <button class="SelectionButton" onclick="RevealCheckBox('RevealFacebookLogin')">Facebook</button>
         <div id="RevealFacebookLogin" class="revealpaneinner">
-          <form action="" method="post">
+          <form method="post">
             <div class="imgcontainer">
               <img src="{% static 'H2O_Portal/facebooklogo.png' %}" alt="Facebooklogo" class="smallpic">
             </div>

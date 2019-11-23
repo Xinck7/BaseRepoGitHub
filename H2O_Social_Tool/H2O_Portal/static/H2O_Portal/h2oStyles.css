@@ -153,6 +153,11 @@ button:hover {
     top: 15px;
     right: 15px;
   }
+  .applogin{
+    position: absolute;
+    top: 15px;
+    right: 90px;
+  }
   .modalcontainer{
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4);
