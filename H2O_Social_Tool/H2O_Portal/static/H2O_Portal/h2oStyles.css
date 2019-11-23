@@ -151,6 +151,12 @@ button:hover {
 /*Add some screen size functionality here*/
 
 /*Login/Sign Up button #modal*/
+  .usernamedisplay{
+    position: absolute;
+    font-size: 16px;
+    top: 30px;
+    right: 200px;
+  }
   .appauth{
     position: absolute;
     top: 15px;
@@ -168,7 +174,7 @@ button:hover {
     border-radius: 8px;
     visibility: hidden;
     position: fixed;
-    overflow: auto; /* Enable scroll if needed */
+    overflow: scroll; /* Enable scroll if needed */
     padding-top: 60px;
     left: 0;
     top: 0;    
@@ -192,6 +198,7 @@ button:hover {
     max-width: 700px;
     padding: 5px; 
     text-decoration: none;
+    overflow: auto;
   }
   li{
     list-style-type: none;

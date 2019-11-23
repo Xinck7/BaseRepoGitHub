@@ -43,6 +43,9 @@
     </div>
     end before django-->
     <!--Redesign with django-->
+    <div class="usernamedisplay">
+      <p> Logged in as: {{user.username}} </p>
+    </div>
     <div class="applogin">
       <button class="button" onclick="ToggleModal('applogin')">Login</button>
       <div id="applogin" class="modalcontainer">
@@ -56,7 +59,7 @@
     <div class="appauth">
       <button class="button" onclick="ToggleModal('appauth')">Signup</button>
       <div id="appauth" class="modalcontainer">
-        <form method="post" class="myfieldclass">
+        <form method="post" class="myfieldclass" novalidate>
           <span class="close" onclick="ToggleModal('appauth')">&times;</span>  
           {% csrf_token %}
           {% for field in form %}

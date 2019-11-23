@@ -9,5 +9,5 @@ class SignUpForm(UserCreationForm):
         widgets = {
             'myfield': forms.TextInput(attrs={'class': 'myfieldclass'}),
         }
-        fields = ('username', 'email', 'password1', 'password2', )
+        fields = ('username', 'password1', 'password2', 'email')
 
