@@ -126,61 +126,10 @@ header {
   margin-top: 10px;
   text-align: center;
 }
-/*Login/Sign Up button #modal*/
-.usernamedisplay{
-  position: absolute;
-  font-size: 16px;
-  top: 30px;
-  right: 200px;
-}
-.appauth{
-  position: absolute;
-  top: 15px;
-  right: 15px;
-}
-.applogin{
-  position: absolute;
-  top: 15px;
-  right: 90px;
-}
-li{
-  list-style-type: none;
-}
-/*Forms styles*/
-.myfieldclass{
-  background-color: rgba(243, 130, 60, 1);
-  border: 3px solid rgb(99, 100, 102);
-  border-radius: 8px;
-  color: black;
-  display: inline-block;
-  font-size: 18px;
-  margin-top: 5px;
-  flex: 1;
-  min-width: 5px;
-  max-width: 700px;
-  padding: 5px; 
-  text-decoration: none;
-  overflow: auto;
-}
-/*Posts Pane*/
-.posttables{
-  padding: 1%;
-  display: inline-block;
-  flex: 1;
-  min-width: 5px;
+.centeringbox{
   text-align: center;
 }
-th,td{
-  padding: 15px;
-  border: 2px solid rgb(99, 100, 102);
-  border-collapse: collapse;
-  background-color: rgba(241, 120, 44, 0.90);
-}
-
-
-/*From Old version*/
-
-/*.button {
+.button {
   background-color: rgba(241, 120, 44, 0.90);
   border: 2px solid rgb(99, 100, 102);
   border-radius: 8px;
@@ -198,31 +147,62 @@ button:hover {
   text-align: center;
   padding: 1%;
 }
-*/
+
 /*Add some screen size functionality here*/
 
-
-  /*.modalcontainer{
-    background-color: rgb(0,0,0); /* Fallback color *
+/*Login/Sign Up button #modal*/
+  .usernamedisplay{
+    position: absolute;
+    font-size: 16px;
+    top: 30px;
+    right: 200px;
+  }
+  .appauth{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+  }
+  .applogin{
+    position: absolute;
+    top: 15px;
+    right: 90px;
+  }
+  .modalcontainer{
+    background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4);
     border: 2px solid rgb(99, 100, 102);
     border-radius: 8px;
     visibility: hidden;
     position: fixed;
-    overflow: scroll; /* Enable scroll if needed *
+    overflow: scroll; /* Enable scroll if needed */
     padding-top: 60px;
     left: 0;
     top: 0;    
-    width: 100%; /* Full width *
-    height: 100%; /* Full height *
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
     margin: auto;
     text-align: center;
     z-index: 1;
-  } */
+  }
   /*Sign Up button #modal*/
-
-
-  /*
+  .myfieldclass{
+    background-color: rgba(243, 130, 60, 1);
+    border: 3px solid rgb(99, 100, 102);
+    border-radius: 8px;
+    color: black;
+    display: inline-block;
+    font-size: 18px;
+    margin-top: 5px;
+    flex: 1;
+    min-width: 5px;
+    max-width: 700px;
+    padding: 5px; 
+    text-decoration: none;
+    overflow: auto;
+  }
+  li{
+    list-style-type: none;
+  }
   .close {
     color: #aaaaaa;
     float: right;
@@ -235,11 +215,9 @@ button:hover {
     color: #000;
     text-decoration: none;
     cursor: pointer;
-  }*/
+  }
 
-
-
-/*Credential Pane*
+/*Credential Pane*/
   form {
     display: inline-block;
   }
@@ -288,6 +266,12 @@ button:hover {
     min-width: 5px;
     max-width: 500px;
   }
+  span.psw {
+    padding-top: 16px;
+  }
+  #RevealFacebookLogin, #RevealInstagramLogin, #RevealGroupMeLogin{
+    display: none;
+  }
   .SelectionButton{
     background-color: rgba(241, 120, 44, 0.90);
     border: 2px solid rgb(99, 100, 102);
@@ -301,18 +285,9 @@ button:hover {
     padding: 5px; 
     text-align: center;
     text-decoration: none;
-  }*/
-
-  /*
-  span.psw {
-    padding-top: 16px;
   }
-  #RevealFacebookLogin, #RevealInstagramLogin, #RevealGroupMeLogin{
-    display: none;
-  }
-  
 
-/*Create Post Pane*
+/*Create Post Pane*/
   .Postdestination{
     background-color: rgba(241, 120, 44, 0.90);
     border: 2px solid rgb(99, 100, 102);
@@ -333,5 +308,19 @@ button:hover {
     border-radius: 8px;
     background-color: whitesmoke;
     
-  }*/
+  }
+/*Posts Pane*/
+  .posttables{
+    padding: 1%;
+    display: inline-block;
+    flex: 1;
+    min-width: 5px;
+    text-align: center;
+  }
+  th,td{
+    padding: 15px;
+    border: 2px solid rgb(99, 100, 102);
+    border-collapse: collapse;
+    background-color: rgba(241, 120, 44, 0.90);
+  }
 
