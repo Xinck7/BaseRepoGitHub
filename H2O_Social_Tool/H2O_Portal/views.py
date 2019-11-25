@@ -6,25 +6,10 @@ from H2O_Portal.forms import SignUpForm#, LoginForm
 
 def home(request):
     all_posts = Post.objects.all()
-    if request.method == 'POST':
-        form = SignUpForm(request.POST)
-        if form.is_valid():
-            user = form.save()
-            username = form.cleaned_data.get('username')
-            raw_password = form.cleaned_data.get('password1')
-            user = authenticate(username=username, password=raw_password)
-            auth_login(request, user)
-            return redirect('')
-    else:
-        form = SignUpForm()
-        # if form.is_valid():
-        #     username = form.cleaned_data.get('username')
-        #     raw_password = form.cleaned_data.get('password1')
-        #     auth_login(request, user)
-        #     return redirect('')    
+
     return render(request, 'H2O_Portal/base.html', {'Posts': all_posts, 'form':form })
 
-def Signup(request):
+def signup(request):
     if request.method == 'POST':
     form = SignUpForm(request.POST)
     if form.is_valid():
@@ -37,17 +22,26 @@ def Signup(request):
     else:
         form = SignUpForm()
 
-def LoginUser(request):
+def loginuser(request):
     pass
 
-def CreatePost(request):
+
+def managecreds(request):
     pass
 
-def ListScheduled(request):
+
+def createpost(request):
     pass
 
-def ListCompleted(request):
-    pass
+
+def listscheduled(request):
+    all_posts = Post.objects.all()
+    return render(request, {'Posts': all_posts, 'form':form } )
+
+
+def listcompleted(request):
+    all_posts = Post.objects.all()
+    return render(request, {'Posts': all_posts, 'form':form } )
 
 
 # https://api.groupme.com/v3/groups/:group_id/messages

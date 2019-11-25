@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block CreatePost %}
+    <div class="centeringbox">
+        <div id="CreatePostDisp" class="revealpane">
+        <form action="" class="Postdestination" method="POST">
+            <input type="checkbox" name="Facebook" value="Facebook">Post to Facebook<br>
+            <input type="checkbox" name="Instagram" value="Instagram">Post to Instagram<br>
+            <input type="checkbox" name="GroupMe" value="GroupMe">Post to GroupMe<br><br>
+            <label for="Title"><b>Title:</b></label>
+            <input type="text" placeholder="Title" name="Title">
+            <br><br>
+            <label for="picture"><b>Select a Picture:</b></label>
+            <input class="createpostbutton" type="submit" name="picture" value="File...">
+            <br><br>
+            <label for="text"><b>Text:</b></label>
+            <input type="text" placeholder="text" name="text">
+            <br><br>
+            <input class="createpostbutton" type="submit" value="Submit">
+        </form>
+        </div>
+    </div> 
+{% endblock CreatePost %}

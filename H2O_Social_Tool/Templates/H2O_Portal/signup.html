@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block AppSignup %}
+    <div class="appauth">
+        <button class="button" onclick="ToggleModal('appauth')">Signup</button>
+        <div id="appauth" class="modalcontainer">
+        <form method="post" class="myfieldclass" novalidate>
+            <span class="close" onclick="ToggleModal('appauth')">&times;</span>  
+            {% csrf_token %}
+            {% for field in form %}
+            {{ field.label_tag }}<br>
+            {{ field }}
+            <br>
+            {% if field.help_text %}
+                {{ field.help_text }}
+            {% endif %}<br>
+            {% for error in field.errors %}
+                <p style="color: red">{{ error }}</p>
+            {% endfor %}
+            {% endfor %}
+            <button type="submit">Sign up</button>
+        </form> 
+        </div>
+    </div>
+{% endblock AppSignup %}
