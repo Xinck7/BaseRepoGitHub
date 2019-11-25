@@ -143,8 +143,11 @@ header {
   top: 15px;
   right: 90px;
 }
-li{
+ul{
   list-style-type: none;
+}
+li{
+  float: left;
 }
 /*Forms styles*/
 .myfieldclass{
