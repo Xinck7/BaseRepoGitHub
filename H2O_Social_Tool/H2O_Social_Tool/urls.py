@@ -18,7 +18,7 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('accounts/', include('django.contrib.auth.urls')),
+    path('H2O_Portal/', include('django.contrib.auth.urls')),
     path('', include('H2O_Portal.urls')),
     path('api/auth/', include('rest_framework.urls')),
 ]
