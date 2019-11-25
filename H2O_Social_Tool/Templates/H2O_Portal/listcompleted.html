@@ -21,11 +21,11 @@
                 {% if post.completed == True %}
                 <td>{{ post.title }}</td>
                 <td>{{ post.post_time }}</td>
-                <td>{{ post.text }}</td>
+                <td>{{ post.message }}</td>
                 <td>{{ post.picture }}</td>
-                <td>{{ post.dest_fb }}</td>
-                <td>{{ post.dest_insta }}</td>
-                <td>{{ post.dest_gm }}</td>
+                <td>{{ post.Facebook }}</td>
+                <td>{{ post.Instagram }}</td>
+                <td>{{ post.GroupMe }}</td>
                 {% endif %}
               </tr>
             {% endfor %}
