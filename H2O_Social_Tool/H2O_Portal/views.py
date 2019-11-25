@@ -34,11 +34,6 @@ def createpost(request):
             post = form.save(commit=False)
             post.author = request.user
             post.save()
-            # user = form.save()
-            # username = form.cleaned_data.get('username')
-            # raw_password = form.cleaned_data.get('password1')
-            # user = authenticate(username=username, password=raw_password)
-            # auth_login(request, user)
             return redirect('/')
     else:
         form = SocialPostForm()
