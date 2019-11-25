@@ -125,29 +125,36 @@ header {
 #navbuttons{
   margin-top: 10px;
   text-align: center;
+
 }
-/*Login/Sign Up button #modal*/
 .usernamedisplay{
   position: absolute;
   font-size: 16px;
   top: 30px;
   right: 200px;
 }
-#appauth{
+#signup{
   position: absolute;
   top: 15px;
   right: 15px;
 }
-#applogin{
+#login{
   position: absolute;
   top: 15px;
   right: 90px;
 }
 ul{
   list-style-type: none;
+  padding: 10px;
 }
 li{
-  float: left;
+  display: inline-block;
+  padding: 1%;
+  background-color: rgba(243, 130, 60, 1);
+  border-radius: 8px;
+}
+.navbar{
+  border: 3px solid rgb(99, 100, 102);
 }
 /*Forms styles*/
 .myfieldclass{
@@ -155,7 +162,6 @@ li{
   border: 3px solid rgb(99, 100, 102);
   border-radius: 8px;
   color: black;
-  display: inline-block;
   font-size: 18px;
   margin-top: 5px;
   flex: 1;
@@ -163,7 +169,9 @@ li{
   max-width: 700px;
   padding: 5px; 
   text-decoration: none;
-  overflow: auto;
+}
+#helptext{
+  border:none;
 }
 /*Posts Pane*/
 .posttables{
@@ -179,6 +187,7 @@ th,td{
   border-collapse: collapse;
   background-color: rgba(241, 120, 44, 0.90);
 }
+
 
 
 /*From Old version*/
