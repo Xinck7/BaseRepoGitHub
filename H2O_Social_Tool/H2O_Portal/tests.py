@@ -10,5 +10,5 @@ class TestUrls(TestCase):
         self.assertEquals(response.status_code, 200)
 
     def test_home_url_resolves_home_view(self):
-        view = resolve('//')
+        view = resolve('/')
         self.assertEquals(view.func, home)

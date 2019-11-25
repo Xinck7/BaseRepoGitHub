@@ -21,15 +21,15 @@ def signup(request):
         form = SignUpForm()
 
 def loginuser(request):
-    return render(request, 'H2O_Portal/base.html')
+    return render(request, 'H2O_Portal/loggedinuser.html')
 
 
 def managecreds(request):
-    return render(request, 'H2O_Portal/base.html')
+    return render(request, 'H2O_Portal/managecreds.html')
 
 
 def createpost(request):
-    return render(request, 'H2O_Portal/base.html')
+    return render(request, 'H2O_Portal/createpost.html')
 
 
 def listscheduled(request):
