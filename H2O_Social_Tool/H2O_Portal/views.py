@@ -9,17 +9,18 @@ def home(request):
 
 def signup(request):
     if request.method == 'POST':
-        form = SignUpForm(request.POST)
-    if form.is_valid():
-        user = form.save()
-        username = form.cleaned_data.get('username')
-        raw_password = form.cleaned_data.get('password1')
-        user = authenticate(username=username, password=raw_password)
-        auth_login(request, user)
-        return redirect('')
+        form = SignUpForm(request.POST)            
+        if form.is_valid():
+            user = form.save()
+            username = form.cleaned_data.get('username')
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=raw_password)
+            auth_login(request, user)
+            return redirect('')
     else:
         form = SignUpForm()
-    return render(request, 'H2O_Portal/signup.html', {'form' : forms} )
+
+    return render(request, 'H2O_Portal/signup.html', {'form' : form} )
 
 def loginuser(request):
     return render(request, 'H2O_Portal/logintosite.html')
