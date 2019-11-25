@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User, models
+from .models import SocialPost
 
 class SignUpForm(UserCreationForm):
     email = forms.EmailField(max_length=254)
@@ -14,7 +15,7 @@ class SignUpForm(UserCreationForm):
 class SocialPostForm(forms.ModelForm):
     class Meta:
         model = SocialPost
-        fields = ('Title', 'Post Time', 'Message', 'Picture', 'Facebook?', 'Instagram?', 'GroupMe?')
+        fields = ('title', 'post_time', 'message', 'picture', 'Facebook', 'Instagram', 'GroupMe')
     # title = models.TextField(blank=True, max_length=200)
     # post_time = models.DateTimeField(max_length=30)
     # text = models.TextField(blank=True, max_length=2000)

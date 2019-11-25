@@ -5,16 +5,16 @@ from django.contrib.auth.models import User
 class SocialPost(models.Model):
     title = models.TextField(blank=True, max_length=200)
     post_time = models.DateTimeField(max_length=30)
-    text = models.TextField(blank=True, max_length=2000)
+    message = models.TextField(blank=True, max_length=2000)
     picture = models.ImageField(blank=True)
-    dest_fb = models.BooleanField(default=False)
-    dest_insta = models.BooleanField(default=False)
-    dest_gm = models.BooleanField(default=False) 
+    Facebook = models.BooleanField(default=False)
+    Instagram = models.BooleanField(default=False)
+    GroupMe = models.BooleanField(default=False) 
     completed = models.BooleanField(default=False)
     updated_by = models.ForeignKey(User, null=True, related_name='+', on_delete=models.CASCADE)
 
     def __str__(self):
-        return '{} {} {} {} {} {} {}'.format(self.title, self.post_time, self.text, self.picture, self.dest_fb, self.dest_insta, self.dest_gm, self.updated_by)
+        return '{} {} {} {} {} {} {}'.format(self.title, self.post_time, self.message, self.picture, self.Facebook, self.Instagram, self.GroupMe, self.updated_by)
 
     #def fbpost
 
