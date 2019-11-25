@@ -25,7 +25,8 @@ class SocialPost(models.Model):
     #def gmpost
 
 #In progress to fixing users within the specific user and linking them together
-
+#https://stackoverflow.com/questions/373335/how-do-i-get-a-cron-like-scheduler-in-python
+#https://automatetheboringstuff.com/chapter15/
 class SocialAccount(models.Model):
     ACCOUNT = (
         ('f', ('Facebook')),
