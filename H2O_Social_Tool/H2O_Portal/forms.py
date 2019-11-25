@@ -4,9 +4,6 @@ from django.contrib.auth.models import User, models
 
 class SignUpForm(UserCreationForm):
     email = forms.EmailField(max_length=254)
-    #login = models.BooleanField(default=False)
-    #I think this could work as an if else for the login for single page app 
-    #single page becoming more trouble than worth quickly it seems backend wise
     class Meta:
         model = User
         widgets = {

@@ -1,7 +1,7 @@
 from django.contrib.auth import login as auth_login, authenticate
 from django.shortcuts import render, redirect
 from H2O_Portal.models import *
-from H2O_Portal.forms import SignUpForm#, LoginForm
+from H2O_Portal.forms import SignUpForm #, LoginForm
 # Create your views here.
 
 def home(request):
@@ -20,26 +20,26 @@ def signup(request):
     else:
         form = SignUpForm()
 
-# def loginuser(request):
-#     pass
+def loginuser(request):
+    return render(request, 'H2O_Portal/base.html')
 
 
-# def managecreds(request):
-#     pass
+def managecreds(request):
+    return render(request, 'H2O_Portal/base.html')
 
 
-# def createpost(request):
-#     pass
+def createpost(request):
+    return render(request, 'H2O_Portal/base.html')
 
 
 def listscheduled(request):
     all_posts = Post.objects.all()
-    return render(request, '/istscheduled.html', {'Posts': all_posts, 'form':form } )
+    return render(request, 'H2O_Portal/listscheduled.html', {'Posts': all_posts } )
 
 
 def listcompleted(request):
     all_posts = Post.objects.all()
-    return render(request, '/listcompleted.html' ,{'Posts': all_posts, 'form':form } )
+    return render(request, 'H2O_Portal/listcompleted.html' ,{'Posts': all_posts } )
 
 
 # https://api.groupme.com/v3/groups/:group_id/messages
