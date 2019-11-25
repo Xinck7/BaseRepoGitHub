@@ -133,12 +133,12 @@ header {
   top: 30px;
   right: 200px;
 }
-.appauth{
+#appauth{
   position: absolute;
   top: 15px;
   right: 15px;
 }
-.applogin{
+#applogin{
   position: absolute;
   top: 15px;
   right: 90px;
