@@ -5,13 +5,11 @@ from H2O_Portal.forms import SignUpForm#, LoginForm
 # Create your views here.
 
 def home(request):
-    all_posts = Post.objects.all()
-
-    return render(request, 'H2O_Portal/base.html', {'Posts': all_posts, 'form':form })
+    return render(request, 'H2O_Portal/base.html')
 
 def signup(request):
     if request.method == 'POST':
-    form = SignUpForm(request.POST)
+        form = SignUpForm(request.POST)
     if form.is_valid():
         user = form.save()
         username = form.cleaned_data.get('username')
@@ -22,26 +20,26 @@ def signup(request):
     else:
         form = SignUpForm()
 
-def loginuser(request):
-    pass
+# def loginuser(request):
+#     pass
 
 
-def managecreds(request):
-    pass
+# def managecreds(request):
+#     pass
 
 
-def createpost(request):
-    pass
+# def createpost(request):
+#     pass
 
 
 def listscheduled(request):
     all_posts = Post.objects.all()
-    return render(request, {'Posts': all_posts, 'form':form } )
+    return render(request, '/istscheduled.html', {'Posts': all_posts, 'form':form } )
 
 
 def listcompleted(request):
     all_posts = Post.objects.all()
-    return render(request, {'Posts': all_posts, 'form':form } )
+    return render(request, '/listcompleted.html' ,{'Posts': all_posts, 'form':form } )
 
 
 # https://api.groupme.com/v3/groups/:group_id/messages
