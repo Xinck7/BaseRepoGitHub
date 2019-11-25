@@ -19,9 +19,10 @@ def signup(request):
         return redirect('')
     else:
         form = SignUpForm()
+    return render(request, 'H2O_Portal/signup.html', {'form' : forms} )
 
 def loginuser(request):
-    return render(request, 'H2O_Portal/loggedinuser.html')
+    return render(request, 'H2O_Portal/logintosite.html')
 
 
 def managecreds(request):

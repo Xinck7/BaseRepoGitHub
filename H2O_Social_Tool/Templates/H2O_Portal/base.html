@@ -12,7 +12,7 @@
     -->
 </head>
 
-<img id="h2opic" src="{% static 'H2O_Portal/h2oLogo.png' %}" alt="H2O Logo" width="360" height="187">
+<img id="h2opic" src="{% static 'H2O_Portal/h2oLogo.png' %}" alt="H2O Logo" width="360" height="187" onclick="href='/'" >
 <header>H2O Social Media Tool</header>
 
 <body>
@@ -23,13 +23,16 @@
         <li><h1><a href="/createpost/">Create Post</a></h1></li>
         <li><h1><a href="/listscheduled/">List Scheduled Posts</a></h1></li>
         <li><h1><a href="/listcompleted/">Completed Posts</a></h1></li>
+        <li><h1><a href="/signup/">Signup</a></h1></li>
+        <li><h1><a href="/login/">Login</a></h1></li>
       </ul>
     </div>
   </div>
   
   <div id="LoggedInUser">
-    {% block LoggedInUser %}
-    {% endblock LoggedInUser %}
+    <div class="usernamedisplay">
+      <p> Logged in as: {{user.username}} </p>
+    </div>
   </div>
   
   <div id="AppLogin">
