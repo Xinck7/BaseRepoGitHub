@@ -1,7 +1,7 @@
 from django.contrib.auth import login as auth_login, authenticate
 from django.shortcuts import render, redirect
 from H2O_Portal.models import *
-from H2O_Portal.forms import SignUpForm #, LoginForm
+from H2O_Portal.forms import SignUpForm , SocialPostForm
 # Create your views here.
 
 def home(request):
@@ -28,16 +28,30 @@ def managecreds(request):
 
 
 def createpost(request):
-    return render(request, 'H2O_Portal/createpost.html')
+    if request.method == 'POST':
+        form = SocialPostForm(request.POST)            
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author = request.user
+            post.save()
+            # user = form.save()
+            # username = form.cleaned_data.get('username')
+            # raw_password = form.cleaned_data.get('password1')
+            # user = authenticate(username=username, password=raw_password)
+            # auth_login(request, user)
+            return redirect('/')
+    else:
+        form = SocialPostForm()
+    return render(request, 'H2O_Portal/createpost.html' , {'form' : form} )
 
 
 def listscheduled(request):
-    all_posts = Post.objects.all()
+    all_posts = SocialPost.objects.all()
     return render(request, 'H2O_Portal/listscheduled.html', {'Posts': all_posts } )
 
 
 def listcompleted(request):
-    all_posts = Post.objects.all()
+    all_posts = SocialPost.objects.all()
     return render(request, 'H2O_Portal/listcompleted.html' ,{'Posts': all_posts } )
 
 

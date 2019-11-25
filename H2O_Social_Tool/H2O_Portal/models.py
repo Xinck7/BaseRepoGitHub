@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 # Create your models here.
 
-class Post(models.Model):
+class SocialPost(models.Model):
     title = models.TextField(blank=True, max_length=200)
     post_time = models.DateTimeField(max_length=30)
     text = models.TextField(blank=True, max_length=2000)
