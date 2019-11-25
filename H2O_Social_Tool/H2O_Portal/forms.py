@@ -24,3 +24,4 @@ class SocialPostForm(forms.ModelForm):
     # dest_gm = models.BooleanField(default=False) 
     # completed = models.BooleanField(default=False)
     # updated_by = models.ForeignKey(User, null=True, related_name='+', on_delete=models.CASCADE)
+    # https://tutorial.djangogirls.org/en/django_forms/
