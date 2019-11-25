@@ -1,7 +1,9 @@
 from django.contrib.auth import login as auth_login, authenticate
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
 from H2O_Portal.models import *
 from H2O_Portal.forms import SignUpForm , SocialPostForm
+
 # Create your views here.
 
 def home(request):
@@ -22,11 +24,11 @@ def signup(request):
 
     return render(request, 'H2O_Portal/signup.html', {'form' : form} )
 
-
+@login_required
 def managecreds(request):
     return render(request, 'H2O_Portal/managecreds.html')
 
-
+@login_required
 def createpost(request):
     if request.method == 'POST':
         form = SocialPostForm(request.POST)            
@@ -39,12 +41,12 @@ def createpost(request):
         form = SocialPostForm()
     return render(request, 'H2O_Portal/createpost.html' , {'form' : form} )
 
-
+@login_required
 def listscheduled(request):
     all_posts = SocialPost.objects.all()
     return render(request, 'H2O_Portal/listscheduled.html', {'Posts': all_posts } )
 
-
+@login_required
 def listcompleted(request):
     all_posts = SocialPost.objects.all()
     return render(request, 'H2O_Portal/listcompleted.html' ,{'Posts': all_posts } )
