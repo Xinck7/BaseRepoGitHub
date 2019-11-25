@@ -15,7 +15,7 @@ class SignUpForm(UserCreationForm):
 class SocialPostForm(forms.ModelForm):
     class Meta:
         model = SocialPost
-                widgets = {
+        widgets = {
             'myfield': forms.TextInput(attrs={'class': 'myfieldclass'}),
         }
         fields = ('title', 'post_time', 'message', 'picture', 'Facebook', 'Instagram', 'GroupMe')
