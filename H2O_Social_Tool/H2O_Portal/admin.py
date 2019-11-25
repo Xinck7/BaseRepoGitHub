@@ -1,6 +1,7 @@
 from django.contrib import admin
-from .models import Post, SocialAccount#, SignUpForm 
+from .models import Post, SocialAccount
+
 # Register your models here.
 admin.site.register(Post)
 admin.site.register(SocialAccount)
-#admin.site.register(SignUpForm)
+

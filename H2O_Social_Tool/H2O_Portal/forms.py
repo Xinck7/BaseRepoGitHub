@@ -12,8 +12,9 @@ class SignUpForm(UserCreationForm):
         fields = ('username', 'password1', 'password2', 'email')
 
 # class LoginForm(User):
-#     user = User.objects.create_user()
-#     widgets = {
-#             'myfield': forms.TextInput(attrs={'class': 'myfieldclass'}),
-#         }
-#     fields = ('username', 'password', 'email')
+#     class Meta:
+#         user = User.objects.create_user()
+#         widgets = {
+#                 'myfield': forms.TextInput(attrs={'class': 'myfieldclass'}),
+#             }
+#         fields = ('username', 'password') 
