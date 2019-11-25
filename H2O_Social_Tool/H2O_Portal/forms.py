@@ -15,5 +15,8 @@ class SignUpForm(UserCreationForm):
 class SocialPostForm(forms.ModelForm):
     class Meta:
         model = SocialPost
+                widgets = {
+            'myfield': forms.TextInput(attrs={'class': 'myfieldclass'}),
+        }
         fields = ('title', 'post_time', 'message', 'picture', 'Facebook', 'Instagram', 'GroupMe')
      # https://tutorial.djangogirls.org/en/django_forms/
