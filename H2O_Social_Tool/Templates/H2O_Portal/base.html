@@ -50,7 +50,7 @@
       <button class="button" onclick="ToggleModal('applogin')">Login</button>
       <div id="applogin" class="modalcontainer">
         <form method="post" class="authcontainer">
-        <span class="close" onclick="ToggleModal('applogin')">&times;</span>  
+          <span class="close" onclick="ToggleModal('applogin')">&times;</span>  
           {% csrf_token %}
           {{ form.as_p }}
           <button type="submit">Login</button>
@@ -78,7 +78,7 @@
         </form> 
       </div>
     </div>
-
+    <!--End redesign user authentication-->
 
     <div id="CredDisp" class="revealpane">     
       <button class="SelectionButton" onclick="RevealCheckBox('RevealFacebookLogin')">Facebook</button>

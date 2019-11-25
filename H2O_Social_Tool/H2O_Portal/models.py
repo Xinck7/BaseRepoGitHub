@@ -10,9 +10,10 @@ class Post(models.Model):
     dest_insta = models.BooleanField(default=False)
     dest_gm = models.BooleanField(default=False) 
     completed = models.BooleanField(default=False)
-    
+    updated_by = models.ForeignKey(User, null=True, related_name='+' )
+
     def __str__(self):
-        return '{} {} {} {} {} {} {}'.format(self.title, self.post_time, self.text, self.picture, self.dest_fb, self.dest_insta, self.dest_gm)
+        return '{} {} {} {} {} {} {}'.format(self.title, self.post_time, self.text, self.picture, self.dest_fb, self.dest_insta, self.dest_gm, self.updated_by)
 
     #def fbpost
 
