@@ -23,9 +23,9 @@ class TestUrls(TestCase):
                 response = self.client.get(url)
                 self.assertEquals(response.status_code, 200)
             
-            def test_signup_url_resolves_signup_view(self):
+            def test_item_url_resolves_item_view(self):
                 view = resolve('/'+ array[i] + '/')
-                self.assertEquals(view.func, signup)            
+                self.assertEquals(view.func, array[i])            
     # #Signup
     # def test_signup_view_status_code(self):
     #     url = reverse('signup')
