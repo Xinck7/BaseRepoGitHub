@@ -14,38 +14,52 @@
 
 <img id="h2opic" src="{% static 'H2O_Portal/h2oLogo.png' %}" alt="H2O Logo" width="360" height="187">
 <header>H2O Social Media Tool</header>
-  <body>
-    <div id="nav">
-      <div id="navbuttons">
-        <h1><a href="/managecreds/">Manage Credentials</a></h1>
-        <h1><a href="/createpost/">Create Post</a></h1>
-        <h1><a href="/listscheduled/">List Scheduled Posts</a></h1>
-        <h1><a href="/listcompleted/">Completed Posts</a></h1>
-      </div>
+
+<body>
+  <div id="nav">
+    <div id="navbuttons">
+      <h1><a href="/managecreds/">Manage Credentials</a></h1>
+      <h1><a href="/createpost/">Create Post</a></h1>
+      <h1><a href="/listscheduled/">List Scheduled Posts</a></h1>
+      <h1><a href="/listcompleted/">Completed Posts</a></h1>
     </div>
+  </div>
   
-  {% block LoggedInUser %}
-  {% endblock LoggedInUser %}
-
-  {% block AppLogin %}
-  {% endblock AppLogin %}
-
-  {% block AppSignup %}
-  {% endblock AppSignup %}
+  <div id="LoggedInUser">
+    {% block LoggedInUser %}
+    {% endblock LoggedInUser %}
+  </div>
   
-  {% block ManageCreds %}
-  {% endblock ManageCreds %}
+  <div id="AppLogin">
+    {% block AppLogin %}
+    {% endblock AppLogin %}
+  </div>
   
-  {% block CreatePost %}
-  {% endblock CreatePost %}
+  <div id="AppSignup">
+    {% block AppSignup %}
+    {% endblock AppSignup %}
+  </div>
   
-  {% block ListScheduled %}
-  {% endblock ListScheduled %}
+  <div id="ManageCreds">
+    {% block ManageCreds %}
+    {% endblock ManageCreds %}
+  </div>
   
-  {% block ListCompleted %}
-  {% endblock ListCompleted %}
- 
-  </body>
+  <div id="CreatePost">
+    {% block CreatePost %}
+    {% endblock CreatePost %}
+  </div>
+  
+  <div id="ListScheduled">
+    {% block ListScheduled %}
+    {% endblock ListScheduled %}
+  </div>
+  
+  <div id="ListCompleted">
+    {% block ListCompleted %}
+    {% endblock ListCompleted %}
+  </div>
+</body>
 <!--
   <script type="text/javascript" src="{% static 'H2O_Portal/H2O_JS.js' %}"></script>
 -->
