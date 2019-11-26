@@ -107,7 +107,7 @@ input, select {
 
 *{
   box-sizing: border-box;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Lato', sans-serif;  
 }
 body{
   background-color: rgb(240, 240, 240);
@@ -172,7 +172,7 @@ a:link, a:visited{
   display: inline-block;
   font-size: 18px;
   margin-top: 5px;
-  min-width: 5px;
+  min-width: 50px;
   max-width: 1200px;
   padding: 5px; 
   text-align: center;
@@ -181,8 +181,11 @@ a:link, a:visited{
 #CreatePost, #ManageCreds, #ListScheduled, #ListCompleted{
   text-align: center;
 }
-.buttoncontainer, input[type=file]{
+.buttoncontainer, input[type=file], input[type=submit], button{
+  color: black;
+  background-color: rgba(243, 130, 60, 1);
   border: 3px solid rgb(99, 100, 102);
+  border-radius: 8px;
 }
 
 /*Fixing styling idea: add sections for (.myfieldclass th) for example and see if that changes it nicely*/
