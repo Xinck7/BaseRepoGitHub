@@ -2,6 +2,25 @@
 {% load static %}
 
 {% block ManageCreds %}
+  
+    <form method="post" class="myfieldclass" novalidate>
+    {% csrf_token %}
+    {% for field in form %}
+    {{ field.label_tag }}<br>
+    {{ field }}
+    <br>
+    {% if field.help_text %}
+        <div id="helptext">
+          {{ field.help_text }}
+        </div>
+    {% endif %}<br>
+    {% for error in field.errors %}
+        <p style="color: red">{{ error }}</p>
+    {% endfor %}
+    {% endfor %}
+    <button type="submit">Sign up</button>
+  </form> 
+  <!--
   <div id="CredDisp" class="revealpane">     
     <button class="SelectionButton" onclick="RevealCheckBox('RevealFacebookLogin')">Facebook</button>
       <div id="RevealFacebookLogin" class="revealpaneinner">
@@ -52,4 +71,5 @@
       </div>
     </div>
   </div> 
+  -->
 {% endblock ManageCreds %}

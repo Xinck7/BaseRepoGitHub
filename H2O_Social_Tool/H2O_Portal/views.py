@@ -2,7 +2,7 @@ from django.contrib.auth import login as auth_login, authenticate
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from H2O_Portal.models import *
-from H2O_Portal.forms import SignUpForm , SocialPostForm
+from H2O_Portal.forms import *
 
 # Create your views here.
 
@@ -26,7 +26,16 @@ def signup(request):
 
 @login_required
 def managecreds(request):
-    return render(request, 'H2O_Portal/managecreds.html')
+    if request.method == 'POST':
+        form = ManageCredentialForm(request.POST)            
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author = request.user
+            post.save()
+            return redirect('/')
+    else:
+        form = ManageCredentialForm()    
+    return render(request, 'H2O_Portal/managecreds.html', {'form' : form})
 
 @login_required
 def createpost(request):
@@ -34,7 +43,7 @@ def createpost(request):
         form = SocialPostForm(request.POST)            
         if form.is_valid():
             post = form.save(commit=False)
-            post.author = request.user
+            post.updated_by = request.user
             post.save()
             return redirect('/')
     else:
