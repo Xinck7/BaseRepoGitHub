@@ -14,7 +14,16 @@ class SocialPost(models.Model):
     updated_by = models.ForeignKey(User, null=True, related_name='+', on_delete=models.CASCADE)
 
     def __str__(self):
-        return '{} {} {} {} {} {} {}'.format(self.title, self.post_time, self.message, self.picture, self.Facebook, self.Instagram, self.GroupMe, self.completed, self.updated_by)
+        return '{} {} {} {} {} {} {}'.format(
+            self.title, 
+            self.post_time, 
+            self.message, 
+            self.picture, 
+            self.Facebook, 
+            self.Instagram, 
+            self.GroupMe, 
+            self.completed, 
+            self.updated_by)
 
     #def fbpost
 
