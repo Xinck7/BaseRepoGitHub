@@ -136,7 +136,7 @@ header {
 #signup{
   position: absolute;
   top: 15px;
-  right: 15px;
+  right: 10px;
 }
 #login{
   position: absolute;
@@ -149,38 +149,48 @@ ul{
 }
 li{
   display: inline-block;
-  padding: 1%;
+  padding: 10px;
+  margin: 5px;
   background-color: rgba(243, 130, 60, 1);
   border-radius: 8px;
 }
 .navbar{
   border: 3px solid rgb(99, 100, 102);
 }
+
+a:link, a:visited{
+  color: black;
+  text-decoration: none;
+}
+
 /*Forms styles*/
 .myfieldclass{
   background-color: rgba(243, 130, 60, 1);
   border: 3px solid rgb(99, 100, 102);
   border-radius: 8px;
   color: black;
+  display: inline-block;
   font-size: 18px;
   margin-top: 5px;
-  flex: 1;
   min-width: 5px;
-  max-width: 700px;
+  max-width: 1200px;
   padding: 5px; 
-  text-decoration: none;
   text-align: center;
 }
 
-/*Fixing styling idea: add sections for (.myfieldclass th) for example and see if that changes it nicely*/
-#helptext{
-  border:none;
+#CreatePost, #ManageCreds, #ListScheduled, #ListCompleted{
+  text-align: center;
 }
+.buttoncontainer, input[type=file]{
+  border: 3px solid rgb(99, 100, 102);
+}
+
+/*Fixing styling idea: add sections for (.myfieldclass th) for example and see if that changes it nicely*/
+
 /*Posts Pane*/
 .posttables{
   padding: 1%;
   display: inline-block;
-  flex: 1;
   min-width: 5px;
   text-align: center;
 }

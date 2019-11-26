@@ -4,16 +4,21 @@
     <form method="post" class="myfieldclass" novalidate>
       {% csrf_token %}
       {% for field in form %}
-        {{ field.label_tag }}<br>
+        <b>{{ field.label_tag }}</b>
+        <br>
         {% if field.help_text %}
             {{ field.help_text }}
-        {% endif %}<br>
+            <br>
+        {% endif %}
+        <br>
         {{ field }}
         <br>
         {% for error in field.errors %}
             <p style="color: red">{{ error }}</p>
+            <br>
         {% endfor %}
       {% endfor %}
-      <button type="submit">Create Post</button>
+      <br>
+      <button class="buttoncontainer" type="submit">Create Post</button>
     </form> 
 {% endblock CreatePost %}

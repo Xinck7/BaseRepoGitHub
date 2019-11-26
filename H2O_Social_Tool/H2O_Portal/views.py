@@ -26,16 +26,16 @@ def signup(request):
 
 @login_required
 def managecreds(request):
-    if request.method == 'POST':
-        form = ManageCredentialForm(request.POST)            
-        if form.is_valid():
-            post = form.save(commit=False)
-            post.author = request.user
-            post.save()
-            return redirect('/')
-    else:
-        form = ManageCredentialForm()    
-    return render(request, 'H2O_Portal/managecreds.html', {'form' : form})
+    # if request.method == 'POST':
+    #     form = ManageCredentialForm(request.POST)            
+    #     if form.is_valid():
+    #         post = form.save(commit=False)
+    #         post.author = request.user
+    #         post.save()
+    #         return redirect('/')
+    # else:
+    #     form = ManageCredentialForm()    
+    return render(request, 'H2O_Portal/managecreds.html')#, {'form' : form})
 
 @login_required
 def createpost(request):
