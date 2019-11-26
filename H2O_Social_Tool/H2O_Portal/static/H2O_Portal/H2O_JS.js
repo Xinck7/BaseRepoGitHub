@@ -1,5 +1,4 @@
 // H2O Social Tool Methods
-//var isAuth = ('{{ user.isauthenticated}}');
 
 function HideWindows(){
   var RevealPanes = document.getElementsByClassName("revealpane")
@@ -13,41 +12,36 @@ function HideWindows(){
   for (i = 0; i < RevealPanesInner.length; i++) {
     RevealPanesInner[i].style.display = "none";
   }
-  var Modal = document.getElementsByClassName("Modal")
-  var i;
-  for (i = 0; i < Modal.length; i++) {
-    Modal[i].style.display = "none";
-  }  
 }
 
 function RevealWindow(id){      
-    HideWindows()
-    var RevealPane = document.getElementById(id);
-    if (RevealPane.style.display === "none") {
-      RevealPane.style.display = "block";
-    } 
-    else {
-      RevealPane.style.display = "none";
-    } 
+  HideWindows()
+  var RevealPane = document.getElementById(id);
+  RevealPane.style.display = (RevealPane.style.display =="block") ? "none" : "block";
 }
 
 function RevealCheckBox(id){
-    var RevealCheckBox = document.getElementById(id);     
-    if (RevealCheckBox.style.display === "none") {
-        RevealCheckBox.style.display = "block";
-    } 
-    else{
-        RevealCheckBox.style.display = "none";
-    }  
+  var RevealCheckBox = document.getElementById(id);
+  RevealCheckBox.style.display = (RevealCheckBox.style.display =="block") ? "none" : "block";  
 }
 
-function CloseModal(id){
-    var modal = document.getElementById(id);
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    }
+function ToggleModal(id){
+  var modalwindow = document.getElementById(id);
+  modalwindow.style.visibility = (modalwindow.style.visibility =="visible") ? "hidden" : "visible";
 }
-//state management and lazy loading
-//redux
+
+//Handle this sometime in the future
+// window.onclick = function(event) {
+//   var modal = document.getElementsByClassName('modalcontainer');
+//   var i;
+//   for (i = 0; i < modal.length; i++) {
+//     if (event.target == modal) {
+//       modal[i].style.visibility = "hidden";
+//     }
+//   }
+
+// }
+
+
+//state management and lazy loading?
+//redux?

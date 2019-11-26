@@ -1,0 +1,36 @@
+{% extends 'H2O_Portal/base.html' %}
+
+{% block ListCompleted %}
+  <div class="posttables">
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Post Time</th>
+          <th>Message</th>
+          <th>Picture</th>
+          <th>Facebook?</th>
+          <th>Instagram?</th>
+          <th>GroupMe?</th>
+          <th>Scheduled by</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for post in Posts %}
+          <tr>
+            {% if post.completed == True %}
+            <td>{{ post.title }}</td>
+            <td>{{ post.post_time }}</td>
+            <td>{{ post.message }}</td>
+            <td>{{ post.picture }}</td>
+            <td>{{ post.Facebook }}</td>
+            <td>{{ post.Instagram }}</td>
+            <td>{{ post.GroupMe }}</td>
+            <td>{{ post.updated_by }}</td>
+            {% endif %}
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock ListCompleted %}

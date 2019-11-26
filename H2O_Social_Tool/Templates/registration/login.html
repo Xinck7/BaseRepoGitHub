@@ -1,0 +1,23 @@
+{% extends 'H2O_Portal/base.html' %}
+{% block AppLogin %}
+<div id="applogin">
+  <form method="post" class="myfieldclass">
+    <h2>Login</h2><br>
+    {% csrf_token %}
+    {% for field in form %}
+      {{ field.label_tag }}<br>
+      {{ field }}
+      <br>
+      {% if field.help_text %}
+          <div id="helptext">
+            {{ field.help_text }}
+          </div>
+      {% endif %}<br>
+      {% for error in field.errors %}
+          <p style="color: red">{{ error }}</p>
+      {% endfor %}
+    {% endfor %}
+    <button type="submit">Login</button>
+  </form>
+</div>
+{% endblock AppLogin %}
