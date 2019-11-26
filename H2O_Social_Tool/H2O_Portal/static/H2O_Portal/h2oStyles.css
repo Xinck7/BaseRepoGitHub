@@ -164,7 +164,7 @@ a:link, a:visited{
 }
 
 /*Forms styles*/
-.myfieldclass{
+form{
   background-color: rgba(243, 130, 60, 1);
   border: 3px solid rgb(99, 100, 102);
   border-radius: 8px;
@@ -178,15 +178,21 @@ a:link, a:visited{
   text-align: center;
 }
 
+textarea, input[type="text"], #id_picture{
+  background-color: rgb(240, 240, 240);
+}
+
 #CreatePost, #ManageCreds, #ListScheduled, #ListCompleted{
   text-align: center;
 }
-.buttoncontainer, input[type=file], input[type=submit], button{
+
+/*button{
   color: black;
   background-color: rgba(243, 130, 60, 1);
   border: 3px solid rgb(99, 100, 102);
   border-radius: 8px;
-}
+  font: bold;
+}*/
 
 /*Fixing styling idea: add sections for (.myfieldclass th) for example and see if that changes it nicely*/
 
