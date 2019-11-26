@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 
 class SocialPost(models.Model):
     title = models.TextField(blank=True, max_length=200)
-    post_time = models.DateTimeField(max_length=30)
+    post_time = models.DateTimeField(max_length=30, help_text='(ex 1/31/2019 13:00)')
     message = models.TextField(blank=True, max_length=2000)
     picture = models.ImageField(blank=True)
     Facebook = models.BooleanField(default=False)

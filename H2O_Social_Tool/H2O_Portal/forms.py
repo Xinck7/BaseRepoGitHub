@@ -15,6 +15,7 @@ class SignUpForm(UserCreationForm):
 class SocialPostForm(forms.ModelForm):
     class Meta:
         model = SocialPost
+        model.post_time = forms.DateTimeField(input_formats=['%d/%m/%Y %H:%M'] )
         widgets = {
             'myfield': forms.TextInput(attrs={'class': 'myfieldclass'}),
         }
