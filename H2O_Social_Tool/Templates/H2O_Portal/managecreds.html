@@ -2,54 +2,54 @@
 {% load static %}
 
 {% block ManageCreds %}
-    <div id="CredDisp" class="revealpane">     
-      <button class="SelectionButton" onclick="RevealCheckBox('RevealFacebookLogin')">Facebook</button>
-        <div id="RevealFacebookLogin" class="revealpaneinner">
-          <form method="post">
-            <div class="imgcontainer">
-              <img src="{% static 'H2O_Portal/facebooklogo.png' %}" alt="Facebooklogo" class="smallpic">
-            </div>
-            <div class="container">
-              <label for="uname"><b>Username</b></label>
-              <input type="text" placeholder="Enter Username" name="uname" required>
-              <label for="psw"><b>Password</b></label>
-              <input type="password" placeholder="Enter Password" name="psw" required>
-              <button type="submit" class="submitbutton">Store Credentials</button>
-            </div>
-          </form> 
-        </div>
-
-      <button class="SelectionButton" onclick="RevealCheckBox('RevealInstagramLogin')">Instagram</button>
-        <div id="RevealInstagramLogin" class="revealpaneinner">
-          <form action="" method="post">
-            <div class="imgcontainer">
-              <img src="{% static 'H2O_Portal/InstagramLogo.png' %}" alt="InstagramLogo" class="smallpic">
-            </div>
-            <div class="container">
-              <label for="uname"><b>Username</b></label>
-              <input type="text" placeholder="Enter Username" name="uname" required>
-              <label for="psw"><b>Password</b></label>
-              <input type="password" placeholder="Enter Password" name="psw" required>
-              <button type="submit" class="submitbutton">Store Credentials</button>
-            </div>
-          </form>
-        </div>
-      
-      <button class="SelectionButton" onclick="RevealCheckBox('RevealGroupMeLogin')">GroupMe</button>
-        <div id="RevealGroupMeLogin" class="revealpaneinner">
-          <form action="" method="post">
-            <div class="imgcontainer">
-              <img src="{% static 'H2O_Portal/groupme.jpg' %}" alt="GroupMeLogo" class="smallpic">
-            </div>
-            <div class="container">
-              <label for="uname"><b>Username</b></label>
-              <input type="text" placeholder="Enter Username" name="uname" required>
-              <label for="psw"><b>Password</b></label>
-              <input type="password" placeholder="Enter Password" name="psw" required>
-              <button type="submit" class="submitbutton">Store Credentials</button>
-            </div>
-          </form>
-        </div>
+  <div id="CredDisp" class="revealpane">     
+    <button class="SelectionButton" onclick="RevealCheckBox('RevealFacebookLogin')">Facebook</button>
+      <div id="RevealFacebookLogin" class="revealpaneinner">
+        <form method="post">
+          <div class="imgcontainer">
+            <img src="{% static 'H2O_Portal/facebooklogo.png' %}" alt="Facebooklogo" class="smallpic">
+          </div>
+          <div class="container">
+            <label for="uname"><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" name="uname" required>
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" required>
+            <button type="submit" class="submitbutton">Store Credentials</button>
+          </div>
+        </form> 
       </div>
-    </div> 
+
+    <button class="SelectionButton" onclick="RevealCheckBox('RevealInstagramLogin')">Instagram</button>
+      <div id="RevealInstagramLogin" class="revealpaneinner">
+        <form action="" method="post">
+          <div class="imgcontainer">
+            <img src="{% static 'H2O_Portal/InstagramLogo.png' %}" alt="InstagramLogo" class="smallpic">
+          </div>
+          <div class="container">
+            <label for="uname"><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" name="uname" required>
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" required>
+            <button type="submit" class="submitbutton">Store Credentials</button>
+          </div>
+        </form>
+      </div>
+    
+    <button class="SelectionButton" onclick="RevealCheckBox('RevealGroupMeLogin')">GroupMe</button>
+      <div id="RevealGroupMeLogin" class="revealpaneinner">
+        <form action="" method="post">
+          <div class="imgcontainer">
+            <img src="{% static 'H2O_Portal/groupme.jpg' %}" alt="GroupMeLogo" class="smallpic">
+          </div>
+          <div class="container">
+            <label for="uname"><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" name="uname" required>
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" required>
+            <button type="submit" class="submitbutton">Store Credentials</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div> 
 {% endblock ManageCreds %}

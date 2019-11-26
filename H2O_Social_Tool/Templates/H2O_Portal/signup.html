@@ -2,23 +2,23 @@
 
 {% block AppSignup %}
 <div id="appauth">
-    <form method="post" class="myfieldclass" novalidate>
-        {% csrf_token %}
-        {% for field in form %}
-        {{ field.label_tag }}<br>
-        {{ field }}
-        <br>
-        {% if field.help_text %}
-            <div id="helptext">
-            {{ field.help_text }}
-            </div>
-        {% endif %}<br>
-        {% for error in field.errors %}
-            <p style="color: red">{{ error }}</p>
-        {% endfor %}
-        {% endfor %}
-        <button type="submit">Sign up</button>
-    </form> 
+  <form method="post" class="myfieldclass" novalidate>
+    {% csrf_token %}
+    {% for field in form %}
+    {{ field.label_tag }}<br>
+    {{ field }}
+    <br>
+    {% if field.help_text %}
+        <div id="helptext">
+        {{ field.help_text }}
+        </div>
+    {% endif %}<br>
+    {% for error in field.errors %}
+        <p style="color: red">{{ error }}</p>
+    {% endfor %}
+    {% endfor %}
+    <button type="submit">Sign up</button>
+  </form> 
 </div>
 
 {% endblock AppSignup %}
