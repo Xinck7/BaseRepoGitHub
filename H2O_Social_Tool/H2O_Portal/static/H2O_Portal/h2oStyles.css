@@ -172,12 +172,14 @@ form{
   display: inline-block;
   font-size: 18px;
   margin-top: 5px;
-  min-width: 50px;
-  max-width: 1200px;
+  min-width: 70px;
+  max-width: 800px;
   padding: 5px; 
   text-align: center;
 }
-
+#AppLogin, #AppSignup{
+  text-align: center;
+}
 textarea, input[type="text"], #id_picture{
   background-color: rgb(240, 240, 240);
 }
