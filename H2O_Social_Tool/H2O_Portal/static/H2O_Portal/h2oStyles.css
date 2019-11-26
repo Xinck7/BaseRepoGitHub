@@ -183,7 +183,10 @@ form{
 textarea, input[type="text"], #id_picture{
   background-color: rgb(240, 240, 240);
 }
-
+input[type="checkbox"]{
+  min-width: 50px;
+  max-width: 100px;
+}
 #CreatePost, #ManageCreds, #ListScheduled, #ListCompleted{
   text-align: center;
 }
