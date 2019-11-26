@@ -133,7 +133,7 @@ header {
   top: 30px;
   right: 200px;
 }
-#signup{
+#signup, #logout{
   position: absolute;
   top: 15px;
   right: 10px;
