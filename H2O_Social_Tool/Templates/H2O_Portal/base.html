@@ -21,6 +21,7 @@
     <div id="navbuttons">
       <ul id="navlist">
         {% if request.user.is_authenticated %}
+        <li class="navbar"><h1><a href="/">Home</a></h1></li>
         <li class="navbar"><h1><a href="/managecreds/">Manage Credentials</a></h1></li>
         <li class="navbar"><h1><a href="/createpost/">Create Post</a></h1></li>
         <li class="navbar"><h1><a href="/listscheduled/">List Scheduled Posts</a></h1></li>
