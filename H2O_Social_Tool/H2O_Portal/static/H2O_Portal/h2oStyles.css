@@ -214,6 +214,14 @@ textarea, input[type="text"], #id_picture{
 }
 /*End Forms styles*/
 
+/*Edit Post Pane*/
+#centeringcontainer{
+  box-sizing: content-box;
+  width: 60%;
+  margin: auto;
+}
+/*End Edit Post Pane*/
+
 /*Posts Pane*/
 .posttables{
   padding: 1%;

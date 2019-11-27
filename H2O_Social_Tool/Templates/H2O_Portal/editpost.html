@@ -1,9 +1,38 @@
 {% extends 'H2O_Portal/base.html' %}
 
 {% block EditPost %}
-  {% for post in Posts %}
+<div id="centeringcontainer">
   <form method="post" class="myfieldclass" novalidate>
     {% csrf_token %}
+      <p><b>Previous Post data</b></p>
+        <br>
+          <i>Previous Title:</i>
+          {{ Post.title }}
+          <br>
+          <i>Previous Post Time:</i>
+          {{ Post.post_time }}
+          <br>
+          <i>Previous message:</i>
+          {{ Post.message }}
+          <br>
+          <i>Previous picture:</i>
+          {{ Post.picture }}
+          <br>
+          <i>Previous Title:</i>
+          {{ Post.title }}
+          <br>
+          <i>Previous Facebook:</i>
+          {{ Post.Facebook }}
+          <br>
+          <i>Previous Instagram:</i>
+          {{ Post.Instagram }}
+          <br>
+          <i>Previous GroupMe:</i>
+          {{ Post.GroupMe }}
+          <br>
+          <br>
+      <p><b>Update Post data</b></p>
+      <br>
     {% for field in form %}
       {% if field == form.Facebook %}
       <b>{{ field.label_tag }}</b>
@@ -34,63 +63,9 @@
       {% endfor %}
       <br>
     {% endfor %}
-    <button class="buttoncontainer" <a href="{% url 'editpost' value=post.id %}" >Resubmit Post</a></button>
-    <button class="buttoncontainer"><a href="{% url 'deletepost' value=post.id %}" >Delete</a></button>
-  {% endfor %}
-</form> 
-{% endblock EditPost %}
+    <button class="posttables" <a href="{% url 'editpost' value=Post.id %}" >Resubmit Post</a></button>
+    <button class="posttables"><a href="{% url 'deletepost' value=Post.id %}" >Delete</a></button>
+  </form> 
 
-{% comment %}
-      {% for field in form %}
-        {% if field == form.title %}
-          <p>Previous Title</p>
-          <br>
-          {{ post.title }}
-          <br>
-          {{field}}
-          <br>
-        {% elif field == form.post_time %}
-          <p>Previous Time</p>
-          <br>
-          {{ post.post_time }}
-          <br>
-          {{field}}
-          <br>
-        {% elif field == form.message %}
-          <p>Previous Message</p>
-          <br>
-          {{ post.message }}
-          <br>
-          {{field}}
-          <br>
-        {% elif field == form.picture %}
-          <p>Previous Picture</p>
-          <br>
-          {{ post.picture }}
-          <br>
-          {{field}}
-          <br>       
-        {% elif field == form.Facebook %}
-          <p>Facebook</p>
-          <br>
-          {{ post.Facebook }}
-          <br>
-          {{field}}
-          <br>
-        {% elif field == form.Instagram %}
-          <p>Instagram</p>
-          <br>
-          {{ post.Instagram }}
-          <br>
-          {{field}}
-          <br>
-        {% elif field == form.GroupMe %}
-          <p>GroupMe</p>
-          <br>
-          {{ post.GroupMe }}
-          <br>
-          {{field}}
-          <br>
-        {% endif %}
-      {% endfor forms %}
-{% endcomment %}
+</div>
+{% endblock EditPost %}

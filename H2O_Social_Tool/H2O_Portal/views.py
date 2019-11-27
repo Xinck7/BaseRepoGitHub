@@ -46,7 +46,7 @@ def createpost(request):
             post = form.save(commit=False)
             post.updated_by = request.user
             post.save()
-            return redirect('/')
+            return redirect('listscheduled')
     else:
         form = SocialPostForm()
     return render(request, 'H2O_Portal/createpost.html', {'form' : form} )
@@ -60,9 +60,9 @@ def listscheduled(request):
 def editpost(request, value):
     #need title drop down
     user = request.user
-    user_posts = SocialPost.objects.filter(updated_by=user, id=value)
+    user_posts = SocialPost.objects.filter(updated_by=user, id=value).first()
     if request.method == 'POST':
-        form = SocialPostForm(request.POST)            
+        form = SocialPostForm(request.POST or None, instance=user_posts)            
         if form.is_valid(): 
             post = form.save(commit=False)
             post.updated_by = request.user
@@ -70,7 +70,7 @@ def editpost(request, value):
             return redirect('../listscheduled/')
     else:
         form = SocialPostForm()
-    return render(request, 'H2O_Portal/editpost.html', {'Posts' : user_posts, 'form' : form} )
+    return render(request, 'H2O_Portal/editpost.html', {'Post' : user_posts, 'form' : form} )
 
 @login_required
 def deletepost(request, value):
@@ -78,8 +78,7 @@ def deletepost(request, value):
     user = request.user
     user_post = SocialPost.objects.filter(updated_by=user, id=value)
     user_post.delete()
-    all_posts = SocialPost.objects.all()
-    return render(request, 'H2O_Portal/listscheduled.html' , {'Posts': all_posts })
+    return redirect('../listscheduled/')
 
 @login_required
 def listcompleted(request):
