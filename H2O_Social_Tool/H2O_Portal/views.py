@@ -63,10 +63,11 @@ def editpost(request, value):
     user_posts = SocialPost.objects.filter(updated_by=user, id=value)
     if request.method == 'POST':
         form = SocialPostForm(request.POST)            
-        if form.is_valid():
+        if form.is_valid(): 
             post = form.save(commit=False)
+            post.updated_by = request.user
             post.save()
-            return redirect('H2O_Portal/listscheduled.html')
+            return redirect('../listscheduled/')
     else:
         form = SocialPostForm()
     return render(request, 'H2O_Portal/editpost.html', {'Posts' : user_posts, 'form' : form} )
