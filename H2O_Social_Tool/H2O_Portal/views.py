@@ -1,10 +1,13 @@
 from django.contrib.auth import login as auth_login, authenticate
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
+
 from django.views.generic import View
+
 from H2O_Portal.models import *
 from H2O_Portal.forms import *
 
+from social_django.models import UserSocialAuth
 # Create your views here.
 
 def home(request):
@@ -27,20 +30,30 @@ def signup(request):
 
 @login_required
 def managecreds(request):
-    # if request.method == 'POST':
-    #     form = ManageCredentialForm(request.POST)            
-    #     if form.is_valid():
-    #         post = form.save(commit=False)
-    #         post.author = request.user
-    #         post.save()
-    #         return redirect('/')
-    # else:
-    #     form = ManageCredentialForm()    
-    return render(request, 'H2O_Portal/managecreds.html')#, {'form' : form})
+    user = request.user
+    try:
+        facebook_login = user.social_auth.get(provider='facebook')
+    except UserSocialAuth.DoesNotExist:
+        facebook_login = None
+    try:
+        instagram_login = user.social_auth.get(provider='instagram')
+    except UserSocialAuth.DoesNotExist:
+        instagram_login = None
 
-@login_required
-def authenticated(request):
-    return render(request, 'H2O_Portal/authenticated.html')
+    try:
+        groupme_login = user.social_auth.get(provider='groupme')
+    except UserSocialAuth.DoesNotExist:
+        groupme_login = None
+
+    can_disconnect = (user.social_auth.count() > 1 or user.has_usable_password())
+
+    return render(request, 'H2O_Portal/managecreds.html', {
+        'facebook_login': facebook_login,
+        'instagram_login': instagram_login,
+        'groupme_login': groupme_login,
+        'can_disconnect': can_disconnect
+    })
+    return render(request, 'H2O_Portal/managecreds.html')
 
 @login_required
 def createpost(request):
