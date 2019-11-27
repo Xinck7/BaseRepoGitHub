@@ -1,10 +1,46 @@
 {% extends 'H2O_Portal/base.html' %}
 
 {% block EditPost %}
-<form method="post" class="myfieldclass" novalidate>
-  {% csrf_token %}
   {% for post in Posts %}
-    {% if post.completed == False %}
+  <form method="post" class="myfieldclass" novalidate>
+    {% csrf_token %}
+    {% for field in form %}
+      {% if field == form.Facebook %}
+      <b>{{ field.label_tag }}</b>
+        {{ field }}
+      
+      {% elif field == form.Instagram %}
+      <b>{{ field.label_tag }}</b>
+        {{ field }}
+      
+      {% elif field == form.GroupMe %}
+      <b>{{ field.label_tag }}</b>
+        {{ field }}
+      
+      {% else %}
+        <b>{{ field.label_tag }}</b>
+        <br>
+        {% if field.help_text %}
+          {{ field.help_text }}
+          <br>
+        {% endif %}
+        <br>
+        {{ field }}
+        <br>
+      {% endif %}
+      {% for error in field.errors %}
+          <p style="color: red">{{ error }}</p>
+          <br>
+      {% endfor %}
+      <br>
+    {% endfor %}
+    <button class="buttoncontainer" <a href="{% url 'editpost' value=post.id %}" >Resubmit Post</a></button>
+    <button class="buttoncontainer"><a href="{% url 'deletepost' value=post.id %}" >Delete</a></button>
+  {% endfor %}
+</form> 
+{% endblock EditPost %}
+
+{% comment %}
       {% for field in form %}
         {% if field == form.title %}
           <p>Previous Title</p>
@@ -57,11 +93,4 @@
           <br>
         {% endif %}
       {% endfor forms %}
-    {% endif %}
-    <button class="buttoncontainer" type="submit">Resubmit Post</button>
-    <button class="buttoncontainer"><a href="{% url 'deletepost' value=post.id %}" >Delete</a></button>
-  {% endfor posts %}
-  
-  
-</form> 
-{% endblock EditPost %}
+{% endcomment %}
