@@ -4,21 +4,30 @@
     <form method="post" class="myfieldclass" novalidate>
       {% csrf_token %}
       {% for field in form %}
-        
-        <b>{{ field.label_tag }}</b>
+
         {% if field == form.Facebook %}
+        <b>{{ field.label_tag }}</b>
+          {{ field }}
+        
         {% elif field == form.Instagram %}
+        <b>{{ field.label_tag }}</b>
+          {{ field }}
+        
         {% elif field == form.GroupMe %}
+        <b>{{ field.label_tag }}</b>
+          {{ field }}
+        
         {% else %}
-        <br>
-        {% endif %}
-        {% if field.help_text %}
-          {{ field.help_text }}
+          <b>{{ field.label_tag }}</b>
+          <br>
+          {% if field.help_text %}
+            {{ field.help_text }}
+            <br>
+          {% endif %}
+          <br>
+          {{ field }}
           <br>
         {% endif %}
-        <br>
-        {{ field }}
-        <br>
         {% for error in field.errors %}
             <p style="color: red">{{ error }}</p>
             <br>

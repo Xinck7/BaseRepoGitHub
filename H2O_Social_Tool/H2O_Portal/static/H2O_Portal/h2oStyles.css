@@ -101,6 +101,13 @@ hr {
 input, select {
     vertical-align:middle;
 }
+
+/**********************************************************************************/
+/**********************************************************************************/
+/**********************************************************************************/
+
+
+
 /***************/
 /*Global Styles*/
 /***************/
@@ -109,44 +116,52 @@ input, select {
   box-sizing: border-box;
   font-family: 'Lato', sans-serif;  
 }
+
 body{
   background-color: rgb(240, 240, 240);
 }
+
 #h2opic{
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
+
 header {
   text-align: center;
   font-size: 40px;
   color: rgb(99, 100, 102);
 }
+
 #navbuttons{
   margin-top: 10px;
   text-align: center;
-
 }
+
 .usernamedisplay{
   position: absolute;
   font-size: 16px;
   top: 30px;
   right: 200px;
 }
+
 #signup, #logout{
   position: absolute;
   top: 15px;
   right: 10px;
 }
+
 #login{
   position: absolute;
   top: 15px;
   right: 90px;
 }
+
 ul{
   list-style-type: none;
   padding: 10px;
 }
+
 li{
   display: inline-block;
   padding: 10px;
@@ -154,6 +169,12 @@ li{
   background-color: rgba(243, 130, 60, 1);
   border-radius: 8px;
 }
+@media (max-width: 750px){
+  li{
+    display: block;
+  }
+}
+
 .navbar{
   border: 3px solid rgb(99, 100, 102);
 }
@@ -169,37 +190,22 @@ form{
   border: 3px solid rgb(99, 100, 102);
   border-radius: 8px;
   color: black;
-  display: inline-block;
+  box-sizing: content-box;
+  width: 60%;
+  margin: auto;
   font-size: 18px;
   margin-top: 5px;
-  min-width: 70px;
-  max-width: 800px;
   padding: 5px; 
   text-align: center;
 }
-#AppLogin, #AppSignup{
-  text-align: center;
-}
+
 textarea, input[type="text"], #id_picture{
   background-color: rgb(240, 240, 240);
 }
-input[type="checkbox"]{
-  min-width: 50px;
-  max-width: 100px;
-}
+
 #CreatePost, #ManageCreds, #ListScheduled, #ListCompleted{
   text-align: center;
 }
-
-/*button{
-  color: black;
-  background-color: rgba(243, 130, 60, 1);
-  border: 3px solid rgb(99, 100, 102);
-  border-radius: 8px;
-  font: bold;
-}*/
-
-/*Fixing styling idea: add sections for (.myfieldclass th) for example and see if that changes it nicely*/
 
 /*Posts Pane*/
 .posttables{
@@ -214,163 +220,4 @@ th,td{
   border-collapse: collapse;
   background-color: rgba(241, 120, 44, 0.90);
 }
-
-
-
-/*From Old version*/
-
-/*.button {
-  background-color: rgba(241, 120, 44, 0.90);
-  border: 2px solid rgb(99, 100, 102);
-  border-radius: 8px;
-  color: black;
-  cursor: pointer;
-  font-size: 16px;
-  margin-bottom: 5px;
-  padding: 10px; 
-}
-button:hover {
-    opacity: 0.8;
-  }
-.revealpane{
-  display: none;
-  text-align: center;
-  padding: 1%;
-}
-*/
-/*Add some screen size functionality here*/
-
-
-  /*.modalcontainer{
-    background-color: rgb(0,0,0); /* Fallback color *
-    background-color: rgba(0,0,0,0.4);
-    border: 2px solid rgb(99, 100, 102);
-    border-radius: 8px;
-    visibility: hidden;
-    position: fixed;
-    overflow: scroll; /* Enable scroll if needed *
-    padding-top: 60px;
-    left: 0;
-    top: 0;    
-    width: 100%; /* Full width *
-    height: 100%; /* Full height *
-    margin: auto;
-    text-align: center;
-    z-index: 1;
-  } */
-  /*Sign Up button #modal*/
-
-
-  /*
-  .close {
-    color: #aaaaaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-  }
-  
-  .close:hover,
-  .close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-  }*/
-
-
-
-/*Credential Pane*
-  form {
-    display: inline-block;
-  }
-
-  input[type=text], input[type=password], input[type=email] {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    background-color: whitesmoke;
-    border-radius: 8px;
-    box-sizing: border-box;
-  }
-  .submitbutton {
-    background-color: rgba(241, 120, 44, 0.90);
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border-radius: 8px;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-  }
-  
-  .cancelbtn {
-    width: auto;
-    padding: 10px 18px;
-    background-color: rgba(241, 120, 44, 0.90);
-  }
-  .imgcontainer {
-    text-align: center;
-    margin: 24px 0 12px 0;
-    flex: 0;
-    min-width: 5px;
-    max-width: 500px;
-  }
-  img.smallpic {
-    width: 30%;
-    border-radius: 50%;
-  }
-  .container {
-    background-color:#f1f1f1;
-    padding: 16px;
-    flex: 1;
-    min-width: 5px;
-    max-width: 500px;
-  }
-  .SelectionButton{
-    background-color: rgba(241, 120, 44, 0.90);
-    border: 2px solid rgb(99, 100, 102);
-    border-radius: 8px;
-    color: black;
-    cursor: pointer;
-    display: inline-block;
-    font-size: 16px;
-    margin-top: 5px;
-    align-items:center;
-    padding: 5px; 
-    text-align: center;
-    text-decoration: none;
-  }*/
-
-  /*
-  span.psw {
-    padding-top: 16px;
-  }
-  #RevealFacebookLogin, #RevealInstagramLogin, #RevealGroupMeLogin{
-    display: none;
-  }
-  
-
-/*Create Post Pane*
-  .Postdestination{
-    background-color: rgba(241, 120, 44, 0.90);
-    border: 2px solid rgb(99, 100, 102);
-    border-radius: 8px;
-    color: black;
-    cursor: pointer;
-    display: inline-block;
-    font-size: 16px;
-    margin-top: 5px;
-    flex: 1;
-    min-width: 5px;
-    max-width: 500px;
-    padding: 5px; 
-    text-decoration: none;
-  }
-  .createpostbutton{
-    border: 1px solid rgb(99, 100, 102);
-    border-radius: 8px;
-    background-color: whitesmoke;
-    
-  }*/
 
