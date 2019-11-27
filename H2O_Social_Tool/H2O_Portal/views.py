@@ -58,8 +58,8 @@ def listscheduled(request):
 
 @login_required
 def editpost(request, value):
-    #need title drop down
     user = request.user
+    #pull updated_by field as the user input but check if its the user, staff or superuser
     user_posts = SocialPost.objects.filter(updated_by=user, id=value).first()
     if request.method == 'POST':
         form = SocialPostForm(request.POST or None, instance=user_posts)            
@@ -74,7 +74,6 @@ def editpost(request, value):
 
 @login_required
 def deletepost(request, value):
-    #need title drop down
     user = request.user
     user_post = SocialPost.objects.filter(updated_by=user, id=value)
     user_post.delete()
