@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, re_path
 from django.conf.urls import url
 from django.contrib import admin
 from . import views
@@ -10,7 +10,7 @@ urlpatterns = [
     path('createpost/', views.createpost, name='createpost'),
     path('listscheduled/', views.listscheduled, name='listscheduled'),
     #path('editpost/', views.editpost, name='editpost'),
-    path(r'^editpost/(?P<key_id>[0-9])/$', views.editpost, name='editpost'),
+    path('editpost/editpost<int:value>', views.editpost, name='editpost'),
     path('listcompleted/', views.listcompleted, name='listcompleted'),
 ]
 
