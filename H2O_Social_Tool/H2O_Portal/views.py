@@ -57,10 +57,10 @@ def listscheduled(request):
     return render(request, 'H2O_Portal/listscheduled.html', {'Posts': all_posts } )
 
 @login_required
-def editpost(request, post_to_edit):
+def editpost(request, value):
     #need title drop down
     user = request.user
-    user_posts = SocialPost.objects.filter(updated_by=user, id=post_to_edit)
+    user_posts = SocialPost.objects.filter(updated_by=user, id=value)
     return render(request, 'H2O_Portal/editpost.html', {'Posts' : user_posts})
 
 @login_required

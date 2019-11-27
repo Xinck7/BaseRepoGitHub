@@ -28,7 +28,7 @@
             <td>{{ post.GroupMe }}</td>
             <td>{{ post.updated_by }}</td>
               {% if post.updated_by == user %}
-                <td class="editpostbutton"><a href="{% url 'editpost' post_to_edit={{post.id}} %}" >Edit</a></td>
+                <td class="editpostbutton"><a href="{% url 'editpost' value=post.id %}" >Edit</a></td>
               {% endif %}
             {% endif %}
           </tr>

@@ -10,7 +10,7 @@ urlpatterns = [
     path('createpost/', views.createpost, name='createpost'),
     path('listscheduled/', views.listscheduled, name='listscheduled'),
     #path('editpost/', views.editpost, name='editpost'),
-    path(r'^editpost/(?P<post_to_edit>\d+)/$', views.editpost, name='editpost'),
+    path(r'^editpost/(?P<key_id>[0-9])/$', views.editpost, name='editpost'),
     path('listcompleted/', views.listcompleted, name='listcompleted'),
 ]
 
