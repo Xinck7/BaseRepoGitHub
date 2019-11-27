@@ -120,7 +120,7 @@ input, select {
 body{
   background-color: rgb(240, 240, 240);
 }
-
+/*Header*/
 #h2opic{
   display: block;
   margin-left: auto;
@@ -132,29 +132,12 @@ header {
   font-size: 40px;
   color: rgb(99, 100, 102);
 }
+/*End Header*/
 
+/*Nav Bar*/
 #navbuttons{
   margin-top: 10px;
   text-align: center;
-}
-
-.usernamedisplay{
-  position: absolute;
-  font-size: 16px;
-  top: 30px;
-  right: 200px;
-}
-
-#signup, #logout{
-  position: absolute;
-  top: 15px;
-  right: 10px;
-}
-
-#login{
-  position: absolute;
-  top: 15px;
-  right: 90px;
 }
 
 ul{
@@ -183,6 +166,29 @@ a:link, a:visited{
   color: black;
   text-decoration: none;
 }
+/*End Nav Bar*/
+
+
+/*Positioning for the login stuff*/
+.usernamedisplay{
+  position: absolute;
+  font-size: 16px;
+  top: 30px;
+  right: 200px;
+}
+
+#signup, #logout{
+  position: absolute;
+  top: 15px;
+  right: 10px;
+}
+
+#login{
+  position: absolute;
+  top: 15px;
+  right: 90px;
+}
+/*End Positioning for the login stuff*/
 
 /*Forms styles*/
 form{
@@ -206,6 +212,7 @@ textarea, input[type="text"], #id_picture{
 #CreatePost, #ManageCreds, #ListScheduled, #ListCompleted{
   text-align: center;
 }
+/*End Forms styles*/
 
 /*Posts Pane*/
 .posttables{
@@ -220,4 +227,4 @@ th,td{
   border-collapse: collapse;
   background-color: rgba(241, 120, 44, 0.90);
 }
-
+/*End Posts Pane*/
