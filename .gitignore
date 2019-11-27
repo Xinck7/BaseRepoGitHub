@@ -13,3 +13,4 @@ H2O_Social_Tool/H2O_Portal/__pycache__/views.cpython-37.pyc
 H2O_Social_Tool/H2O_Portal/migrations/__pycache__/__init__.cpython-37.pyc
 H2O_Social_Tool/H2O_Portal/migrations/__pycache__/0001_initial.cpython-37.pyc
 H2O_Social_Tool/H2O_Portal/migrations/__pycache__/0002_auto_20191126_1342.cpython-37.pyc
+H2O_Social_Tool/db.sqlite3

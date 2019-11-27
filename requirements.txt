@@ -2,3 +2,4 @@ python3
 pillow
 django
 djangorestframework
+social-auth-app-django

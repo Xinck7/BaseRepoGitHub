@@ -190,6 +190,24 @@ a:link, a:visited{
 }
 /*End Positioning for the login stuff*/
 
+/*Manage credentials*/
+.managecredslinks{
+  display: inline-block;
+  padding: 10px;
+  margin: 5px;
+  background-color: rgba(243, 130, 60, 1);
+  border: 3px solid rgb(99, 100, 102);
+  border-radius: 8px;
+}
+
+@media (max-width: 750px){
+  .managecredslinks{
+    display: block;
+  }
+}
+
+/*End Manage credentials*/
+
 /*Forms styles*/
 form{
   background-color: rgba(243, 130, 60, 1);

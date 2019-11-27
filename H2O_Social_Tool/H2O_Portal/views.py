@@ -39,6 +39,10 @@ def managecreds(request):
     return render(request, 'H2O_Portal/managecreds.html')#, {'form' : form})
 
 @login_required
+def authenticated(request):
+    return render(request, 'H2O_Portal/authenticated.html')
+
+@login_required
 def createpost(request):
     if request.method == 'POST':
         form = SocialPostForm(request.POST)            
