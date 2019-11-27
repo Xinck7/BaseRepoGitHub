@@ -1,6 +1,7 @@
 from django.contrib.auth import login as auth_login, authenticate
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
+from django.views.generic import View
 from H2O_Portal.models import *
 from H2O_Portal.forms import *
 
@@ -48,7 +49,7 @@ def createpost(request):
             return redirect('/')
     else:
         form = SocialPostForm()
-    return render(request, 'H2O_Portal/createpost.html' , {'form' : form} )
+    return render(request, 'H2O_Portal/createpost.html', {'form' : form} )
 
 @login_required
 def listscheduled(request):
@@ -56,9 +57,16 @@ def listscheduled(request):
     return render(request, 'H2O_Portal/listscheduled.html', {'Posts': all_posts } )
 
 @login_required
+def editpost(request, post_to_edit):
+    #need title drop down
+    user = request.user
+    user_posts = SocialPost.objects.filter(updated_by=user, id=post_to_edit)
+    return render(request, 'H2O_Portal/editpost.html', {'Posts' : user_posts})
+
+@login_required
 def listcompleted(request):
     all_posts = SocialPost.objects.all()
-    return render(request, 'H2O_Portal/listcompleted.html' ,{'Posts': all_posts } )
+    return render(request, 'H2O_Portal/listcompleted.html', {'Posts': all_posts } )
 
 
 # https://api.groupme.com/v3/groups/:group_id/messages

@@ -1,0 +1,28 @@
+{% extends 'H2O_Portal/base.html' %}
+
+{% block EditPost %}
+  {% for post in Posts %}
+    {% if post.completed == False %}
+      <br>
+      <p>id</p>
+      <p>{{post.id}}</p>
+      <br>
+      {{ post.title }}
+      <br>
+      {{ post.post_time }}
+      <br>
+      {{ post.message }}
+      <br>
+      {{ post.picture }}
+      <br>
+      {{ post.Facebook }}
+      <br>
+      {{ post.Instagram }}
+      <br>
+      {{ post.GroupMe }}
+      <br>
+      {{ post.updated_by }}
+      <br>
+    {% endif %}
+  {% endfor %}
+{% endblock EditPost %}

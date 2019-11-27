@@ -227,4 +227,8 @@ th,td{
   border-collapse: collapse;
   background-color: rgba(241, 120, 44, 0.90);
 }
+.editpostbutton{
+  background-color: rgba(68, 122, 238, 0.9);
+  border-collapse: unset;
+}
 /*End Posts Pane*/

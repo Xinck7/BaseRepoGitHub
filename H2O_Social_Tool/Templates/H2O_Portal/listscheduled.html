@@ -1,38 +1,39 @@
 {% extends 'H2O_Portal/base.html' %}
 
 {% block ListScheduled %}
-  <div id="ListSchPostsDisp" class="revealpane">
-    <div class="posttables">
-      <table>
-        <thead>
+  <div class="posttables">
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Post Time</th>
+          <th>Message</th>
+          <th>Picture</th>
+          <th>Facebook?</th>
+          <th>Instagram?</th>
+          <th>GroupMe?</th>
+          <th>Scheduled by</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for post in Posts %}
           <tr>
-            <th>Title</th>
-            <th>Post Time</th>
-            <th>Message</th>
-            <th>Picture</th>
-            <th>Facebook?</th>
-            <th>Instagram?</th>
-            <th>GroupMe?</th>
-            <th>Scheduled by</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for post in Posts %}
-            <tr>
-              {% if post.completed == False %}
-              <td>{{ post.title }}</td>
-              <td>{{ post.post_time }}</td>
-              <td>{{ post.message }}</td>
-              <td>{{ post.picture }}</td>
-              <td>{{ post.Facebook }}</td>
-              <td>{{ post.Instagram }}</td>
-              <td>{{ post.GroupMe }}</td>
-              <td>{{ post.updated_by }}</td>
+            {% if post.completed == False %}
+            <td>{{ post.title }}</td>
+            <td>{{ post.post_time }}</td>
+            <td>{{ post.message }}</td>
+            <td>{{ post.picture }}</td>
+            <td>{{ post.Facebook }}</td>
+            <td>{{ post.Instagram }}</td>
+            <td>{{ post.GroupMe }}</td>
+            <td>{{ post.updated_by }}</td>
+              {% if post.updated_by == user %}
+                <td class="editpostbutton"><a href="{% url 'editpost' post_to_edit={{post.id}} %}" >Edit</a></td>
               {% endif %}
-            </tr>
-          {% endfor %}
-        </tbody>
-      </table>
-    </div>
-  </div> 
+            {% endif %}
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
 {% endblock ListScheduled %}
