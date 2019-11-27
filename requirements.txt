@@ -3,3 +3,4 @@ pillow
 django
 djangorestframework
 social-auth-app-django
+python-decouple

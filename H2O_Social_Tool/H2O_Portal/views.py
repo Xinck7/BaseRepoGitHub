@@ -1,13 +1,11 @@
 from django.contrib.auth import login as auth_login, authenticate
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
-
 from django.views.generic import View
-
 from H2O_Portal.models import *
 from H2O_Portal.forms import *
-
 from social_django.models import UserSocialAuth
+
 # Create your views here.
 
 def home(request):

@@ -13,9 +13,6 @@
           {% csrf_token %}
           <button type="submit">Disconnect from Facebook</button>
         </form>
-      {% else %}
-        <button type="button" disabled>Disconnect from Facebook</button>
-        <p style="color: red">You must <a href="{% url 'password' %}">define a password</a> for your account before disconnecting from Facebook.</p>
       {% endif %}
     {% else %}
       <div class="managecredslinks">
@@ -31,9 +28,6 @@
           {% csrf_token %}
           <button type="submit">Disconnect from Instagram</button>
         </form>
-      {% else %}
-        <button type="button" disabled>Disconnect from Instagram</button>
-        <p style="color: red">You must <a href="{% url 'password' %}">define a password</a> for your account before disconnecting from Instagram.</p>
       {% endif %}
     {% else %}
       <div class="managecredslinks">
@@ -49,9 +43,6 @@
           {% csrf_token %}
           <button type="submit">Disconnect from GroupMe</button>
         </form>
-      {% else %}
-        <button type="button" disabled>Disconnect from GroupMe</button>
-        <p style="color: red">You must <a href="{% url 'password' %}">define a password</a> for your account before disconnecting from GroupMe.</p>
       {% endif %}
     {% else %}
       <div class="managecredslinks">

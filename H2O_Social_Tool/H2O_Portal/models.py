@@ -25,17 +25,14 @@ class SocialPost(models.Model):
             self.completed, 
             self.updated_by)
 
-    #def fbpost
-
-
-    #def instapost
-
-    
-    #def gmpost
-
 #In progress to fixing users within the specific user and linking them together
 #https://stackoverflow.com/questions/373335/how-do-i-get-a-cron-like-scheduler-in-python
 #https://automatetheboringstuff.com/chapter15/
+
+
+# Likely not going to be used but don't want to migrate and delete steps
+# Delete section when working on the actual post sending since itll read likely another place
+# Don't forget to remove from admin.py as well
 class SocialAccount(models.Model):
     ACCOUNT = (
         ('f', ('Facebook')),
@@ -53,3 +50,4 @@ class SocialAccount(models.Model):
 
     def __str__(self):
         return '{} {}'.format(self.account_type, self.username)
+# End Delete section
