@@ -11,6 +11,7 @@ urlpatterns = [
     path('listscheduled/', views.listscheduled, name='listscheduled'),
     #path('editpost/', views.editpost, name='editpost'),
     path('editpost/editpost<int:value>', views.editpost, name='editpost'),
+    path('editpost/deletepost<int:value>', views.deletepost, name='deletepost'),
     path('listcompleted/', views.listcompleted, name='listcompleted'),
 ]
 

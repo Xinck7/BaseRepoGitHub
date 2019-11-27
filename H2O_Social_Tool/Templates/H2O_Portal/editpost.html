@@ -1,28 +1,67 @@
 {% extends 'H2O_Portal/base.html' %}
 
 {% block EditPost %}
+<form method="post" class="myfieldclass" novalidate>
+  {% csrf_token %}
   {% for post in Posts %}
     {% if post.completed == False %}
-      <br>
-      <p>id</p>
-      <p>{{post.id}}</p>
-      <br>
-      {{ post.title }}
-      <br>
-      {{ post.post_time }}
-      <br>
-      {{ post.message }}
-      <br>
-      {{ post.picture }}
-      <br>
-      {{ post.Facebook }}
-      <br>
-      {{ post.Instagram }}
-      <br>
-      {{ post.GroupMe }}
-      <br>
-      {{ post.updated_by }}
-      <br>
+      {% for field in form %}
+        {% if field == form.title %}
+          <p>Previous Title</p>
+          <br>
+          {{ post.title }}
+          <br>
+          {{field}}
+          <br>
+        {% elif field == form.post_time %}
+          <p>Previous Time</p>
+          <br>
+          {{ post.post_time }}
+          <br>
+          {{field}}
+          <br>
+        {% elif field == form.message %}
+          <p>Previous Message</p>
+          <br>
+          {{ post.message }}
+          <br>
+          {{field}}
+          <br>
+        {% elif field == form.picture %}
+          <p>Previous Picture</p>
+          <br>
+          {{ post.picture }}
+          <br>
+          {{field}}
+          <br>       
+        {% elif field == form.Facebook %}
+          <p>Facebook</p>
+          <br>
+          {{ post.Facebook }}
+          <br>
+          {{field}}
+          <br>
+        {% elif field == form.Instagram %}
+          <p>Instagram</p>
+          <br>
+          {{ post.Instagram }}
+          <br>
+          {{field}}
+          <br>
+        {% elif field == form.GroupMe %}
+          <p>GroupMe</p>
+          <br>
+          {{ post.GroupMe }}
+          <br>
+          {{field}}
+          <br>
+        {% endif %}
+      {% endfor forms %}
     {% endif %}
-  {% endfor %}
+    <button class="buttoncontainer" type="submit">Resubmit Post</button>
+    <button class="buttoncontainer"><a href="{% url 'deletepost' value=post.id %}" >Delete</a></button>
+  {% endfor posts %}
+  
+  
+</form> 
 {% endblock EditPost %}

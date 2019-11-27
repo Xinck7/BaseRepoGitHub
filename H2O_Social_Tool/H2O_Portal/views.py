@@ -64,6 +64,14 @@ def editpost(request, value):
     return render(request, 'H2O_Portal/editpost.html', {'Posts' : user_posts})
 
 @login_required
+def deletepost(request, value):
+    #need title drop down
+    user = request.user
+    user_post = SocialPost.objects.filter(updated_by=user, id=value)
+    user_post.delete()
+    return render(request, 'H2O_Portal/editpost.html')
+
+@login_required
 def listcompleted(request):
     all_posts = SocialPost.objects.all()
     return render(request, 'H2O_Portal/listcompleted.html', {'Posts': all_posts } )
