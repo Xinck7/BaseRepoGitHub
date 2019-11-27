@@ -35,11 +35,13 @@
     </div>
   </div>
   
+  {% if request.user.is_authenticated %}
   <div id="LoggedInUser">
     <div class="usernamedisplay">
       <p> Logged in as: {{user.username}} </p>
     </div>
   </div>
+  {% endif %}
   
   <div id="AppLogin">
     {% block AppLogin %}

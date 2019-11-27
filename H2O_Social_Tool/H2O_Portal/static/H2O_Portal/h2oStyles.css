@@ -173,8 +173,8 @@ a:link, a:visited{
 .usernamedisplay{
   position: absolute;
   font-size: 16px;
-  top: 30px;
-  right: 200px;
+  top: 80px;
+  right: 50px;
 }
 
 #signup, #logout{
