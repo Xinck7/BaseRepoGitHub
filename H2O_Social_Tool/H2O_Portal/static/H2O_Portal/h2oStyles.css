@@ -211,12 +211,12 @@ a:link, a:visited{
 
 /*Forms styles*/
 form{
-  background-color: rgba(243, 130, 60, 1);
+  background-color: rgba(243, 130, 60, .99);
   border: 3px solid rgb(99, 100, 102);
   border-radius: 8px;
   color: black;
   box-sizing: content-box;
-  width: 60%;
+  width: 50%;
   margin: auto;
   font-size: 18px;
   font-weight: 500;
@@ -264,7 +264,8 @@ td{
   background-color: rgba(241, 120, 44, 0.90);
 }
 .editpostbutton{
-  background-color: rgba(68, 122, 238, 0.9);
+  background-color: rgba(68, 122, 238, 0.8);
   border-collapse: unset;
+  padding: 10px;
 }
 /*End Posts Pane*/
