@@ -21,15 +21,15 @@
     <div id="navbuttons">
       <ul id="navlist">
         {% if request.user.is_authenticated %}
-        <li class="navbar"><h1><a href="/">Home</a></h1></li>
-        <li class="navbar"><h1><a href="/managecreds/">Manage Credentials</a></h1></li>
-        <li class="navbar"><h1><a href="/createpost/">Create Post</a></h1></li>
-        <li class="navbar"><h1><a href="/listscheduled/">List Scheduled Posts</a></h1></li>
-        <li class="navbar"><h1><a href="/listcompleted/">Completed Posts</a></h1></li>
-        <li class="navbar" id="logout"><h1><a href="/H2O_Portal/logout/">Logout</a></h1></li>
+        <li class="navbar"><a href="/">Home</a></li>
+        <li class="navbar"><a href="/managecreds/">Manage Credentials</a></li>
+        <li class="navbar"><a href="/createpost/">Create Post</a></li>
+        <li class="navbar"><a href="/listscheduled/">List Scheduled Posts</a></li>
+        <li class="navbar"><a href="/listcompleted/">Completed Posts</a></li>
+        <li class="navbar" id="logout"><a href="/H2O_Portal/logout/">Logout</a></h1></li>
         {% else %}
-        <li class="navbar" id="signup"><h1><a href="/signup/">Signup</a></h1></li>
-        <li class="navbar" id="login"><h1><a href="/H2O_Portal/login/">Login</a></h1></li>
+        <li class="navbar" id="signup"><a href="/signup/">Signup</a></li>
+        <li class="navbar" id="login"><a href="/H2O_Portal/login/">Login</a></li>
         {% endif %}
       </ul>
     </div>

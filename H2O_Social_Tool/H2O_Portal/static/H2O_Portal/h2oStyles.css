@@ -149,6 +149,7 @@ li{
   display: inline-block;
   padding: 10px;
   margin: 5px;
+  font-weight: 600;
   background-color: rgba(243, 130, 60, 1);
   border-radius: 8px;
 }
@@ -218,6 +219,7 @@ form{
   width: 60%;
   margin: auto;
   font-size: 18px;
+  font-weight: 500;
   margin-top: 5px;
   padding: 5px; 
   text-align: center;
@@ -247,10 +249,18 @@ textarea, input[type="text"], #id_picture{
   min-width: 5px;
   text-align: center;
 }
-th,td{
+th{
   padding: 15px;
-  border: 2px solid rgb(99, 100, 102);
+  border: 1px solid rgb(99, 100, 102);
   border-collapse: collapse;
+  background-color: rgba(241, 120, 44, 0.75);
+  font-weight: 200;
+}
+td{
+  padding: 15px;
+  border: 1px solid rgb(99, 100, 102);
+  border-collapse: collapse;
+  font-weight: 500;
   background-color: rgba(241, 120, 44, 0.90);
 }
 .editpostbutton{

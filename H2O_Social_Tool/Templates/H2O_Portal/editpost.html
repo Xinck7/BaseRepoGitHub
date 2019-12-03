@@ -32,19 +32,19 @@
       <br>
     {% for field in form %}
       {% if field == form.Facebook %}
-      <b>{{ field.label_tag }}</b>
+      {{ field.label_tag }}
         {{ field }}
       
       {% elif field == form.Instagram %}
-      <b>{{ field.label_tag }}</b>
+      {{ field.label_tag }}
         {{ field }}
       
       {% elif field == form.GroupMe %}
-      <b>{{ field.label_tag }}</b>
+      {{ field.label_tag }}
         {{ field }}
       
       {% else %}
-        <b>{{ field.label_tag }}</b>
+        {{ field.label_tag }}
         <br>
         {% if field.help_text %}
           {{ field.help_text }}
@@ -55,7 +55,7 @@
         <br>
       {% endif %}
       {% for error in field.errors %}
-          <p style="color: red">{{ error }}</p>
+          <p style="color: blue">{{ error }}</p>
           <br>
       {% endfor %}
       <br>
