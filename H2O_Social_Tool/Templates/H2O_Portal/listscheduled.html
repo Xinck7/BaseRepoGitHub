@@ -27,14 +27,8 @@
             <td>{{ post.Instagram }}</td>
             <td>{{ post.GroupMe }}</td>
             <td>{{ post.updated_by }}</td>
-              {% if post.updated_by == request.user.is_staff or post.updated_by == request.user.is_superuser or post.updated_by == user %}
+              {% if post.updated_by == request.user.is_staff or request.user.is_superuser or user %}
                 <td class="editpostbutton"><a href="{% url 'editpost' value=post.id %}">Edit</a></td>
-              {% comment %}
-              {% elif request.user.is_staff %}
-                <td class="editpostbutton"><a href="{% url 'editpost' value=post.id %}">Edit</a></td>
-              {% elif request.user.is_superuser %}
-                <td class="editpostbutton"><a href="{% url 'editpost' value=post.id %}">Edit</a></td>               
-              {% endcomment %}
               {% endif %}
             {% endif %}
           </tr>
