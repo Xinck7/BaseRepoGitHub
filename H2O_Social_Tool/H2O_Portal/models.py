@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-from groupy import Client
+from groupy import Client, attachments
 # Create your models here.
 
 class SocialPost(models.Model):
@@ -45,12 +45,18 @@ class SocialPost(models.Model):
             return self.message
 
     class GroupMePosts(models.Model):
-        pass
         def getgroups():
             client = Client.from_token('api_token')
             groups = list(client.groups.list_all())
+        
+        def sendmessage(socialmessage):
+            groupstosend = getgroups()
+            imageattachment = 
+            for group in groupstosend:
+                message.group.post(socialmessage)
 
-
+    # if SocialPost.GroupMe = True:
+    #     GroupMePosts.getgroups()
 
 
 #In progress to fixing users within the specific user and linking them together
