@@ -15,6 +15,7 @@ class SignUpForm(UserCreationForm):
 class SocialPostForm(forms.ModelForm):
     class Meta:
         model = SocialPost
+        model.post_time = forms.DateField(required=False)
         widgets = {
             'myfield': forms.TextInput(attrs={'class': 'myfieldclass'}),
             'myfield2': forms.FileInput(attrs={'class':'imageclass'}),

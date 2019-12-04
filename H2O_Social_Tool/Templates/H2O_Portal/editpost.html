@@ -67,8 +67,7 @@
       {% endfor %}
       <br>
     {% endfor %}
-    <button class="resubmitbutton"><a href="{% url 'editpost' value=Post.id %}">Resubmit Post</a></button>
-    <button class="deletebutton"><a href="{% url 'deletepost' value=Post.id %}">Delete</a></button>
+    <button class="resubmitbutton"><a href="{% url 'editpost' value=Post.id %}">Resubmit Post</a></button><button class="deletebutton"><a href="{% url 'deletepost' value=Post.id %}">Delete</a></button>
   </form> 
 </div>
 {% endblock EditPost %}
