@@ -323,4 +323,28 @@ td{
   background-color: rgba(68, 122, 238, 1);
 }
 
+.resubmitbutton{
+  padding: 1%;
+  margin-bottom: 15px;
+  width:45%;
+  background-color: rgba(90, 140, 250, 1);
+  font-size: 14pt;
+  border: none;
+}
+.resubmitbutton:hover{
+  background-color: rgba(90, 250, 125, 0.7);
+}
+.deletebutton{
+  padding: 1%;
+  margin-bottom: 15px;
+  width:55%;
+  color: White;
+  background-color: rgba(250, 90, 90, 1);
+  font-size: 14pt;
+  border: none;
+}
+.deletebutton:hover{
+  
+  background-color: lightslategrey;
+}
 /*End Posts Pane*/

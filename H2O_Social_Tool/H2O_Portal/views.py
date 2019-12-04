@@ -90,7 +90,7 @@ def editpost(request, value):
 @login_required
 def deletepost(request, value):
     user = request.user
-    user_post = SocialPost.objects.filter(updated_by=user, id=value)
+    user_post = SocialPost.objects.filter(id=value)
     user_post.delete()
     return redirect('../listscheduled/')
 

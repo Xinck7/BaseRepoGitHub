@@ -4,8 +4,14 @@
     <form method="post" class="myfieldclass" novalidate>
       {% csrf_token %}
       {% for field in form %}
-
-        {% if field == form.Facebook %}
+        {% if field == form.picture %}
+          {{field.label_tag}}
+          <label class="imageclass">
+            Upload
+            {{field}}
+          </label>
+          <br>
+        {% elif field == form.Facebook %}
         {{ field.label_tag }}
           {{ field }}
         
@@ -37,6 +43,6 @@
         <br>
       {% endfor %}
       <br>
-      <input type="submit" value"Create Post"></input>
+      <input type="submit" value="Create Post"></input>
     </form> 
 {% endblock CreatePost %}
