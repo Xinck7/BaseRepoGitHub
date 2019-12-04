@@ -20,7 +20,7 @@ from django.conf.urls import url
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('H2O_Portal/', include('django.contrib.auth.urls')),
-#    url(r'^oauth/', include('social_django.urls', namespace='social')),
+    url(r'^oauth/', include('social_django.urls', namespace='social')),
     path('accounts/', include('allauth.urls')),
     path('', include('H2O_Portal.urls')),
 ]

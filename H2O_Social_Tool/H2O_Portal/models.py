@@ -26,34 +26,34 @@ class SocialPost(models.Model):
             self.completed, 
             self.updated_by)
             
-    class FacebookStatus(models.Model):
-        class Meta:
-            verbose_name_plural = 'Facebook Statuses'
-            ordering = ['publish_timestamp']
-        # STATUS = (
-        #     ('draft', 'Draft'),
-        #     ('approved', 'Approved'),
-        # )
-        # status = models.CharField(max_length=255, 
-        #     choices=STATUS, default=STATUS[0][0])
-        publish_timestamp = models.DateTimeField(null=True, blank=True)
-        author = models.ForeignKey(User)
-        message = models.TextField(max_length=255)
-        link = models.URLField(null=True, blank=True)
+    # class FacebookStatus(models.Model):
+    #     class Meta:
+    #         verbose_name_plural = 'Facebook Statuses'
+    #         ordering = ['publish_timestamp']
+    #     # STATUS = (
+    #     #     ('draft', 'Draft'),
+    #     #     ('approved', 'Approved'),
+    #     # )
+    #     # status = models.CharField(max_length=255, 
+    #     #     choices=STATUS, default=STATUS[0][0])
+    #     publish_timestamp = models.DateTimeField(null=True, blank=True)
+    #     author = models.ForeignKey(User)
+    #     message = models.TextField(max_length=255)
+    #     link = models.URLField(null=True, blank=True)
 
-        def __unicode__(self):
-            return self.message
+    #     def __unicode__(self):
+    #         return self.message
 
-    class GroupMePosts(models.Model):
-        def getgroups():
-            client = Client.from_token('api_token')
-            groups = list(client.groups.list_all())
+    # class GroupMePosts(models.Model):
+    #     def getgroups():
+    #         client = Client.from_token('api_token')
+    #         groups = list(client.groups.list_all())
         
-        def sendmessage(socialmessage):
-            groupstosend = getgroups()
-            imageattachment = 
-            for group in groupstosend:
-                message.group.post(socialmessage)
+    #     def sendmessage(socialmessage):
+    #         groupstosend = getgroups()
+    #         imageattachment = 
+    #         for group in groupstosend:
+    #             message.group.post(socialmessage)
 
     # if SocialPost.GroupMe = True:
     #     GroupMePosts.getgroups()
