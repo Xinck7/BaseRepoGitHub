@@ -17,6 +17,7 @@ class SocialPostForm(forms.ModelForm):
         model = SocialPost
         widgets = {
             'myfield': forms.TextInput(attrs={'class': 'myfieldclass'}),
+            'myfield2': forms.FileInput(attrs={'class':'imageclass'}),
         }
         fields = ('title', 'post_time', 'message', 'picture', 'Facebook', 'Instagram', 'GroupMe')
 

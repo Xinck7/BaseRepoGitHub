@@ -153,6 +153,11 @@ li{
   background-color: rgba(243, 130, 60, 1);
   border-radius: 8px;
 }
+
+li:hover{
+  background-color: rgba(243, 130, 60, .80);
+}
+
 @media (max-width: 750px){
   li{
     display: block;
@@ -200,7 +205,9 @@ a:link, a:visited{
   border: 3px solid rgb(99, 100, 102);
   border-radius: 8px;
 }
-
+.managecredslinks:hover{
+  background-color: rgba(243, 130, 60, .80);
+}
 @media (max-width: 750px){
   .managecredslinks{
     display: block;
@@ -229,6 +236,7 @@ textarea, input[type="text"]{
   background-color: rgb(240, 240, 240);
 }
 
+/*Cleaning up the create post section*/
 input, textarea{
   width: 75%;
   padding: 5px;
@@ -242,16 +250,34 @@ input, textarea{
 input[type="submit"]{
   padding: 1%;
   margin-bottom: 15px;
-  background-color:rgb(240, 240, 240) ;
+  background-color: rgba(90, 140, 250, 1);
+  font-size: 14pt;
+  border: none;
 }
 
-#id_picture{
-  background-color: rgb(240, 240, 240);
-}
 
 input[type="checkbox"]{
   width: 10%;
 }
+
+.imageclass{
+  padding: 8px;
+  margin: 10px;
+  background-color: rgba(90, 140, 250, 1);
+  font-size: 12pt;
+  border: none;
+}
+
+.imageclass #id_picture{
+  display: none;
+  width: 50%;
+}
+
+.imageclass:hover, input[type="submit"]:hover{
+  background-color: rgba(90, 140, 250, .70);
+}
+
+/*End Cleaning up the create post section*/
 
 #CreatePost, #ManageCreds, #ListScheduled, #ListCompleted{
   text-align: center;
@@ -288,8 +314,13 @@ td{
   background-color: rgba(241, 120, 44, 0.90);
 }
 .editpostbutton{
-  background-color: rgba(68, 122, 238, 0.8);
+  background-color: rgba(68, 122, 238, 0.60);
   border-collapse: unset;
   padding: 10px;
 }
+
+.editpostbutton:hover{
+  background-color: rgba(68, 122, 238, 1);
+}
+
 /*End Posts Pane*/
