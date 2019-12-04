@@ -4,8 +4,8 @@ from django.contrib.auth.decorators import login_required
 from django.views.generic import View
 from H2O_Portal.models import *
 from H2O_Portal.forms import *
-from social_django.models import UserSocialAuth
-
+#from social_django.models import UserSocialAuth
+from allauth import account, socialaccount
 # Create your views here.
 
 def home(request):
@@ -30,20 +30,20 @@ def signup(request):
 def managecreds(request):
     user = request.user
     try:
-        facebook_login = user.social_auth.get(provider='facebook')
+        facebook_login = '' #user.social_auth.get(provider='facebook')
     except UserSocialAuth.DoesNotExist:
         facebook_login = None
     try:
-        instagram_login = user.social_auth.get(provider='instagram')
+        instagram_login = ''#user.social_auth.get(provider='instagram')
     except UserSocialAuth.DoesNotExist:
         instagram_login = None
 
     try:
-        groupme_login = user.social_auth.get(provider='groupme')
+        groupme_login = ''#user.social_auth.get(provider='groupme')
     except UserSocialAuth.DoesNotExist:
         groupme_login = None
 
-    can_disconnect = (user.social_auth.count() > 1)
+    can_disconnect =  0#(user.social_auth.count() > 1)
 
     return render(request, 'H2O_Portal/managecreds.html', {
         'facebook_login': facebook_login,

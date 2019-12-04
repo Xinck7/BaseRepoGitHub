@@ -11,9 +11,9 @@
     {% if facebook_login %}
       <p>Connected as <a href="https://facebook.com/{{ facebook_login.extra_data.id }}/" target="_blank">{{ facebook_login.extra_data.id }}</a></p>
       {% if can_disconnect %}
-        <form method="post" action="{% url 'social:disconnect' 'facebook' %}">
+        <form  class="sociallogin" method="post" action="{% url 'social:disconnect' 'facebook' %}">
           {% csrf_token %}
-          <button type="submit">Disconnect from Facebook</button>
+          <button class="disconnect">Disconnect from Facebook</button>
         </form>
       {% endif %}
     {% else %}
@@ -21,14 +21,15 @@
         <a href="{% provider_login_url "facebook" method="js_sdk" %}">Connect to Facebook</a>
       </div>
     {% endif %}
+    <br>
 
     <h3>Instagram</h3>
     {% if instagram_login %}
       <p>Connected as <a href="https://instagram.com/{{ instagram_login.extra_data.login }}/" target="_blank">{{ instagram_login.extra_data.login }}</a></p>
       {% if can_disconnect %}
-        <form method="post" action="{% url 'social:disconnect' 'instagram' %}">
+        <form class="sociallogin" method="post" action="{% url 'social:disconnect' 'instagram' %}">
           {% csrf_token %}
-          <button type="submit">Disconnect from Instagram</button>
+          <button class="disconnect">Disconnect from Instagram</button>
         </form>
       {% endif %}
     {% else %}
@@ -36,14 +37,15 @@
         <a href="{% url 'social:begin' 'instagram' %}">Connect to Instagram</a>
       </div>
     {% endif %}
+    <br>
 
     <h3>GroupMe</h3>
     {% if groupme_login %}
       <p>Connected as <a href="https://groupme.com/{{ groupme_login.extra_data.access_token.screen_name }}/" target="_blank">@{{ groupme_login.extra_data.access_token.screen_name }}</a></p>
       {% if can_disconnect %}
-        <form method="post" action="{% url 'social:disconnect' 'groupme' %}">
+        <form class="sociallogin" method="post" action="{% url 'social:disconnect' 'groupme' %}">
           {% csrf_token %}
-          <button type="submit">Disconnect from GroupMe</button>
+          <button class="disconnect">Disconnect from GroupMe</button>
         </form>
       {% endif %}
     {% else %}
