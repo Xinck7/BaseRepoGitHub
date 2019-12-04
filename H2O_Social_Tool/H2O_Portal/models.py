@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from groupy import Client
 # Create your models here.
 
 class SocialPost(models.Model):
@@ -24,11 +25,37 @@ class SocialPost(models.Model):
             self.GroupMe, 
             self.completed, 
             self.updated_by)
+            
+    class FacebookStatus(models.Model):
+        class Meta:
+            verbose_name_plural = 'Facebook Statuses'
+            ordering = ['publish_timestamp']
+        # STATUS = (
+        #     ('draft', 'Draft'),
+        #     ('approved', 'Approved'),
+        # )
+        # status = models.CharField(max_length=255, 
+        #     choices=STATUS, default=STATUS[0][0])
+        publish_timestamp = models.DateTimeField(null=True, blank=True)
+        author = models.ForeignKey(User)
+        message = models.TextField(max_length=255)
+        link = models.URLField(null=True, blank=True)
+
+        def __unicode__(self):
+            return self.message
+
+    class GroupMePosts(models.Model):
+        pass
+        def getgroups():
+            client = Client.from_token('api_token')
+            groups = list(client.groups.list_all())
+
+
+
 
 #In progress to fixing users within the specific user and linking them together
 #https://stackoverflow.com/questions/373335/how-do-i-get-a-cron-like-scheduler-in-python
 #https://automatetheboringstuff.com/chapter15/
-
 
 # Likely not going to be used but don't want to migrate and delete steps
 # Delete section when working on the actual post sending since itll read likely another place

@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.views.generic import View
 from H2O_Portal.models import *
 from H2O_Portal.forms import *
-from social_django.models import UserSocialAuth
+#from social_django.models import UserSocialAuth
 
 # Create your views here.
 
@@ -43,7 +43,7 @@ def managecreds(request):
     except UserSocialAuth.DoesNotExist:
         groupme_login = None
 
-    can_disconnect = (user.social_auth.count() > 1 or user.has_usable_password())
+    can_disconnect = (user.social_auth.count() > 1)
 
     return render(request, 'H2O_Portal/managecreds.html', {
         'facebook_login': facebook_login,
@@ -51,7 +51,7 @@ def managecreds(request):
         'groupme_login': groupme_login,
         'can_disconnect': can_disconnect
     })
-    return render(request, 'H2O_Portal/managecreds.html')
+    #return render(request, 'H2O_Portal/managecreds.html')
 
 @login_required
 def createpost(request):

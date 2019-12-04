@@ -1,6 +1,7 @@
 python3
 pillow
 django
-djangorestframework
-social-auth-app-django
 python-decouple
+django-sslserver
+django-allauth
+GroupyAPI
