@@ -39,16 +39,17 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'social_django',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.facebook',
     'allauth.socialaccount.providers.instagram',
-    #'allauth.socialaccount.providers.groupme',
+    'allauth.socialaccount.providers.oauth2',
     'django.contrib.sites',
     "sslserver",
 ]
+
+# For getting the groupme provider included https://github.com/pennersr/django-allauth/pull/1410/files
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -76,32 +77,28 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'social_django.context_processors.backends',
-                'social_django.context_processors.login_redirect',
             ],
         },
     },
 ]
 
 AUTHENTICATION_BACKENDS = (    
-    'social_core.backends.facebook.FacebookOAuth2',
-    'social_core.backends.instagram.InstagramOAuth2',
-    #'social_core.backends.groupme.GroupMeAuth2',
+    # 'social_core.backends.facebook.FacebookOAuth2',
+    # 'social_core.backends.instagram.InstagramOAuth2',
+    # 'social_core.backends.groupme.GroupMeAuth2',
     'django.contrib.auth.backends.ModelBackend',
 )
 
 #Keys section - need to learn to decouple
 
-SOCIAL_AUTH_FACEBOOK_KEY = config('SOCIAL_AUTH_FACEBOOK_KEY')  # App ID
-SOCIAL_AUTH_FACEBOOK_SECRET = config('SOCIAL_AUTH_FACEBOOK_SECRET')  # App secret
-
-SOCIAL_AUTH_INSTAGRAM_KEY = config('SOCIAL_AUTH_INSTAGRAM_KEY')
-SOCIAL_AUTH_INSTAGRAM_SECRET = config('SOCIAL_AUTH_INSTAGRAM_SECRET')
-
+# SOCIAL_AUTH_FACEBOOK_KEY = config('SOCIAL_AUTH_FACEBOOK_KEY')  # App ID
+# SOCIAL_AUTH_FACEBOOK_SECRET = config('SOCIAL_AUTH_FACEBOOK_SECRET')  # App secret
+# SOCIAL_AUTH_INSTAGRAM_KEY = config('SOCIAL_AUTH_INSTAGRAM_KEY')
+# SOCIAL_AUTH_INSTAGRAM_SECRET = config('SOCIAL_AUTH_INSTAGRAM_SECRET')
 #SOCIAL_AUTH_GROUPME_KEY = config('SOCIAL_AUTH_GROUPME_KEY')
 #SOCIAL_AUTH_GROUPME_SECRET = config('SOCIAL_AUTH_GROUPME_SECRET')
 
-GroupMe_AuthToken = config('GroupMe_AuthToken')
+#GroupMe_AuthToken = config('GroupMe_AuthToken')
 
 WSGI_APPLICATION = 'H2O_Social_Tool.wsgi.application'
 
@@ -179,9 +176,12 @@ LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
-SOCIAL_AUTH_LOGIN_ERROR_URL = '/'
-SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/'
-SOCIAL_AUTH_LOGOUT_REDIRECT_URL = '/'
-SOCIAL_AUTH_RAISE_EXCEPTIONS = False
+
+# Instagram URI Call back https://localhost:8000/accounts/instagram/login/callback/
+
+# SOCIAL_AUTH_LOGIN_ERROR_URL = '/'
+# SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/'
+# SOCIAL_AUTH_LOGOUT_REDIRECT_URL = '/'
+# SOCIAL_AUTH_RAISE_EXCEPTIONS = False
 
 SITE_ID = 1

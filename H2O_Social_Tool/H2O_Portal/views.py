@@ -28,19 +28,19 @@ def signup(request):
 
 @login_required
 def managecreds(request):
-    user = request.user
+    socialuser = request.user
     try:
         facebook_login = '' #user.social_auth.get(provider='facebook')
-    except UserSocialAuth.DoesNotExist:
+    except:# UserSocialAuth.DoesNotExist:
         facebook_login = None
     try:
         instagram_login = ''#user.social_auth.get(provider='instagram')
-    except UserSocialAuth.DoesNotExist:
+    except: #UserSocialAuth.DoesNotExist:
         instagram_login = None
 
     try:
         groupme_login = ''#user.social_auth.get(provider='groupme')
-    except UserSocialAuth.DoesNotExist:
+    except: #UserSocialAuth.DoesNotExist:
         groupme_login = None
 
     can_disconnect =  0#(user.social_auth.count() > 1)

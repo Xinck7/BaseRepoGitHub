@@ -66,21 +66,21 @@ class SocialPost(models.Model):
 # Likely not going to be used but don't want to migrate and delete steps
 # Delete section when working on the actual post sending since itll read likely another place
 # Don't forget to remove from admin.py as well
-class SocialAccount(models.Model):
-    ACCOUNT = (
-        ('f', ('Facebook')),
-        ('i', ('Instagram')),
-        ('g', ('GroupMe')),
-        ('n', ('Choose an Account type'))
-    )
-    account_type = models.CharField(
-        max_length=30,
-        choices=ACCOUNT,
-        default='n',
-    )
-    username = models.CharField(blank=True, max_length=40)
-    password = models.CharField(blank=True, max_length=40)
+# class SocialAccount(models.Model):
+#     ACCOUNT = (
+#         ('f', ('Facebook')),
+#         ('i', ('Instagram')),
+#         ('g', ('GroupMe')),
+#         ('n', ('Choose an Account type'))
+#     )
+#     account_type = models.CharField(
+#         max_length=30,
+#         choices=ACCOUNT,
+#         default='n',
+#     )
+#     username = models.CharField(blank=True, max_length=40)
+#     password = models.CharField(blank=True, max_length=40)
 
-    def __str__(self):
-        return '{} {}'.format(self.account_type, self.username)
+#     def __str__(self):
+#         return '{} {}'.format(self.account_type, self.username)
 # End Delete section
