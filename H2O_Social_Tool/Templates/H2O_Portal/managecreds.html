@@ -1,6 +1,8 @@
 {% extends 'H2O_Portal/base.html' %}
 
 {% block ManageCreds %}
+  {% load socialaccount %}
+  {% providers_media_js %} 
   <br>
   <h2>Authentication Options</h2>
     <br>
@@ -16,7 +18,7 @@
       {% endif %}
     {% else %}
       <div class="managecredslinks">
-        <a href="{% url 'social:begin' 'facebook' %}">Connect to Facebook</a>
+        <a href="{% provider_login_url "facebook" method="js_sdk" %}">Connect to Facebook</a>
       </div>
     {% endif %}
 
