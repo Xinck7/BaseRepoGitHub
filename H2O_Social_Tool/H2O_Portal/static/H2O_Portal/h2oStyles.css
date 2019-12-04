@@ -225,10 +225,20 @@ form{
   text-align: center;
 }
 
-textarea, input[type="text"], #id_picture{
+/*textarea, input[type="text"], #id_picture{
   background-color: rgb(240, 240, 240);
 }
-
+*/
+input, textarea{
+  width: 100%;
+  padding: 5px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; 
+  border-radius: 3px;
+  border-style: solid;
+  border-width: 1px;
+}
 #CreatePost, #ManageCreds, #ListScheduled, #ListCompleted{
   text-align: center;
 }
