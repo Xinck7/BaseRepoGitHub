@@ -7,3 +7,4 @@ for group in client.groups.list_all():
     groupnames = []
     groupnames.append(group)
     print(groupnames)
+#ask them for the token on manage creds
