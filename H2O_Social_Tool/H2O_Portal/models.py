@@ -4,7 +4,7 @@ from django.contrib.auth.models import AbstractUser
 from groupy import Client, attachments
 # Create your models here.
 
-class user(AbstractUser):
+class User(AbstractUser):
     Facebook = models.BooleanField(default=False)
     Instagram = models.BooleanField(default=False)
     GroupMe = models.BooleanField(default=False) 
@@ -26,15 +26,7 @@ class SocialPost(models.Model):
     picture = models.ImageField(blank=True)
     Facebook = models.BooleanField(default=False)
     Instagram = models.BooleanField(default=False)
-    GroupMe = models.BooleanField(default=False) 
-    
-    if GroupMe == True:
-        bot = Client.from_token('')
-        groups = bot.groups.list()
-        for group in groups:
-            if group.name != None:
-                group.name = models.BooleanField(default=False)
-    
+    GroupMe = models.BooleanField(default=False)     
     completed = models.BooleanField(default=False)
     updated_by = models.ForeignKey(
         settings.AUTH_USER_MODEL,
