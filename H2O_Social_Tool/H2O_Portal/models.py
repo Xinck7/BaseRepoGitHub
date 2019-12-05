@@ -1,13 +1,14 @@
-from django.contrib.auth.models import AbstractUser
 from django.conf import settings
 from django.db import models
+from django.contrib.auth.models import AbstractUser
 from groupy import Client, attachments
 # Create your models here.
 
-class User(AbstractUser):
+class user(AbstractUser):
     Facebook = models.BooleanField(default=False)
     Instagram = models.BooleanField(default=False)
     GroupMe = models.BooleanField(default=False) 
+    USERNAME_FIELD = 'username'
 
 class SocialPost(models.Model):
     title = models.TextField(
@@ -36,7 +37,7 @@ class SocialPost(models.Model):
     
     completed = models.BooleanField(default=False)
     updated_by = models.ForeignKey(
-        User,
+        settings.AUTH_USER_MODEL,
         null=True,
         related_name='+',
         on_delete=models.CASCADE,

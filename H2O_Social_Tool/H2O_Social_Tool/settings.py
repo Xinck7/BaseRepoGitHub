@@ -111,7 +111,7 @@ DATABASES = {
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
 
-AUTH_USER_MODEL = 'H2O_Portal.User'
+AUTH_USER_MODEL = 'H2O_Portal.user'
 
 AUTH_PASSWORD_VALIDATORS = [
     {
