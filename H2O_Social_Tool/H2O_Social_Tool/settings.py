@@ -28,7 +28,6 @@ DEBUG = config('DEBUG', cast=bool)
 
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -39,13 +38,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.facebook',
     'allauth.socialaccount.providers.instagram',
     'allauth.socialaccount.providers.oauth2',
-    'django.contrib.sites',
     "sslserver",
 ]
 
@@ -59,7 +58,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 
 ROOT_URLCONF = 'H2O_Social_Tool.urls'
@@ -83,33 +81,12 @@ TEMPLATES = [
 ]
 
 AUTHENTICATION_BACKENDS = (    
-    # 'social_core.backends.facebook.FacebookOAuth2',
-    # 'social_core.backends.instagram.InstagramOAuth2',
-    # 'social_core.backends.groupme.GroupMeAuth2',
     'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
 )
-
-#Keys section - need to learn to decouple
-
-# SOCIAL_AUTH_FACEBOOK_KEY = config('SOCIAL_AUTH_FACEBOOK_KEY')  # App ID
-# SOCIAL_AUTH_FACEBOOK_SECRET = config('SOCIAL_AUTH_FACEBOOK_SECRET')  # App secret
-# SOCIAL_AUTH_INSTAGRAM_KEY = config('SOCIAL_AUTH_INSTAGRAM_KEY')
-# SOCIAL_AUTH_INSTAGRAM_SECRET = config('SOCIAL_AUTH_INSTAGRAM_SECRET')
-#SOCIAL_AUTH_GROUPME_KEY = config('SOCIAL_AUTH_GROUPME_KEY')
-#SOCIAL_AUTH_GROUPME_SECRET = config('SOCIAL_AUTH_GROUPME_SECRET')
-
-#GroupMe_AuthToken = config('GroupMe_AuthToken')
 
 WSGI_APPLICATION = 'H2O_Social_Tool.wsgi.application'
 
-#Rest Framework from site for SPA
-REST_FRAMEWORK = {
-    # Use Django's standard `django.contrib.auth` permissions,
-    # or allow read-only access for unauthenticated users.
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
-    ]
-}
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
@@ -179,9 +156,8 @@ LOGOUT_REDIRECT_URL = '/'
 
 # Instagram URI Call back https://localhost:8000/accounts/instagram/login/callback/
 
-# SOCIAL_AUTH_LOGIN_ERROR_URL = '/'
-# SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/'
-# SOCIAL_AUTH_LOGOUT_REDIRECT_URL = '/'
-# SOCIAL_AUTH_RAISE_EXCEPTIONS = False
+# Allauth settings
+ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 5 
+ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT = 600 # 10 minutes in seconds
 
 SITE_ID = 1

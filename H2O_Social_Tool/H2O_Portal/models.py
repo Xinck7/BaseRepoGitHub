@@ -1,18 +1,33 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.conf import settings
 from groupy import Client, attachments
 # Create your models here.
 
 class SocialPost(models.Model):
-    title = models.TextField(blank=True, max_length=200)
-    post_time = models.DateTimeField(max_length=30, help_text='(ex 1/31/2019 13:00)')
-    message = models.TextField(blank=True, max_length=2000)
+    title = models.TextField(
+        blank=True,
+        max_length=200,
+        )
+    post_time = models.DateTimeField(
+        max_length=30,
+        help_text='(ex 1/31/2019 13:00)',
+        )
+    message = models.TextField(
+        blank=True,
+        max_length=2000,
+        )
     picture = models.ImageField(blank=True)
     Facebook = models.BooleanField(default=False)
     Instagram = models.BooleanField(default=False)
     GroupMe = models.BooleanField(default=False) 
     completed = models.BooleanField(default=False)
-    updated_by = models.ForeignKey(User, null=True, related_name='+', on_delete=models.CASCADE)
+    updated_by = models.ForeignKey(
+        User,
+        null=True,
+        related_name='+',
+        on_delete=models.CASCADE,
+        )
 
     def __str__(self):
         return '{} {} {} {} {} {} {} {} {}'.format(
@@ -24,8 +39,23 @@ class SocialPost(models.Model):
             self.Instagram, 
             self.GroupMe, 
             self.completed, 
-            self.updated_by)
+            self.updated_by,
+            )
             
+
+class UserWithSocials(models.Model):
+    user = models.OneToOneField(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        )
+    Facebookaccount = models.OneToOneField(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name='facebook_account',
+        )
+        
+
+
     # class FacebookStatus(models.Model):
     #     class Meta:
     #         verbose_name_plural = 'Facebook Statuses'

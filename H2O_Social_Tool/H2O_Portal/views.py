@@ -30,7 +30,7 @@ def signup(request):
 def managecreds(request):
     socialuser = request.user
     try:
-        facebook_login = '' #user.social_auth.get(provider='facebook')
+        facebook_login = socialaccount.helpers.user_username #user.social_auth.get(provider='facebook')
     except:# UserSocialAuth.DoesNotExist:
         facebook_login = None
     try:
@@ -43,7 +43,7 @@ def managecreds(request):
     except: #UserSocialAuth.DoesNotExist:
         groupme_login = None
 
-    can_disconnect =  0#(user.social_auth.count() > 1)
+    can_disconnect =  socialaccount.forms.DisconnectForm #(user.social_auth.count() > 1)
 
     return render(request, 'H2O_Portal/managecreds.html', {
         'facebook_login': facebook_login,
