@@ -5,9 +5,10 @@ from groupy import Client, attachments
 # Create your models here.
 
 class User(AbstractUser):
-    Facebook = models.BooleanField(default=False)
-    Instagram = models.BooleanField(default=False)
-    GroupMe = models.BooleanField(default=False) 
+    accounts = models.ManyToManyField(
+        settings.AUTH_USER_MODEL,
+        related_name='+',
+        )
     USERNAME_FIELD = 'username'
 
 class SocialPost(models.Model):

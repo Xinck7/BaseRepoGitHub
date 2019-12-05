@@ -6,7 +6,7 @@ from .models import SocialPost, User#, SocialAccount
 class MyUserAdmin(UserAdmin):
     model = User
     fieldsets = UserAdmin.fieldsets + (
-            (None, {'fields': ('Facebook', 'Instagram', 'GroupMe')}),
+            (None, {'fields': ('accounts',)}),
     )
 
 # Register your models here.

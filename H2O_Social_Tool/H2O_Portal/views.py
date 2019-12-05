@@ -30,11 +30,11 @@ def signup(request):
 def managecreds(request):
     socialuser = request.user
     try:
-        facebook_login = socialaccount.helpers.user_username #user.social_auth.get(provider='facebook')
+        facebook_login = socialaccount.objects.filter(provider='facebook', user_id=self.user.id)#sociallogin.account.provider #user.social_auth.get(provider='facebook')
     except:# UserSocialAuth.DoesNotExist:
         facebook_login = None
     try:
-        instagram_login = ''#user.social_auth.get(provider='instagram')
+        instagram_login = socialaccount.objects.filter(provider='instagram', user_id=self.user.id)#user.social_auth.get(provider='instagram')
     except: #UserSocialAuth.DoesNotExist:
         instagram_login = None
 
