@@ -111,6 +111,8 @@ DATABASES = {
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
 
+AUTH_USER_MODEL = 'H2O_Portal.User'
+
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -157,6 +159,9 @@ LOGOUT_REDIRECT_URL = '/'
 # Instagram URI Call back https://localhost:8000/accounts/instagram/login/callback/
 
 # Allauth settings
+#ACCOUNT_USER_MODEL_USERNAME_FIELD = AbstractUser.USERNAME_FIELD
+#ACCOUNT_USERNAME_REQUIRED = False
+#ACCOUNT_USER_MODEL_EMAIL_FIELD = None
 ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 5 
 ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT = 600 # 10 minutes in seconds
 

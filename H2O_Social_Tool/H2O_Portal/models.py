@@ -1,8 +1,13 @@
-from django.db import models
-from django.contrib.auth.models import User
+from django.contrib.auth.models import AbstractUser
 from django.conf import settings
+from django.db import models
 from groupy import Client, attachments
 # Create your models here.
+
+class User(AbstractUser):
+    Facebook = models.BooleanField(default=False)
+    Instagram = models.BooleanField(default=False)
+    GroupMe = models.BooleanField(default=False) 
 
 class SocialPost(models.Model):
     title = models.TextField(
@@ -21,6 +26,14 @@ class SocialPost(models.Model):
     Facebook = models.BooleanField(default=False)
     Instagram = models.BooleanField(default=False)
     GroupMe = models.BooleanField(default=False) 
+    
+    if GroupMe == True:
+        bot = Client.from_token('')
+        groups = bot.groups.list()
+        for group in groups:
+            if group.name != None:
+                group.name = models.BooleanField(default=False)
+    
     completed = models.BooleanField(default=False)
     updated_by = models.ForeignKey(
         User,
@@ -41,18 +54,18 @@ class SocialPost(models.Model):
             self.completed, 
             self.updated_by,
             )
-            
+    
 
-class UserWithSocials(models.Model):
-    user = models.OneToOneField(
-        settings.AUTH_USER_MODEL,
-        on_delete=models.CASCADE,
-        )
-    Facebookaccount = models.OneToOneField(
-        settings.AUTH_USER_MODEL,
-        on_delete=models.CASCADE,
-        related_name='facebook_account',
-        )
+# class UserWithSocials(models.Model):
+#     user = models.OneToOneField(
+#         settings.AUTH_USER_MODEL,
+#         on_delete=models.CASCADE,
+#         )
+#     Facebookaccount = models.OneToOneField(
+#         settings.AUTH_USER_MODEL,
+#         on_delete=models.CASCADE,
+#         related_name='facebook_account',
+#         )
         
 
 
