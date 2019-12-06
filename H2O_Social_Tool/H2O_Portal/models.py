@@ -2,7 +2,8 @@ from django.conf import settings
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 import datetime
-from groupy import client
+from decouple import config
+from groupy import Client
 # Create your models here.
 
 class User(AbstractUser):
@@ -84,8 +85,8 @@ class FacebookStatus(models.Model):
 
 class GroupMePosts(models.Model):
     def getgroups():
-        client = Client.from_token('api_token')
-        groups = list(client.groups.list_all())
+        client_token = Client.from_token(config('GroupMe_AuthToken'))
+        groups = list(client_token.groups.list_all())
         return groups
     
     def sendmessages():
@@ -94,11 +95,14 @@ class GroupMePosts(models.Model):
         post_to_send = []
         for message in groupme_posts:
             if message.post_time >= datetime.datetime.now():
-                post_to_send += message  
-        #imageattachment = 
+                if message.picture != None:
+                    post_to_send.message += message.message
+                    post_to_send.picture += message.picture
+                else:
+                    post_to_send.message += message.message
         for post in post_to_send:
             for group in groups_to_send:
-                message.group.post(posttosend)
+                message.group.post(text=post_to_send.message)
 
     if SocialPost.GroupMe == True:
         GroupMePosts.getgroups()
