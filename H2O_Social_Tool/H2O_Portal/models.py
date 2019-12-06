@@ -7,10 +7,15 @@ from groupy import Client
 # Create your models here.
 
 class User(AbstractUser):
+    # to add facebook 
     accounts = models.ManyToManyField(
         settings.AUTH_USER_MODEL,
         related_name='+',
         )
+    # to add instagram
+    insta_auth_token = models.TextField(null=True)
+    # to add groupme
+    gm_auth_token = models.TextField(null=True)
     USERNAME_FIELD = 'username'
 
 class SocialPost(models.Model):
@@ -102,9 +107,6 @@ class GroupMePosts(models.Model):
         for post in post_to_send:
             for group in groups_to_send:
                 message.group.post(text=post_to_send.message, attachments=attachments)
-
-    if SocialPost.GroupMe == True:
-        GroupMePosts.getgroups()
 
 
 #In progress to fixing users within the specific user and linking them together
