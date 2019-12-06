@@ -1,6 +1,7 @@
 from django.conf import settings
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+import datetime
 from groupy import client
 # Create your models here.
 
@@ -50,74 +51,59 @@ class SocialPost(models.Model):
             )
     
 
-# class UserWithSocials(models.Model):
-#     user = models.OneToOneField(
-#         settings.AUTH_USER_MODEL,
-#         on_delete=models.CASCADE,
-#         )
-#     Facebookaccount = models.OneToOneField(
-#         settings.AUTH_USER_MODEL,
-#         on_delete=models.CASCADE,
-#         related_name='facebook_account',
-#         )
-        
 
+class FacebookStatus(models.Model):
+    class Meta:
+        verbose_name_plural = 'Facebook Statuses'
+        ordering = ['publish_timestamp']
+    STATUS = (
+        ('draft', 'Draft'),
+        ('approved', 'Approved'),
+    )
+    status = models.CharField(
+        max_length=255, 
+        choices=STATUS,
+        default=STATUS[0][0]
+        )
+    publish_timestamp = models.DateTimeField(
+        null=True,
+        blank=True
+        )
+    author = models.ForeignKey(
+        settings.AUTH_USER_MODEL, 
+        on_delete=models.CASCADE
+        )
+    message = models.TextField(max_length=255)
+    link = models.URLField(
+        null=True,
+        blank=True
+        )
 
-    # class FacebookStatus(models.Model):
-    #     class Meta:
-    #         verbose_name_plural = 'Facebook Statuses'
-    #         ordering = ['publish_timestamp']
-    #     # STATUS = (
-    #     #     ('draft', 'Draft'),
-    #     #     ('approved', 'Approved'),
-    #     # )
-    #     # status = models.CharField(max_length=255, 
-    #     #     choices=STATUS, default=STATUS[0][0])
-    #     publish_timestamp = models.DateTimeField(null=True, blank=True)
-    #     author = models.ForeignKey(User)
-    #     message = models.TextField(max_length=255)
-    #     link = models.URLField(null=True, blank=True)
+    def __unicode__(self):
+        return self.message
 
-    #     def __unicode__(self):
-    #         return self.message
+class GroupMePosts(models.Model):
+    def getgroups():
+        client = Client.from_token('api_token')
+        groups = list(client.groups.list_all())
+        return groups
+    
+    def sendmessages():
+        groups_to_send = getgroups()
+        groupme_posts = SocialPost.objects.filter(GroupMe=True)
+        post_to_send = []
+        for message in groupme_posts:
+            if message.post_time >= datetime.datetime.now():
+                post_to_send += message  
+        #imageattachment = 
+        for post in post_to_send:
+            for group in groups_to_send:
+                message.group.post(posttosend)
 
-    # class GroupMePosts(models.Model):
-    #     def getgroups():
-    #         client = Client.from_token('api_token')
-    #         groups = list(client.groups.list_all())
-        
-    #     def sendmessage(socialmessage):
-    #         groupstosend = getgroups()
-    #         imageattachment = 
-    #         for group in groupstosend:
-    #             message.group.post(socialmessage)
-
-    # if SocialPost.GroupMe = True:
-    #     GroupMePosts.getgroups()
+    if SocialPost.GroupMe == True:
+        GroupMePosts.getgroups()
 
 
 #In progress to fixing users within the specific user and linking them together
 #https://stackoverflow.com/questions/373335/how-do-i-get-a-cron-like-scheduler-in-python
 #https://automatetheboringstuff.com/chapter15/
-
-# Likely not going to be used but don't want to migrate and delete steps
-# Delete section when working on the actual post sending since itll read likely another place
-# Don't forget to remove from admin.py as well
-# class SocialAccount(models.Model):
-#     ACCOUNT = (
-#         ('f', ('Facebook')),
-#         ('i', ('Instagram')),
-#         ('g', ('GroupMe')),
-#         ('n', ('Choose an Account type'))
-#     )
-#     account_type = models.CharField(
-#         max_length=30,
-#         choices=ACCOUNT,
-#         default='n',
-#     )
-#     username = models.CharField(blank=True, max_length=40)
-#     password = models.CharField(blank=True, max_length=40)
-
-#     def __str__(self):
-#         return '{} {}'.format(self.account_type, self.username)
-# End Delete section

@@ -1,12 +1,12 @@
 {% extends 'H2O_Portal/base.html' %}
 
-{% block ManageCreds %}
-  {% load socialaccount %}
-  {% providers_media_js %} 
+{% block ManageCreds %} 
   <br>
-  <h2>Authentication Options</h2>
-    <br>
-    
+  <h2>Authentication Instructions</h2>
+  <br>
+  <h3>For Authenticating facbook<br> Sign in through the portal then have an admin link your facebook account to your profile</h3>
+  {% load socialaccount %}
+  {% providers_media_js %}
     <h3>Facebook</h3>
     {% if facebook_login %}
       <p>Connected as <a href="https://facebook.com/{{ facebook_login.extra_data.id }}/" target="_blank">{{ facebook_login.extra_data.id }}</a></p>
@@ -22,6 +22,13 @@
       </div>
     {% endif %}
     <br>
+    <h3>For Instagram</h3>
+    
+    <h3>For GroupMe</h3>
+
+{% endblock ManageCreds %}
+{% comment %}    
+
 
     <h3>Instagram</h3>
     {% if instagram_login %}
@@ -53,4 +60,4 @@
         <a href="{% url 'social:begin' 'groupme' %}">Connect to GroupMe</a>
       </div>
     {% endif %}
-{% endblock ManageCreds %}
+{% endcomment %}
