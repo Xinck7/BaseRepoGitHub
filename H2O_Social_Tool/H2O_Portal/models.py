@@ -1,7 +1,7 @@
 from django.conf import settings
 from django.db import models
 from django.contrib.auth.models import AbstractUser
-from groupy import Client, attachments
+from groupy import client
 # Create your models here.
 
 class User(AbstractUser):
