@@ -73,16 +73,17 @@ def listscheduled(request):
 
 @login_required
 def editpost(request, value):
-    user = request.user
+    #user = request.user
     #pull updated_by field as the user input but check if its the user, staff or superuser
-    user_posts = SocialPost.objects.filter(updated_by=user, id=value).first()
+    user_posts = SocialPost.objects.filter(id=value).first()
+    #user_posts = SocialPost.objects.filter(updated_by=user, id=value).first()
     if request.method == 'POST':
-        form = SocialPostForm(request.POST or None, instance=user_posts)            
+        form = SocialPostForm(request.POST, instance=user_posts)            
         if form.is_valid(): 
             post = form.save(commit=False)
             post.updated_by = request.user
             post.save()
-            return redirect('../listscheduled/')
+            return redirect('listscheduled')
     else:
         form = SocialPostForm()
     return render(request, 'H2O_Portal/editpost.html', {'Post' : user_posts, 'form' : form} )

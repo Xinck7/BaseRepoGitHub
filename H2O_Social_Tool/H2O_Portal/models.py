@@ -96,13 +96,12 @@ class GroupMePosts(models.Model):
         for message in groupme_posts:
             if message.post_time >= datetime.datetime.now():
                 if message.picture != None:
-                    post_to_send.message += message.message
-                    post_to_send.picture += message.picture
+                    attachments = 0
                 else:
-                    post_to_send.message += message.message
+                    attachments = message.picture
         for post in post_to_send:
             for group in groups_to_send:
-                message.group.post(text=post_to_send.message)
+                message.group.post(text=post_to_send.message, attachments=attachments)
 
     if SocialPost.GroupMe == True:
         GroupMePosts.getgroups()
