@@ -73,10 +73,7 @@ def listscheduled(request):
 
 @login_required
 def editpost(request, value):
-    #user = request.user
-    #pull updated_by field as the user input but check if its the user, staff or superuser
     user_posts = SocialPost.objects.filter(id=value).first()
-    #user_posts = SocialPost.objects.filter(updated_by=user, id=value).first()
     if request.method == 'POST':
         form = SocialPostForm(request.POST, instance=user_posts)            
         if form.is_valid(): 
@@ -93,7 +90,7 @@ def deletepost(request, value):
     user = request.user
     user_post = SocialPost.objects.filter(id=value)
     user_post.delete()
-    return redirect('../listscheduled/')
+    return redirect('listscheduled')
 
 @login_required
 def listcompleted(request):

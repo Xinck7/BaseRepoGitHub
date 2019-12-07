@@ -3,7 +3,8 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 import datetime
 from decouple import config
-from groupy import Client
+from groupy.client import Client, attachments
+import pytz
 # Create your models here.
 
 class User(AbstractUser):
@@ -88,25 +89,32 @@ class FacebookStatus(models.Model):
     def __unicode__(self):
         return self.message
 
+
 class GroupMePosts(models.Model):
-    def getgroups():
+    def sendmessages(groupnames):
         client_token = Client.from_token(config('GroupMe_AuthToken'))
         groups = list(client_token.groups.list_all())
-        return groups
-    
-    def sendmessages():
-        groups_to_send = getgroups()
+        groups_to_send = []
+        for group in groups:
+            for names in groupnames:
+                if group.name == names:
+                    groups_to_send.append(group)
+
         groupme_posts = SocialPost.objects.filter(GroupMe=True)
         post_to_send = []
+        utc=pytz.UTC
         for message in groupme_posts:
-            if message.post_time >= datetime.datetime.now():
+            if message.post_time <= utc.localize(datetime.datetime.now()):
                 if message.picture != None:
-                    attachments = 0
+                    post_to_send.append(message.message)
+                    attachments = None
                 else:
+                    post_to_send.append(message.message)
                     attachments = message.picture
+
         for post in post_to_send:
             for group in groups_to_send:
-                message.group.post(text=post_to_send.message, attachments=attachments)
+                group.post(text=post, attachments=attachments)
 
 
 #In progress to fixing users within the specific user and linking them together
