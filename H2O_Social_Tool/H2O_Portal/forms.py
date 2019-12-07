@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm 
 from django.contrib.auth.models import models
-from .models import SocialPost, User#, SocialAccount
+from .models import SocialPost, User, GroupMePosts#, SocialAccount
 
 class SignUpForm(UserCreationForm):
     email = forms.EmailField(max_length=254)
@@ -21,5 +21,10 @@ class SocialPostForm(forms.ModelForm):
             'myfield2': forms.FileInput(attrs={'class':'imageclass'}),
         }
         fields = ('title', 'post_time', 'message', 'picture', 'Facebook', 'Instagram', 'GroupMe')
+
+class TokenStoreForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ('insta_auth_token', 'gm_auth_token',)
 
 

@@ -37,10 +37,9 @@ def managecreds(request):
         instagram_login = socialaccount.objects.filter(provider='instagram', user_id=self.user.id)#user.social_auth.get(provider='instagram')
     except: #UserSocialAuth.DoesNotExist:
         instagram_login = None
-
     try:
-        groupme_login = ''#user.social_auth.get(provider='groupme')
-    except: #UserSocialAuth.DoesNotExist:
+        groupme_login = socialuser.gm_auth_token#user.social_auth.get(provider='groupme')
+    except: 
         groupme_login = None
 
     can_disconnect =  socialaccount.forms.DisconnectForm #(user.social_auth.count() > 1)
@@ -49,9 +48,20 @@ def managecreds(request):
         'facebook_login': facebook_login,
         'instagram_login': instagram_login,
         'groupme_login': groupme_login,
-        'can_disconnect': can_disconnect
+        'can_disconnect': can_disconnect,
     })
-    #return render(request, 'H2O_Portal/managecreds.html')
+
+# @login_required
+# def managecreds(request):
+#     if request.method == 'POST':
+#         form = TokenStoreForm(request.POST)            
+#         if form.is_valid():
+#             token = form.save(commit=False)
+#             token.save()
+#             return redirect('/')
+#         else:
+#             form = TokenStoreForm()
+#     return render(request, 'H2O_Portal/managecreds.html', {'form': form})
 
 @login_required
 def createpost(request):

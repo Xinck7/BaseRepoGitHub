@@ -4,7 +4,9 @@
   <br>
   <h2>Authentication Instructions</h2>
   <br>
-  <h3>For Authenticating facbook<br> Sign in through the portal then have an admin link your facebook account to your profile</h3>
+  <h3>For Authenticating facbook<br> 
+  Sign in through the portal then have an admin link your facebook account to your profile</h3>
+  <br>
   {% load socialaccount %}
   {% providers_media_js %}
     <h3>Facebook</h3>
@@ -24,8 +26,16 @@
     <br>
     <h3>For Instagram</h3>
     
+    <br>
     <h3>For GroupMe</h3>
-
+    <form method="post" class="sociallogin" enctype="multipart/form-data" novalidate>
+      {% csrf_token %}
+      {% for field in form.as_p %}
+          {{ field.label_tag }}
+          {{field}}
+      {% endfor %}
+      <input type="submit" value="Store Token"></input>
+    </form> 
 {% endblock ManageCreds %}
 {% comment %}    
 

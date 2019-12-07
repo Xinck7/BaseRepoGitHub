@@ -16,9 +16,9 @@ class User(AbstractUser):
         related_name='+',
         )
     # to add instagram
-    insta_auth_token = models.TextField(null=True)
+    insta_auth_token = models.TextField(null=True, help_text='Instagram Auth Token')
     # to add groupme
-    gm_auth_token = models.TextField(null=True)
+    gm_auth_token = models.TextField(null=True, help_text='GroupMe Auth Token')
     USERNAME_FIELD = 'username'
 
 class SocialPost(models.Model):
@@ -94,6 +94,7 @@ class FacebookStatus(models.Model):
 
 
 class GroupMePosts(models.Model):
+
     def sendmessages(self, groupnames):
         user = client
         session = user.Session(config('GroupMe_AuthToken'))
@@ -118,6 +119,7 @@ class GroupMePosts(models.Model):
                     with open(post.picture.path, 'rb') as f:
                         upload = client_session.images.from_file(f)
                         post_attachments.append(upload)
+                post.completed = True
         for to_send in post_to_send:
             for group in groups_to_send:
                 group.post(text=to_send, attachments=post_attachments)
