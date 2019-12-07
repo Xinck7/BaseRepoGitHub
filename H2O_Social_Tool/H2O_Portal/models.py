@@ -2,10 +2,8 @@ from django.conf import settings
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from decouple import config
-from groupy.client import Client
-from groupy import attachments
-from PIL import Image
-import numpy as np
+#from groupy.client import Client, attachments
+from groupy import client, attachments
 import datetime
 import pytz
 
@@ -97,31 +95,29 @@ class FacebookStatus(models.Model):
 
 class GroupMePosts(models.Model):
     def sendmessages(groupnames):
-        client_token = Client.from_token(config('GroupMe_AuthToken'))
+        client_token = client.Client.from_token(config('GroupMe_AuthToken'))
         groups = list(client_token.groups.list_all())
         groups_to_send = []
         for group in groups:
             for names in groupnames:
                 if group.name == names:
                     groups_to_send.append(group)
-        groupme_posts = SocialPost.objects.filter(GroupMe=True, completed=False)
         post_to_send = []
-        attachments = []
+        picture_data = []
+        groupme_posts = SocialPost.objects.filter(GroupMe=True, completed=False)
         utc=pytz.UTC
-        for message in groupme_posts:
-            if message.post_time <= utc.localize(datetime.datetime.now()):
-                if message.picture != None:
-                    post_to_send.append(message.message)
+        for post in groupme_posts:
+            if post.post_time <= utc.localize(datetime.datetime.now()):
+                if post.picture != None:
+                    post_to_send.append(post.message)
                     attachments = None
                 else:
-                    img = Image.open(message.picture)
-                    img = np.array(img)
-                    picture_data = Image.fromarray(img)
-                    attachments.append(Client.images.upload(picture_data))
-                    post_to_send.append(message.message)
-        for post in post_to_send:
+                    post_to_send.append(post.message)
+                    with open(post.picture.path, 'rb') as fp:
+                        picture_data.append(attachments.Images.from_file(fp))
+        for to_send in post_to_send:
             for group in groups_to_send:
-                group.post(text=post, attachments=attachments)
+                group.post(text=to_send, attachments=picture_data)
 
 
 #In progress to fixing users within the specific user and linking them together
