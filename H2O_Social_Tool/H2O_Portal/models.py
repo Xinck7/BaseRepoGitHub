@@ -1,10 +1,14 @@
 from django.conf import settings
 from django.db import models
 from django.contrib.auth.models import AbstractUser
-import datetime
 from decouple import config
-from groupy.client import Client, attachments
+from groupy.client import Client
+from groupy import attachments
+from PIL import Image
+import numpy as np
+import datetime
 import pytz
+
 # Create your models here.
 
 class User(AbstractUser):
@@ -33,7 +37,7 @@ class SocialPost(models.Model):
         blank=True,
         max_length=2000,
         )
-    picture = models.ImageField(null=True, upload_to='media/')
+    picture = models.ImageField(null=True, upload_to='H2O_Portal/static')
     Facebook = models.BooleanField(default=False)
     Instagram = models.BooleanField(default=False)
     GroupMe = models.BooleanField(default=False)     
@@ -102,6 +106,7 @@ class GroupMePosts(models.Model):
                     groups_to_send.append(group)
         groupme_posts = SocialPost.objects.filter(GroupMe=True, completed=False)
         post_to_send = []
+        attachments = []
         utc=pytz.UTC
         for message in groupme_posts:
             if message.post_time <= utc.localize(datetime.datetime.now()):
@@ -109,9 +114,11 @@ class GroupMePosts(models.Model):
                     post_to_send.append(message.message)
                     attachments = None
                 else:
-                    attachments = message.picture
+                    img = Image.open(message.picture)
+                    img = np.array(img)
+                    picture_data = Image.fromarray(img)
+                    attachments.append(Client.images.upload(picture_data))
                     post_to_send.append(message.message)
-                    attachments = message.picture
         for post in post_to_send:
             for group in groups_to_send:
                 group.post(text=post, attachments=attachments)
