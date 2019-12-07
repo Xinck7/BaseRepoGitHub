@@ -3,7 +3,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 from decouple import config
 #from groupy.client import Client, attachments
-from groupy import client, attachments
+from groupy import client
 import datetime
 import pytz
 
@@ -94,30 +94,33 @@ class FacebookStatus(models.Model):
 
 
 class GroupMePosts(models.Model):
-    def sendmessages(groupnames):
-        client_token = client.Client.from_token(config('GroupMe_AuthToken'))
-        groups = list(client_token.groups.list_all())
+    def sendmessages(self, groupnames):
+        user = client
+        session = user.Session(config('GroupMe_AuthToken'))
+        client_session = user.Client(session)
+        groups = list(client_session.groups.list_all())
         groups_to_send = []
         for group in groups:
             for names in groupnames:
                 if group.name == names:
                     groups_to_send.append(group)
         post_to_send = []
-        picture_data = []
+        post_attachments = []
         groupme_posts = SocialPost.objects.filter(GroupMe=True, completed=False)
         utc=pytz.UTC
         for post in groupme_posts:
             if post.post_time <= utc.localize(datetime.datetime.now()):
-                if post.picture != None:
+                if post.picture == None:
                     post_to_send.append(post.message)
                     attachments = None
                 else:
                     post_to_send.append(post.message)
-                    with open(post.picture.path, 'rb') as fp:
-                        picture_data.append(attachments.Images.from_file(fp))
+                    with open(post.picture.path, 'rb') as f:
+                        upload = client_session.images.from_file(f)
+                        post_attachments.append(upload)
         for to_send in post_to_send:
             for group in groups_to_send:
-                group.post(text=to_send, attachments=picture_data)
+                group.post(text=to_send, attachments=post_attachments)
 
 
 #In progress to fixing users within the specific user and linking them together
