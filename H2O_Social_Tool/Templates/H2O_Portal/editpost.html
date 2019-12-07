@@ -2,7 +2,7 @@
 
 {% block EditPost %}
 <div id="centeringcontainer">
-  <form method="post" class="myfieldclass" novalidate>
+  <form method="post" enctype="multipart/form-data" class="myfieldclass" novalidate>
     {% csrf_token %}
       <p><b>Previous Post data</b></p>
         <br>

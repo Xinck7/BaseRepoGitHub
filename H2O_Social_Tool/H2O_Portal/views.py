@@ -56,7 +56,7 @@ def managecreds(request):
 @login_required
 def createpost(request):
     if request.method == 'POST':
-        form = SocialPostForm(request.POST)            
+        form = SocialPostForm(request.POST, request.FILES)            
         if form.is_valid():
             post = form.save(commit=False)
             post.updated_by = request.user

@@ -1,7 +1,7 @@
 {% extends 'H2O_Portal/base.html' %}
 
 {% block CreatePost %}
-    <form method="post" class="myfieldclass" novalidate>
+    <form method="post" enctype="multipart/form-data" class="myfieldclass" novalidate>
       {% csrf_token %}
       {% for field in form %}
         {% if field == form.picture %}

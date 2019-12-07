@@ -23,6 +23,7 @@ class SocialPost(models.Model):
     title = models.TextField(
         blank=True,
         max_length=200,
+        help_text='(Not Required, but is helpful for reviewing)'
         )
     post_time = models.DateTimeField(
         max_length=30,
@@ -32,7 +33,7 @@ class SocialPost(models.Model):
         blank=True,
         max_length=2000,
         )
-    picture = models.ImageField(blank=True)
+    picture = models.ImageField(null=True, upload_to='media/')
     Facebook = models.BooleanField(default=False)
     Instagram = models.BooleanField(default=False)
     GroupMe = models.BooleanField(default=False)     
@@ -99,8 +100,7 @@ class GroupMePosts(models.Model):
             for names in groupnames:
                 if group.name == names:
                     groups_to_send.append(group)
-
-        groupme_posts = SocialPost.objects.filter(GroupMe=True)
+        groupme_posts = SocialPost.objects.filter(GroupMe=True, completed=False)
         post_to_send = []
         utc=pytz.UTC
         for message in groupme_posts:
@@ -109,9 +109,9 @@ class GroupMePosts(models.Model):
                     post_to_send.append(message.message)
                     attachments = None
                 else:
+                    attachments = message.picture
                     post_to_send.append(message.message)
                     attachments = message.picture
-
         for post in post_to_send:
             for group in groups_to_send:
                 group.post(text=post, attachments=attachments)
