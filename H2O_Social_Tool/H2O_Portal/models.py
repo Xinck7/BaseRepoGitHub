@@ -25,17 +25,17 @@ class SocialPost(models.Model):
     title = models.TextField(
         blank=True,
         max_length=200,
-        help_text='(Not Required, but is helpful for reviewing)'
+        help_text='(Used for the Scheduler)',
         )
     post_time = models.DateTimeField(
         max_length=30,
-        help_text='(ex 1/31/2019 13:00)',
+        help_text='(ex 1/31/2019 12:00 PM)',
         )
     message = models.TextField(
         blank=True,
         max_length=2000,
         )
-    picture = models.ImageField(null=True, upload_to='H2O_Portal/static')
+    picture = models.ImageField(null=True, blank=True, upload_to='H2O_Portal/static')
     Facebook = models.BooleanField(default=False)
     Instagram = models.BooleanField(default=False)
     GroupMe = models.BooleanField(default=False)     
