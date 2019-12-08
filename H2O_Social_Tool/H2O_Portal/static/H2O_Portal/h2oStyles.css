@@ -261,12 +261,12 @@ input, textarea{
 
 input[type="submit"]{
   padding: 1%;
+  margin-top: 13px;
   margin-bottom: 15px;
   background-color: rgba(90, 140, 250, 1);
   font-size: 14pt;
   border: none;
 }
-
 
 input[type="checkbox"]{
   width: 10%;
@@ -339,6 +339,7 @@ td{
 
 .resubmitbutton{
   padding: 1%;
+  margin-top: 5px;
   margin-bottom: 15px;
   width:50%;
   inline-size: auto;

@@ -25,3 +25,5 @@ class TokenStoreForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ('insta_auth_token', 'gm_auth_token',)
+
+
