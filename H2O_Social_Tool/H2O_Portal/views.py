@@ -2,6 +2,7 @@ from django.contrib.auth import login as auth_login, authenticate
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.views.generic import View
+from django.template import RequestContext
 from H2O_Portal.models import *
 from H2O_Portal.forms import *
 #from social_django.models import UserSocialAuth
@@ -83,7 +84,6 @@ def listscheduled(request):
 
 @login_required
 def editpost(request, value):
-    context_instance=RequestContext(request)
     user_posts = SocialPost.objects.filter(id=value).first()
     if request.method == 'POST':
         form = SocialPostForm(request.POST, instance=user_posts)            
@@ -93,8 +93,8 @@ def editpost(request, value):
             post.save()
             return redirect('listscheduled')
     else:
-        form = SocialPostForm()
-    return render(request, 'H2O_Portal/editpost.html', {'Post' : user_posts, 'form' : form}, context_instance )
+        form = SocialPostForm(instance=user_posts)
+    return render(request, 'H2O_Portal/editpost.html', {'Post' : user_posts, 'form' : form})
 
 @login_required
 def deletepost(request, value):

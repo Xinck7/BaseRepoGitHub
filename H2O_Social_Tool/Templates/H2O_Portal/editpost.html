@@ -4,30 +4,6 @@
 <div id="centeringcontainer">
   <form method="post" enctype="multipart/form-data" class="myfieldclass" novalidate>
     {% csrf_token %}
-      <p><b>Previous Post data</b></p>
-        <br>
-          <i>Previous Title:</i>
-          {{ Post.title }}
-          <br>
-          <i>Previous Post Time:</i>
-          {{ Post.post_time }}
-          <br>
-          <i>Previous message:</i>
-          {{ Post.message }}
-          <br>
-          <i>Previous picture:</i>
-          {{ Post.picture }}
-          <br>
-          <i>Previous Facebook:</i>
-          {{ Post.Facebook }}
-          <br>
-          <i>Previous Instagram:</i>
-          {{ Post.Instagram }}
-          <br>
-          <i>Previous GroupMe:</i>
-          {{ Post.GroupMe }}
-          <br>
-          <br>
       <p><b>Update Post data</b></p>
       <br>
     {% for field in form %}

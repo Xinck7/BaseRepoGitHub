@@ -16,9 +16,9 @@ class User(AbstractUser):
         related_name='+',
         )
     # to add instagram
-    insta_auth_token = models.TextField(null=True, help_text='Instagram Auth Token')
+    insta_auth_token = models.TextField(null=True, help_text='Instagram Auth Token', blank=True)
     # to add groupme
-    gm_auth_token = models.TextField(null=True, help_text='GroupMe Auth Token')
+    gm_auth_token = models.TextField(null=True, help_text='GroupMe Auth Token', blank=True)
     USERNAME_FIELD = 'username'
 
 class SocialPost(models.Model):
@@ -111,7 +111,7 @@ class GroupMePosts(models.Model):
         utc=pytz.UTC
         for post in groupme_posts:
             if post.post_time <= utc.localize(datetime.datetime.now()):
-                if post.picture == None:
+                if post.picture.name == '':
                     post_to_send.append(post.message)
                     attachments = None
                 else:
@@ -119,7 +119,7 @@ class GroupMePosts(models.Model):
                     with open(post.picture.path, 'rb') as f:
                         upload = client_session.images.from_file(f)
                         post_attachments.append(upload)
-                post.completed = True
+                #post.completed = True
         for to_send in post_to_send:
             for group in groups_to_send:
                 group.post(text=to_send, attachments=post_attachments)
