@@ -83,6 +83,7 @@ def listscheduled(request):
 
 @login_required
 def editpost(request, value):
+    context_instance=RequestContext(request)
     user_posts = SocialPost.objects.filter(id=value).first()
     if request.method == 'POST':
         form = SocialPostForm(request.POST, instance=user_posts)            
@@ -93,7 +94,7 @@ def editpost(request, value):
             return redirect('listscheduled')
     else:
         form = SocialPostForm()
-    return render(request, 'H2O_Portal/editpost.html', {'Post' : user_posts, 'form' : form} )
+    return render(request, 'H2O_Portal/editpost.html', {'Post' : user_posts, 'form' : form}, context_instance )
 
 @login_required
 def deletepost(request, value):
