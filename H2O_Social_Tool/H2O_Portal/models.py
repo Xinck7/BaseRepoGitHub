@@ -119,7 +119,8 @@ class GroupMePosts(models.Model):
                     with open(post.picture.path, 'rb') as f:
                         upload = client_session.images.from_file(f)
                         post_attachments.append(upload)
-                #post.completed = True
+                post.completed = True
+                post.save()
         for to_send in post_to_send:
             for group in groups_to_send:
                 group.post(text=to_send, attachments=post_attachments)
