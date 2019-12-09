@@ -5,7 +5,6 @@ from django.views.generic import View
 from django.template import RequestContext
 from H2O_Portal.models import *
 from H2O_Portal.forms import *
-#from social_django.models import UserSocialAuth
 from allauth import account, socialaccount
 # Create your views here.
 
@@ -35,10 +34,6 @@ def managecreds(request):
     except:# UserSocialAuth.DoesNotExist:
         facebook_login = None
     try:
-        instagram_login = socialaccount.objects.filter(provider='instagram', user_id=self.user.id)#user.social_auth.get(provider='instagram')
-    except: #UserSocialAuth.DoesNotExist:
-        instagram_login = None
-    try:
         groupme_login = socialuser.gm_auth_token#user.social_auth.get(provider='groupme')
     except: 
         groupme_login = None
@@ -47,22 +42,9 @@ def managecreds(request):
 
     return render(request, 'H2O_Portal/managecreds.html', {
         'facebook_login': facebook_login,
-        'instagram_login': instagram_login,
         'groupme_login': groupme_login,
         'can_disconnect': can_disconnect,
     })
-
-# @login_required
-# def managecreds(request):
-#     if request.method == 'POST':
-#         form = TokenStoreForm(request.POST)            
-#         if form.is_valid():
-#             token = form.save(commit=False)
-#             token.save()
-#             return redirect('/')
-#         else:
-#             form = TokenStoreForm()
-#     return render(request, 'H2O_Portal/managecreds.html', {'form': form})
 
 @login_required
 def createpost(request):
@@ -109,15 +91,4 @@ def listcompleted(request):
     return render(request, 'H2O_Portal/listcompleted.html', {'Posts': all_posts } )
 
 
-# https://api.groupme.com/v3/groups/:group_id/messages
-# with a payload like:
-# {
-#    "message": {
-#      "source_guid": "c8bf78dd-c17c-4d1d-9029-1689764436a1",
-#      "text": "So text....."
-#    }
-# data = {"message":{"source_guid":"random_string","text":"message_to_send"}}
-# send = requests.post("https://api.groupme.com/v3/groups/:group_id/message?token=my_access_token", json=data)
-# print send.text
-    
 

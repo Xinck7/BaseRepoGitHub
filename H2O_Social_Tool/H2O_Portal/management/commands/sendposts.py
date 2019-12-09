@@ -8,8 +8,6 @@ class Command(BaseCommand):
         unposted = SocialPost.objects.filter(completed=False)
         for post in unposted:
             # if post.Facebook == True:
-            
-            # if post.Instagram == True:
 
             if post.GroupMe == True:
                 groupnames = ['Testing not']

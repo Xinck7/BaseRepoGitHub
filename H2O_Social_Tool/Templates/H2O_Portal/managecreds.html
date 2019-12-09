@@ -24,9 +24,6 @@
       </div>
     {% endif %}
     <br>
-    <h3>For Instagram</h3>
-    
-    <br>
     <h3>For GroupMe</h3>
     <form method="post" class="sociallogin" enctype="multipart/form-data" novalidate>
       {% csrf_token %}
@@ -37,37 +34,3 @@
       <input type="submit" value="Store Token"></input>
     </form> 
 {% endblock ManageCreds %}
-{% comment %}    
-
-
-    <h3>Instagram</h3>
-    {% if instagram_login %}
-      <p>Connected as <a href="https://instagram.com/{{ instagram_login.extra_data.login }}/" target="_blank">{{ instagram_login.extra_data.login }}</a></p>
-      {% if can_disconnect %}
-        <form class="sociallogin" method="post" action="{% url 'social:disconnect' 'instagram' %}">
-          {% csrf_token %}
-          <button class="disconnect">Disconnect from Instagram</button>
-        </form>
-      {% endif %}
-    {% else %}
-      <div class="managecredslinks">
-        <a href="{% url 'social:begin' 'instagram' %}">Connect to Instagram</a>
-      </div>
-    {% endif %}
-    <br>
-
-    <h3>GroupMe</h3>
-    {% if groupme_login %}
-      <p>Connected as <a href="https://groupme.com/{{ groupme_login.extra_data.access_token.screen_name }}/" target="_blank">@{{ groupme_login.extra_data.access_token.screen_name }}</a></p>
-      {% if can_disconnect %}
-        <form class="sociallogin" method="post" action="{% url 'social:disconnect' 'groupme' %}">
-          {% csrf_token %}
-          <button class="disconnect">Disconnect from GroupMe</button>
-        </form>
-      {% endif %}
-    {% else %}
-      <div class="managecredslinks">
-        <a href="{% url 'social:begin' 'groupme' %}">Connect to GroupMe</a>
-      </div>
-    {% endif %}
-{% endcomment %}

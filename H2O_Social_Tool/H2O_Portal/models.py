@@ -2,10 +2,10 @@ from django.conf import settings
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from decouple import config
-#from groupy.client import Client, attachments
 from groupy import client
 import datetime
 import pytz
+
 
 # Create your models here.
 
@@ -14,9 +14,7 @@ class User(AbstractUser):
     accounts = models.ManyToManyField(
         settings.AUTH_USER_MODEL,
         related_name='+',
-        )
-    # to add instagram
-    insta_auth_token = models.TextField(null=True, help_text='Instagram Auth Token', blank=True)
+        )   
     # to add groupme
     gm_auth_token = models.TextField(null=True, help_text='GroupMe Auth Token', blank=True)
     USERNAME_FIELD = 'username'
@@ -37,7 +35,6 @@ class SocialPost(models.Model):
         )
     picture = models.ImageField(null=True, blank=True, upload_to='H2O_Portal/static')
     Facebook = models.BooleanField(default=False)
-    Instagram = models.BooleanField(default=False)
     GroupMe = models.BooleanField(default=False)     
     completed = models.BooleanField(default=False)
     updated_by = models.ForeignKey(
@@ -62,39 +59,40 @@ class SocialPost(models.Model):
     
 
 
-class FacebookStatus(models.Model):
-    class Meta:
-        verbose_name_plural = 'Facebook Statuses'
-        ordering = ['publish_timestamp']
-    STATUS = (
-        ('draft', 'Draft'),
-        ('approved', 'Approved'),
-    )
-    status = models.CharField(
-        max_length=255, 
-        choices=STATUS,
-        default=STATUS[0][0]
-        )
-    publish_timestamp = models.DateTimeField(
-        null=True,
-        blank=True
-        )
-    author = models.ForeignKey(
-        settings.AUTH_USER_MODEL, 
-        on_delete=models.CASCADE
-        )
-    message = models.TextField(max_length=255)
-    link = models.URLField(
-        null=True,
-        blank=True
-        )
+# class FacebookStatus(models.Model):
+#     class Meta:
+#         verbose_name_plural = 'Facebook Statuses'
+#         ordering = ['publish_timestamp']
+#     STATUS = (
+#         ('draft', 'Draft'),
+#         ('approved', 'Approved'),
+#     )
+#     status = models.CharField(
+#         max_length=255, 
+#         choices=STATUS,
+#         default=STATUS[0][0]
+#         )
+#     publish_timestamp = models.DateTimeField(
+#         null=True,
+#         blank=True
+#         )
+#     author = models.ForeignKey(
+#         settings.AUTH_USER_MODEL, 
+#         on_delete=models.CASCADE
+#         )
+#     message = models.TextField(max_length=255)
+#     link = models.URLField(
+#         null=True,
+#         blank=True
+#         )
 
-    def __unicode__(self):
-        return self.message
+#     def __unicode__(self):
+#         return self.message
 
 
 class GroupMePosts(models.Model):
 
+    #needs param for the groupme token when making for anyone
     def sendmessages(self, groupnames):
         user = client
         session = user.Session(config('GroupMe_AuthToken'))
@@ -126,6 +124,3 @@ class GroupMePosts(models.Model):
                 group.post(text=to_send, attachments=post_attachments)
 
 
-#In progress to fixing users within the specific user and linking them together
-#https://stackoverflow.com/questions/373335/how-do-i-get-a-cron-like-scheduler-in-python
-#https://automatetheboringstuff.com/chapter15/
