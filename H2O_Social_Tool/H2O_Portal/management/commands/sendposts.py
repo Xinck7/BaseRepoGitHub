@@ -12,6 +12,7 @@ class Command(BaseCommand):
                 init_posts.sendpost()
             if post.GroupMe == True:
                 groupnames = ['Testing not']
+                #groupnames = 
                 gmp = GroupMePosts()
                 gmp.sendmessages(groupnames)
             # check time if its time to post

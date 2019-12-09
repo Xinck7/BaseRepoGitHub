@@ -9,7 +9,7 @@ urlpatterns = [
     #Credentials
     path('signup/', views.signup, name='signup'),
     path('managecreds/', views.managecreds, name='managecreds'),
-        
+    path('managecreds/gm_auth_token<str:value>', views.managecreds, name='editcreds'),    
     #Posts
     path('createpost/', views.createpost, name='createpost'),
     path('editpost/editpost<int:value>', views.editpost, name='editpost'),

@@ -28,7 +28,7 @@ class SocialPost(models.Model):
         blank=True,
         max_length=2000,
         )
-    picture = models.ImageField(null=True, blank=True, upload_to='H2O_Portal/static')
+    picture = models.ImageField(null=True, blank=True, upload_to='H2O_Portal/static', help_text='Only pictures are supported through this tool')
     Facebook = models.BooleanField(default=False)
     GroupMe = models.BooleanField(default=False)     
     completed = models.BooleanField(default=False)
@@ -45,36 +45,55 @@ class SocialPost(models.Model):
             self.message, 
             self.picture, 
             self.Facebook, 
-            self.Instagram, 
-            self.GroupMe, 
+            self.GroupMe,
             self.completed, 
             self.updated_by,
             )
 
 
-class FacebookPosts(models.Model):
+# class FacebookPosts(models.Model):
     
-    def gettoken(self):
-        pass
+#     def gettoken(self):
+#         pass
 
-    def sendpost(self):
-        access_token = config('FB_Token')
-        session = facebook.GraphAPI(access_token)
-        facebook_posts = SocialPost.objects.filter(Facebook=True, completed=False)
-        post_to_send = []
-        for post in facebook_posts:
-            if post.post_time <= utc.localize(datetime.datetime.now()):
-                if post.picture.name == '':
-                    session.put_object("me", "feed", message=post.message)  
-                else:
-                    session.put_photo(image=open(post.picture.path, 'rb'), message=post.message)
-                post.completed = True
-                post.save()
+#     def sendpost(self):
+#         access_token = config('FB_Token')
+#         session = facebook.GraphAPI(access_token)
+#         facebook_posts = SocialPost.objects.filter(Facebook=True, completed=False)
+#         post_to_send = []
+#         for post in facebook_posts:
+#             if post.post_time <= utc.localize(datetime.datetime.now()):
+#                 if post.picture.name == '':
+#                     session.put_object("me", "feed", message=post.message)  
+#                 else:
+#                     session.put_photo(image=open(post.picture.path, 'rb'), message=post.message)
+#                 post.completed = True
+#                 post.save()
 
 
 class GroupMePosts(models.Model):
     #needs param for the groupme token when making for anyone
+    # user_token = User().gm_auth_token
+    # def selectgroups(self, user_token, selection):
+    #     user = client
+    #     session = user.Session(user_token)
+    #     client_session = user.Client(session)
+    #     groups = list(client_session.groups.list_all())
+    #     groupset = dict()
+    #     i=0
+    #     for i in range(0, len(groups)):
+    #         groupname = groups[i].name
+    #         groupset[i] = groupname
+
+    #     selection_array = selection
+    #     selected_groups = []
+    #     for item in selection:
+    #         selected_groups.append(groupset[item])
+        
+    #     return selected_groups
+
     def sendmessages(self, groupnames):
+        # old set preserver until multi select based on user is completed
         user = client
         session = user.Session(config('GroupMe_AuthToken'))
         client_session = user.Client(session)

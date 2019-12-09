@@ -29,22 +29,41 @@ def signup(request):
 @login_required
 def managecreds(request):
     socialuser = request.user
-    try:
-        facebook_login = socialaccount.objects.filter(provider='facebook', user_id=self.user.id)#sociallogin.account.provider #user.social_auth.get(provider='facebook')
-    except:# UserSocialAuth.DoesNotExist:
-        facebook_login = None
-    try:
-        groupme_login = socialuser.gm_auth_token#user.social_auth.get(provider='groupme')
-    except: 
-        groupme_login = None
+    #if socialuser.gm_auth_token == '':
+    if request.method == 'POST':
+        form = TokenStoreForm(request.POST)            
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.save()
+            return redirect('/')
+    else:
+        form = TokenStoreForm()
+    # else:
+    #     if request.method == 'POST':
+    #         form = TokenStoreForm(request.POST, instance=socialuser.gm_auth_token)            
+    #         if form.is_valid():
+    #             post.save()
+    #             return redirect('/')
+    #     else:
+    #         form = TokenStoreForm(instance=socialuser)
+    return render(request, 'H2O_Portal/managecreds.html', {'form' : form} )    
+    # socialuser = request.user
+    # try:
+    #     facebook_login = socialaccount.objects.filter(provider='facebook', user_id=self.user.id)#sociallogin.account.provider #user.social_auth.get(provider='facebook')
+    # except:# UserSocialAuth.DoesNotExist:
+    #     facebook_login = None
+    # try:
+    #     groupme_login = socialuser.gm_auth_token#user.social_auth.get(provider='groupme')
+    # except: 
+    #     groupme_login = None
 
-    can_disconnect =  socialaccount.forms.DisconnectForm #(user.social_auth.count() > 1)
+    # can_disconnect =  socialaccount.forms.DisconnectForm #(user.social_auth.count() > 1)
 
-    return render(request, 'H2O_Portal/managecreds.html', {
-        'facebook_login': facebook_login,
-        'groupme_login': groupme_login,
-        'can_disconnect': can_disconnect,
-    })
+    # return render(request, 'H2O_Portal/managecreds.html', {
+    #     'facebook_login': facebook_login,
+    #     'groupme_login': groupme_login,
+    #     'can_disconnect': can_disconnect,
+    # })
 
 @login_required
 def createpost(request):

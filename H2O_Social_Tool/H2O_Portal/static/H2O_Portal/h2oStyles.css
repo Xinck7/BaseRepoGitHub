@@ -225,6 +225,17 @@ a:link, a:visited{
 .sociallogin{
   background-color: unset;
   border: unset;
+  width: 25%;
+  height: 20px;
+}
+.instructionslinks:link{
+  color:blue;
+}
+.instructionslinks:visited{
+  color:green;
+}
+.instructionslinks:hover{
+  color:lightblue;  
 }
 /*End Manage credentials*/
 
