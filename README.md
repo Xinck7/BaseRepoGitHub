@@ -5,7 +5,7 @@
 <h3>In progress: </h3><br>
 <b>Facebook</b> <br>
 
-Incompatible: <br>
+<h3>Incompatible Apps:</h3> <br>
 <b>Instagram:</b> 
 This is in closed beta with facebook and not accepting facebook <br>
 Also 'unofficial' methods have resulted in banned accounts.<br>
