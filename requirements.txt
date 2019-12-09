@@ -5,6 +5,5 @@ python-decouple
 django-sslserver
 django-allauth
 GroupyAPI
-django-facebook-posts
 facebook-sdk
 django-social-api
