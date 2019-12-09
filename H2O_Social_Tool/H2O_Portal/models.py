@@ -20,16 +20,6 @@ class User(AbstractUser):
     USERNAME_FIELD = 'username'
 
 class SocialPost(models.Model):
-    ''' 
-    Model for Social Media Post:
-    Fields available: 
-    post_time (datetime),
-    message(2000 char limit),
-    picture (no videos available), 
-    Facebook (boolean), 
-    completed (boolean to determine table information and send status), 
-    updated_by (selects last user to save)
-    ''' 
     post_time = models.DateTimeField(
         max_length=30,
         help_text='(example: 1/31/2019 15:00)',
@@ -42,8 +32,8 @@ class SocialPost(models.Model):
     Facebook = models.BooleanField(default=False)
     GroupMe = models.BooleanField(default=False)  
     #GroupMeGroups?
-    #GroupMeGroups = models.TextField(null=True)
-    GroupMeGroups = []
+    GroupMeGroups = models.TextField(null=True)
+    #GroupMeGroups = []
     #https://stackoverflow.com/questions/1110153/what-is-the-most-efficient-way-to-store-a-list-in-the-django-models
     completed = models.BooleanField(default=False)
     updated_by = models.ForeignKey(
@@ -54,7 +44,7 @@ class SocialPost(models.Model):
         )
 
     def __str__(self):
-        return '{} {} {} {} {} {} {} {} {}'.format(
+        return '{} {} {} {} {} {} {} {}'.format(
             self.post_time, 
             self.message, 
             self.picture, 

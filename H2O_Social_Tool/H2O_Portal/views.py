@@ -94,7 +94,7 @@ def deletepost(request, value):
 
 @login_required
 def listscheduled(request):
-    all_posts = SocialPost.objects.all()
+    all_posts = SocialPost.objects.all().order_by('post_time')
     page = request.GET.get('page' , 1)
     paginator = Paginator(all_posts, 10)
     try:
@@ -109,7 +109,7 @@ def listscheduled(request):
 
 @login_required
 def listcompleted(request):
-    all_posts = SocialPost.objects.all()
+    all_posts = SocialPost.objects.all().order_by('-post_time')
     page = request.GET.get('page' , 1)
     paginator = Paginator(all_posts, 10)
     try:
