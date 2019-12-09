@@ -9,7 +9,7 @@
           <th>Picture</th>
           <th>Post Time</th>
           <th>Facebook?</th>
-          <th>GroupMe?</th>
+          <th>GroupMeGroups</th>
           <th>Scheduled by</th>
         </tr>
       </thead>
@@ -21,7 +21,11 @@
             <td>{{ post.picture }}</td>
             <td>{{ post.post_time }}</td>
             <td>{{ post.Facebook }}</td>
-            <td>{{ post.GroupMe }}</td>
+            {% if post.GroupMeGroups == None %}
+            <td>{{ post.GroupMeGroups }}</td>
+            {% else %}
+            <td></td>
+            {% endif %} 
             <td>{{ post.updated_by }}</td>
               {% if post.updated_by == request.user.is_staff or request.user.is_superuser or user %}
                 <td class="editpostbutton"><a href="{% url 'editpost' value=post.id %}">Edit</a></td>
