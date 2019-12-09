@@ -5,9 +5,9 @@
     <table>
       <thead>
         <tr>
-          <th>Post Time</th>
           <th>Message</th>
           <th>Picture</th>
+          <th>Post Time</th>
           <th>Facebook?</th>
           <th>GroupMe?</th>
           <th>Scheduled by</th>
@@ -17,9 +17,9 @@
         {% for post in Posts %}
           <tr>
             {% if post.completed == True %}
-            <td>{{ post.post_time }}</td>
             <td>{{ post.message }}</td>
             <td>{{ post.picture }}</td>
+            <td>{{ post.post_time }}</td>
             <td>{{ post.Facebook }}</td>
             <td>{{ post.GroupMe }}</td>
             <td>{{ post.updated_by }}</td>
@@ -28,5 +28,29 @@
         {% endfor %}
       </tbody>
     </table>
+    {% if Posts.has_other_pages %}
+    <ul class="pagination">
+      
+      {% if Posts.has_previous %}
+        <li><a href="?page={{ Posts.previous_page_number }}">&laquo;</a></li>
+      {% else %}
+        <li class="disabled"><span>&laquo;</span></li>
+      {% endif %}
+
+      {% for i in Posts.paginator.page_range %}
+        {% if Posts.number == i %}
+          <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+        {% else %}
+          <li><a href="?page={{ i }}">{{ i }}</a></li>
+        {% endif %}
+      {% endfor %}
+      
+      {% if Posts.has_next %}
+        <li><a href="?page={{ Posts.next_page_number }}">&raquo;</a></li>
+      {% else %}
+        <li class="disabled"><span>&raquo;</span></li>
+      {% endif %}
+    </ul>
+    {% endif %}
   </div>
 {% endblock ListCompleted %}
