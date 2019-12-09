@@ -51,6 +51,27 @@ class SocialPost(models.Model):
             self.updated_by,
             )
 
+
+class FacebookPosts(models.Model):
+    
+    def gettoken(self):
+        pass
+
+    def sendpost(self):
+        access_token = config('FB_Token')
+        session = facebook.GraphAPI(access_token)
+        facebook_posts = SocialPost.objects.filter(Facebook=True, completed=False)
+        post_to_send = []
+        for post in facebook_posts:
+            if post.post_time <= utc.localize(datetime.datetime.now()):
+                if post.picture.name == '':
+                    session.put_object("me", "feed", message=post.message)  
+                else:
+                    session.put_photo(image=open(post.picture.path, 'rb'), message=post.message)
+                post.completed = True
+                post.save()
+
+
 class GroupMePosts(models.Model):
     #needs param for the groupme token when making for anyone
     def sendmessages(self, groupnames):

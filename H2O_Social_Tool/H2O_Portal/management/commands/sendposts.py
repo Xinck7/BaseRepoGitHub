@@ -7,8 +7,9 @@ class Command(BaseCommand):
     def handle(self, *args, **kwargs):
         unposted = SocialPost.objects.filter(completed=False)
         for post in unposted:
-            # if post.Facebook == True:
-
+            if post.Facebook == True:
+                init_posts = FacebookPosts()
+                init_posts.sendpost()
             if post.GroupMe == True:
                 groupnames = ['Testing not']
                 gmp = GroupMePosts()
