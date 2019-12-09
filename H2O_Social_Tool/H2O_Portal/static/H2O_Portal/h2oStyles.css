@@ -212,6 +212,13 @@ a:link, a:visited{
   .managecredslinks{
     display: block;
   }
+  .pagination{
+    display: inline-block;
+    width: 50%;
+  }
+  .paginate{
+    float: left;
+  }
 }
 .disconnect{
   display: inline-block;
@@ -225,7 +232,6 @@ a:link, a:visited{
 .sociallogin{
   background-color: unset;
   border: unset;
-  width: 25%;
 }
 .instructionslinks:link{
   color:blue;
@@ -236,6 +242,7 @@ a:link, a:visited{
 .instructionslinks:hover{
   color:lightblue;  
 }
+
 /*End Manage credentials*/
 
 /*Forms styles*/
