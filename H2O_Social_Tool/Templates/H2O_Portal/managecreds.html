@@ -7,7 +7,7 @@
   <h3>For Authenticating facebook<br> 
   Sign in through the portal then have an admin link your facebook account to your profile</h3>
   <br>
-  {% load socialaccount %}
+  {% comment %} {% load socialaccount %}
   {% providers_media_js %}
     <h3>Facebook</h3>
     {% if facebook_login %}
@@ -23,7 +23,7 @@
         <a href="{% provider_login_url "facebook" method="js_sdk" %}">Connect to Facebook</a>
       </div>
     {% endif %}
-    <br>
+    <br> {% endcomment %}
     <h3>For GroupMe</h3>
     <form method="post" class="sociallogin" enctype="multipart/form-data" novalidate>
       {% csrf_token %}

@@ -3,15 +3,18 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 from decouple import config
 from groupy import client
+import facebook 
 import datetime
 import pytz
 
+
 class User(AbstractUser):
     # to add facebook 
-    accounts = models.ManyToManyField(
-        settings.AUTH_USER_MODEL,
-        related_name='+',
-        )   
+    
+    # accounts = models.ManyToManyField(
+    #     settings.AUTH_USER_MODEL,
+    #     related_name='+',
+    #     )   
     # to add groupme
     gm_auth_token = models.TextField(null=True, help_text='GroupMe Auth Token', blank=True)
     USERNAME_FIELD = 'username'

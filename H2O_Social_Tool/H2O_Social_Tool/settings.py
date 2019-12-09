@@ -41,12 +41,6 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.facebook',
     "sslserver",
-    'oauth_tokens',
-    'facebook_api',
-    'facebook_applications',
-    'facebook_pages',
-    'facebook_users',
-    'facebook_posts',
 ]
 
 MIDDLEWARE = [
@@ -160,9 +154,3 @@ ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT = 600 # 10 minutes in seconds
 SITE_ID = 1
 
 # Facebook app settings
-OAUTH_TOKENS_HISTORY = True
-OAUTH_TOKENS_FACEBOOK_CLIENT_ID = config('OAUTH_TOKENS_FACEBOOK_CLIENT_ID')
-OAUTH_TOKENS_FACEBOOK_CLIENT_SECRET = config('OAUTH_TOKENS_FACEBOOK_CLIENT_SECRET')
-OAUTH_TOKENS_FACEBOOK_SCOPE = ['offline_access'] 
-OAUTH_TOKENS_FACEBOOK_USERNAME = '' # user login
-OAUTH_TOKENS_FACEBOOK_PASSWORD = '' # user password
