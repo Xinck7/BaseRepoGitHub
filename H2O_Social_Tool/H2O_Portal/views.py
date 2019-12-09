@@ -33,13 +33,13 @@ def managecreds(request):
     socialuser = request.user
     #if socialuser.gm_auth_token == '':
     if request.method == 'POST':
-        form = TokenStoreForm(request.POST)            
+        form = TokenStoreForm(request.POST, instance=socialuser)            
         if form.is_valid():
             post = form.save(commit=False)
             post.save()
             return redirect('/')
     else:
-        form = TokenStoreForm()
+        form = TokenStoreForm(instance=socialuser)
     # else:
     #     if request.method == 'POST':
     #         form = TokenStoreForm(request.POST, instance=socialuser.gm_auth_token)            

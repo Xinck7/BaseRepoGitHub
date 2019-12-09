@@ -2,7 +2,7 @@
 
 {% block ManageCreds %} 
   {% comment %} <br>
-  <h2>Authentication Instructions</h2>
+  
   <br>
   <h3>For Authenticating facebook<br> 
   Sign in through the portal then have an admin link your facebook account to your profile</h3>
@@ -24,6 +24,8 @@
       </div>
     {% endif %}
     <br> {% endcomment %}
+    <h2>Authentication Instructions:</h2><br>
+    
     <h3>GroupMe</h3><br>
     <h4>Instructions</h4>
     <p>
@@ -37,13 +39,24 @@
     5. Click Store Token<br>
     6. Profit $$ <br>
     </p><br>
+    
     <form method="post" class="sociallogin" enctype="multipart/form-data" novalidate>
       {% csrf_token %}
       {% for field in form %}
+      {% if field != form.gm_auth_token %}
+      {% else %}
           {{ field.help_text }}<br>
           {{field}}
+      {% endif %}
+
       {% endfor %}
-      <input type="submit" value="Store Token"></input>
+      <input type="submit" value="Store GroupMe Token"></input>
       {% comment %} <input type="submit" value="Store Token"><a href="{% url 'editcreds' value=field %}"></a></input> {% endcomment %}
     </form> 
+    
+    <h3>Facebook</h3><br>
+    <p>Coming Soon!</p><br>
+
+    <h3>Instagram</h3><br>
+    <p>At this time not possible without account bans <br>Happy to implement if becomes available</p><br>
 {% endblock ManageCreds %}

@@ -1,5 +1,5 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm 
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.contrib.auth.models import models
 from .models import SocialPost, User, GroupMePosts#, SocialAccount
 
@@ -21,9 +21,10 @@ class SocialPostForm(forms.ModelForm):
         }
         fields = ('message', 'post_time', 'picture', 'Facebook', 'GroupMe')
 
-class TokenStoreForm(forms.ModelForm):
+class TokenStoreForm(UserChangeForm):
     class Meta:
         model = User
         fields = ('gm_auth_token',)
+
 
 
