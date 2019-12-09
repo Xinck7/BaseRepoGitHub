@@ -20,6 +20,16 @@ class User(AbstractUser):
     USERNAME_FIELD = 'username'
 
 class SocialPost(models.Model):
+    ''' 
+    Model for Social Media Post:
+    Fields available: 
+    post_time (datetime),
+    message(2000 char limit),
+    picture (no videos available), 
+    Facebook (boolean), 
+    completed (boolean to determine table information and send status), 
+    updated_by (selects last user to save)
+    ''' 
     post_time = models.DateTimeField(
         max_length=30,
         help_text='(example: 1/31/2019 15:00)',
@@ -72,7 +82,8 @@ class SocialPost(models.Model):
 
 
 class GroupMePosts(models.Model):
-    #needs param for the groupme token when making for anyone
+    ##needs param for the groupme token when making for anyone
+    ##https://stackoverflow.com/questions/5080828/how-to-group-the-choices-in-a-django-select-widget
     # user_token = User().gm_auth_token
     # def selectgroups(self, user_token, selection):
     #     user = client
