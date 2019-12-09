@@ -18,10 +18,6 @@
       {{ field.label_tag }}
         {{ field }}
       
-      {% elif field == form.Instagram %}
-      {{ field.label_tag }}
-        {{ field }}
-      
       {% elif field == form.GroupMe %}
       {{ field.label_tag }}
         {{ field }}
@@ -43,7 +39,6 @@
       {% endfor %}
       <br>
     {% endfor %}
-    {% comment %} <button class="resubmitbutton"><a href="{% url 'editpost' value=Post.id %}">Resubmit Post</a></button> {% endcomment %}
     <input type="submit" class="resubmitbutton" value="Resubmit Post"><a href="{% url 'editpost' value=Post.id %}"></a></input>
     <button class="deletebutton"><a href="{% url 'deletepost' value=Post.id %}">Delete</a></button>
   </form> 

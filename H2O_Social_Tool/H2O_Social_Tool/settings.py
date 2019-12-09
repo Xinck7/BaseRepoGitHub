@@ -16,7 +16,6 @@ from decouple import config, Csv
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
@@ -25,11 +24,9 @@ SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', cast=bool)
-
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 
 # Application definition
-
 INSTALLED_APPS = [
     'H2O_Portal.apps.H2OPortalConfig',
     'django.contrib.admin',
@@ -43,12 +40,14 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.facebook',
-    'allauth.socialaccount.providers.instagram',
-    'allauth.socialaccount.providers.oauth2',
     "sslserver",
+    'oauth_tokens',
+    'facebook_api',
+    'facebook_applications',
+    'facebook_pages',
+    'facebook_users',
+    'facebook_posts',
 ]
-
-# For getting the groupme provider included https://github.com/pennersr/django-allauth/pull/1410/files
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -136,9 +135,6 @@ LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
 
-#DATETIME_INPUT_FORMATS = '%d/%m/%Y' #%H:%M'
-#TIME_INPUT_FORMATS = '%I:%M %p,'
-#DATETIME_INPUT_FORMATS = '%d/%m/%Y %H:%M'
 USE_I18N = True
 
 USE_L10N = True
@@ -157,13 +153,16 @@ LOGOUT_URL = 'logout'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
-# Instagram URI Call back https://localhost:8000/accounts/instagram/login/callback/
-
 # Allauth settings
-#ACCOUNT_USER_MODEL_USERNAME_FIELD = AbstractUser.USERNAME_FIELD
-#ACCOUNT_USERNAME_REQUIRED = False
-#ACCOUNT_USER_MODEL_EMAIL_FIELD = None
 ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 5 
 ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT = 600 # 10 minutes in seconds
 
 SITE_ID = 1
+
+# Facebook app settings
+OAUTH_TOKENS_HISTORY = True
+OAUTH_TOKENS_FACEBOOK_CLIENT_ID = config('OAUTH_TOKENS_FACEBOOK_CLIENT_ID')
+OAUTH_TOKENS_FACEBOOK_CLIENT_SECRET = config('OAUTH_TOKENS_FACEBOOK_CLIENT_SECRET')
+OAUTH_TOKENS_FACEBOOK_SCOPE = ['offline_access'] 
+OAUTH_TOKENS_FACEBOOK_USERNAME = '' # user login
+OAUTH_TOKENS_FACEBOOK_PASSWORD = '' # user password

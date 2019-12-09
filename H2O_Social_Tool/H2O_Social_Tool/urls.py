@@ -23,5 +23,6 @@ urlpatterns = [
     path('H2O_Portal/', include('django.contrib.auth.urls')),
     url(r'^oauth/', include('social_django.urls', namespace='social')),
     path('accounts/', include('allauth.urls')),
+    url(r'^facebook/', include('django_facebook.urls')),
     path('', include('H2O_Portal.urls')),
 ]

@@ -5,7 +5,6 @@
     <table>
       <thead>
         <tr>
-          <th>Title</th>
           <th>Post Time</th>
           <th>Message</th>
           <th>Picture</th>
@@ -18,7 +17,6 @@
         {% for post in Posts %}
           <tr>
             {% if post.completed == True %}
-            <td>{{ post.title }}</td>
             <td>{{ post.post_time }}</td>
             <td>{{ post.message }}</td>
             <td>{{ post.picture }}</td>

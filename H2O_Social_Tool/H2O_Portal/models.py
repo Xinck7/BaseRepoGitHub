@@ -6,9 +6,6 @@ from groupy import client
 import datetime
 import pytz
 
-
-# Create your models here.
-
 class User(AbstractUser):
     # to add facebook 
     accounts = models.ManyToManyField(
@@ -20,14 +17,9 @@ class User(AbstractUser):
     USERNAME_FIELD = 'username'
 
 class SocialPost(models.Model):
-    title = models.TextField(
-        blank=True,
-        max_length=200,
-        help_text='(Used for the Scheduler)',
-        )
     post_time = models.DateTimeField(
         max_length=30,
-        help_text='(ex 1/31/2019 12:00 PM)',
+        help_text='(example: 1/31/2019 15:00)',
         )
     message = models.TextField(
         blank=True,
@@ -46,7 +38,6 @@ class SocialPost(models.Model):
 
     def __str__(self):
         return '{} {} {} {} {} {} {} {} {}'.format(
-            self.title, 
             self.post_time, 
             self.message, 
             self.picture, 
@@ -56,42 +47,8 @@ class SocialPost(models.Model):
             self.completed, 
             self.updated_by,
             )
-    
-
-
-# class FacebookStatus(models.Model):
-#     class Meta:
-#         verbose_name_plural = 'Facebook Statuses'
-#         ordering = ['publish_timestamp']
-#     STATUS = (
-#         ('draft', 'Draft'),
-#         ('approved', 'Approved'),
-#     )
-#     status = models.CharField(
-#         max_length=255, 
-#         choices=STATUS,
-#         default=STATUS[0][0]
-#         )
-#     publish_timestamp = models.DateTimeField(
-#         null=True,
-#         blank=True
-#         )
-#     author = models.ForeignKey(
-#         settings.AUTH_USER_MODEL, 
-#         on_delete=models.CASCADE
-#         )
-#     message = models.TextField(max_length=255)
-#     link = models.URLField(
-#         null=True,
-#         blank=True
-#         )
-
-#     def __unicode__(self):
-#         return self.message
-
 
 class GroupMePosts(models.Model):
-
     #needs param for the groupme token when making for anyone
     def sendmessages(self, groupnames):
         user = client
