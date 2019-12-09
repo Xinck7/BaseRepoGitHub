@@ -1,10 +1,10 @@
 ## Welcome to the H2O Social Media Tool
 
-This app supports currently:
-Groupme
-In progress:
-
-Incompatible:
+This app supports currently: <br>
+Groupme <br>
+In progress: <br>
+Facebook <br>
+Incompatible: 
 
 Instagram: this is in closed beta with facebook and not accepting facebook <br>
 Also 'unofficial' methods have resulted in banned accounts.<br>
