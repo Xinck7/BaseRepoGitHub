@@ -1,7 +1,7 @@
 ## Welcome to the H2O Social Media Tool
 Here is a screenshot of the design of the website
 <br>
-![H2O Site Starting pic](.idea/H2O_site_pic.PNG)
+![H2O-Current-Site-Preview.PNG](.idea/H2O-Current-Site-Preview.PNG)
 <h2>This app supports currently: </h2>
 Groupme<br>
 <h3>In progress: </h3>
