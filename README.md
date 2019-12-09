@@ -2,10 +2,10 @@
 
 <h2>This app supports currently: </h2>
 Groupme<br>
-<h3>In progress: </h3><br>
+<h3>In progress: </h3>
 Facebook <br>
 
-<h3>Incompatible Apps:</h3> <br>
+<h3>Incompatible Apps:</h3>
 <b>Instagram: </b><br>
 This is in closed beta with facebook and not accepting facebook <br>
 Also 'unofficial' methods have resulted in banned accounts.<br>
