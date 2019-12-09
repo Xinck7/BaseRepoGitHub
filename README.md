@@ -12,7 +12,7 @@ Also 'unofficial' methods have resulted in banned accounts.<br>
   If this changes in the future I will absolutely add the functionality<br>
 
 
-
-For support:
+<br><br>
+<h2>For support: </h2>
 If there are any issues you'd like to report, contact myself (Nick) or H2O Leaders to contact me if you don't have my information
 
