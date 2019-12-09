@@ -101,6 +101,13 @@ hr {
 input, select {
     vertical-align:middle;
 }
+
+/**********************************************************************************/
+/**********************************************************************************/
+/**********************************************************************************/
+
+
+
 /***************/
 /*Global Styles*/
 /***************/
@@ -109,51 +116,54 @@ input, select {
   box-sizing: border-box;
   font-family: 'Lato', sans-serif;  
 }
+
 body{
   background-color: rgb(240, 240, 240);
 }
+/*Header*/
 #h2opic{
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
+
 header {
   text-align: center;
   font-size: 40px;
   color: rgb(99, 100, 102);
 }
+/*End Header*/
+
+/*Nav Bar*/
 #navbuttons{
   margin-top: 10px;
   text-align: center;
+}
 
-}
-.usernamedisplay{
-  position: absolute;
-  font-size: 16px;
-  top: 30px;
-  right: 200px;
-}
-#signup, #logout{
-  position: absolute;
-  top: 15px;
-  right: 10px;
-}
-#login{
-  position: absolute;
-  top: 15px;
-  right: 90px;
-}
 ul{
   list-style-type: none;
   padding: 10px;
 }
+
 li{
   display: inline-block;
-  padding: 10px;
+  padding: 12px;
   margin: 5px;
+  font-weight: 500;
   background-color: rgba(243, 130, 60, 1);
   border-radius: 8px;
 }
+
+li:hover{
+  background-color: rgba(243, 130, 60, .80);
+}
+
+@media (max-width: 750px){
+  li{
+    display: block;
+  }
+}
+
 .navbar{
   border: 3px solid rgb(99, 100, 102);
 }
@@ -162,44 +172,139 @@ a:link, a:visited{
   color: black;
   text-decoration: none;
 }
+/*End Nav Bar*/
+
+
+/*Positioning for the login stuff*/
+.usernamedisplay{
+  position: absolute;
+  font-size: 16px;
+  top: 80px;
+  right: 50px;
+}
+
+#signup, #logout{
+  position: absolute;
+  top: 15px;
+  right: 10px;
+}
+
+#login{
+  position: absolute;
+  top: 15px;
+  right: 90px;
+}
+/*End Positioning for the login stuff*/
+
+/*Manage credentials*/
+.managecredslinks{
+  display: inline-block;
+  padding: 10px;
+  margin: 5px;
+  background-color: rgba(243, 130, 60, 1);
+  border: 3px solid rgb(99, 100, 102);
+  border-radius: 8px;
+}
+.managecredslinks:hover{
+  background-color: rgba(243, 130, 60, .80);
+}
+@media (max-width: 750px){
+  .managecredslinks{
+    display: block;
+  }
+}
+.disconnect{
+  display: inline-block;
+  padding: 10px;
+  margin: 5px;
+  color:black;
+  background-color: rgba(250, 90, 90, 1);
+  border: 1px solid rgb(99, 100, 102);
+  border-radius: 8px;
+}
+.sociallogin{
+  background-color: unset;
+  border: unset;
+}
+/*End Manage credentials*/
 
 /*Forms styles*/
 form{
-  background-color: rgba(243, 130, 60, 1);
+  background-color: rgba(243, 130, 60, .99);
   border: 3px solid rgb(99, 100, 102);
   border-radius: 8px;
   color: black;
-  display: inline-block;
+  box-sizing: content-box;
+  width: 50%;
+  margin: auto;
   font-size: 18px;
+  font-weight: 500;
   margin-top: 5px;
-  min-width: 70px;
-  max-width: 800px;
   padding: 5px; 
   text-align: center;
 }
-#AppLogin, #AppSignup{
-  text-align: center;
-}
-textarea, input[type="text"], #id_picture{
+
+textarea, input[type="text"]{
   background-color: rgb(240, 240, 240);
 }
-input[type="checkbox"]{
-  min-width: 50px;
-  max-width: 100px;
+
+/*Cleaning up the create post section*/
+input, textarea{
+  width: 75%;
+  padding: 5px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; 
+  border-radius: 3px;
+  border-width: 1px;
 }
+
+input[type="submit"]{
+  padding: 1%;
+  margin-top: 13px;
+  margin-bottom: 15px;
+  background-color: rgba(90, 140, 250, 1);
+  font-size: 14pt;
+  border: none;
+}
+
+input[type="checkbox"]{
+  width: 10%;
+}
+
+.imageclass{
+  padding: 8px;
+  margin: 10px;
+  background-color: rgba(90, 140, 250, 1);
+  font-size: 12pt;
+  border-radius: 3px;
+  border: none;
+}
+
+.imageclass #id_picture{
+  display: none;
+  border-radius: 3px;
+  width: 50%;
+}
+
+.imageclass:hover, input[type="submit"]:hover{
+  background-color: rgba(90, 140, 250, .70);
+}
+
+/*End Cleaning up the create post section*/
+
 #CreatePost, #ManageCreds, #ListScheduled, #ListCompleted{
   text-align: center;
 }
+/*End Forms styles*/
 
-/*button{
-  color: black;
-  background-color: rgba(243, 130, 60, 1);
-  border: 3px solid rgb(99, 100, 102);
-  border-radius: 8px;
-  font: bold;
-}*/
-
-/*Fixing styling idea: add sections for (.myfieldclass th) for example and see if that changes it nicely*/
+/*Edit Post Pane*/
+#centeringcontainer{
+  box-sizing: content-box;
+  width: 60%;
+  margin: auto;
+}
+/*End Edit Post Pane*/
 
 /*Posts Pane*/
 .posttables{
@@ -208,169 +313,56 @@ input[type="checkbox"]{
   min-width: 5px;
   text-align: center;
 }
-th,td{
+th{
   padding: 15px;
-  border: 2px solid rgb(99, 100, 102);
+  border: 1px solid rgb(99, 100, 102);
   border-collapse: collapse;
+  background-color: rgba(241, 120, 44, 0.75);
+  font-weight: 200;
+}
+td{
+  padding: 15px;
+  border: 1px solid rgb(99, 100, 102);
+  border-collapse: collapse;
+  font-weight: 500;
   background-color: rgba(241, 120, 44, 0.90);
 }
-
-
-
-/*From Old version*/
-
-/*.button {
-  background-color: rgba(241, 120, 44, 0.90);
-  border: 2px solid rgb(99, 100, 102);
-  border-radius: 8px;
-  color: black;
-  cursor: pointer;
-  font-size: 16px;
-  margin-bottom: 5px;
-  padding: 10px; 
+.editpostbutton{
+  background-color: rgba(68, 122, 238, 0.60);
+  border-collapse: unset;
+  padding: 10px;
 }
-button:hover {
-    opacity: 0.8;
-  }
-.revealpane{
-  display: none;
-  text-align: center;
+
+.editpostbutton:hover{
+  background-color: rgba(68, 122, 238, 1);
+}
+
+.resubmitbutton{
   padding: 1%;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  width:50%;
+  inline-size: auto;
+  border-radius: 3px;
+  background-color: rgba(90, 140, 250, 1);
+  font-size: 14pt;
+  border: none;
 }
-*/
-/*Add some screen size functionality here*/
-
-
-  /*.modalcontainer{
-    background-color: rgb(0,0,0); /* Fallback color *
-    background-color: rgba(0,0,0,0.4);
-    border: 2px solid rgb(99, 100, 102);
-    border-radius: 8px;
-    visibility: hidden;
-    position: fixed;
-    overflow: scroll; /* Enable scroll if needed *
-    padding-top: 60px;
-    left: 0;
-    top: 0;    
-    width: 100%; /* Full width *
-    height: 100%; /* Full height *
-    margin: auto;
-    text-align: center;
-    z-index: 1;
-  } */
-  /*Sign Up button #modal*/
-
-
-  /*
-  .close {
-    color: #aaaaaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-  }
-  
-  .close:hover,
-  .close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-  }*/
-
-
-
-/*Credential Pane*
-  form {
-    display: inline-block;
-  }
-
-  input[type=text], input[type=password], input[type=email] {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    background-color: whitesmoke;
-    border-radius: 8px;
-    box-sizing: border-box;
-  }
-  .submitbutton {
-    background-color: rgba(241, 120, 44, 0.90);
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border-radius: 8px;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-  }
-  
-  .cancelbtn {
-    width: auto;
-    padding: 10px 18px;
-    background-color: rgba(241, 120, 44, 0.90);
-  }
-  .imgcontainer {
-    text-align: center;
-    margin: 24px 0 12px 0;
-    flex: 0;
-    min-width: 5px;
-    max-width: 500px;
-  }
-  img.smallpic {
-    width: 30%;
-    border-radius: 50%;
-  }
-  .container {
-    background-color:#f1f1f1;
-    padding: 16px;
-    flex: 1;
-    min-width: 5px;
-    max-width: 500px;
-  }
-  .SelectionButton{
-    background-color: rgba(241, 120, 44, 0.90);
-    border: 2px solid rgb(99, 100, 102);
-    border-radius: 8px;
-    color: black;
-    cursor: pointer;
-    display: inline-block;
-    font-size: 16px;
-    margin-top: 5px;
-    align-items:center;
-    padding: 5px; 
-    text-align: center;
-    text-decoration: none;
-  }*/
-
-  /*
-  span.psw {
-    padding-top: 16px;
-  }
-  #RevealFacebookLogin, #RevealInstagramLogin, #RevealGroupMeLogin{
-    display: none;
-  }
-  
-
-/*Create Post Pane*
-  .Postdestination{
-    background-color: rgba(241, 120, 44, 0.90);
-    border: 2px solid rgb(99, 100, 102);
-    border-radius: 8px;
-    color: black;
-    cursor: pointer;
-    display: inline-block;
-    font-size: 16px;
-    margin-top: 5px;
-    flex: 1;
-    min-width: 5px;
-    max-width: 500px;
-    padding: 5px; 
-    text-decoration: none;
-  }
-  .createpostbutton{
-    border: 1px solid rgb(99, 100, 102);
-    border-radius: 8px;
-    background-color: whitesmoke;
-    
-  }*/
-
+.resubmitbutton:hover{
+  background-color: rgba(90, 250, 125, 0.7);
+}
+.deletebutton{
+  padding: 1%;
+  margin-bottom: 15px;
+  border-radius: 3px;
+  width:55%;
+  inline-size: auto;
+  color: White;
+  background-color: rgba(250, 90, 90, 1);
+  font-size: 14pt;
+  border: none;
+}
+.deletebutton:hover{
+  background-color: lightslategrey
+}
+/*End Posts Pane*/

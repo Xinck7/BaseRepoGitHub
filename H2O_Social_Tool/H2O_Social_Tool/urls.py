@@ -15,10 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls import url
+admin.autodiscover()
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('H2O_Portal/', include('django.contrib.auth.urls')),
+    url(r'^oauth/', include('social_django.urls', namespace='social')),
+    path('accounts/', include('allauth.urls')),
     path('', include('H2O_Portal.urls')),
-    path('api/auth/', include('rest_framework.urls')),
 ]

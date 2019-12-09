@@ -1,31 +1,48 @@
 {% extends 'H2O_Portal/base.html' %}
 
 {% block CreatePost %}
-    <form method="post" class="myfieldclass" novalidate>
+    <form method="post" enctype="multipart/form-data" class="myfieldclass" novalidate>
       {% csrf_token %}
       {% for field in form %}
+        {% if field == form.picture %}
+          {{field.label_tag}}
+          <label class="imageclass">
+            Upload
+            {{field}}
+          </label>
+          <br>
+        {% elif field == form.Facebook %}
+        {{ field.label_tag }}
+          {{ field }}
         
-        <b>{{ field.label_tag }}</b>
-        {% if field == form.Facebook %}
         {% elif field == form.Instagram %}
+        {{ field.label_tag }}
+          {{ field }}
+        
         {% elif field == form.GroupMe %}
+        {{ field.label_tag }}
+          {{ field }}
+          {% for group in groups %}
+          <p>Select groups available using another form</p>
+          {% endfor %}
         {% else %}
-        <br>
-        {% endif %}
-        {% if field.help_text %}
-          {{ field.help_text }}
+          {{ field.label_tag }}
+          <br>
+          {% if field.help_text %}
+            {{ field.help_text }}
+            <br>
+          {% endif %}
+          <br>
+          {{ field }}
           <br>
         {% endif %}
-        <br>
-        {{ field }}
-        <br>
         {% for error in field.errors %}
-            <p style="color: red">{{ error }}</p>
+            <p style="color: blue">{{ error }}</p>
             <br>
         {% endfor %}
         <br>
       {% endfor %}
       <br>
-      <button class="buttoncontainer" type="submit">Create Post</button>
+      <input type="submit" value="Create Post"></input>
     </form> 
 {% endblock CreatePost %}

@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+from decouple import config, Csv
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -20,13 +21,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '*uy$2sb&!ek2z3-o%sagcarh5j*z-_vb7$r4-($=q#sgx3#cv^'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG', cast=bool)
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 
 # Application definition
 
@@ -38,8 +38,17 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework'
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.facebook',
+    'allauth.socialaccount.providers.instagram',
+    'allauth.socialaccount.providers.oauth2',
+    "sslserver",
 ]
+
+# For getting the groupme provider included https://github.com/pennersr/django-allauth/pull/1410/files
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -71,16 +80,13 @@ TEMPLATES = [
     },
 ]
 
+AUTHENTICATION_BACKENDS = (    
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
+
 WSGI_APPLICATION = 'H2O_Social_Tool.wsgi.application'
 
-#Rest Framework from site for SPA
-REST_FRAMEWORK = {
-    # Use Django's standard `django.contrib.auth` permissions,
-    # or allow read-only access for unauthenticated users.
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
-    ]
-}
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
@@ -91,10 +97,21 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': config('DB_NAME'),
+#         'USER': config('DB_USER'),
+#         'PASSWORD': config('DB_PASSWORD'),
+#         'HOST': config('DB_HOST'),
+#         'PORT': '',
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
+
+AUTH_USER_MODEL = 'H2O_Portal.user'
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -119,8 +136,9 @@ LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
 
-DATETIME_INPUT_FORMATS = '%d/%m/%Y %H:%M'
-
+#DATETIME_INPUT_FORMATS = '%d/%m/%Y' #%H:%M'
+#TIME_INPUT_FORMATS = '%I:%M %p,'
+#DATETIME_INPUT_FORMATS = '%d/%m/%Y %H:%M'
 USE_I18N = True
 
 USE_L10N = True
@@ -132,5 +150,20 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# Login URL's
+LOGIN_URL = 'login'
+LOGOUT_URL = 'logout'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
+
+# Instagram URI Call back https://localhost:8000/accounts/instagram/login/callback/
+
+# Allauth settings
+#ACCOUNT_USER_MODEL_USERNAME_FIELD = AbstractUser.USERNAME_FIELD
+#ACCOUNT_USERNAME_REQUIRED = False
+#ACCOUNT_USER_MODEL_EMAIL_FIELD = None
+ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 5 
+ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT = 600 # 10 minutes in seconds
+
+SITE_ID = 1

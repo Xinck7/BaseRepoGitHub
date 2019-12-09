@@ -14,20 +14,6 @@ class TestUrls(TestCase):
         view = resolve('/')
         self.assertEquals(view.func, home)
     
-    # def test_view_list(self):
-    #     array = ['signup','managecreds','listscheduled', 'listcompleted', 'test' ]
-    #     length = len(array)
-    #     for i in range(length):
-    #         def test_item_view_status_code(self):
-    #             url = reverse(array[i])
-    #             response = self.client.get(url)
-    #             self.assertEquals(response.status_code, 200)
-            
-    #         def test_item_url_resolves_item_view(self):
-    #             view = resolve('/'+ array[i] + '/')
-    #             self.assertEquals(view.func, array[i])
-
-    #Signup
     def test_signup_view_status_code(self):
         url = reverse('signup')
         response = self.client.get(url)

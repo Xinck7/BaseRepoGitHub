@@ -1,76 +1,36 @@
 {% extends 'H2O_Portal/base.html' %}
-{% load static %}
 
-{% block ManageCreds %}
-    <form method="post" class="myfieldclass" novalidate>
+{% block ManageCreds %} 
+  <br>
+  <h2>Authentication Instructions</h2>
+  <br>
+  <h3>For Authenticating facbook<br> 
+  Sign in through the portal then have an admin link your facebook account to your profile</h3>
+  <br>
+  {% load socialaccount %}
+  {% providers_media_js %}
+    <h3>Facebook</h3>
+    {% if facebook_login %}
+      <p>Connected as <a href="https://facebook.com/{{ facebook_login.extra_data.id }}/" target="_blank">{{ facebook_login.extra_data.id }}</a></p>
+      {% if can_disconnect %}
+        <form  class="sociallogin" method="post" action="{% url 'social:disconnect' 'facebook' %}">
+          {% csrf_token %}
+          <button class="disconnect">Disconnect from Facebook</button>
+        </form>
+      {% endif %}
+    {% else %}
+      <div class="managecredslinks">
+        <a href="{% provider_login_url "facebook" method="js_sdk" %}">Connect to Facebook</a>
+      </div>
+    {% endif %}
+    <br>
+    <h3>For GroupMe</h3>
+    <form method="post" class="sociallogin" enctype="multipart/form-data" novalidate>
       {% csrf_token %}
-      {% for field in form %}
-        {{ field.label_tag }}<br>
-        {{ field }}
-        <br>
-        {% if field.help_text %}
-            <div id="helptext">
-              {{ field.help_text }}
-            </div>
-        {% endif %}<br>
-        {% for error in field.errors %}
-            <p style="color: red">{{ error }}</p>
-        {% endfor %}
-      {% endfor %} 
-      <div class="buttoncontainer">
-        <button type="submit">Sign up</button>
-      </div>
+      {% for field in form.as_p %}
+          {{ field.label_tag }}
+          {{field}}
+      {% endfor %}
+      <input type="submit" value="Store Token"></input>
     </form> 
-  <!--
-  <div id="CredDisp" class="revealpane">     
-    <button class="SelectionButton" onclick="RevealCheckBox('RevealFacebookLogin')">Facebook</button>
-      <div id="RevealFacebookLogin" class="revealpaneinner">
-        <form method="post">
-          <div class="imgcontainer">
-            <img src="{% static 'H2O_Portal/facebooklogo.png' %}" alt="Facebooklogo" class="smallpic">
-          </div>
-          <div class="container">
-            <label for="uname"><b>Username</b></label>
-            <input type="text" placeholder="Enter Username" name="uname" required>
-            <label for="psw"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="psw" required>
-            <button type="submit" class="submitbutton">Store Credentials</button>
-          </div>
-        </form> 
-      </div>
-
-    <button class="SelectionButton" onclick="RevealCheckBox('RevealInstagramLogin')">Instagram</button>
-      <div id="RevealInstagramLogin" class="revealpaneinner">
-        <form action="" method="post">
-          <div class="imgcontainer">
-            <img src="{% static 'H2O_Portal/InstagramLogo.png' %}" alt="InstagramLogo" class="smallpic">
-          </div>
-          <div class="container">
-            <label for="uname"><b>Username</b></label>
-            <input type="text" placeholder="Enter Username" name="uname" required>
-            <label for="psw"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="psw" required>
-            <button type="submit" class="submitbutton">Store Credentials</button>
-          </div>
-        </form>
-      </div>
-    
-    <button class="SelectionButton" onclick="RevealCheckBox('RevealGroupMeLogin')">GroupMe</button>
-      <div id="RevealGroupMeLogin" class="revealpaneinner">
-        <form action="" method="post">
-          <div class="imgcontainer">
-            <img src="{% static 'H2O_Portal/groupme.jpg' %}" alt="GroupMeLogo" class="smallpic">
-          </div>
-          <div class="container">
-            <label for="uname"><b>Username</b></label>
-            <input type="text" placeholder="Enter Username" name="uname" required>
-            <label for="psw"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="psw" required>
-            <button type="submit" class="submitbutton">Store Credentials</button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div> 
-  -->
 {% endblock ManageCreds %}
