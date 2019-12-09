@@ -40,7 +40,10 @@ class SocialPost(models.Model):
         )
     picture = models.ImageField(null=True, blank=True, upload_to='H2O_Portal/static', help_text='Only pictures are supported through this tool')
     Facebook = models.BooleanField(default=False)
-    GroupMe = models.BooleanField(default=False)     
+    GroupMe = models.BooleanField(default=False)  
+    #GroupMeGroups?
+    GroupMeGroups = models.TextField(null=True)
+    #https://stackoverflow.com/questions/1110153/what-is-the-most-efficient-way-to-store-a-list-in-the-django-models
     completed = models.BooleanField(default=False)
     updated_by = models.ForeignKey(
         settings.AUTH_USER_MODEL,
@@ -56,6 +59,7 @@ class SocialPost(models.Model):
             self.picture, 
             self.Facebook, 
             self.GroupMe,
+            self.GroupMeGroups,
             self.completed, 
             self.updated_by,
             )
