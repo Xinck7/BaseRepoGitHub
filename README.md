@@ -13,5 +13,5 @@ Also 'unofficial' methods have resulted in banned accounts.<br>
 
 
 For support:
-If there are any issues you'd like to report, contact Nick or H2O Leaders to contact me if you don't have my information
+If there are any issues you'd like to report, contact myself (Nick) or H2O Leaders to contact me if you don't have my information
 
