@@ -1,6 +1,6 @@
 ## Welcome to the H2O Social Media Tool
 
-<h2>This app supports currently: </h2><br>
+<h2>This app supports currently: </h2>
 Groupme<br>
 <h3>In progress: </h3><br>
 Facebook <br>
