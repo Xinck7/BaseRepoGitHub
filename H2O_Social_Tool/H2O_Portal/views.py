@@ -31,7 +31,6 @@ def signup(request):
 @login_required
 def managecreds(request):
     socialuser = request.user
-    #if socialuser.gm_auth_token == '':
     if request.method == 'POST':
         form = TokenStoreForm(request.POST, instance=socialuser)            
         if form.is_valid():
@@ -40,16 +39,7 @@ def managecreds(request):
             return redirect('/')
     else:
         form = TokenStoreForm(instance=socialuser)
-    # else:
-    #     if request.method == 'POST':
-    #         form = TokenStoreForm(request.POST, instance=socialuser.gm_auth_token)            
-    #         if form.is_valid():
-    #             post.save()
-    #             return redirect('/')
-    #     else:
-    #         form = TokenStoreForm(instance=socialuser)
     return render(request, 'H2O_Portal/managecreds.html', {'form' : form} )    
-    # socialuser = request.user
     # try:
     #     facebook_login = socialaccount.objects.filter(provider='facebook', user_id=self.user.id)#sociallogin.account.provider #user.social_auth.get(provider='facebook')
     # except:# UserSocialAuth.DoesNotExist:

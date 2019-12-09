@@ -42,7 +42,8 @@ class SocialPost(models.Model):
     Facebook = models.BooleanField(default=False)
     GroupMe = models.BooleanField(default=False)  
     #GroupMeGroups?
-    GroupMeGroups = models.TextField(null=True)
+    #GroupMeGroups = models.TextField(null=True)
+    GroupMeGroups = []
     #https://stackoverflow.com/questions/1110153/what-is-the-most-efficient-way-to-store-a-list-in-the-django-models
     completed = models.BooleanField(default=False)
     updated_by = models.ForeignKey(
@@ -113,6 +114,7 @@ class GroupMePosts(models.Model):
         session = user.Session(config('GroupMe_AuthToken'))
         client_session = user.Client(session)
         groups = list(client_session.groups.list_all())
+        #groupnames will be defined later as a part of the groupme_posts var so this would go after and within the if post.post_time processing
         groups_to_send = []
         for group in groups:
             for names in groupnames:
