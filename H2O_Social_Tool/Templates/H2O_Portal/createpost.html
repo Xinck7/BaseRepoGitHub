@@ -14,19 +14,27 @@
           <br>
 
         {% elif field == form.Facebook %}
-          {{ field }}
-          {{ field.label_tag }}
-          <br>
+          <p>Facebook coming soon!</p>
+          <div id="facebook">
+            <label id="showmorefacebook" onclick=RevealCheckBox("centerfacebookgroups")>
+              <span>
+              {{ field }}
+              </span>
+            </label>
+            {{field.label_tag}}
+          </div>
 
         {% elif field == form.GroupMe %}
           <div>
-            <label id="showmore" onclick=RevealCheckBox("centergroups")>
+            <label id="showmoregroupme" onclick=RevealCheckBox("centergroupmegroups")>
+              <span>
               {{ field }}
-              {{ field.label_tag }}
+              </span>
             </label>
+            {{field.label_tag}}
           </div>
           
-          <div id="centergroups">
+          <div id="centergroupmegroups">
           <br>
           <p id="centerinstructions">Select Groups</p>
           <br>

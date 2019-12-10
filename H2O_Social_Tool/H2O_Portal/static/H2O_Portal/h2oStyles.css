@@ -318,7 +318,7 @@ input[type="checkbox"]{
   display: block;
   text-align: left;
 }
-#centergroups{
+#centergroupmegroups{
   box-sizing: content-box;
   display: none;
   width: 100%;
@@ -326,7 +326,7 @@ input[type="checkbox"]{
 }
 #centereditgroups{
   box-sizing: content-box;
-  display: display;
+  display: block;
   width: 100%;
   margin-left: 10%;
 }
@@ -335,6 +335,9 @@ input[type="checkbox"]{
   width: 80%;
   text-align: center;
 }
+/*delete after integrating facebook*/
+
+
 /*End Forms styles*/
 
 /*Edit Post Pane*/
