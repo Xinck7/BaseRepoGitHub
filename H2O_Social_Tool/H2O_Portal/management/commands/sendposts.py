@@ -20,9 +20,28 @@ class Command(BaseCommand):
                 user_db_info = filter_user.values('gm_auth_token')
                 token_dict = user_db_info.get()
                 auth_token = token_dict['gm_auth_token']
+
                 if auth_token != None:
                     gmp = GroupMePosts()
                     gmp.sendmessages(auth_token, groupnames)
             # check time if its time to post
             # post if its time
 
+#this will atleast get the strings part kinda going
+# groups_to_pair = post.GroupMeGroups.split(",")
+# groups_to_pair = list(groups_to_post)
+# i=0
+# for group in groups_to_pair:
+#     print(group)
+#     if group.startswith('['):
+#         print(group)
+#         groups_to_pair[i] = group[2:-1]
+#         print(group)
+#     elif group.startswith(" ") and group.endswith(']'):
+#         groups_to_pair[i] = group[2:-2]
+#     elif group.startswith(" ") and group.endswith(''):
+#         groups_to_pair[i] = group[2:-1]
+
+#     i = i+1
+
+# groups_to_pair

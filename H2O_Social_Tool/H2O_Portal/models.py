@@ -123,8 +123,8 @@ class GroupMePosts(models.Model):
                 post.save()
         for key in post_to_send:
             for group in selected_groups:
-                #group.post(text=key, attachments=post_to_send[key])
-                group.post(text=key, attachments=post_attachments)
+                group.post(text=key, attachments=post_to_send[key])
+                #group.post(text=key, attachments=post_attachments)
 
 #archive logic delete when officially working
 
