@@ -10,7 +10,8 @@ class Command(BaseCommand):
             # if post.Facebook == True:
             #     init_posts = FacebookPosts()
             #     init_posts.sendpost()
-
+            
+            #####Needs modification##############
             if post.GroupMe == True:
                 groupnames = post.GroupMeGroups
                 #groupnames = 
