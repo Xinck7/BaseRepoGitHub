@@ -320,9 +320,20 @@ input[type="checkbox"]{
 }
 #centergroups{
   box-sizing: content-box;
-  display: block;
+  display: none;
   width: 100%;
   margin-left: 10%;
+}
+#centereditgroups{
+  box-sizing: content-box;
+  display: display;
+  width: 100%;
+  margin-left: 10%;
+}
+#centerinstructions{
+  margin-left: unset;
+  width: 80%;
+  text-align: center;
 }
 /*End Forms styles*/
 

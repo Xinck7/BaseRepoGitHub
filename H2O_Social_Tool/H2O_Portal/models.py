@@ -76,6 +76,7 @@ class SocialPost(models.Model):
 
 
 class GroupMePosts(models.Model):
+    
     def getgroups(self, user_token):
         user = client
         session = user.Session(user_token)

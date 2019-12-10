@@ -62,11 +62,13 @@ def createpost(request):
         master_groups = GroupMePosts.getgroups(init_groupme, socialuser.gm_auth_token)
         reversed_groupme_groups = dict(request.POST)
         gm_list = []
-        list_groupme_groups = list(reversed_groupme_groups.keys())
-        for var_group in list_groupme_groups:
-            for group in master_groups:
-                if var_group == group.name:
-                    gm_list.append(var_group)
+        list_groupme_groups = reversed_groupme_groups.values()
+        for var_groups in list_groupme_groups:
+            for var_group in var_groups:
+                for group in master_groups:
+                    if var_group == group.name:
+                        gm_list.append(var_group)
+
         if form.is_valid():
             post = form.save(commit=False)
             #add cleaning data
@@ -91,15 +93,14 @@ def editpost(request, value):
         init_groupme = GroupMePosts()
         master_groups = GroupMePosts.getgroups(init_groupme, socialuser.gm_auth_token)
         reversed_groupme_groups = dict(request.POST)
-        #need solution for this being iterable ultimately grabbing what is passed which
-        #request info says variable is correct and the value is 'on' without setting value
-        #grabbing the correct thing now just need to flip and add then pass as list
         gm_list = []
-        list_groupme_groups = list(reversed_groupme_groups.keys())
-        for var_group in list_groupme_groups:
-            for group in master_groups:
-                if var_group == group.name:
-                    gm_list.append(var_group)
+        list_groupme_groups = reversed_groupme_groups.values()
+        for var_groups in list_groupme_groups:
+            for var_group in var_groups:
+                for group in master_groups:
+                    if var_group == group.name:
+                        gm_list.append(var_group)
+
         if form.is_valid(): 
             post = form.save(commit=False)
             #add cleaning data

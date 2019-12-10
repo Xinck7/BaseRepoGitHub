@@ -19,13 +19,17 @@
           <br>
 
         {% elif field == form.GroupMe %}
-          {{ field }}
-          {% comment %} {{ field.label_tag }} {% endcomment %}
+          <div>
+            <label id="showmore" onclick=RevealCheckBox("centergroups")>
+              {{ field }}
+              {{ field.label_tag }}
+            </label>
+          </div>
           
-          <br>
-          <p>Select GroupMe Groups</p>
-          <br>
           <div id="centergroups">
+          <br>
+          <p id="centerinstructions">Select Groups</p>
+          <br>
             {% for group in groups %}
             <div class="groupmegroups">
                 <input class="groupnamebox" type="checkbox" name="groupnameboxes" value="{{group.name}}">{{group.name}}</input>

@@ -22,8 +22,10 @@
       <ul id="navlist">
         {% if request.user.is_authenticated %}
         <li class="navbar"><a href="/">Home</a></li>
-        <li class="navbar"><a href="/managecreds/">Account Token</a></li>
+        <li class="navbar"><a href="/managecreds/">Store Account Token</a></li>
+        {% comment %} add check if there is an auth token {% endcomment %}
         <li class="navbar"><a href="/createpost/">Create Post</a></li>
+        
         <li class="navbar"><a href="/listscheduled/">List Scheduled Posts</a></li>
         <li class="navbar"><a href="/listcompleted/">Completed Posts</a></li>
         <li class="navbar" id="logout"><a href="/H2O_Portal/logout/">Logout</a></h1></li>

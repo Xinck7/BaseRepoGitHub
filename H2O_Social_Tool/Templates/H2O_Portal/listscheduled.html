@@ -22,9 +22,9 @@
             <td>{{ post.post_time }}</td>
             <td>{{ post.Facebook }}</td>
             {% if post.GroupMeGroups == None %}
-            <td></td>
+              <td></td>
             {% else %}
-            <td>{{ post.GroupMeGroups }}</td>
+              <td>{{ post.GroupMeGroups }}</td>
             {% endif %} 
             <td>{{ post.updated_by }}</td>
               {% if post.updated_by == request.user.is_staff or request.user.is_superuser or user %}
