@@ -76,9 +76,6 @@ class SocialPost(models.Model):
 
 
 class GroupMePosts(models.Model):
-    ##needs param for the groupme token when making for anyone
-    ##https://stackoverflow.com/questions/5080828/how-to-group-the-choices-in-a-django-select-widget
-    # user_token = User().gm_auth_token
     def getgroups(self, user_token):
         user = client
         session = user.Session(user_token)
@@ -87,27 +84,12 @@ class GroupMePosts(models.Model):
         return groups
 
     #####Needs modification##############
-    def sendmessages(self, user_token, groupnames, groupme_posts):
+    def sendmessages(self, user_token, groupnames):
         user = client
         session = user.Session(user_token)
         client_session = user.Client(session)
-        groups = list(client_session.groups.list_all())
-        groupset = dict()
-        i=0
-        for i in range(0, len(groups)):
-            groupname = groups[i].name
-            groupset[i] = groupname
-
-        selection_array = list(groupnames)
-        selected_groups = []
-        for item in selection_array:
-            for group in groups:
-                if item == group.name:
-                    selected_groups.append(groupset[item])
-
         post_to_send = []
         post_attachments = []
-        # groupme_posts = SocialPost.objects.filter(GroupMe=True, completed=False)
         utc=pytz.UTC
         for post in groupme_posts:
             if post.post_time <= utc.localize(datetime.datetime.now()):
@@ -116,6 +98,10 @@ class GroupMePosts(models.Model):
                     attachments = None
                 else:
                     post_to_send.append(post.message)
+                    #This may not work as intended need to think about how this should send as a list
+                    #I think I may be able to save it overtop of the actual 'picture' file that is there on the post
+                    #may work by accident since i'm doing the messages one at a time if I read right not 100%
+                #BUT A DICTIONARY WILL!!
                     with open(post.picture.path, 'rb') as f:
                         upload = client_session.images.from_file(f)
                         post_attachments.append(upload)
@@ -125,4 +111,17 @@ class GroupMePosts(models.Model):
             for group in selected_groups:
                 group.post(text=to_send, attachments=post_attachments)
 
+#archive logic delete when officially working
+        # groups = list(client_session.groups.list_all())
+        # groupset = dict()
+        # i=0
+        # for i in range(0, len(groups)):
+        #     groupname = groups[i].name
+        #     groupset[i] = groupname
 
+        # selection_array = list(groupnames)
+        # selected_groups = []
+        # for item in selection_array:
+        #     for group in groups:
+        #         if item == group.name:
+        #             selected_groups.append(groupset[item])

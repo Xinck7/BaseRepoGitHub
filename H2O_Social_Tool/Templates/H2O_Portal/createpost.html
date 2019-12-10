@@ -20,8 +20,8 @@
 
         {% elif field == form.GroupMe %}
           {{ field }}
-          {{ field.label_tag }}
-          <br>
+          {% comment %} {{ field.label_tag }} {% endcomment %}
+          
           <br>
           <p>Select GroupMe Groups</p>
           <br>

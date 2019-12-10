@@ -45,13 +45,8 @@ def managecreds(request):
     #     facebook_login = socialaccount.objects.filter(provider='facebook', user_id=self.user.id)#sociallogin.account.provider #user.social_auth.get(provider='facebook')
     # except:# UserSocialAuth.DoesNotExist:
     #     facebook_login = None
-    # try:
-    #     groupme_login = socialuser.gm_auth_token#user.social_auth.get(provider='groupme')
-    # except: 
-    #     groupme_login = None
 
     # can_disconnect =  socialaccount.forms.DisconnectForm #(user.social_auth.count() > 1)
-
     # return render(request, 'H2O_Portal/managecreds.html', {
     #     'facebook_login': facebook_login,
     #     'groupme_login': groupme_login,
@@ -66,9 +61,6 @@ def createpost(request):
         init_groupme = GroupMePosts()
         master_groups = GroupMePosts.getgroups(init_groupme, socialuser.gm_auth_token)
         reversed_groupme_groups = dict(request.POST)
-        #need solution for this being iterable ultimately grabbing what is passed which
-        #request info says variable is correct and the value is 'on' without setting value
-        #grabbing the correct thing now just need to flip and add then pass as list
         gm_list = []
         list_groupme_groups = list(reversed_groupme_groups.keys())
         for var_group in list_groupme_groups:

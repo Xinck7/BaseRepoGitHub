@@ -6,6 +6,7 @@ class Command(BaseCommand):
     
     def handle(self, *args, **kwargs):
         unposted = SocialPost.objects.filter(completed=False)
+        all_users = User.objects.all()
         for post in unposted:
             # if post.Facebook == True:
             #     init_posts = FacebookPosts()
@@ -14,9 +15,14 @@ class Command(BaseCommand):
             #####Needs modification##############
             if post.GroupMe == True:
                 groupnames = post.GroupMeGroups
-                #groupnames = 
-                gmp = GroupMePosts()
-                gmp.sendmessages(groupnames)
+                user_name = post.updated_by
+                filter_user = all_users.filter(username=user_name)
+                user_db_info = filter_user.values('gm_auth_token')
+                token_dict = user_db_info.get()
+                auth_token = token_dict['gm_auth_token']
+                if auth_token != None:
+                    gmp = GroupMePosts()
+                    gmp.sendmessages(auth_token, groupnames)
             # check time if its time to post
             # post if its time
 
