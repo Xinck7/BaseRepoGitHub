@@ -86,6 +86,7 @@ class GroupMePosts(models.Model):
         groups = list(client_session.groups.list_all())
         return groups
 
+    #####Needs modification##############
     def sendmessages(self, user_token, groupnames, groupme_posts):
         user = client
         session = user.Session(user_token)
