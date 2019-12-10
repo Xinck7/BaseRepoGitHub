@@ -304,8 +304,8 @@ input[type="checkbox"]{
   width: 50%;
 }
 
-.imageclass:hover, input[type="submit"]:hover{
-  background-color: rgba(90, 140, 250, .70);
+.imageclass:hover, input[type="submit"]:hover, #resubmitbutton:hover{
+  background-color: rgba(90, 250, 125, 0.7);
 }
 
 /*End Cleaning up the create post section*/
@@ -354,13 +354,13 @@ td{
   background-color: rgba(68, 122, 238, 1);
 }
 
-.resubmitbutton{
+#resubmitbutton{
   padding: 1%;
-  margin-top: 5px;
+  margin-top: 10px;
   margin-bottom: 15px;
-  width:50%;
-  inline-size: auto;
+  width: 50%;
   border-radius: 3px;
+  inline-size: auto;
   background-color: rgba(90, 140, 250, 1);
   font-size: 14pt;
   border: none;
@@ -372,11 +372,11 @@ td{
   padding: 1%;
   margin-bottom: 15px;
   border-radius: 3px;
-  width:55%;
-  inline-size: auto;
+  width:50%;
   color: White;
   background-color: rgba(250, 90, 90, 1);
   font-size: 14pt;
+  inline-size: auto;
   border: none;
 }
 .deletebutton:hover{

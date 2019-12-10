@@ -25,7 +25,6 @@
             <td></td>
             {% else %}
             <td>{{ post.GroupMeGroups }}</td>
-            <td></td>
             {% endif %} 
             <td>{{ post.updated_by }}</td>
               {% if post.updated_by == request.user.is_staff or request.user.is_superuser or user %}
