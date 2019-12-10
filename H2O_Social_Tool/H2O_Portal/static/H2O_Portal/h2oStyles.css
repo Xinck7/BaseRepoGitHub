@@ -313,6 +313,17 @@ input[type="checkbox"]{
 #CreatePost, #ManageCreds, #ListScheduled, #ListCompleted{
   text-align: center;
 }
+
+.groupmegroups{
+  display: block;
+  text-align: left;
+}
+#centergroups{
+  box-sizing: content-box;
+  display: block;
+  width: 100%;
+  margin-left: 20%;
+}
 /*End Forms styles*/
 
 /*Edit Post Pane*/

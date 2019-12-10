@@ -20,7 +20,7 @@ class SocialPostForm(forms.ModelForm):
             'myfield': forms.TextInput(attrs={'class': 'myfieldclass'}),
             'myfield2': forms.FileInput(attrs={'class':'imageclass'}),
         }
-        fields = ('message', 'post_time', 'picture', 'Facebook', 'GroupMe', 'GroupMeGroups')
+        fields = ('message', 'post_time', 'picture', 'Facebook', 'GroupMe')
 
 class TokenStoreForm(UserChangeForm):
     class Meta:
