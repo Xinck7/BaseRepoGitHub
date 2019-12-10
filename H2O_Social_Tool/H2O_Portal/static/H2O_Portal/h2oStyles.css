@@ -322,14 +322,14 @@ input[type="checkbox"]{
   box-sizing: content-box;
   display: block;
   width: 100%;
-  margin-left: 20%;
+  margin-left: 10%;
 }
 /*End Forms styles*/
 
 /*Edit Post Pane*/
 #centeringcontainer{
   box-sizing: content-box;
-  width: 60%;
+  width: 80%;
   margin: auto;
 }
 /*End Edit Post Pane*/

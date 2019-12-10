@@ -88,8 +88,11 @@ def editpost(request, value):
             post.save()
             return redirect('listscheduled')
     else:
+        socialuser = request.user
+        init_groupme = GroupMePosts()
+        groups = GroupMePosts.getgroups(init_groupme, socialuser.gm_auth_token)
         form = SocialPostForm(instance=user_posts)
-    return render(request, 'H2O_Portal/editpost.html', {'Post' : user_posts, 'form' : form})
+    return render(request, 'H2O_Portal/editpost.html', {'Post' : user_posts, 'form' : form, 'groups': groups })
 
 @login_required
 def deletepost(request, value):

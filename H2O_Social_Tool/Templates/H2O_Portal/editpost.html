@@ -1,27 +1,39 @@
 {% extends 'H2O_Portal/base.html' %}
 
 {% block EditPost %}
-<div id="centeringcontainer">
   <form method="post" enctype="multipart/form-data" class="myfieldclass" novalidate>
     {% csrf_token %}
       <p><b>Update Post data</b></p>
       <br>
-    {% for field in form %}
+    {% for field in form %}      
       {% if field == form.picture %}
         {{field.label_tag}}
         <label class="imageclass">
           Upload
-          {{field}}
+          {{field}}<br>
         </label>
         <br>
+
       {% elif field == form.Facebook %}
-      {{ field.label_tag }}
         {{ field }}
-      
+        {{ field.label_tag }}
+        <br>
+
       {% elif field == form.GroupMe %}
-      {{ field.label_tag }}
         {{ field }}
-      
+        {{ field.label_tag }}
+        <br>
+        <br>
+        <p>Select GroupMe Groups</p>
+        <br>
+        <div id="centergroups">
+          {% for group in groups %}
+          <div class="groupmegroups">
+              <input class="groupnamebox" type="checkbox" name="{{group.name}}">{{group.name}}</input>
+          </div>
+          {% endfor %}
+        </div>
+
       {% else %}
         {{ field.label_tag }}
         <br>
@@ -33,14 +45,15 @@
         {{ field }}
         <br>
       {% endif %}
+
       {% for error in field.errors %}
-          <p style="color: blue">{{ error }}</p>
-          <br>
+        <p style="color: blue">{{ error }}</p>
+        <br>
       {% endfor %}
       <br>
     {% endfor %}
+    <br>
     <input type="submit" id="resubmitbutton" value="Resubmit Post"><a href="{% url 'editpost' value=Post.id %}"></a></input>
     <button class="deletebutton"><a href="{% url 'deletepost' value=Post.id %}">Delete</a></button>
   </form> 
-</div>
 {% endblock EditPost %}
