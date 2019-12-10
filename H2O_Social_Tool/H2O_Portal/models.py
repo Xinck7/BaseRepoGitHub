@@ -91,38 +91,40 @@ class GroupMePosts(models.Model):
         client_session = user.Client(session)
         post_to_send = []
         post_attachments = []
+        #post_to_send = dict()
+        groups = list(client_session.groups.list_all())
+        groupset = dict()
+        i=0
+        for i in range(0, len(groups)):
+            groupname = groups[i].name
+            groupset[i] = groupname
+
+        selection_array = list(groupnames)
+        selected_groups = []
+        for item in selection_array:
+            for group in groups:
+                if item == group.name:
+                    selected_groups.append(groupset[item])
+
         utc=pytz.UTC
         for post in groupme_posts:
             if post.post_time <= utc.localize(datetime.datetime.now()):
                 if post.picture.name == '':
-                    post_to_send.append(post.message)
+                    message = post.message
                     attachments = None
+                    message, attachments
+                    post_to_send[message] = attachments
                 else:
                     post_to_send.append(post.message)
-                    #This may not work as intended need to think about how this should send as a list
-                    #I think I may be able to save it overtop of the actual 'picture' file that is there on the post
-                    #may work by accident since i'm doing the messages one at a time if I read right not 100%
-                #BUT A DICTIONARY WILL!!
                     with open(post.picture.path, 'rb') as f:
                         upload = client_session.images.from_file(f)
                         post_attachments.append(upload)
                 post.completed = True
                 post.save()
-        for to_send in post_to_send:
+        for key in post_to_send:
             for group in selected_groups:
-                group.post(text=to_send, attachments=post_attachments)
+                #group.post(text=key, attachments=post_to_send[key])
+                group.post(text=key, attachments=post_attachments)
 
 #archive logic delete when officially working
-        # groups = list(client_session.groups.list_all())
-        # groupset = dict()
-        # i=0
-        # for i in range(0, len(groups)):
-        #     groupname = groups[i].name
-        #     groupset[i] = groupname
 
-        # selection_array = list(groupnames)
-        # selected_groups = []
-        # for item in selection_array:
-        #     for group in groups:
-        #         if item == group.name:
-        #             selected_groups.append(groupset[item])
