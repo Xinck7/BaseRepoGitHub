@@ -31,9 +31,7 @@ class SocialPost(models.Model):
     picture = models.ImageField(null=True, blank=True, upload_to='H2O_Portal/static', help_text='Only pictures are supported through this tool')
     Facebook = models.BooleanField(default=False)
     GroupMe = models.BooleanField(default=False)  
-    #GroupMeGroups?
     GroupMeGroups = models.TextField(null=True)
-    #GroupMeGroups = []
     #https://stackoverflow.com/questions/1110153/what-is-the-most-efficient-way-to-store-a-list-in-the-django-models
     completed = models.BooleanField(default=False)
     updated_by = models.ForeignKey(
@@ -55,7 +53,8 @@ class SocialPost(models.Model):
             self.updated_by,
             )
 
-
+#https://facebook-sdk.readthedocs.io/en/latest/api.html#get-object
+# if and when Facebook is authenticated 
 # class FacebookPosts(models.Model):
     
 #     def gettoken(self):
@@ -80,39 +79,34 @@ class GroupMePosts(models.Model):
     ##needs param for the groupme token when making for anyone
     ##https://stackoverflow.com/questions/5080828/how-to-group-the-choices-in-a-django-select-widget
     # user_token = User().gm_auth_token
-    # def selectgroups(self, user_token, selection):
-    #     user = client
-    #     session = user.Session(user_token)
-    #     client_session = user.Client(session)
-    #     groups = list(client_session.groups.list_all())
-    #     groupset = dict()
-    #     i=0
-    #     for i in range(0, len(groups)):
-    #         groupname = groups[i].name
-    #         groupset[i] = groupname
-
-    #     selection_array = selection
-    #     selected_groups = []
-    #     for item in selection:
-    #         selected_groups.append(groupset[item])
-        
-    #     return selected_groups
-
-    def sendmessages(self, groupnames):
-        # old set preserver until multi select based on user is completed
+    def getgroups(self, user_token):
         user = client
-        session = user.Session(config('GroupMe_AuthToken'))
+        session = user.Session(user_token)
         client_session = user.Client(session)
         groups = list(client_session.groups.list_all())
-        #groupnames will be defined later as a part of the groupme_posts var so this would go after and within the if post.post_time processing
-        groups_to_send = []
-        for group in groups:
-            for names in groupnames:
-                if group.name == names:
-                    groups_to_send.append(group)
+        return groups
+
+    def sendmessages(self, user_token, groupnames, groupme_posts):
+        user = client
+        session = user.Session(user_token)
+        client_session = user.Client(session)
+        groups = list(client_session.groups.list_all())
+        groupset = dict()
+        i=0
+        for i in range(0, len(groups)):
+            groupname = groups[i].name
+            groupset[i] = groupname
+
+        selection_array = list(groupnames)
+        selected_groups = []
+        for item in selection_array:
+            for group in groups:
+                if item == group.name:
+                    selected_groups.append(groupset[item])
+
         post_to_send = []
         post_attachments = []
-        groupme_posts = SocialPost.objects.filter(GroupMe=True, completed=False)
+        # groupme_posts = SocialPost.objects.filter(GroupMe=True, completed=False)
         utc=pytz.UTC
         for post in groupme_posts:
             if post.post_time <= utc.localize(datetime.datetime.now()):
@@ -127,7 +121,7 @@ class GroupMePosts(models.Model):
                 post.completed = True
                 post.save()
         for to_send in post_to_send:
-            for group in groups_to_send:
+            for group in selected_groups:
                 group.post(text=to_send, attachments=post_attachments)
 
 

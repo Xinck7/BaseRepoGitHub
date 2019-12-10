@@ -35,6 +35,7 @@ def managecreds(request):
         form = TokenStoreForm(request.POST, instance=socialuser)            
         if form.is_valid():
             post = form.save(commit=False)
+            post.gm_auth_token = form.cleaned_data.get('gm_auth_token')
             post.save()
             return redirect('/')
     else:
@@ -63,12 +64,16 @@ def createpost(request):
         form = SocialPostForm(request.POST, request.FILES)            
         if form.is_valid():
             post = form.save(commit=False)
+            #add cleaning data
             post.updated_by = request.user
             post.save()
             return redirect('listscheduled')
     else:
+        socialuser = request.user
+        init_groupme = GroupMePosts()
+        groups = GroupMePosts.getgroups(init_groupme, socialuser.gm_auth_token)
         form = SocialPostForm()
-    return render(request, 'H2O_Portal/createpost.html', {'form' : form} )
+    return render(request, 'H2O_Portal/createpost.html', {'form' : form, 'groups': groups} )
 
 
 @login_required
@@ -78,6 +83,7 @@ def editpost(request, value):
         form = SocialPostForm(request.POST, instance=user_posts)            
         if form.is_valid(): 
             post = form.save(commit=False)
+            #add cleaning data
             post.updated_by = request.user
             post.save()
             return redirect('listscheduled')

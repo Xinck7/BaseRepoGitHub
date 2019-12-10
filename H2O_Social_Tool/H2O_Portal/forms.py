@@ -13,13 +13,14 @@ class SignUpForm(UserCreationForm):
         fields = ('username', 'password1', 'password2', 'email')
 
 class SocialPostForm(forms.ModelForm):
-    class Meta:
+    class Meta():
         model = SocialPost
+        model.GroupMeGroups = forms.ModelMultipleChoiceField(queryset=None)
         widgets = {
             'myfield': forms.TextInput(attrs={'class': 'myfieldclass'}),
             'myfield2': forms.FileInput(attrs={'class':'imageclass'}),
         }
-        fields = ('message', 'post_time', 'picture', 'Facebook', 'GroupMe')
+        fields = ('message', 'post_time', 'picture', 'Facebook', 'GroupMe', 'GroupMeGroups')
 
 class TokenStoreForm(UserChangeForm):
     class Meta:
