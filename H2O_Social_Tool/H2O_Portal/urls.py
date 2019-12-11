@@ -13,6 +13,7 @@ urlpatterns = [
     
     #Posts
     path('createpost/', views.createpost, name='createpost'),
+    path('createpostnoauth/', views.createpostnogroupmeauth, name='createpostnoauth'),
     path('editpost/editpost<int:value>', views.editpost, name='editpost'),
     path('editpost/deletepost<int:value>', views.deletepost, name='deletepost'),
     

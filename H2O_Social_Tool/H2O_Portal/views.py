@@ -84,6 +84,22 @@ def createpost(request):
         form = SocialPostForm()
     return render(request, 'H2O_Portal/createpost.html', {'form' : form, 'groups': groups} )
 
+@login_required
+def createpostnogroupmeauth(request):
+    if request.method == 'POST':
+        form = SocialPostForm(request.POST, request.FILES)            
+        socialuser = request.user
+        if form.is_valid():
+            post = form.save(commit=False)
+            #add cleaning data
+            post.updated_by = request.user
+            post.save()
+            return redirect('listscheduled')
+    else:
+        socialuser = request.user
+        groups = ''
+        form = SocialPostForm()
+    return render(request, 'H2O_Portal/createpost.html', {'form' : form, 'groups': groups} )
 
 @login_required
 def editpost(request, value):
