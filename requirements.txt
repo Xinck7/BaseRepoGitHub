@@ -7,3 +7,4 @@ django-allauth
 GroupyAPI
 facebook-sdk
 django-social-api
+django-picklefield

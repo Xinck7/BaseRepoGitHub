@@ -6,6 +6,7 @@ from django.template import RequestContext
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from H2O_Portal.models import *
 from H2O_Portal.forms import *
+import json
 
 # from allauth import account, socialaccount
 # Create your views here.

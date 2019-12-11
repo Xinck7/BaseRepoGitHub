@@ -3,6 +3,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 from decouple import config
 from groupy import client
+from picklefield.fields import PickledObjectField
 import facebook 
 import datetime
 import pytz
@@ -31,8 +32,7 @@ class SocialPost(models.Model):
     picture = models.ImageField(null=True, blank=True, upload_to='H2O_Portal/static', help_text='Only pictures are supported through this tool')
     Facebook = models.BooleanField(default=False)
     GroupMe = models.BooleanField(default=False)  
-    GroupMeGroups = models.TextField(null=True)
-    #https://stackoverflow.com/questions/1110153/what-is-the-most-efficient-way-to-store-a-list-in-the-django-models
+    GroupMeGroups = PickledObjectField(null=True, blank=True)
     completed = models.BooleanField(default=False)
     updated_by = models.ForeignKey(
         settings.AUTH_USER_MODEL,
@@ -52,6 +52,7 @@ class SocialPost(models.Model):
             self.completed, 
             self.updated_by,
             )
+
 
 #https://facebook-sdk.readthedocs.io/en/latest/api.html#get-object
 # if and when Facebook is authenticated 
@@ -85,46 +86,39 @@ class GroupMePosts(models.Model):
         return groups
 
     #####Needs modification##############
-    def sendmessages(self, user_token, groupnames):
+    def sendmessages(self, user_token, groupnames, groupme_post):
         user = client
         session = user.Session(user_token)
         client_session = user.Client(session)
-        post_to_send = []
-        post_attachments = []
-        #post_to_send = dict()
+        post_to_send = dict()
         groups = list(client_session.groups.list_all())
-        groupset = dict()
-        i=0
-        for i in range(0, len(groups)):
-            groupname = groups[i].name
-            groupset[i] = groupname
-
-        selection_array = list(groupnames)
-        selected_groups = []
-        for item in selection_array:
-            for group in groups:
-                if item == group.name:
-                    selected_groups.append(groupset[item])
-
         utc=pytz.UTC
-        for post in groupme_posts:
-            if post.post_time <= utc.localize(datetime.datetime.now()):
-                if post.picture.name == '':
-                    message = post.message
-                    attachments = None
-                    message, attachments
+        post = groupme_post
+        groups_to_match = groupnames
+        selected_groups = []
+        for group in groups:
+            for sel_group in groups_to_match:
+                if group.name == sel_group:
+                    selected_groups.append(group)
+
+        if post.post_time <= utc.localize(datetime.datetime.now()):
+            if post.picture.name == '':
+                message = post.message
+                attachments = None
+                post_to_send[message] = attachments
+            else:
+                message = post.message
+                with open(post.picture.path, 'rb') as f:
+                    attachments = client_session.images.from_file(f)
                     post_to_send[message] = attachments
-                else:
-                    post_to_send.append(post.message)
-                    with open(post.picture.path, 'rb') as f:
-                        upload = client_session.images.from_file(f)
-                        post_attachments.append(upload)
-                post.completed = True
-                post.save()
+
         for key in post_to_send:
             for group in selected_groups:
-                group.post(text=key, attachments=post_to_send[key])
-                #group.post(text=key, attachments=post_attachments)
+                if post_to_send[key] == None:
+                    attachment_to_send = None
+                else:
+                    attachment_to_send = []
+                    attachment_to_send.append(post_to_send[key])
+                group.post(text=key, attachments=attachment_to_send)
 
-#archive logic delete when officially working
 
