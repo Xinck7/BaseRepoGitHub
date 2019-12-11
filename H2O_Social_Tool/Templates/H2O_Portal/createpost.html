@@ -4,27 +4,47 @@
     <form method="post" enctype="multipart/form-data" class="myfieldclass" novalidate>
       {% csrf_token %}
       {% for field in form %}
+        
         {% if field == form.picture %}
           {{field.label_tag}}
           <label class="imageclass">
             Upload
-            {{field}}
+            {{field}}<br>
           </label>
           <br>
+
         {% elif field == form.Facebook %}
-        {{ field.label_tag }}
-          {{ field }}
-        
-        {% elif field == form.Instagram %}
-        {{ field.label_tag }}
-          {{ field }}
-        
+          <p>Facebook coming soon!</p>
+          <div id="facebook">
+            <label id="showmorefacebook" onclick=RevealCheckBox("centerfacebookgroups")>
+              <span>
+              {{ field }}
+              </span>
+            </label>
+            {{field.label_tag}}
+          </div>
+
         {% elif field == form.GroupMe %}
-        {{ field.label_tag }}
-          {{ field }}
-          {% for group in groups %}
-          <p>Select groups available using another form</p>
-          {% endfor %}
+          <div>
+            <label id="showmoregroupme" onclick=RevealCheckBox("centergroupmegroups")>
+              <span>
+              {{ field }}
+              </span>
+            </label>
+            {{field.label_tag}}
+          </div>
+          
+          <div id="centergroupmegroups">
+          <br>
+          <p id="centerinstructions">Select Groups</p>
+          <br>
+            {% for group in groups %}
+            <div class="groupmegroups">
+                <input class="groupnamebox" type="checkbox" name="groupnameboxes" value="{{group.name}}">{{group.name}}</input>
+            </div>
+            {% endfor %}
+          </div>
+
         {% else %}
           {{ field.label_tag }}
           <br>
@@ -36,9 +56,10 @@
           {{ field }}
           <br>
         {% endif %}
+
         {% for error in field.errors %}
-            <p style="color: blue">{{ error }}</p>
-            <br>
+          <p style="color: blue">{{ error }}</p>
+          <br>
         {% endfor %}
         <br>
       {% endfor %}

@@ -212,6 +212,13 @@ a:link, a:visited{
   .managecredslinks{
     display: block;
   }
+  .pagination{
+    display: inline-block;
+    width: 50%;
+  }
+  .paginate{
+    float: left;
+  }
 }
 .disconnect{
   display: inline-block;
@@ -226,6 +233,16 @@ a:link, a:visited{
   background-color: unset;
   border: unset;
 }
+.instructionslinks:link{
+  color:blue;
+}
+.instructionslinks:visited{
+  color:green;
+}
+.instructionslinks:hover{
+  color:lightblue;  
+}
+
 /*End Manage credentials*/
 
 /*Forms styles*/
@@ -287,8 +304,8 @@ input[type="checkbox"]{
   width: 50%;
 }
 
-.imageclass:hover, input[type="submit"]:hover{
-  background-color: rgba(90, 140, 250, .70);
+.imageclass:hover, input[type="submit"]:hover, #resubmitbutton:hover{
+  background-color: rgba(90, 250, 125, 0.7);
 }
 
 /*End Cleaning up the create post section*/
@@ -296,12 +313,37 @@ input[type="checkbox"]{
 #CreatePost, #ManageCreds, #ListScheduled, #ListCompleted{
   text-align: center;
 }
+
+.groupmegroups{
+  display: block;
+  text-align: left;
+}
+#centergroupmegroups{
+  box-sizing: content-box;
+  display: none;
+  width: 100%;
+  margin-left: 10%;
+}
+#centereditgroups{
+  box-sizing: content-box;
+  display: block;
+  width: 100%;
+  margin-left: 10%;
+}
+#centerinstructions{
+  margin-left: unset;
+  width: 80%;
+  text-align: center;
+}
+/*delete after integrating facebook*/
+
+
 /*End Forms styles*/
 
 /*Edit Post Pane*/
 #centeringcontainer{
   box-sizing: content-box;
-  width: 60%;
+  width: 80%;
   margin: auto;
 }
 /*End Edit Post Pane*/
@@ -337,13 +379,13 @@ td{
   background-color: rgba(68, 122, 238, 1);
 }
 
-.resubmitbutton{
+#resubmitbutton{
   padding: 1%;
-  margin-top: 5px;
+  margin-top: 10px;
   margin-bottom: 15px;
-  width:50%;
-  inline-size: auto;
+  width: 50%;
   border-radius: 3px;
+  inline-size: auto;
   background-color: rgba(90, 140, 250, 1);
   font-size: 14pt;
   border: none;
@@ -355,11 +397,11 @@ td{
   padding: 1%;
   margin-bottom: 15px;
   border-radius: 3px;
-  width:55%;
-  inline-size: auto;
+  width:50%;
   color: White;
   background-color: rgba(250, 90, 90, 1);
   font-size: 14pt;
+  inline-size: auto;
   border: none;
 }
 .deletebutton:hover{

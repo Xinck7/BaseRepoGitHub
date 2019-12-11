@@ -1,5 +1,5 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm 
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.contrib.auth.models import models
 from .models import SocialPost, User, GroupMePosts#, SocialAccount
 
@@ -13,17 +13,19 @@ class SignUpForm(UserCreationForm):
         fields = ('username', 'password1', 'password2', 'email')
 
 class SocialPostForm(forms.ModelForm):
-    class Meta:
+    class Meta():
         model = SocialPost
+        model.GroupMeGroups = forms.ModelMultipleChoiceField(queryset=None)
         widgets = {
             'myfield': forms.TextInput(attrs={'class': 'myfieldclass'}),
             'myfield2': forms.FileInput(attrs={'class':'imageclass'}),
         }
-        fields = ('title', 'post_time', 'message', 'picture', 'Facebook', 'GroupMe')
+        fields = ('message', 'post_time', 'picture', 'Facebook', 'GroupMe')
 
-class TokenStoreForm(forms.ModelForm):
+class TokenStoreForm(UserChangeForm):
     class Meta:
         model = User
         fields = ('gm_auth_token',)
 
+#https://stackoverflow.com/questions/15261286/django-forms-disable-field-if-booleanfield-is-checked
 

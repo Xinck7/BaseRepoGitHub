@@ -1,13 +1,13 @@
 {% extends 'H2O_Portal/base.html' %}
 
 {% block ManageCreds %} 
+  {% comment %} <br>
+  
   <br>
-  <h2>Authentication Instructions</h2>
-  <br>
-  <h3>For Authenticating facbook<br> 
+  <h3>For Authenticating facebook<br> 
   Sign in through the portal then have an admin link your facebook account to your profile</h3>
-  <br>
-  {% load socialaccount %}
+  <br> {% endcomment %}
+  {% comment %} {% load socialaccount %}
   {% providers_media_js %}
     <h3>Facebook</h3>
     {% if facebook_login %}
@@ -23,14 +23,39 @@
         <a href="{% provider_login_url "facebook" method="js_sdk" %}">Connect to Facebook</a>
       </div>
     {% endif %}
-    <br>
-    <h3>For GroupMe</h3>
+    <br> {% endcomment %}
+    <h2>Authentication Instructions:</h2><br>
+    
+    <h3>GroupMe</h3><br>
+    <h4>Instructions</h4>
+    <p>
+    You need to input a special token in the field below to send posts through GroupMe<br>
+    To get an authentication token you must go to this link: <br><br>
+    <a class="instructionslinks" href="https://dev.groupme.com/">Developer GroupMe Website</a><br><br>
+    1. Sign in using your normal credentials.<br>
+    2. Click "Access Token" in the top right corner<br>
+    3. Copy the bold text string of random nonsense characters<br>
+    4. Paste into the form box below<br>
+    5. Click Store Token<br>
+    </p><br>
+    
     <form method="post" class="sociallogin" enctype="multipart/form-data" novalidate>
       {% csrf_token %}
-      {% for field in form.as_p %}
-          {{ field.label_tag }}
+      {% for field in form %}
+      {% if field != form.gm_auth_token %}
+      {% else %}
+          {{ field.help_text }}<br>
           {{field}}
+      {% endif %}
+
       {% endfor %}
-      <input type="submit" value="Store Token"></input>
+      <input type="submit" value="Store GroupMe Token"></input>
+      {% comment %} <input type="submit" value="Store Token"><a href="{% url 'editcreds' value=field %}"></a></input> {% endcomment %}
     </form> 
+    
+    <h3>Facebook</h3><br>
+    <p>Coming Soon!</p><br>
+
+    <h3>Instagram</h3><br>
+    <p>At this time not possible without account bans <br>Happy to implement if becomes available</p><br>
 {% endblock ManageCreds %}
