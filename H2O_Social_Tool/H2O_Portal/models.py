@@ -111,7 +111,8 @@ class GroupMePosts(models.Model):
                 with open(post.picture.path, 'rb') as f:
                     attachments = client_session.images.from_file(f)
                     post_to_send[message] = attachments
-
+            post.completed = True
+            post.save()
         for key in post_to_send:
             for group in selected_groups:
                 if post_to_send[key] == None:
