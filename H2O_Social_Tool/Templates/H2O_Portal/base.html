@@ -32,8 +32,10 @@
           <li><a href="/listcompleted/">Completed Posts</a></li>
           <li id="logout"><a href="/H2O_Portal/logout/">Logout</a></h1></li>
         {% else %}
-          <li id="signup"><a class="navbardetails"  href="/signup/">Signup</a></li>
-          <li id="login"><a href="/H2O_Portal/login/">Login</a></li>
+          <ul id="startpage">
+            <li id="login"><a href="/H2O_Portal/login/">Login</a></li>
+            <li id="signup"><a class="navbardetails"  href="/signup/">Signup</a></li>
+          </ul>
         {% endif %}
       </ul>
     </div>
