@@ -148,6 +148,7 @@ ul{
 li{
   display: inline-block;
   padding: 12px;
+  font-size: 13pt;
   margin: 5px;
   font-weight: 500;
   background-color: rgba(243, 130, 60, 1);
@@ -408,15 +409,16 @@ td{
   padding: 10px;
 }
 .postheader{
-  font-size: 15pt;
+  font-size: 13pt;
   display: inline-block;
-  background-color: rgba(241, 120, 44, 0.90);
+  background-color: rgba(241, 120, 44, 0.75);
   border: 1px solid rgb(99, 100, 102);
   border-radius: 3px;
-  border-width: 3px;
   width: 20%;
   text-align: center;
   padding: 4px;
-  margin-top: 2%;
+  margin-bottom:0;
+  margin-top: 1%;
+  overflow: visible;
 }
 /*End List Posts Pane*/
