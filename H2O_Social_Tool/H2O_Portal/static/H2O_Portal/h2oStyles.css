@@ -166,7 +166,7 @@ ul a:link, ul a:visited{
 }
 
 @media (max-width: 750px){
-  .navbar{
+  ul li{
     display: block;
   }
 }
