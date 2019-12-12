@@ -189,16 +189,20 @@ ul#navlist a{
   right: 50px;
 }
 
-#signup, #logout{
+#logout{
   position: absolute;
   top: 15px;
   right: 10px;
 }
 
-#login{
-  position: absolute;
-  top: 15px;
-  right: 90px;
+#signup, #login{
+  display: inline-block;
+  width:60%;
+  text-align: center;
+}
+
+ul#startpage a{
+  display:block;
 }
 /*End Positioning for the login stuff*/
 
@@ -266,7 +270,9 @@ form{
   padding: 5px; 
   text-align: center;
 }
-
+form ul li{
+  border: unset;
+}
 textarea, input[type="text"]{
   background-color: rgb(240, 240, 240);
 }
