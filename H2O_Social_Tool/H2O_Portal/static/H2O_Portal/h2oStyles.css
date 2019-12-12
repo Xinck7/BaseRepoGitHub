@@ -411,14 +411,14 @@ td{
 .postheader{
   font-size: 13pt;
   display: inline-block;
-  background-color: rgba(241, 120, 44, 0.75);
-  border: 1px solid rgb(99, 100, 102);
-  border-radius: 3px;
-  width: 20%;
+  background-color: rgba(241, 120, 44, 0.60);
+  border-top: 1px solid rgb(99, 100, 102);
+  border-right:1px solid rgb(99, 100, 102);
+  border-left:1px solid rgb(99, 100, 102);
+  border-radius: 2px;
+  width: 25%;
   text-align: center;
   padding: 4px;
-  margin-bottom:0;
-  margin-top: 1%;
-  overflow: visible;
+  border-collapse: collapse;
 }
 /*End List Posts Pane*/
