@@ -156,7 +156,8 @@ ul li{
   border-radius: 8px;
   border: 3px solid rgb(99, 100, 102);
 }
-ul a:link, ul a:visited{
+/*global link settings that are redirects and not real click this links*/
+ul a:link, ul a:visited, .editpostbutton a:visited, .editpostbutton a:link, .deletebutton a:visited, .deletebutton a:link{
   color: black;
   text-decoration: none;
 }
@@ -177,8 +178,6 @@ ul#navlist a{
   padding: 1.4em;
   margin: -1em;
 }
-
-
 /*End Nav Bar*/
 
 
@@ -368,6 +367,7 @@ input[type="checkbox"]{
   background-color: rgba(90, 140, 250, 1);
   font-size: 14pt;
   border: none;
+  cursor: pointer;
 }
 .resubmitbutton:hover{
   background-color: rgba(90, 250, 125, 0.7);
@@ -413,6 +413,14 @@ td{
   background-color: rgba(68, 122, 238, 0.60);
   border-collapse: unset;
   padding: 10px;
+}
+.editpostbutton a{
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+  padding: 1.4em;
+  margin: -1em;
+  text-decoration: none;
 }
 .postheader{
   font-size: 13pt;
