@@ -140,39 +140,45 @@ header {
   text-align: center;
 }
 
-ul{
+ul#navnavlist{
   list-style-type: none;
   padding: 10px;
+  
 }
 
-li{
+ul li{
   display: inline-block;
-  padding: 12px;
   font-size: 13pt;
+  padding: 12px;
   margin: 5px;
   font-weight: 500;
   background-color: rgba(243, 130, 60, 1);
   border-radius: 8px;
+  border: 3px solid rgb(99, 100, 102);
+}
+ul a:link, ul a:visited{
+  color: black;
+  text-decoration: none;
 }
 
-li:hover{
+.navbar:hover{
   background-color: rgba(243, 130, 60, .80);
 }
 
 @media (max-width: 750px){
-  li{
+  .navbar{
     display: block;
   }
 }
-
-.navbar{
-  border: 3px solid rgb(99, 100, 102);
+ul#navlist a{
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+  padding: 1.4em;
+  margin: -1em;
 }
 
-a:link, a:visited{
-  color: black;
-  text-decoration: none;
-}
+
 /*End Nav Bar*/
 
 
