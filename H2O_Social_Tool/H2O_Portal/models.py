@@ -29,7 +29,7 @@ class SocialPost(models.Model):
         blank=True,
         max_length=2000,
         )
-    picture = models.ImageField(null=True, blank=True, upload_to='H2O_Portal/static', help_text='Only pictures are supported through this tool')
+    picture = models.ImageField(null=True, blank=True, help_text='Only pictures are supported through this tool')
     Facebook = models.BooleanField(default=False)
     GroupMe = models.BooleanField(default=False)  
     GroupMeGroups = PickledObjectField(null=True, blank=True)
