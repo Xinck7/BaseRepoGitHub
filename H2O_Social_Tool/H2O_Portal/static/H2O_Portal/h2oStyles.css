@@ -389,7 +389,7 @@ input[type="checkbox"]{
   inline-size: auto;
   border: none;
 }
-.deletebutton:hover{
+.deletebutton a:hover{
   background-color: lightslategrey
 }
 /*End Edit Post Pane*/
@@ -424,7 +424,7 @@ td{
   display: inline-block;
   position: relative;
   z-index: 1;
-  padding: 1.4em;
+  padding: 1.5em;
   margin: -1em;
   text-decoration: none;
 }
