@@ -412,6 +412,21 @@ input[type="checkbox"]{
   min-width: 5px;
   text-align: center;
 }
+ul.pagination a{
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+  padding: 1.4em;
+  margin: -1em;
+}
+.pagination{
+  display: inline-block;
+  width: 50%;
+  inline-size: auto;
+}
+.paginate{
+  float: left;
+}
 th{
   padding: 15px;
   border: 1px solid rgb(99, 100, 102);
