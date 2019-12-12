@@ -16,28 +16,26 @@
 <header>H2O Social Media Tool</header>
 
 <body>
-  
   <div id="nav">
     <div id="navbuttons">
       <ul id="navlist">
         {% if request.user.is_authenticated %}
-        <li class="navbar"><a href="/">Home</a></li>
-        {% if request.user.gm_auth_token == '' or request.user.gm_auth_token == None %}
-          <li class="navbar"><a href="/managecreds/">Store Account Token</a></li>
+          {% if request.user.gm_auth_token == '' or request.user.gm_auth_token == None %}
+              <li><a href="/managecreds/">Create Token</a></li>
+            {% else %}
+              <li><a href="/">Home</a></li>
+              <li><a href="/managecreds/">Manage Tokens</a></li>
+              <li><a href="/createpost/">Create Post</a></li>
+          {% endif %}
+          {# always display these if authenticated at all #}
+          <li><a href="/listscheduled/">List Scheduled Posts</a></li>
+          <li><a href="/listcompleted/">Completed Posts</a></li>
+          <li id="logout"><a href="/H2O_Portal/logout/">Logout</a></h1></li>
         {% else %}
-          <li class="navbar"><a href="/managecreds/">Manage Tokens</a></li>
-        {% endif %}
-        {% if request.user.gm_auth_token == '' or request.user.gm_auth_token == None %}
-          <li class="navbar"><a href="/createpostnoauth/">Create Post</a></li>
-        {% else %}
-          <li class="navbar"><a href="/createpost/">Create Post</a></li>
-        {% endif %}
-        <li class="navbar"><a href="/listscheduled/">List Scheduled Posts</a></li>
-        <li class="navbar"><a href="/listcompleted/">Completed Posts</a></li>
-        <li class="navbar" id="logout"><a href="/H2O_Portal/logout/">Logout</a></h1></li>
-        {% else %}
-        <li class="navbar" id="signup"><a href="/signup/">Signup</a></li>
-        <li class="navbar" id="login"><a href="/H2O_Portal/login/">Login</a></li>
+          <ul id="startpage">
+            <li id="login"><a href="/H2O_Portal/login/">Login</a></li>
+            <li id="signup"><a class="navbardetails"  href="/signup/">Signup</a></li>
+          </ul>
         {% endif %}
       </ul>
     </div>
@@ -50,6 +48,10 @@
     </div>
   </div>
   {% endif %}
+  
+  <div id="announcments">
+  {% comment %} add this section for app announcments and for verse stuff {% endcomment %}
+  </div>
   
   <div id="AppLogin">
     {% block AppLogin %}

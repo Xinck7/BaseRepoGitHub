@@ -140,38 +140,43 @@ header {
   text-align: center;
 }
 
-ul{
+ul#navnavlist{
   list-style-type: none;
   padding: 10px;
+  
 }
 
-li{
+ul li{
   display: inline-block;
-  padding: 12px;
   font-size: 13pt;
+  padding: 12px;
   margin: 5px;
   font-weight: 500;
   background-color: rgba(243, 130, 60, 1);
   border-radius: 8px;
+  border: 3px solid rgb(99, 100, 102);
+}
+/*global link settings that are redirects and not real click this links*/
+ul a:link, ul a:visited, .editpostbutton a:visited, .editpostbutton a:link, .deletebutton a:visited, .deletebutton a:link{
+  color: black;
+  text-decoration: none;
 }
 
-li:hover{
+.navbar:hover{
   background-color: rgba(243, 130, 60, .80);
 }
 
 @media (max-width: 750px){
-  li{
+  ul li{
     display: block;
   }
 }
-
-.navbar{
-  border: 3px solid rgb(99, 100, 102);
-}
-
-a:link, a:visited{
-  color: black;
-  text-decoration: none;
+ul#navlist a{
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+  padding: 1.4em;
+  margin: -1em;
 }
 /*End Nav Bar*/
 
@@ -184,16 +189,20 @@ a:link, a:visited{
   right: 50px;
 }
 
-#signup, #logout{
+#logout{
   position: absolute;
   top: 15px;
   right: 10px;
 }
 
-#login{
-  position: absolute;
-  top: 15px;
-  right: 90px;
+#signup, #login{
+  display: inline-block;
+  width:60%;
+  text-align: center;
+}
+
+ul#startpage a{
+  display:block;
 }
 /*End Positioning for the login stuff*/
 
@@ -261,7 +270,9 @@ form{
   padding: 5px; 
   text-align: center;
 }
-
+form ul li{
+  border: unset;
+}
 textarea, input[type="text"]{
   background-color: rgb(240, 240, 240);
 }
@@ -307,6 +318,7 @@ input[type="checkbox"]{
 
 .imageclass:hover, input[type="submit"]:hover, #resubmitbutton:hover{
   background-color: rgba(90, 250, 125, 0.7);
+  cursor: pointer;
 }
 
 /*End Cleaning up the create post section*/
@@ -362,6 +374,7 @@ input[type="checkbox"]{
   background-color: rgba(90, 140, 250, 1);
   font-size: 14pt;
   border: none;
+  cursor: pointer;
 }
 .resubmitbutton:hover{
   background-color: rgba(90, 250, 125, 0.7);
@@ -371,14 +384,24 @@ input[type="checkbox"]{
   margin-bottom: 15px;
   border-radius: 3px;
   width:50%;
-  color: White;
+  color: black;
   background-color: rgba(250, 90, 90, 1);
   font-size: 14pt;
   inline-size: auto;
   border: none;
 }
+.deletebutton a{
+  display: inline-block;
+  inline-size: auto;
+  position: relative;
+  z-index: 1;
+  padding: 1em;
+  margin: -1em;
+  text-decoration: none;
+}
 .deletebutton:hover{
-  background-color: lightslategrey
+  color: white;
+  background-color: lightslategrey;
 }
 /*End Edit Post Pane*/
 
@@ -388,6 +411,21 @@ input[type="checkbox"]{
   display: inline-block;
   min-width: 5px;
   text-align: center;
+}
+ul.pagination a{
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+  padding: 1.4em;
+  margin: -1em;
+}
+.pagination{
+  display: inline-block;
+  width: 50%;
+  inline-size: auto;
+}
+.paginate{
+  float: left;
 }
 th{
   padding: 15px;
@@ -407,6 +445,14 @@ td{
   background-color: rgba(68, 122, 238, 0.60);
   border-collapse: unset;
   padding: 10px;
+}
+.editpostbutton a{
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+  padding: 1.5em;
+  margin: -1.1em;
+  text-decoration: none;
 }
 .postheader{
   font-size: 13pt;
