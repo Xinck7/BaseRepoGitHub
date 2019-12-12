@@ -346,34 +346,6 @@ input[type="checkbox"]{
   width: 80%;
   margin: auto;
 }
-/*End Edit Post Pane*/
-
-/*Posts Pane*/
-.posttables{
-  padding: 1%;
-  display: inline-block;
-  min-width: 5px;
-  text-align: center;
-}
-th{
-  padding: 15px;
-  border: 1px solid rgb(99, 100, 102);
-  border-collapse: collapse;
-  background-color: rgba(241, 120, 44, 0.75);
-  font-weight: 200;
-}
-td{
-  padding: 15px;
-  border: 1px solid rgb(99, 100, 102);
-  border-collapse: collapse;
-  font-weight: 500;
-  background-color: rgba(241, 120, 44, 0.90);
-}
-.editpostbutton{
-  background-color: rgba(68, 122, 238, 0.60);
-  border-collapse: unset;
-  padding: 10px;
-}
 
 .editpostbutton:hover{
   background-color: rgba(68, 122, 238, 1);
@@ -407,4 +379,42 @@ td{
 .deletebutton:hover{
   background-color: lightslategrey
 }
-/*End Posts Pane*/
+/*End Edit Post Pane*/
+
+/*List Posts Pane*/
+.posttables{
+  padding: 1%;
+  display: inline-block;
+  min-width: 5px;
+  text-align: center;
+}
+th{
+  padding: 15px;
+  border: 1px solid rgb(99, 100, 102);
+  border-collapse: collapse;
+  background-color: rgba(241, 120, 44, 0.75);
+  font-weight: 200;
+}
+td{
+  padding: 15px;
+  border: 1px solid rgb(99, 100, 102);
+  border-collapse: collapse;
+  font-weight: 500;
+  background-color: rgba(241, 120, 44, 0.90);
+}
+.editpostbutton{
+  background-color: rgba(68, 122, 238, 0.60);
+  border-collapse: unset;
+  padding: 10px;
+}
+.postheader{
+  font-size: 15pt;
+  display: inline-block;
+  background-color: rgba(241, 120, 44, 0.90);
+  border: 1px solid rgb(99, 100, 102);
+  border-radius: 3px;
+  border-width: 3px;
+  width: 40%;
+  text-align: center;
+}
+/*End List Posts Pane*/
