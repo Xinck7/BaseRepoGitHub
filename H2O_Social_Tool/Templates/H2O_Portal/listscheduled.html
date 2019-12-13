@@ -28,8 +28,13 @@
               <td>{{ post.GroupMeGroups }}</td>
             {% endif %} 
             <td>{{ post.updated_by }}</td>
-              {% if post.updated_by == request.user.is_staff or request.user.is_superuser or user %}
+              {% if user.is_superuser %}
                 <td class="editpostbutton"><a href="{% url 'editpost' value=post.id %}">Edit</a></td>
+              {% elif user.is_staff %}
+                <td class="editpostbutton"><a href="{% url 'editpost' value=post.id %}">Edit</a></td>
+              {% elif post.updated_by == request.user %}
+                <td class="editpostbutton"><a href="{% url 'editpost' value=post.id %}">Edit</a></td>
+              {% else %}
               {% endif %}
             {% endif %}
           </tr>

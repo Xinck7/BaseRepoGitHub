@@ -180,7 +180,16 @@ ul#navlist a{
 }
 /*End Nav Bar*/
 
-
+/*Home page styles*/
+#pagehome{
+  display: content-box;
+  width: 100%;
+  margin-left: 30%;
+}
+#centerhomepage{
+  text-align: left;
+}
+/*End Home page styles*/
 /*Positioning for the login stuff*/
 .usernamedisplay{
   position: absolute;

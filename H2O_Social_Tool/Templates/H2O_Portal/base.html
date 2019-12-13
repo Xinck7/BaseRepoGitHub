@@ -11,8 +11,12 @@
   <link rel="stylesheet" type="text/css" href="{% static 'H2O_Portal/h2oStyles.css' %}">
   
 </head>
-
-<img id="h2opic" src="{% static 'H2O_Portal/h2oLogo.png' %}" alt="H2O Logo" width="360" height="187">
+{% if request.user.gm_auth_token == '' or request.user.gm_auth_token == None %}
+  <a href="/pagehome/"><img border=0 id="h2opic" src="{% static 'H2O_Portal/h2oLogo.png' %}" alt="H2O Logo" width="360" height="187"></a>
+{% else %}
+  <a href="/"><img border=0 id="h2opic" src="{% static 'H2O_Portal/h2oLogo.png' %}" alt="H2O Logo" width="360" height="187"></a>
+{% endif %}
+<br>
 <header>H2O Social Media Tool</header>
 
 <body>
@@ -23,7 +27,7 @@
           {% if request.user.gm_auth_token == '' or request.user.gm_auth_token == None %}
               <li><a href="/managecreds/">Create Token</a></li>
             {% else %}
-              <li><a href="/">Home</a></li>
+              <li><a href="/pagehome/">Home</a></li>
               <li><a href="/managecreds/">Manage Tokens</a></li>
               <li><a href="/createpost/">Create Post</a></li>
           {% endif %}
@@ -50,7 +54,9 @@
   </div>
   {% endif %}
   
-  <div id="announcments">
+  <div id="pagehome">
+    {% block PageHome %}
+    {% endblock PageHome %}
   </div>
   
   <div id="AppLogin">
