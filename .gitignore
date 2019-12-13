@@ -3,3 +3,4 @@ __pycache__/
 .env
 venv/
 *.sqlite3
+H2O_Social_Tool/.envbkp
