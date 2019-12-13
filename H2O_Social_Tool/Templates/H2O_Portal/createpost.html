@@ -4,22 +4,18 @@
     <form method="post" enctype="multipart/form-data" class="myfieldclass" novalidate>
       {% csrf_token %}
       {% for field in form %}
-        
         {% if field == form.picture %}
-          {{field.label_tag}}
-          <label class="imageclass">
-            Upload
-            {{field}}<br>
-          </label>
-          <br>
+          <div class="imageclass">
+            <span>
+            <label for="Upload Picture:">{{field}}</label>
+            </span>
+          </div>
 
         {% elif field == form.Facebook %}
           <p>Facebook coming soon!</p>
           <div id="facebook">
             <label id="showmorefacebook" onclick=RevealCheckBox("centerfacebookgroups")>
-              <span>
               {{ field }}
-              </span>
             </label>
             {{field.label_tag}}
           </div>
@@ -27,9 +23,7 @@
         {% elif field == form.GroupMe %}
           <div>
             <label id="showmoregroupme" onclick=RevealCheckBox("centergroupmegroups")>
-              <span>
               {{ field }}
-              </span>
             </label>
             {{field.label_tag}}
           </div>
@@ -40,7 +34,9 @@
           <br>
             {% for group in groups %}
             <div class="groupmegroups">
+                <label>
                 <input class="groupnamebox" type="checkbox" name="groupnameboxes" value="{{group.name}}">{{group.name}}</input>
+                </label>
             </div>
             {% endfor %}
           </div>

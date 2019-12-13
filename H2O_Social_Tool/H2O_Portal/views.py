@@ -14,6 +14,9 @@ import json
 def home(request):
     return render(request, 'H2O_Portal/base.html')
 
+def pagehome(request):
+    return render(request, 'H2O_Portal/pagehome.html')
+
 def signup(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)            
@@ -23,7 +26,7 @@ def signup(request):
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
             auth_login(request, user)
-            return redirect('/')
+            return redirect('pagehome')
     else:
         form = SignUpForm()
 
@@ -38,7 +41,7 @@ def managecreds(request):
             post = form.save(commit=False)
             post.gm_auth_token = form.cleaned_data.get('gm_auth_token')
             post.save()
-            return redirect('/')
+            return redirect('pagehome')
     else:
         form = TokenStoreForm(instance=socialuser)
     return render(request, 'H2O_Portal/managecreds.html', {'form' : form} )    
@@ -117,7 +120,6 @@ def editpost(request, value):
 
 @login_required
 def deletepost(request, value):
-    user = request.user
     user_post = SocialPost.objects.filter(id=value)
     user_post.delete()
     return redirect('listscheduled')
@@ -133,7 +135,6 @@ def listscheduled(request):
         posts = paginator.page(1)
     except EmptyPage:
         posts = paginator.page(paginator.num_pages)
-    #return render(request, 'H2O_Portal/listscheduled.html', {'Posts': all_posts } )
     return render(request, 'H2O_Portal/listscheduled.html', {'Posts': posts } )
 
 
