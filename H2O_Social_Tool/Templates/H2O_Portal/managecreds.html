@@ -24,38 +24,40 @@
       </div>
     {% endif %}
     <br> {% endcomment %}
-    <h2>Authentication Instructions:</h2><br>
-    
-    <h3>GroupMe</h3><br>
-    <h4>Instructions</h4>
-    <p>
-    You need to input a special token in the field below to send posts through GroupMe<br>
-    To get an authentication token you must go to this link: <br><br>
-    <a class="instructionslinks" href="https://dev.groupme.com/" target="_blank">Developer GroupMe Website</a><br><br>
-    1. Sign in using your normal credentials.<br>
-    2. Click "Access Token" in the top right corner<br>
-    3. Copy the bold text string of random nonsense characters<br>
-    4. Paste into the form box below<br>
-    5. Click Store Token<br>
-    </p><br>
-    
-    <form method="post" class="sociallogin" enctype="multipart/form-data" novalidate>
-      {% csrf_token %}
-      {% for field in form %}
-      {% if field != form.gm_auth_token %}
-      {% else %}
-          {{ field.help_text }}<br>
-          {{field}}
-      {% endif %}
 
-      {% endfor %}
-      <input type="submit" value="Store GroupMe Token"></input>
-      {% comment %} <input type="submit" value="Store Token"><a href="{% url 'editcreds' value=field %}"></a></input> {% endcomment %}
-    </form> 
-    
-    <h3>Facebook</h3><br>
+    <button class="revealbutton" onclick=RevealCheckBox("revealgroupmecontainer")><h3 id="groupmereveal">GroupMe</h3><br></button>
+    <div id="revealgroupmecontainer">
+      <div id="centeringcontainer2">
+        <p id="instructionsset">
+        You need to input a special token in the field below to send posts through GroupMe<br>
+        To get an authentication token you must go to this link: <br><br>
+        <a class="instructionslinks" href="https://dev.groupme.com/" target="_blank">Developer GroupMe Website</a><br><br>
+        1. Sign in using your normal credentials.<br>
+        2. Click "Access Token" in the top right corner<br>
+        3. Copy the bold text string of random nonsense characters<br>
+        4. Paste into the form box below<br>
+        5. Click Store Token<br>
+      </p>
+      </div>
+      <br>
+      
+      <form method="post" class="sociallogin" enctype="multipart/form-data" novalidate>
+        {% csrf_token %}
+        {% for field in form %}
+        {% if field != form.gm_auth_token %}
+        {% else %}
+            {{ field.help_text }}<br>
+            {{field}}
+        {% endif %}
+
+        {% endfor %}
+        <input type="submit" value="Store GroupMe Token"></input>
+        {% comment %} <input type="submit" value="Store Token"><a href="{% url 'editcreds' value=field %}"></a></input> {% endcomment %}
+      </form> 
+    </div>
+    <button class="revealbutton"><h3 id="facebookreveal">Facebook</h3><br></button>
     <p>Coming Soon!</p><br>
 
-    <h3>Instagram</h3><br>
+    <button class="revealbutton"><h3 id="Instagramreveal">Instagram</h3><br></button>
     <p>At this time not possible without account bans <br>Happy to implement if becomes available</p><br>
 {% endblock ManageCreds %}

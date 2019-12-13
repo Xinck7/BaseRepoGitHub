@@ -18,13 +18,7 @@
         {{ field }}
         {{ field.label_tag }}
         <br>
-      {% elif field == form.GroupMe %}
-          <div>
-            <label id="showmoregroupme" onclick=RevealCheckBox("centereditgroups")>
-            </label>
-            {{field.label_tag}}
-          </div>
-          
+      {% elif field == form.GroupMe %}       
           <div id="centereditgroups">
           <br>
           <p id="centerinstructions">Select Groups</p>

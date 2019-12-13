@@ -17,7 +17,7 @@ class User(AbstractUser):
     #     related_name='+',
     #     )   
     # to add groupme
-    gm_auth_token = models.TextField(null=True, help_text='GroupMe Auth Token', blank=True)
+    gm_auth_token = models.TextField(null=True, help_text='GroupMe Authentication Token', blank=True)
     USERNAME_FIELD = 'username'
 
 class SocialPost(models.Model):

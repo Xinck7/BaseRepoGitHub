@@ -44,13 +44,13 @@
   {% if request.user.is_authenticated %}
   <div id="LoggedInUser">
     <div class="usernamedisplay">
+      <br>
       <p> Logged in as: {{user.username}} </p>
     </div>
   </div>
   {% endif %}
   
   <div id="announcments">
-  {% comment %} add this section for app announcments and for verse stuff {% endcomment %}
   </div>
   
   <div id="AppLogin">
@@ -92,6 +92,9 @@
     {% block ListCompleted %}
     {% endblock ListCompleted %}
   </div>
+  
+  <div></div>
+
 </body>
 <script type="text/javascript" src="{% static 'H2O_Portal/h2o.js' %}"></script>
 </html>

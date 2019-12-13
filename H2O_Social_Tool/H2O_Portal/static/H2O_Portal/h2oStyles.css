@@ -162,7 +162,7 @@ ul a:link, ul a:visited, .editpostbutton a:visited, .editpostbutton a:link, .del
   text-decoration: none;
 }
 
-.navbar:hover{
+ul#navlist li:hover{
   background-color: rgba(243, 130, 60, .80);
 }
 
@@ -198,6 +198,7 @@ ul#navlist a{
 #signup, #login{
   display: inline-block;
   width:60%;
+  max-width: 1500px;
   text-align: center;
 }
 
@@ -252,7 +253,17 @@ ul#startpage a{
 .instructionslinks:hover{
   color:lightblue;  
 }
-
+#instructionsset{
+  text-align: left;
+}
+.revealbutton{
+  background-color:rgba(90, 140, 250, 1);
+  border-color: rgba(90, 140, 250, 1);
+  color:rgb(99, 100, 102);
+}
+#revealgroupmecontainer, #revealfacebookcontainer, #revealinstagramcontainer{
+  display: none;
+}
 /*End Manage credentials*/
 
 /*Forms styles*/
@@ -341,13 +352,30 @@ input[type="checkbox"]{
   box-sizing: content-box;
   display: block;
   width: 100%;
-  margin-left: 10%;
+  margin-left: 25%;
 }
 #centerinstructions{
-  margin-left: unset;
-  width: 80%;
+  width: 45%;
   text-align: center;
 }
+
+@media (max-width: 1500px){
+  #centeringcontainer2{
+    box-sizing: content-box;
+    width: 100%;
+    max-width: 1500px;
+    margin-left: 27%;
+  }
+}
+@media(min-width: 1500px){
+  #centeringcontainer2{
+    box-sizing: content-box;
+    width: 100%;
+    max-width: 1500px;
+    margin-left: 35%;
+  }
+}
+
 /*delete after integrating facebook*/
 
 
@@ -451,7 +479,7 @@ td{
   position: relative;
   z-index: 1;
   padding: 1.5em;
-  margin: -1.1em;
+  margin: -1.0em;
   text-decoration: none;
 }
 .postheader{
