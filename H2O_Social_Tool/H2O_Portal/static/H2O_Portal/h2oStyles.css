@@ -210,7 +210,14 @@ ul#navlist a{
   max-width: 1500px;
   text-align: center;
 }
-
+.confirmbutton{
+  cursor: pointer;
+  background-color: rgba(90, 140, 250, 1);
+  border-color: rgba(90, 140, 250, 1);
+  border-radius: 5px;
+  color:black;
+  font-size: 14pt;
+}
 ul#startpage a{
   display:block;
 }
@@ -294,7 +301,7 @@ form{
   margin: auto;
   font-size: 18px;
   font-weight: 500;
-  margin-top: 5px;
+  margin-top: 15px;
   padding: 5px; 
   text-align: center;
 }
@@ -344,7 +351,7 @@ input[type="checkbox"]{
   width: 50%;
 }
 
-.imageclass:hover, input[type="submit"]:hover, #resubmitbutton:hover{
+.imageclass:hover, input[type="submit"]:hover, #resubmitbutton:hover, .confirmbutton:hover{
   background-color: rgba(90, 250, 125, 0.7);
   cursor: pointer;
 }
