@@ -338,8 +338,29 @@ input[type="submit"]{
 input[type="checkbox"]{
   width: 10%;
 }
+/* starting cleanup for upload button */
+/* .imageclass {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+.imageclass + label {
+  font-size: 1.25em;
+  font-weight: 700;
+  color: white;
+  background-color: black;
+  display: block;
+}
 
-
+.imageclass:focus + label,
+.imageclass + label:hover {
+  background-color: rgba(90, 140, 250, 1);
+  cursor: pointer;
+} */
+/* end upload button */
 .imageclass{
   padding: 8px;
   display: content-box;

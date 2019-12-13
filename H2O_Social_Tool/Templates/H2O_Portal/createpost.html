@@ -4,11 +4,11 @@
     <form method="post" enctype="multipart/form-data" class="myfieldclass" novalidate>
       {% csrf_token %}
       {% for field in form %}
-        
         {% if field == form.picture %}
-          {{field.label_tag}}
           <div class="imageclass">
-            {{field}}
+            <span>
+            <label for="Upload Picture:">{{field}}</label>
+            </span>
           </div>
 
         {% elif field == form.Facebook %}
