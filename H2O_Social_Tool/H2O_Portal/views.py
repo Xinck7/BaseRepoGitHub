@@ -14,6 +14,9 @@ import json
 def home(request):
     return render(request, 'H2O_Portal/base.html')
 
+def pagehome(request):
+    return render(request, 'H2O_Portal/pagehome.html')
+
 def signup(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)            
@@ -23,7 +26,7 @@ def signup(request):
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
             auth_login(request, user)
-            return redirect('/')
+            return redirect('pagehome')
     else:
         form = SignUpForm()
 
@@ -38,7 +41,7 @@ def managecreds(request):
             post = form.save(commit=False)
             post.gm_auth_token = form.cleaned_data.get('gm_auth_token')
             post.save()
-            return redirect('/')
+            return redirect('pagehome')
     else:
         form = TokenStoreForm(instance=socialuser)
     return render(request, 'H2O_Portal/managecreds.html', {'form' : form} )    
@@ -117,7 +120,6 @@ def editpost(request, value):
 
 @login_required
 def deletepost(request, value):
-    user = request.user
     user_post = SocialPost.objects.filter(id=value)
     user_post.delete()
     return redirect('listscheduled')
@@ -125,30 +127,31 @@ def deletepost(request, value):
 @login_required
 def listscheduled(request):
     all_posts = SocialPost.objects.all().order_by('post_time')
-    page = request.GET.get('page' , 1)
+    all_posts= all_posts.filter(completed=False)
     paginator = Paginator(all_posts, 10)
+    page = request.GET.get('page' , 1)
     try:
         posts = paginator.page(page)
     except PageNotAnInteger:
         posts = paginator.page(1)
     except EmptyPage:
         posts = paginator.page(paginator.num_pages)
-    #return render(request, 'H2O_Portal/listscheduled.html', {'Posts': all_posts } )
     return render(request, 'H2O_Portal/listscheduled.html', {'Posts': posts } )
 
 
 @login_required
 def listcompleted(request):
     all_posts = SocialPost.objects.all().order_by('-post_time')
+    all_posts_filtered= all_posts.filter(completed=True)
+    paginator = Paginator(all_posts_filtered, 10)
     page = request.GET.get('page' , 1)
-    paginator = Paginator(all_posts, 10)
     try:
         posts = paginator.page(page)
     except PageNotAnInteger:
         posts = paginator.page(1)
     except EmptyPage:
         posts = paginator.page(paginator.num_pages)
-    return render(request, 'H2O_Portal/listcompleted.html', {'Posts': all_posts } )
+    return render(request, 'H2O_Portal/listcompleted.html', {'Posts': posts } )
 
 
 

@@ -162,7 +162,7 @@ ul a:link, ul a:visited, .editpostbutton a:visited, .editpostbutton a:link, .del
   text-decoration: none;
 }
 
-.navbar:hover{
+ul#navlist li:hover{
   background-color: rgba(243, 130, 60, .80);
 }
 
@@ -180,7 +180,16 @@ ul#navlist a{
 }
 /*End Nav Bar*/
 
-
+/*Home page styles*/
+#pagehome{
+  display: content-box;
+  width: 100%;
+  margin-left: 30%;
+}
+#centerhomepage{
+  text-align: left;
+}
+/*End Home page styles*/
 /*Positioning for the login stuff*/
 .usernamedisplay{
   position: absolute;
@@ -197,10 +206,18 @@ ul#navlist a{
 
 #signup, #login{
   display: inline-block;
-  width:60%;
+  width:50%;
+  max-width: 1500px;
   text-align: center;
 }
-
+.confirmbutton{
+  cursor: pointer;
+  background-color: rgba(90, 140, 250, 1);
+  border-color: rgba(90, 140, 250, 1);
+  border-radius: 5px;
+  color:black;
+  font-size: 14pt;
+}
 ul#startpage a{
   display:block;
 }
@@ -252,7 +269,28 @@ ul#startpage a{
 .instructionslinks:hover{
   color:lightblue;  
 }
-
+#instructionsset{
+  text-align: left;
+}
+.revealbutton{
+  background-color:rgba(90, 140, 250, 1);
+  border-color: rgba(90, 140, 250, 1);
+  color:black;
+  font-size: 14pt;
+  margin: 1%;
+  cursor: pointer;
+  display: inline-block;
+  width: 50%;
+}
+.revealbutton:hover{
+  background-color:rgba(90, 140, 250, 0.8);
+}
+#revealgroupmecontainer, #revealfacebookcontainer, #revealinstagramcontainer{
+  display: none;
+}
+textarea[name="gm_auth_token"]{
+  height: 20px;
+}
 /*End Manage credentials*/
 
 /*Forms styles*/
@@ -266,7 +304,7 @@ form{
   margin: auto;
   font-size: 18px;
   font-weight: 500;
-  margin-top: 5px;
+  margin-top: 15px;
   padding: 5px; 
   text-align: center;
 }
@@ -300,23 +338,47 @@ input[type="submit"]{
 input[type="checkbox"]{
   width: 10%;
 }
+/* starting cleanup for upload button */
+/* .imageclass {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+.imageclass + label {
+  font-size: 1.25em;
+  font-weight: 700;
+  color: white;
+  background-color: black;
+  display: block;
+}
 
+.imageclass:focus + label,
+.imageclass + label:hover {
+  background-color: rgba(90, 140, 250, 1);
+  cursor: pointer;
+} */
+/* end upload button */
 .imageclass{
   padding: 8px;
+  display: content-box;
   margin: 10px;
-  background-color: rgba(90, 140, 250, 1);
   font-size: 12pt;
   border-radius: 3px;
   border: none;
+  margin-left:27%;
+  width:100%;
 }
 
 .imageclass #id_picture{
-  display: none;
+  display: block;
   border-radius: 3px;
   width: 50%;
 }
 
-.imageclass:hover, input[type="submit"]:hover, #resubmitbutton:hover{
+input[type="submit"]:hover, #resubmitbutton:hover, .confirmbutton:hover{
   background-color: rgba(90, 250, 125, 0.7);
   cursor: pointer;
 }
@@ -341,13 +403,30 @@ input[type="checkbox"]{
   box-sizing: content-box;
   display: block;
   width: 100%;
-  margin-left: 10%;
+  margin-left: 25%;
 }
 #centerinstructions{
-  margin-left: unset;
-  width: 80%;
+  width: 45%;
   text-align: center;
 }
+
+@media (max-width: 1500px){
+  #centeringcontainer2{
+    box-sizing: content-box;
+    width: 100%;
+    max-width: 1500px;
+    margin-left: 27%;
+  }
+}
+@media(min-width: 1500px){
+  #centeringcontainer2{
+    box-sizing: content-box;
+    width: 100%;
+    max-width: 1500px;
+    margin-left: 35%;
+  }
+}
+
 /*delete after integrating facebook*/
 
 
@@ -451,7 +530,7 @@ td{
   position: relative;
   z-index: 1;
   padding: 1.5em;
-  margin: -1.1em;
+  margin: -1.0em;
   text-decoration: none;
 }
 .postheader{

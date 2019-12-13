@@ -7,24 +7,17 @@
       <br>
     {% for field in form %}      
       {% if field == form.picture %}
-        {{field.label_tag}}
-        <label class="imageclass">
-          Upload
-          {{field}}<br>
-        </label>
-        <br>
+          <div class="imageclass">
+            <span>
+              <label for="Upload Picture:">{{field}}</label>
+            </span>
+          </div>
 
       {% elif field == form.Facebook %}
         {{ field }}
         {{ field.label_tag }}
         <br>
-      {% elif field == form.GroupMe %}
-          <div>
-            <label id="showmoregroupme" onclick=RevealCheckBox("centereditgroups")>
-            </label>
-            {{field.label_tag}}
-          </div>
-          
+      {% elif field == form.GroupMe %}       
           <div id="centereditgroups">
           <br>
           <p id="centerinstructions">Select Groups</p>

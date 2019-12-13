@@ -11,19 +11,23 @@
   <link rel="stylesheet" type="text/css" href="{% static 'H2O_Portal/h2oStyles.css' %}">
   
 </head>
-
-<img id="h2opic" src="{% static 'H2O_Portal/h2oLogo.png' %}" alt="H2O Logo" width="360" height="187">
+{% if request.user.gm_auth_token == '' or request.user.gm_auth_token == None %}
+  <a href="/pagehome/"><img border=0 id="h2opic" src="{% static 'H2O_Portal/h2oLogo.png' %}" alt="H2O Logo" width="360" height="187"></a>
+{% else %}
+  <a href="/"><img border=0 id="h2opic" src="{% static 'H2O_Portal/h2oLogo.png' %}" alt="H2O Logo" width="360" height="187"></a>
+{% endif %}
 <header>H2O Social Media Tool</header>
-
+<br>
 <body>
   <div id="nav">
     <div id="navbuttons">
       <ul id="navlist">
         {% if request.user.is_authenticated %}
-          {% if request.user.gm_auth_token == '' or request.user.gm_auth_token == None %}
+          {% if user.gm_auth_token == '' or user.gm_auth_token == None %}
+              <li><a href="/pagehome/">Getting Started</a></li>
               <li><a href="/managecreds/">Create Token</a></li>
             {% else %}
-              <li><a href="/">Home</a></li>
+              <li><a href="/pagehome/">Getting Started</a></li>
               <li><a href="/managecreds/">Manage Tokens</a></li>
               <li><a href="/createpost/">Create Post</a></li>
           {% endif %}
@@ -34,7 +38,7 @@
         {% else %}
           <ul id="startpage">
             <li id="login"><a href="/H2O_Portal/login/">Login</a></li>
-            <li id="signup"><a class="navbardetails"  href="/signup/">Signup</a></li>
+            <li id="signup"><a class="navbardetails" href="/signup/">Signup</a></li>
           </ul>
         {% endif %}
       </ul>
@@ -44,13 +48,15 @@
   {% if request.user.is_authenticated %}
   <div id="LoggedInUser">
     <div class="usernamedisplay">
+      <br>
       <p> Logged in as: {{user.username}} </p>
     </div>
   </div>
   {% endif %}
   
-  <div id="announcments">
-  {% comment %} add this section for app announcments and for verse stuff {% endcomment %}
+  <div id="pagehome">
+    {% block PageHome %}
+    {% endblock PageHome %}
   </div>
   
   <div id="AppLogin">
@@ -92,6 +98,9 @@
     {% block ListCompleted %}
     {% endblock ListCompleted %}
   </div>
+  
+  <div></div>
+
 </body>
 <script type="text/javascript" src="{% static 'H2O_Portal/h2o.js' %}"></script>
 </html>
