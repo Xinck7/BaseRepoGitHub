@@ -26,7 +26,7 @@ def signup(request):
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
             auth_login(request, user)
-            return redirect('/pagehome')
+            return redirect('pagehome')
     else:
         form = SignUpForm()
 
@@ -41,7 +41,7 @@ def managecreds(request):
             post = form.save(commit=False)
             post.gm_auth_token = form.cleaned_data.get('gm_auth_token')
             post.save()
-            return redirect('/')
+            return redirect('pagehome')
     else:
         form = TokenStoreForm(instance=socialuser)
     return render(request, 'H2O_Portal/managecreds.html', {'form' : form} )    

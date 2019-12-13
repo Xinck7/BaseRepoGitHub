@@ -206,7 +206,7 @@ ul#navlist a{
 
 #signup, #login{
   display: inline-block;
-  width:60%;
+  width:50%;
   max-width: 1500px;
   text-align: center;
 }

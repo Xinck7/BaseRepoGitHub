@@ -27,7 +27,7 @@
           {% if request.user.gm_auth_token == '' or request.user.gm_auth_token == None %}
               <li><a href="/managecreds/">Create Token</a></li>
             {% else %}
-              <li><a href="/pagehome/">Home</a></li>
+              <li><a href="/pagehome/">Getting Started</a></li>
               <li><a href="/managecreds/">Manage Tokens</a></li>
               <li><a href="/createpost/">Create Post</a></li>
           {% endif %}
