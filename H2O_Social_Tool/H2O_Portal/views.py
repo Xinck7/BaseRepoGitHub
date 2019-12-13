@@ -127,8 +127,9 @@ def deletepost(request, value):
 @login_required
 def listscheduled(request):
     all_posts = SocialPost.objects.all().order_by('post_time')
-    page = request.GET.get('page' , 1)
+    all_posts= all_posts.filter(completed=False)
     paginator = Paginator(all_posts, 10)
+    page = request.GET.get('page' , 1)
     try:
         posts = paginator.page(page)
     except PageNotAnInteger:
@@ -141,15 +142,16 @@ def listscheduled(request):
 @login_required
 def listcompleted(request):
     all_posts = SocialPost.objects.all().order_by('-post_time')
+    all_posts_filtered= all_posts.filter(completed=True)
+    paginator = Paginator(all_posts_filtered, 10)
     page = request.GET.get('page' , 1)
-    paginator = Paginator(all_posts, 10)
     try:
         posts = paginator.page(page)
     except PageNotAnInteger:
         posts = paginator.page(1)
     except EmptyPage:
         posts = paginator.page(paginator.num_pages)
-    return render(request, 'H2O_Portal/listcompleted.html', {'Posts': all_posts } )
+    return render(request, 'H2O_Portal/listcompleted.html', {'Posts': posts } )
 
 
 
