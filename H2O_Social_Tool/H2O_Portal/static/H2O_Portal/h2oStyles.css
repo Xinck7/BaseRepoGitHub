@@ -259,7 +259,15 @@ ul#startpage a{
 .revealbutton{
   background-color:rgba(90, 140, 250, 1);
   border-color: rgba(90, 140, 250, 1);
-  color:rgb(99, 100, 102);
+  color:black;
+  font-size: 14pt;
+  margin: 1%;
+  cursor: pointer;
+  display: inline-block;
+  width: 50%;
+}
+.revealbutton:hover{
+  background-color:rgba(90, 140, 250, 0.8);
 }
 #revealgroupmecontainer, #revealfacebookcontainer, #revealinstagramcontainer{
   display: none;
