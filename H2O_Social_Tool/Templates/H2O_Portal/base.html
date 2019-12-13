@@ -23,7 +23,8 @@
     <div id="navbuttons">
       <ul id="navlist">
         {% if request.user.is_authenticated %}
-          {% if request.user.gm_auth_token == '' or request.user.gm_auth_token == None %}
+          {% if user.gm_auth_token == '' or user.gm_auth_token == None %}
+              <li><a href="/pagehome/">Getting Started</a></li>
               <li><a href="/managecreds/">Create Token</a></li>
             {% else %}
               <li><a href="/pagehome/">Getting Started</a></li>
