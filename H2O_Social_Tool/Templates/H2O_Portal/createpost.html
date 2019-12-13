@@ -15,9 +15,7 @@
           <p>Facebook coming soon!</p>
           <div id="facebook">
             <label id="showmorefacebook" onclick=RevealCheckBox("centerfacebookgroups")>
-              <span>
               {{ field }}
-              </span>
             </label>
             {{field.label_tag}}
           </div>
@@ -25,9 +23,7 @@
         {% elif field == form.GroupMe %}
           <div>
             <label id="showmoregroupme" onclick=RevealCheckBox("centergroupmegroups")>
-              <span>
               {{ field }}
-              </span>
             </label>
             {{field.label_tag}}
           </div>
@@ -38,7 +34,9 @@
           <br>
             {% for group in groups %}
             <div class="groupmegroups">
+                <label>
                 <input class="groupnamebox" type="checkbox" name="groupnameboxes" value="{{group.name}}">{{group.name}}</input>
+                </label>
             </div>
             {% endfor %}
           </div>
