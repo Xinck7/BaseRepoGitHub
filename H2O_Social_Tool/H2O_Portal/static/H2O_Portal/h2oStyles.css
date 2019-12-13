@@ -288,6 +288,9 @@ ul#startpage a{
 #revealgroupmecontainer, #revealfacebookcontainer, #revealinstagramcontainer{
   display: none;
 }
+textarea[name="gm_auth_token"]{
+  height: 20px;
+}
 /*End Manage credentials*/
 
 /*Forms styles*/
@@ -338,20 +341,22 @@ input[type="checkbox"]{
 
 .imageclass{
   padding: 8px;
+  display: content-box;
   margin: 10px;
-  background-color: rgba(90, 140, 250, 1);
   font-size: 12pt;
   border-radius: 3px;
   border: none;
+  margin-left:27%;
+  width:100%;
 }
 
 .imageclass #id_picture{
-  display: none;
+  display: block;
   border-radius: 3px;
   width: 50%;
 }
 
-.imageclass:hover, input[type="submit"]:hover, #resubmitbutton:hover, .confirmbutton:hover{
+input[type="submit"]:hover, #resubmitbutton:hover, .confirmbutton:hover{
   background-color: rgba(90, 250, 125, 0.7);
   cursor: pointer;
 }
