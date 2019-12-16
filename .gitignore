@@ -4,3 +4,8 @@ __pycache__/
 venv/
 *.sqlite3
 H2O_Social_Tool/.envbkp
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
