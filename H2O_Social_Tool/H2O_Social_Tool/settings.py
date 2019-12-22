@@ -163,3 +163,8 @@ ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT = 600 # 10 minutes in seconds
 SITE_ID = 1
 
 # Facebook app settings
+
+#deploy settings
+SECURE_SSL_REDIRECT=True
+SESSION_COOKIE_SECURE=True
+CSRF_COOKIE_SECURE=True
