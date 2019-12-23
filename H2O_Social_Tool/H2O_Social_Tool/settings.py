@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.facebook',
-    "sslserver",
 ]
 
 MIDDLEWARE = [
