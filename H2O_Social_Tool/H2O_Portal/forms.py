@@ -10,7 +10,7 @@ class SignUpForm(UserCreationForm):
         widgets = {
             'myfield': forms.TextInput(attrs={'class': 'myfieldclass'}),
         }
-        fields = ('username', 'password1', 'password2', 'email')
+        fields = ('email', 'username', 'password1', 'password2')
 
 class SocialPostForm(forms.ModelForm):
     class Meta():
