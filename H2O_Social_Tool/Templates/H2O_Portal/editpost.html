@@ -14,9 +14,9 @@
           </div>
 
       {% elif field == form.Facebook %}
-        {{ field }}
+        {% comment %} {{ field }}
         {{ field.label_tag }}
-        <br>
+        <br> {% endcomment %}
       {% elif field == form.GroupMe %}       
           <div id="centereditgroups">
           <br>

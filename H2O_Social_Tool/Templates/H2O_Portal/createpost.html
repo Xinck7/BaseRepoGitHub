@@ -12,12 +12,12 @@
           </div>
 
         {% elif field == form.Facebook %}
-          <p>Facebook coming soon!</p>
+          {% comment %} <p>Facebook coming soon!</p>
           <div id="facebook">
             <label id="showmorefacebook" onclick=RevealCheckBox("centerfacebookgroups")>
               {{ field }}
             </label>
-            {{field.label_tag}}
+            {{field.label_tag}} {% endcomment %}
           </div>
 
         {% elif field == form.GroupMe %}
