@@ -116,17 +116,16 @@ input, select {
   box-sizing: border-box;
   font-family: 'Lato', sans-serif;  
 }
-
 body{
   background-color: rgb(240, 240, 240);
 }
+
 /*Header*/
 #h2opic{
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
-
 header {
   text-align: center;
   font-size: 40px;
@@ -139,13 +138,11 @@ header {
   margin-top: 10px;
   text-align: center;
 }
-
 ul#navnavlist{
   list-style-type: none;
   padding: 10px;
   
 }
-
 ul li{
   display: inline-block;
   font-size: 13pt;
@@ -161,11 +158,9 @@ ul a:link, ul a:visited, .editpostbutton a:visited, .editpostbutton a:link, .del
   color: black;
   text-decoration: none;
 }
-
 ul#navlist li:hover{
   background-color: rgba(243, 130, 60, .80);
 }
-
 @media (max-width: 750px){
   ul li{
     display: block;
@@ -190,6 +185,7 @@ ul#navlist a{
   text-align: left;
 }
 /*End Home page styles*/
+
 /*Positioning for the login stuff*/
 .usernamedisplay{
   position: absolute;
@@ -197,18 +193,19 @@ ul#navlist a{
   top: 80px;
   right: 50px;
 }
-
 #logout{
   position: absolute;
   top: 15px;
   right: 10px;
 }
-
 #signup, #login{
   display: inline-block;
   width:50%;
   max-width: 1500px;
   text-align: center;
+}
+#helptext{
+  display: inline-block;
 }
 .confirmbutton{
   cursor: pointer;
@@ -289,7 +286,7 @@ ul#startpage a{
   display: none;
 }
 textarea[name="gm_auth_token"]{
-  height: 20px;
+  height: 30px;
 }
 /*End Manage credentials*/
 
@@ -325,7 +322,6 @@ input, textarea{
   border-radius: 3px;
   border-width: 1px;
 }
-
 input[type="submit"]{
   padding: 1%;
   margin-top: 13px;
@@ -334,7 +330,6 @@ input[type="submit"]{
   font-size: 14pt;
   border: none;
 }
-
 input[type="checkbox"]{
   width: 10%;
 }
@@ -371,24 +366,20 @@ input[type="checkbox"]{
   margin-left:27%;
   width:100%;
 }
-
 .imageclass #id_picture{
   display: block;
   border-radius: 3px;
   width: 50%;
 }
-
 input[type="submit"]:hover, #resubmitbutton:hover, .confirmbutton:hover{
   background-color: rgba(90, 250, 125, 0.7);
   cursor: pointer;
 }
-
 /*End Cleaning up the create post section*/
 
 #CreatePost, #ManageCreds, #ListScheduled, #ListCompleted{
   text-align: center;
 }
-
 .groupmegroups{
   display: block;
   text-align: left;
@@ -409,7 +400,6 @@ input[type="submit"]:hover, #resubmitbutton:hover, .confirmbutton:hover{
   width: 45%;
   text-align: center;
 }
-
 @media (max-width: 1500px){
   #centeringcontainer2{
     box-sizing: content-box;
@@ -426,10 +416,7 @@ input[type="submit"]:hover, #resubmitbutton:hover, .confirmbutton:hover{
     margin-left: 35%;
   }
 }
-
 /*delete after integrating facebook*/
-
-
 /*End Forms styles*/
 
 /*Edit Post Pane*/
@@ -438,11 +425,9 @@ input[type="submit"]:hover, #resubmitbutton:hover, .confirmbutton:hover{
   width: 80%;
   margin: auto;
 }
-
 .editpostbutton:hover{
   background-color: rgba(68, 122, 238, 1);
 }
-
 #resubmitbutton{
   padding: 1%;
   margin-top: 10px;
@@ -547,3 +532,14 @@ td{
   border-collapse: collapse;
 }
 /*End List Posts Pane*/
+
+/* Mobile Considerations */
+@media (max-width: 750px){
+  
+
+
+
+
+
+}
+/* End Mobile Considerations */
