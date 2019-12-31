@@ -9,13 +9,12 @@
       {{ field.label_tag }}<br>
       {{ field }}
       <br>
-      {% if field.help_text %}
-          <div id="helptext">
-            {{ field.help_text }}
-          </div>
-      {% endif %}
+      <br>
       {% for error in field.errors %}
           <p style="color: Blue">{{ error }}</p>
+          <label id="helptext">
+            <p>{{ field.help_text }}</p><br>
+          </label>
       {% endfor %}
     {% endfor %}
     <div class="buttoncontainer">
