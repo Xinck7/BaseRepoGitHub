@@ -9,7 +9,7 @@
           <th>Message</th>
           <th>Picture</th>
           <th>Post Time</th>
-          <th>Facebook?</th>
+          {% comment %} <th>Facebook?</th> {% endcomment %}
           <th>GroupMeGroups</th>
           <th>Scheduled by</th>
         </tr>
@@ -21,7 +21,7 @@
             <td>{{ post.message }}</td>
             <td>{{ post.picture }}</td>
             <td>{{ post.post_time }}</td>
-            <td>{{ post.Facebook }}</td>
+            {% comment %} <td>{{ post.Facebook }}</td> {% endcomment %}
             {% if post.GroupMeGroups == None %}
             <td></td>
             {% else %}
