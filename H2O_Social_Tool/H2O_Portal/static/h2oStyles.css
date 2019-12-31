@@ -161,11 +161,7 @@ ul a:link, ul a:visited, .editpostbutton a:visited, .editpostbutton a:link, .del
 ul#navlist li:hover{
   background-color: rgba(243, 130, 60, .80);
 }
-@media (max-width: 750px){
-  ul li{
-    display: block;
-  }
-}
+
 ul#navlist a{
   display: inline-block;
   position: relative;
@@ -176,11 +172,7 @@ ul#navlist a{
 /*End Nav Bar*/
 
 /*Home page styles*/
-#pagehome{
-  display: content-box;
-  width: 100%;
-  margin-left: 30%;
-}
+
 #centerhomepage{
   text-align: left;
 }
@@ -205,7 +197,11 @@ ul#navlist a{
   text-align: center;
 }
 #helptext{
-  display: inline-block;
+  text-align: center;
+}
+#helptext li{
+  padding: 0;
+  color: blue;  
 }
 .confirmbutton{
   cursor: pointer;
@@ -231,18 +227,6 @@ ul#startpage a{
 }
 .managecredslinks:hover{
   background-color: rgba(243, 130, 60, .80);
-}
-@media (max-width: 750px){
-  .managecredslinks{
-    display: block;
-  }
-  .pagination{
-    display: inline-block;
-    width: 50%;
-  }
-  .paginate{
-    float: left;
-  }
 }
 .disconnect{
   display: inline-block;
@@ -405,7 +389,12 @@ input[type="submit"]:hover, #resubmitbutton:hover, .confirmbutton:hover{
     box-sizing: content-box;
     width: 100%;
     max-width: 1500px;
-    margin-left: 27%;
+    margin-left: 20%;
+  }
+  #pagehome{
+    display: content-box;
+    width: 50%;
+    margin-left: 25%;
   }
 }
 @media(min-width: 1500px){
@@ -413,6 +402,11 @@ input[type="submit"]:hover, #resubmitbutton:hover, .confirmbutton:hover{
     box-sizing: content-box;
     width: 100%;
     max-width: 1500px;
+    margin-left: 35%;
+  }
+  #pagehome{
+    display: content-box;
+    width: 50%;
     margin-left: 35%;
   }
 }
@@ -533,13 +527,86 @@ td{
 }
 /*End List Posts Pane*/
 
+/* Modal menu hide if larger than certain size */
+@media (min-width: 751px){
+  #mobilemenu{
+    display:none;
+  }
+}
+
+
+
+/*************************************************/
+/*************************************************/
+/*************************************************/
+
+
+
 /* Mobile Considerations */
 @media (max-width: 750px){
+  /* Start Modal/Button funcationality */
+  #navbuttons{
+    text-align: center;
+  }
+  ul li{
+    display: inline-block;
+    padding: 5px;
+    margin: 2px;
+    overflow: hidden;
+  }
+  /* End Modal/Button funcationality */
+  /* Styling for centering top items */
+  .usernamedisplay{
+    position: absolute;
+    top: 10px;
+    left: 50px;
+    font-size: 16px;
+    text-align: center;
+  }
+  #logout{
+    position: absolute;
+    top: 10px;
+    right: 5px;
+    padding:2px;
+    display: inline-block;
+  }
+  /* End Styling for centering top items */
+
+    /*Home page styles*/
+  #pagehome{
+    display:block;
+    margin-left: 10%;
+  }
+  #centerhomepage{
+    text-align: left;
+  }
+  /*End Home page styles*/
   
+  /* Instructions */
+  #centeringcontainer2{
+    box-sizing: content-box;
+    width: 97%;
+    margin-left: 5%;
+  }
+  #centerinstructions{
+  text-align: center;
+  }
+  /* End Instructions */
 
-
-
-
-
+  textarea{
+    height: 30px;
+    width: auto;
+  }
+  /* General Mobile Styling */
+  .managecredslinks{
+    display: block;
+  }
+  .pagination{
+    display: inline-block;
+    width: 50%;
+  }
+  .paginate{
+    float: left;
+  }
 }
 /* End Mobile Considerations */
