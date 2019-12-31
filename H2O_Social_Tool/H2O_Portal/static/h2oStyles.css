@@ -491,7 +491,7 @@ input[type="submit"]:hover, #resubmitbutton:hover, .confirmbutton:hover{
 .posttables{
   padding: 1%;
   display: inline-block;
-  min-width: 5px;
+  min-width: 880px;
   text-align: center;
 }
 ul.pagination a{
@@ -643,15 +643,19 @@ td{
   .paginate{
     float: left;
   }
+  .editpostbutton a{
+    display:block;
+    width: 100%;
+    height: 100%;
+  }
   th{
-    padding: 5px;
+    padding: 1px;
     border: 1px solid rgb(99, 100, 102);
     border-collapse: collapse;
     background-color: rgba(241, 120, 44, 0.75);
     font-weight: 200;
   }
   td{
-    padding: 5px;
     border: 1px solid rgb(99, 100, 102);
     border-collapse: collapse;
     font-weight: 500;
