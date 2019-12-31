@@ -7,9 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>H2O Social Media Tool</title>
   <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
-  
   <link rel="stylesheet" type="text/css" href="{% static 'h2oStyles.css' %}">
-  
+  <link rel="shortcut icon" type="image/png" href="{% static 'h2oaftercut.png' %}">
 </head>
 {% if request.user.gm_auth_token == '' or request.user.gm_auth_token == None %}
   <a href="/pagehome/"><img border=0 id="h2opic" src="{% static 'h2oLogo.png' %}" alt="H2O Logo" width="360" height="187"></a>
