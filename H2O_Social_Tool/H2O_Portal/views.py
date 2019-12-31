@@ -14,6 +14,7 @@ import json
 def home(request):
     return render(request, 'H2O_Portal/base.html')
 
+@login_required
 def pagehome(request):
     return render(request, 'H2O_Portal/pagehome.html')
 
