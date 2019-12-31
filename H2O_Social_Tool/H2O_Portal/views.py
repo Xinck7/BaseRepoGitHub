@@ -129,7 +129,7 @@ def deletepost(request, value):
 def listscheduled(request):
     all_posts = SocialPost.objects.all().order_by('post_time')
     all_posts= all_posts.filter(completed=False)
-    paginator = Paginator(all_posts, 10)
+    paginator = Paginator(all_posts, 5)
     page = request.GET.get('page' , 1)
     try:
         posts = paginator.page(page)
@@ -144,7 +144,7 @@ def listscheduled(request):
 def listcompleted(request):
     all_posts = SocialPost.objects.all().order_by('-post_time')
     all_posts_filtered= all_posts.filter(completed=True)
-    paginator = Paginator(all_posts_filtered, 10)
+    paginator = Paginator(all_posts_filtered, 5)
     page = request.GET.get('page' , 1)
     try:
         posts = paginator.page(page)
