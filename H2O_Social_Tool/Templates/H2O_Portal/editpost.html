@@ -14,9 +14,9 @@
           </div>
 
       {% elif field == form.Facebook %}
-        {{ field }}
+        {% comment %} {{ field }}
         {{ field.label_tag }}
-        <br>
+        <br> {% endcomment %}
       {% elif field == form.GroupMe %}       
           <div id="centereditgroups">
           <br>
@@ -48,7 +48,10 @@
       <br>
     {% endfor %}
     <br>
-    <input type="submit" id="resubmitbutton" value="Resubmit Post"><a href="{% url 'editpost' value=Post.id %}"></a></input>
+    <p style="color:blue">Warning!! If you are saving changes, Reselect groups</p>
+    <input type="submit" id="resubmitbutton" value="Save Changes"><a href="{% url 'editpost' value=Post.id %}"></a></input>
     <button class="deletebutton"><a href="{% url 'deletepost' value=Post.id %}">Delete</a></button>
+    <br>
+    <button id="cancelbutton"><a href="/listscheduled/">Cancel</a></button>
   </form> 
 {% endblock EditPost %}

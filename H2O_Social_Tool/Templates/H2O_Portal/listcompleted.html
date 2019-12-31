@@ -6,10 +6,10 @@
       <thead>
         <p class="postheader">Completed Posts</p>
         <tr>
-          <th>Message</th>
-          <th>Picture</th>
           <th>Post Time</th>
-          <th>Facebook?</th>
+          <th>Picture</th>
+          <th>Message</th>
+          {% comment %} <th>Facebook?</th> {% endcomment %}
           <th>GroupMeGroups</th>
           <th>Scheduled by</th>
         </tr>
@@ -18,10 +18,10 @@
         {% for post in Posts %}
           <tr>
             {% if post.completed == True %}
-            <td>{{ post.message }}</td>
-            <td>{{ post.picture }}</td>
             <td>{{ post.post_time }}</td>
-            <td>{{ post.Facebook }}</td>
+            <td>{{ post.picture }}</td>
+            <td>{{ post.message }}</td>
+            {% comment %} <td>{{ post.Facebook }}</td> {% endcomment %}
             {% if post.GroupMeGroups == None %}
             <td></td>
             {% else %}

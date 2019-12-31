@@ -116,17 +116,16 @@ input, select {
   box-sizing: border-box;
   font-family: 'Lato', sans-serif;  
 }
-
 body{
   background-color: rgb(240, 240, 240);
 }
+
 /*Header*/
 #h2opic{
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
-
 header {
   text-align: center;
   font-size: 40px;
@@ -139,13 +138,11 @@ header {
   margin-top: 10px;
   text-align: center;
 }
-
 ul#navnavlist{
   list-style-type: none;
   padding: 10px;
   
 }
-
 ul li{
   display: inline-block;
   font-size: 13pt;
@@ -161,16 +158,10 @@ ul a:link, ul a:visited, .editpostbutton a:visited, .editpostbutton a:link, .del
   color: black;
   text-decoration: none;
 }
-
 ul#navlist li:hover{
   background-color: rgba(243, 130, 60, .80);
 }
 
-@media (max-width: 750px){
-  ul li{
-    display: block;
-  }
-}
 ul#navlist a{
   display: inline-block;
   position: relative;
@@ -181,15 +172,12 @@ ul#navlist a{
 /*End Nav Bar*/
 
 /*Home page styles*/
-#pagehome{
-  display: content-box;
-  width: 100%;
-  margin-left: 30%;
-}
+
 #centerhomepage{
   text-align: left;
 }
 /*End Home page styles*/
+
 /*Positioning for the login stuff*/
 .usernamedisplay{
   position: absolute;
@@ -197,18 +185,23 @@ ul#navlist a{
   top: 80px;
   right: 50px;
 }
-
 #logout{
   position: absolute;
   top: 15px;
   right: 10px;
 }
-
 #signup, #login{
   display: inline-block;
   width:50%;
   max-width: 1500px;
   text-align: center;
+}
+#helptext{
+  text-align: center;
+}
+#helptext li{
+  padding: 0;
+  color: blue;  
 }
 .confirmbutton{
   cursor: pointer;
@@ -234,18 +227,6 @@ ul#startpage a{
 }
 .managecredslinks:hover{
   background-color: rgba(243, 130, 60, .80);
-}
-@media (max-width: 750px){
-  .managecredslinks{
-    display: block;
-  }
-  .pagination{
-    display: inline-block;
-    width: 50%;
-  }
-  .paginate{
-    float: left;
-  }
 }
 .disconnect{
   display: inline-block;
@@ -289,7 +270,7 @@ ul#startpage a{
   display: none;
 }
 textarea[name="gm_auth_token"]{
-  height: 20px;
+  height: 30px;
 }
 /*End Manage credentials*/
 
@@ -325,7 +306,6 @@ input, textarea{
   border-radius: 3px;
   border-width: 1px;
 }
-
 input[type="submit"]{
   padding: 1%;
   margin-top: 13px;
@@ -334,7 +314,6 @@ input[type="submit"]{
   font-size: 14pt;
   border: none;
 }
-
 input[type="checkbox"]{
   width: 10%;
 }
@@ -371,24 +350,23 @@ input[type="checkbox"]{
   margin-left:27%;
   width:100%;
 }
-
+.imageclass label{
+  margin-left:1%;
+}
 .imageclass #id_picture{
   display: block;
   border-radius: 3px;
   width: 50%;
 }
-
 input[type="submit"]:hover, #resubmitbutton:hover, .confirmbutton:hover{
   background-color: rgba(90, 250, 125, 0.7);
   cursor: pointer;
 }
-
 /*End Cleaning up the create post section*/
 
 #CreatePost, #ManageCreds, #ListScheduled, #ListCompleted{
   text-align: center;
 }
-
 .groupmegroups{
   display: block;
   text-align: left;
@@ -403,19 +381,23 @@ input[type="submit"]:hover, #resubmitbutton:hover, .confirmbutton:hover{
   box-sizing: content-box;
   display: block;
   width: 100%;
-  margin-left: 25%;
+  margin-left: 10%;
 }
 #centerinstructions{
   width: 45%;
   text-align: center;
 }
-
 @media (max-width: 1500px){
   #centeringcontainer2{
     box-sizing: content-box;
     width: 100%;
     max-width: 1500px;
-    margin-left: 27%;
+    margin-left: 20%;
+  }
+  #pagehome{
+    display: content-box;
+    width: 50%;
+    margin-left: 25%;
   }
 }
 @media(min-width: 1500px){
@@ -425,11 +407,13 @@ input[type="submit"]:hover, #resubmitbutton:hover, .confirmbutton:hover{
     max-width: 1500px;
     margin-left: 35%;
   }
+  #pagehome{
+    display: content-box;
+    width: 50%;
+    margin-left: 35%;
+  }
 }
-
 /*delete after integrating facebook*/
-
-
 /*End Forms styles*/
 
 /*Edit Post Pane*/
@@ -438,11 +422,9 @@ input[type="submit"]:hover, #resubmitbutton:hover, .confirmbutton:hover{
   width: 80%;
   margin: auto;
 }
-
 .editpostbutton:hover{
   background-color: rgba(68, 122, 238, 1);
 }
-
 #resubmitbutton{
   padding: 1%;
   margin-top: 10px;
@@ -463,7 +445,6 @@ input[type="submit"]:hover, #resubmitbutton:hover, .confirmbutton:hover{
   margin-bottom: 15px;
   border-radius: 3px;
   width:50%;
-  color: black;
   background-color: rgba(250, 90, 90, 1);
   font-size: 14pt;
   inline-size: auto;
@@ -478,9 +459,31 @@ input[type="submit"]:hover, #resubmitbutton:hover, .confirmbutton:hover{
   margin: -1em;
   text-decoration: none;
 }
+.deletebutton a:hover{
+  color: red;
+}
 .deletebutton:hover{
+  background-color: grey;
+}
+#cancelbutton{
+  padding: 1%;
+  margin-bottom: 15px;
+  border-radius: 3px;
+  width:50%;
+  color: black;
+  background-color: rgba(90, 140, 250, 1);
+  font-size: 14pt;
+  inline-size: auto;
+  border: none;
+  text-decoration: none;
+}
+#cancelbutton a{
+  color: black;
+  text-decoration: none;
+}
+#cancelbutton a:hover{
   color: white;
-  background-color: lightslategrey;
+  background-color: rgb(143, 142, 142);
 }
 /*End Edit Post Pane*/
 
@@ -488,7 +491,7 @@ input[type="submit"]:hover, #resubmitbutton:hover, .confirmbutton:hover{
 .posttables{
   padding: 1%;
   display: inline-block;
-  min-width: 5px;
+  min-width: 880px;
   text-align: center;
 }
 ul.pagination a{
@@ -547,3 +550,116 @@ td{
   border-collapse: collapse;
 }
 /*End List Posts Pane*/
+
+/* Modal menu hide if larger than certain size */
+@media (min-width: 751px){
+  #mobilemenu{
+    display:none;
+  }
+}
+
+
+
+/*************************************************/
+/*************************************************/
+/*************************************************/
+
+@media (max-width: 890px){
+  ul#navlist{
+    display:inline-block;
+    max-width: 600px;
+    align-items: center;
+  }
+}
+
+/* Mobile Considerations */
+@media (max-width: 750px){
+  /* Start Modal/Button funcationality */
+  #navbuttons{
+    text-align: center;
+  }
+
+  ul#navlist a{
+    margin: -0.9em;
+  }
+  ul li{
+    display: inline-block;
+    padding: 5px;
+    margin: 2px;
+  }
+  
+  /* End Modal/Button funcationality */
+  /* Styling for centering top items */
+  .usernamedisplay{
+    position: absolute;
+    top: 10px;
+    left: 50px;
+    font-size: 16px;
+    text-align: center;
+  }
+  #logout{
+    position: absolute;
+    top: 10px;
+    right: 5px;
+    padding:2px;
+    display: inline-block;
+  }
+  /* End Styling for centering top items */
+
+    /*Home page styles*/
+  #pagehome{
+    display:block;
+    margin-left: 25%;
+  }
+  #centerhomepage{
+    text-align: left;
+  }
+  /*End Home page styles*/
+  
+  /* Instructions */
+  #centeringcontainer2{
+    box-sizing: content-box;
+    width: 80%;
+    margin-left: 15%;
+    
+  }
+  #centerinstructions{
+  text-align: center;
+  }
+  /* End Instructions */
+
+  textarea{
+    height: 30px;
+    width: auto;
+  }
+  /* General Mobile Styling */
+  .managecredslinks{
+    display: block;
+  }
+  .pagination{
+    display: inline-block;
+    width: 50%;
+  }
+  .paginate{
+    float: left;
+  }
+  .editpostbutton a{
+    display:block;
+    width: 100%;
+    height: 100%;
+  }
+  th{
+    padding: 1px;
+    border: 1px solid rgb(99, 100, 102);
+    border-collapse: collapse;
+    background-color: rgba(241, 120, 44, 0.75);
+    font-weight: 200;
+  }
+  td{
+    border: 1px solid rgb(99, 100, 102);
+    border-collapse: collapse;
+    font-weight: 500;
+    background-color: rgba(241, 120, 44, 0.90);
+  }
+}
+/* End Mobile Considerations */

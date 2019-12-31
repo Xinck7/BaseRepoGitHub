@@ -14,6 +14,7 @@ import json
 def home(request):
     return render(request, 'H2O_Portal/base.html')
 
+@login_required
 def pagehome(request):
     return render(request, 'H2O_Portal/pagehome.html')
 
@@ -91,7 +92,7 @@ def createpost(request):
 def editpost(request, value):
     user_posts = SocialPost.objects.filter(id=value).first()
     if request.method == 'POST':
-        form = SocialPostForm(request.POST, instance=user_posts)
+        form = SocialPostForm(request.POST, request.FILES, instance=user_posts)
         socialuser = request.user
         init_groupme = GroupMePosts()
         master_groups = GroupMePosts.getgroups(init_groupme, socialuser.gm_auth_token)
@@ -105,7 +106,7 @@ def editpost(request, value):
                         gm_list.append(var_group)
 
         if form.is_valid(): 
-            post = form.save(commit=False)
+            post = form.save(commit=True)
             #add cleaning data
             post.GroupMeGroups = gm_list 
             post.updated_by = request.user
