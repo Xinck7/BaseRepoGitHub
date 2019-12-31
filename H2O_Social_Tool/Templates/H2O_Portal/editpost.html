@@ -48,6 +48,7 @@
       <br>
     {% endfor %}
     <br>
+    <p style="color:blue">Warning!! If you are saving changes, Reselect groups</p>
     <input type="submit" id="resubmitbutton" value="Save Changes"><a href="{% url 'editpost' value=Post.id %}"></a></input>
     <button class="deletebutton"><a href="{% url 'deletepost' value=Post.id %}">Delete</a></button>
     <br>
