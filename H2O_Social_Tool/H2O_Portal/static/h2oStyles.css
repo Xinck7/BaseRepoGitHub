@@ -347,20 +347,23 @@ input[type="checkbox"]{
   font-size: 12pt;
   border-radius: 3px;
   border: none;
-  margin-left:27%;
   width:100%;
 }
 .imageclass label{
-  margin-left:1%;
+  margin-left: unset;
 }
 .imageclass #id_picture{
   display: block;
   border-radius: 3px;
+  margin-left: 20%;
   width: 50%;
 }
 input[type="submit"]:hover, #resubmitbutton:hover, .confirmbutton:hover{
   background-color: rgba(90, 250, 125, 0.7);
   cursor: pointer;
+}
+#picture-clear_id, input[picture-clear_id]{
+  display:none;
 }
 /*End Cleaning up the create post section*/
 
@@ -629,8 +632,8 @@ td{
   /* End Instructions */
 
   textarea{
-    height: 30px;
-    width: auto;
+    height: 150px;
+    width: 150px;
   }
   /* General Mobile Styling */
   .managecredslinks{
