@@ -2,6 +2,7 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.contrib.auth.models import models
 from .models import SocialPost, User, GroupMePosts#, SocialAccount
+from django.forms.widgets import ClearableFileInput
 
 class SignUpForm(UserCreationForm):
     email = forms.EmailField(max_length=254)
@@ -16,6 +17,8 @@ class SocialPostForm(forms.ModelForm):
     class Meta():
         model = SocialPost
         model.GroupMeGroups = forms.ModelMultipleChoiceField(queryset=None)
+        ClearableFileInput.input_text = 'Updated File'
+        ClearableFileInput.clear_checkbox_label = ''
         widgets = {
             'myfield': forms.TextInput(attrs={'class': 'myfieldclass'}),
             'myfield2': forms.FileInput(attrs={'class':'imageclass'}),
