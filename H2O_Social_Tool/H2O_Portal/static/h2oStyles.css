@@ -425,9 +425,6 @@ input[type="submit"]:hover, #resubmitbutton:hover, .confirmbutton:hover{
   width: 80%;
   margin: auto;
 }
-.editpostbutton:hover{
-  background-color: rgba(68, 122, 238, 1);
-}
 #resubmitbutton{
   padding: 1%;
   margin-top: 10px;
@@ -527,17 +524,22 @@ td{
   background-color: rgba(241, 120, 44, 0.90);
 }
 .editpostbutton{
-  background-color: rgba(68, 122, 238, 0.60);
+  background-color: unset;
   border-collapse: unset;
-  padding: 10px;
+  border: unset;
+  padding: 15px;
 }
 .editpostbutton a{
   display: inline-block;
+  background-color: rgba(68, 122, 238, 0.60);
   position: relative;
   z-index: 1;
   padding: 1.5em;
   margin: -1.0em;
   text-decoration: none;
+}
+.editpostbutton a:hover{
+  background-color: rgba(68, 122, 238, 1);
 }
 .postheader{
   font-size: 13pt;

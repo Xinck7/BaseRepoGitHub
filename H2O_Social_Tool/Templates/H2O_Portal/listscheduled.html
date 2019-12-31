@@ -19,7 +19,7 @@
           <tr>
             {% if post.completed == False %}
             <td>{{ post.message }}</td>
-            <td>{{ post.picture }}</td>
+            <td><img src="{{ post.picture.url }}"alt="{{post.picture}}" width="75" height="75"/></td>
             <td>{{ post.post_time }}</td>
             {% comment %} <td>{{ post.Facebook }}</td> {% endcomment %}
             {% if post.GroupMeGroups == None %}
