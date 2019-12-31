@@ -16,6 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls import url
+from django.conf import settings
+from H2O_Social_Tool import settings
+from django.conf.urls.static import static
 admin.autodiscover()
 
 urlpatterns = [
@@ -24,4 +27,4 @@ urlpatterns = [
     #url(r'^oauth/', include('social_django.urls', namespace='social')),
     path('accounts/', include('allauth.urls')),
     path('', include('H2O_Portal.urls')),
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
