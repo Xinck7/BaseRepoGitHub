@@ -22,6 +22,7 @@ class SocialPostForm(forms.ModelForm):
         widgets = {
             'myfield': forms.TextInput(attrs={'class': 'myfieldclass'}),
             'myfield2': forms.FileInput(attrs={'class':'imageclass'}),
+            'post_time': forms.DateTimeInput(attrs={'type':'datetime-local'}, format='%Y-%m-%dT%H:%M'),
         }
         fields = ('message', 'post_time', 'picture', 'Facebook', 'GroupMe')
 
