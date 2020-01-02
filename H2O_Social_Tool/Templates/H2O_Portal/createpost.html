@@ -10,7 +10,10 @@
               <label for="Upload Picture:">{{field}}</label>
             </span>
           </div>
-
+        {% elif field == form.post_time %}
+        {% comment %} <input type="datetime-local"/> {% endcomment %}
+        {{field.help_text}}<br>
+        {{field}}
         {% elif field == form.Facebook %}
           {% comment %} <p>Facebook coming soon!</p>
           <div id="facebook">

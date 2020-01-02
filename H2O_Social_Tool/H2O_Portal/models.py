@@ -23,7 +23,7 @@ class User(AbstractUser):
 class SocialPost(models.Model):
     post_time = models.DateTimeField(
         max_length=30,
-        help_text='(example: 1/31/2019 15:00)',
+        help_text='Type date or click on the arrow for calendar to select a date:',
         )
     message = models.TextField(
         blank=True,
