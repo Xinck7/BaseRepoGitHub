@@ -9,7 +9,10 @@
       {% if field == form.picture %}
           <div class="imageclass">
             <br>
-              <img src="{{Post.picture.url}}"/>
+              {% if Post.picture.url != None %}
+              <img src="{{Post.picture.url}}" alt="Picture unavailable" width="150" height="150"/>
+              {% else %}
+              {% endif %}
               <br>
               <br>
               {{field}}
