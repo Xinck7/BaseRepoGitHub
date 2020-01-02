@@ -477,11 +477,7 @@ input[type="submit"]:hover, #resubmitbutton:hover, .confirmbutton:hover{
   border: none;
   text-decoration: none;
 }
-#cancelbutton a{
-  color: black;
-  text-decoration: none;
-}
-#cancelbutton a:hover{
+#cancelbutton:hover{
   color: white;
   background-color: rgb(143, 142, 142);
 }
