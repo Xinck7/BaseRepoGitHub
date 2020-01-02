@@ -51,6 +51,6 @@
     <input type="submit" id="resubmitbutton" value="Save Changes"><a href="{% url 'editpost' value=Post.id %}"></a></input>
     <button class="deletebutton"><a href="{% url 'deletepost' value=Post.id %}">Delete</a></button>
     <br>
-    <button id="cancelbutton"><a href="/listscheduled/">Cancel</a></button>
+    <a id="cancelbutton" href="/listscheduled/">Cancel</a>
   </form> 
 {% endblock EditPost %}
