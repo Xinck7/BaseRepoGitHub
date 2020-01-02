@@ -17,7 +17,7 @@ class SocialPostForm(forms.ModelForm):
     class Meta():
         model = SocialPost
         model.GroupMeGroups = forms.ModelMultipleChoiceField(queryset=None)
-        ClearableFileInput.input_text = 'Updated File'
+        ClearableFileInput.input_text = 'Update File'
         ClearableFileInput.clear_checkbox_label = ''
         widgets = {
             'myfield': forms.TextInput(attrs={'class': 'myfieldclass'}),
