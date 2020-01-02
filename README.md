@@ -1,7 +1,7 @@
 ## Welcome to the H2O Social Media Tool
 url: https://h2osocialtool.com
 <br>
-![image.png](.idea/image.png)
+![Capture.PNG](.idea/Capture.PNG)
 <br>
 <h2>This app supports currently: </h2>
 Groupme<br>
