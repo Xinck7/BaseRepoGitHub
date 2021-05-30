@@ -9,8 +9,8 @@
       {% if field == form.picture %}
           <div class="imageclass">
             <br>
-              {% if Post.picture.url != None %}
-              <img src="{{Post.picture.url}}" alt="Picture unavailable" width="150" height="150"/>
+              {% if post.picture.url != None %}
+              <img src="{{post.picture.url}}" alt="Picture unavailable" width="150" height="150"/>
               {% else %}
               {% endif %}
               <br>
@@ -23,14 +23,16 @@
         <br> {% endcomment %}
       {% elif field == form.GroupMe %}       
           <div id="centereditgroups">
-          <br>
-          <p id="centerinstructions">Select Groups</p>
-          <br>
-            {% for group in groups %}
+            <br>
+            <p id="centerinstructions">Select Groups</p>
+            <br>
+          {% for group in groups %}
             <div class="groupmegroups">
+                <label>
                 <input class="groupnamebox" type="checkbox" name="groupnameboxes" value="{{group.name}}">{{group.name}}</input>
+                </label>
             </div>
-            {% endfor %}
+          {% endfor %}
           </div>
 
       {% else %}
@@ -52,10 +54,11 @@
       <br>
     {% endfor %}
     <br>
-    <p style="color:blue">Warning!! If you are saving changes, Reselect groups</p>
+    <p style="color:Yellow">Warning!! If you are saving changes, Reselect groups</p>
     <input type="submit" id="resubmitbutton" value="Save Changes"><a href="{% url 'editpost' value=Post.id %}"></a></input>
-    <button class="deletebutton"><a href="{% url 'deletepost' value=Post.id %}">Delete</a></button>
     <br>
     <a id="cancelbutton" href="/listscheduled/">Cancel</a>
+    <br>
+    <br>
   </form> 
 {% endblock EditPost %}

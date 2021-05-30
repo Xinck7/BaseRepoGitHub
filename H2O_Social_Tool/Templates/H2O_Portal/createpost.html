@@ -35,11 +35,11 @@
           <p id="centerinstructions">Select Groups</p>
           <br>
             {% for group in groups %}
-            <div class="groupmegroups">
-                <label>
-                <input class="groupnamebox" type="checkbox" name="groupnameboxes" value="{{group.name}}">{{group.name}}</input>
-                </label>
-            </div>
+              <div class="groupmegroups">
+                  <label>
+                    <input class="groupnamebox" type="checkbox" name="groupnameboxes" value="{{group.name}}">{{group.name}}</input>
+                  </label>
+              </div>
             {% endfor %}
           </div>
 

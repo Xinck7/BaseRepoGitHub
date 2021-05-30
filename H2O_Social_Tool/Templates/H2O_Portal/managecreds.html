@@ -44,24 +44,26 @@
       <form method="post" class="sociallogin" enctype="multipart/form-data" novalidate>
         {% csrf_token %}
         {% for field in form %}
-        {% if field != form.gm_auth_token %}
-        {% else %}
-            {{ field.help_text }}<br>
-            {{field}}
-        {% endif %}
-
+          {% if field != form.gm_auth_token %}
+          {% else %}
+              {% if user.gm_auth_token == '' or user.gm_auth_token == None %}
+                {{ field.help_text }}<br>
+                {{field}}
+                <input type="submit" value="Store Token"></input>
+              {% else %}
+                <input type="submit" value="Clear Token" onclick="user.gm_auth_token.reset()"</input>
+              {% endif %}
+          {% endif %}
         {% endfor %}
-        <input type="submit" value="Store Token"></input>
-        {% comment %} <input type="submit" value="Store Token"><a href="{% url 'editcreds' value=field %}"></a></input> {% endcomment %}
       </form> 
     </div>
-    <button class="revealbutton" onclick=RevealCheckBox("revealfacebookcontainer")><h3 id="facebookreveal">Facebook Instructions (Coming Soon!)</h3><br></button>
+    <button class="revealbutton" onclick=RevealCheckBox("revealfacebookcontainer")><h3 id="facebookreveal">Facebook Instructions <br> (Coming Soon!)</h3><br></button>
     <div id="revealfacebookcontainer">
       <p>Coming Soon!</p><br>
     </div>
     
-    <button class="revealbutton" onclick=RevealCheckBox("revealinstagramcontainer")><h3 id="Instagramreveal">Instagram Instructions (Not soon - expand for details)</h3><br></button>
+    <button class="revealbutton" onclick=RevealCheckBox("revealinstagramcontainer")><h3 id="Instagramreveal">Instagram Instructions <br> (Development in progress!)</h3><br></button>
     <div id="revealinstagramcontainer">
-      <p>At this time not possible without account bans <br>Plans to implement if/when becomes available</p><br>
+      <p>As of 2021 the API has been released and there is a post limit but instagram is a go! <br>Plans to implement ASAP</p><br>
     </div>
 {% endblock ManageCreds %}

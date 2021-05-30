@@ -34,10 +34,13 @@
             <td>{{ post.updated_by }}</td>
               {% if user.is_superuser %}
                 <td class="editpostbutton"><a href="{% url 'editpost' value=post.id %}">Edit</a></td>
+                <td class="deletebutton"><a href="{% url 'deletepost' value=post.id %}">Delete</a></td>
               {% elif user.is_staff %}
                 <td class="editpostbutton"><a href="{% url 'editpost' value=post.id %}">Edit</a></td>
+                <td class="deletebutton"><a href="{% url 'deletepost' value=post.id %}">Delete</a></td>
               {% elif post.updated_by == request.user %}
                 <td class="editpostbutton"><a href="{% url 'editpost' value=post.id %}">Edit</a></td>
+                <td class="deletebutton"><a href="{% url 'deletepost' value=post.id %}">Delete</a></td>
               {% else %}
               {% endif %}
             {% endif %}
@@ -56,7 +59,7 @@
 
       {% for i in Posts.paginator.page_range %}
         {% if Posts.number == i %}
-          <li class="paginate"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+          <li class="paginate"><span>{{ i }} <span class="sr-only"></span></span></li>
         {% else %}
           <li class="paginate"><a href="?page={{ i }}">{{ i }}</a></li>
         {% endif %}

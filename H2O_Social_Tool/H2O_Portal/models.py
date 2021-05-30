@@ -4,7 +4,7 @@ from django.contrib.auth.models import AbstractUser
 from decouple import config
 from groupy import client
 from picklefield.fields import PickledObjectField
-import facebook 
+# import facebook 
 import datetime
 import pytz
 
@@ -17,7 +17,7 @@ class User(AbstractUser):
     #     related_name='+',
     #     )   
     # to add groupme
-    gm_auth_token = models.TextField(null=True, help_text='GroupMe Authentication Token', blank=True)
+    gm_auth_token = models.TextField(null=True, help_text='GroupMe Authentication Token', blank=True,)
     USERNAME_FIELD = 'username'
 
 class SocialPost(models.Model):

@@ -83,22 +83,22 @@ WSGI_APPLICATION = 'H2O_Social_Tool.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': config('DB_NAME'),
-        'USER': config('DB_USER'),
-        'PASSWORD': config('DB_PASSWORD'),
-        'HOST': config('DB_HOST'),
-        'PORT': config('PORT'),
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': config('DB_NAME'),
+#         'USER': config('DB_USER'),
+#         'PASSWORD': config('DB_PASSWORD'),
+#         'HOST': config('DB_HOST'),
+#         'PORT': config('PORT'),
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
@@ -165,13 +165,9 @@ SITE_ID = 1
 
 #deploy settings
 #SECURE_SSL_REDIRECT=True
-SESSION_COOKIE_SECURE=True
-CSRF_COOKIE_SECURE=True
-SECURE_HSTS_SECONDS=1
-SECURE_HSTS_INCLUDE_SUBDOMAINS=True
-SECURE_HSTS_PRELOAD=True
-<<<<<<< HEAD
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-=======
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
->>>>>>> f9fdc2a65e2e95d636bf70ad1b60a80ca9730f48
+# SESSION_COOKIE_SECURE=True
+# CSRF_COOKIE_SECURE=True
+# SECURE_HSTS_SECONDS=1
+# SECURE_HSTS_INCLUDE_SUBDOMAINS=True
+# SECURE_HSTS_PRELOAD=True
+
