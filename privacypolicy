@@ -1,0 +1,3 @@
+This app collects API tokens to make posts under the usernames configured.
+No API tokens will be used by anyone other than the person storing them.
+Usernames and password are configured, stored, and located via django tools and there is no access to unencrypt them.
