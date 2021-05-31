@@ -5,7 +5,7 @@ url: https://h2osocialtool.com
 Groupme<br>
 <h3>In progress: </h3>
 Facebook <br>
-<b>Instagram: </b><br>
+Instagram:<br>
 
 
 <br><br>

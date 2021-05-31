@@ -22,15 +22,13 @@ class Command(BaseCommand):
                         gmp = GroupMePosts()
                         gmp.sendmessages(auth_token, groupnames, post)
                         post.completed = True
-                if (post.Instagram == True):
-                    filter_user = all_users.filter(username=user_name)
-                    instagram_username = filter_user.values('instagram_username')
-                    instagram_password = filter_user.values('instagram_password')
+                # if (post.Instagram == True):
+                #     filter_user = all_users.filter(username=user_name)
+                #     instagram_username = filter_user.values('instagram_username')
+                #     instagram_password = filter_user.values('instagram_password')
 
             # if post.Facebook == True:
             #     init_posts = FacebookPosts()
             #     init_posts.sendpost()
             
             #####Needs modification##############
-
-
