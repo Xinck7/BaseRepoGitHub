@@ -8,8 +8,11 @@ class Command(BaseCommand):
         unposted = SocialPost.objects.filter(completed=False)
         all_users = User.objects.all()
         utc=pytz.UTC
+        current_time = datetime.datetime.now() 
+        est_delta = datetime.timedelta(hours=5)
+        adjusted_time = current_time - est_delta
         for post in unposted:
-            if post.post_time <= utc.localize(datetime.datetime.now()):
+            if post.post_time <= utc.localize(adjusted_time):
                 if (post.GroupMe == True) or (post.GroupMeGroups != None):
                     groupnames = post.GroupMeGroups
                     user_name = post.updated_by
@@ -22,13 +25,10 @@ class Command(BaseCommand):
                         gmp = GroupMePosts()
                         gmp.sendmessages(auth_token, groupnames, post)
                         post.completed = True
-                # if (post.Instagram == True):
-                #     filter_user = all_users.filter(username=user_name)
-                #     instagram_username = filter_user.values('instagram_username')
-                #     instagram_password = filter_user.values('instagram_password')
 
             # if post.Facebook == True:
             #     init_posts = FacebookPosts()
             #     init_posts.sendpost()
             
             #####Needs modification##############
+
