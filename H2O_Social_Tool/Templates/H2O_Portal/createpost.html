@@ -4,6 +4,7 @@
     <form method="post" enctype="multipart/form-data" class="myfieldclass" novalidate>
       {% csrf_token %}
       {% for field in form %}
+        <br>
         {% if field == form.picture %}
           <div class="imageclass">
             <span>

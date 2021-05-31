@@ -27,43 +27,48 @@
 
     <button class="revealbutton" onclick=RevealCheckBox("revealgroupmecontainer")><h3 id="groupmereveal">GroupMe Instructions</h3><br></button>
     <div id="revealgroupmecontainer">
-      <div id="centeringcontainer2">
-        <p id="instructionsset">
-        You need to input a special token in the field below to send posts through GroupMe<br>
-        To get an authentication token you must go to this link: <br><br>
-        <a class="instructionslinks" href="https://dev.groupme.com/" target="_blank">Developer GroupMe Website</a><br><br>
-        1. Sign in using your normal credentials.<br>
-        2. Click "Access Token" in the top right corner<br>
-        3. Copy the bold text string of random nonsense characters<br>
-        4. Paste into the form box below<br>
-        5. Click Store Token<br>
-      </p>
-      </div>
-      <br>
-      
       <form method="post" class="sociallogin" enctype="multipart/form-data" novalidate>
         {% csrf_token %}
         {% for field in form %}
           {% if field != form.gm_auth_token %}
           {% else %}
               {% if user.gm_auth_token == '' or user.gm_auth_token == None %}
+                  <div id="centeringcontainer2">
+                    <p id="instructionsset">
+                    You need to input a special token in the field below to send posts through GroupMe<br>
+                    To get an authentication token you must go to this link: <br><br>
+                    <a class="instructionslinks" href="https://dev.groupme.com/" target="_blank">Developer GroupMe Website</a><br><br>
+                    1. Sign in using your normal credentials.<br>
+                    2. Click "Access Token" in the top right corner<br>
+                    3. Copy the bold text string of random nonsense characters<br>
+                    4. Paste into the form box below<br>
+                    5. Click Store Token<br>
+                  </p>
+                </div>
+                <br>
                 {{ field.help_text }}<br>
                 {{field}}
                 <input type="submit" value="Store Token"></input>
               {% else %}
-                <input type="submit" value="Clear Token" onclick="user.gm_auth_token.reset()"</input>
+                <p id="instructionsset">
+                You have already submitted a token for GroupMe. <br>
+                Would you like to clear it?
+                </p>
+                <input type="submit" class="deletebutton" value="Clear Token" onclick="user.gm_auth_token.reset()"</input>
               {% endif %}
           {% endif %}
         {% endfor %}
       </form> 
-    </div>
-    <button class="revealbutton" onclick=RevealCheckBox("revealfacebookcontainer")><h3 id="facebookreveal">Facebook Instructions <br> (Coming Soon!)</h3><br></button>
-    <div id="revealfacebookcontainer">
-      <p>Coming Soon!</p><br>
     </div>
     
     <button class="revealbutton" onclick=RevealCheckBox("revealinstagramcontainer")><h3 id="Instagramreveal">Instagram Instructions <br> (Development in progress!)</h3><br></button>
     <div id="revealinstagramcontainer">
       <p>As of 2021 the API has been released and there is a post limit but instagram is a go! <br>Plans to implement ASAP</p><br>
     </div>
+
+    <button class="revealbutton" onclick=RevealCheckBox("revealfacebookcontainer")><h3 id="facebookreveal">Facebook Instructions <br> (Pending)</h3><br></button>
+    <div id="revealfacebookcontainer">
+      <p>Coming Soon!</p><br>
+    </div>
+
 {% endblock ManageCreds %}

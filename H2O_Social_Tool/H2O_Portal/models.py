@@ -18,20 +18,23 @@ class User(AbstractUser):
     #     )   
     # to add groupme
     gm_auth_token = models.TextField(null=True, help_text='GroupMe Authentication Token', blank=True,)
+    instagram_username = models.TextField(null=True,help_text='Instagram Username',blank=True,)
+    instagram_username = models.TextField(null=True,help_text='Instagram Password',blank=True)
     USERNAME_FIELD = 'username'
 
 class SocialPost(models.Model):
     post_time = models.DateTimeField(
         max_length=30,
-        help_text='Type date or click on the arrow for calendar to select a date:',
+        help_text='Type date or click icon to select a date:',
         )
     message = models.TextField(
         blank=True,
         max_length=2000,
         )
     picture = models.ImageField(null=True, blank=True, help_text='Only pictures are supported through this tool', upload_to='H2O_Portal/media')
+    GroupMe = models.BooleanField(default=False)
+    Instagram = models.BooleanField(default=False)
     Facebook = models.BooleanField(default=False)
-    GroupMe = models.BooleanField(default=False)  
     GroupMeGroups = PickledObjectField(null=True, blank=True)
     completed = models.BooleanField(default=False)
     updated_by = models.ForeignKey(
@@ -42,14 +45,15 @@ class SocialPost(models.Model):
         )
 
     def __str__(self):
-        return '{} {} {} {} {} {} {} {}'.format(
+        return '{} {} {} {} {} {} {} {} {}'.format(
             self.post_time, 
             self.message, 
             self.picture, 
-            self.Facebook, 
             self.GroupMe,
+            self.Instagram,
+            self.Facebook,
             self.GroupMeGroups,
-            self.completed, 
+            self.completed,
             self.updated_by,
             )
 
@@ -123,3 +127,10 @@ class GroupMePosts(models.Model):
                 group.post(text=key, attachments=attachment_to_send)
 
 
+class InstagramPosts(models.Model):
+
+    def postpicture(self, username, password, picture, caption):
+        instagram_username = username
+        instagram_password = password
+        instagram_picture = picture
+        instagram_caption = caption

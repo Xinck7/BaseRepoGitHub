@@ -8,9 +8,10 @@
         <tr>
             <th>Message</th>
             <th>Picture</th>
-            <th>Post Time</th>
-            {% comment %} <th>Facebook?</th> {% endcomment %}
-            <th>GroupMeGroups</th>
+            <th>Time</th>
+            <th>GroupMe</th>
+            <th>Instagram</th>
+            <th>Facebook</th>
             <th>Sent by</th>
         </tr>
         </thead>
@@ -28,7 +29,17 @@
                 <td></td>
                 {% else %}
                 <td>{{ post.GroupMeGroups }}</td>
-            {% endif %} 
+            {% endif %}
+            {% if post.Instagram == None %}
+                <td></td>
+            {% else %}
+                <td>{{ post.Instagram }}</td>
+            {% endif %}
+            {% if post.Facebook == None %}
+                <td></td>
+            {% else %}
+                <td>{{ post.Facebook }}</td>
+            {% endif %}
             <td>{{ post.updated_by }}</td>
         {% endif %}
         </tr>

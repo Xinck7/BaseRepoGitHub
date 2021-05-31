@@ -8,42 +8,52 @@
         <tr>
           <th>Message</th>
           <th>Picture</th>
-          <th>Post Time</th>
-          {% comment %} <th>Facebook?</th> {% endcomment %}
-          <th>GroupMeGroups</th>
+          <th>Time</th>
+          <th>GroupMe</th>
+          <th>Instagram</th>
+          <th>Facebook</th>
           <th>Scheduled by</th>
         </tr>
       </thead>
       <tbody>
         {% for post in Posts %}
           <tr>
-            {% if post.completed == False %}
+          {% if post.completed == False %}
             <td>{{ post.message }}</td>
             {% if post.picture.url != None %}
             <td><img src="{{ post.picture.url }}" alt="Picture unavailable" width="75" height="75"/></td>
             {% else %}
-            <td></td>
+              <td></td>
             {% endif %}
             <td>{{ post.post_time }}</td>
-            {% comment %} <td>{{ post.Facebook }}</td> {% endcomment %}
             {% if post.GroupMeGroups == None %}
               <td></td>
             {% else %}
               <td>{{ post.GroupMeGroups }}</td>
             {% endif %} 
-            <td>{{ post.updated_by }}</td>
-              {% if user.is_superuser %}
-                <td class="editpostbutton"><a href="{% url 'editpost' value=post.id %}">Edit</a></td>
-                <td class="deletebutton"><a href="{% url 'deletepost' value=post.id %}">Delete</a></td>
-              {% elif user.is_staff %}
-                <td class="editpostbutton"><a href="{% url 'editpost' value=post.id %}">Edit</a></td>
-                <td class="deletebutton"><a href="{% url 'deletepost' value=post.id %}">Delete</a></td>
-              {% elif post.updated_by == request.user %}
-                <td class="editpostbutton"><a href="{% url 'editpost' value=post.id %}">Edit</a></td>
-                <td class="deletebutton"><a href="{% url 'deletepost' value=post.id %}">Delete</a></td>
-              {% else %}
-              {% endif %}
+            {% if post.Instagram == None %}
+              <td></td>
+            {% else %}
+              <td>{{ post.Instagram }}</td>
             {% endif %}
+            {% if post.Facebook == None %}
+              <td></td>
+            {% else %}
+              <td>{{ post.Facebook }}</td>
+            {% endif %}
+            <td>{{ post.updated_by }}</td>
+            {% if user.is_superuser %}
+              <td class="editpostbutton"><a href="{% url 'editpost' value=post.id %}">Edit</a></td>
+              <td class="deletebutton"><a href="{% url 'deletepost' value=post.id %}">Delete</a></td>
+            {% elif user.is_staff %}
+              <td class="editpostbutton"><a href="{% url 'editpost' value=post.id %}">Edit</a></td>
+              <td class="deletebutton"><a href="{% url 'deletepost' value=post.id %}">Delete</a></td>
+            {% elif post.updated_by == request.user %}
+              <td class="editpostbutton"><a href="{% url 'editpost' value=post.id %}">Edit</a></td>
+              <td class="deletebutton"><a href="{% url 'deletepost' value=post.id %}">Delete</a></td>
+            {% else %}
+            {% endif %}
+          {% endif %}
           </tr>
         {% endfor %}
       </tbody>

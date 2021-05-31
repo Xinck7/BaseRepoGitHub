@@ -117,7 +117,7 @@ input, select {
   font-family: 'Lato', sans-serif;  
 }
 body{
-  background-color: rgb(240, 240, 240);
+  background-color: rgb(220, 220, 220);
 }
 
 /*Header*/
@@ -129,7 +129,8 @@ body{
 header {
   text-align: center;
   font-size: 40px;
-  color: rgb(99, 100, 102);
+  /* color: rgb(99, 100, 102); */
+  color: black;
 }
 /*End Header*/
 
@@ -148,7 +149,7 @@ ul li{
   font-size: 13pt;
   padding: 12px;
   margin: 5px;
-  font-weight: 500;
+  font-weight: 600;
   background-color: rgba(243, 130, 60, 1);
   border-radius: 8px;
   border: 2px solid rgb(99, 100, 102);
@@ -216,6 +217,14 @@ ul#startpage a{
 }
 /*End Positioning for the login stuff*/
 
+/* Slogan styling */
+#Slogan{
+  color: rgb(250,90,90);
+  display: inline-flexbox;
+  width: 50%;
+}
+/* End Slogan styling */
+
 /*Manage credentials*/
 .managecredslinks{
   display: inline-block;
@@ -272,6 +281,23 @@ ul#startpage a{
 textarea[name="gm_auth_token"]{
   height: 30px;
 }
+.cleartoken{
+    padding: 1%;
+    margin-bottom: 15px;
+    border-radius: 3px;
+    width:50%;
+    color: white;
+    background-color: rgba(143, 142, 142, 1);
+    font-size: 14pt;
+    inline-size: auto;
+    border: none;
+    text-decoration: none;
+  }
+.cleartoken:hover{
+  color: black;
+  background-color: rgb(143, 142, 142);
+}
+
 /*End Manage credentials*/
 
 /*Forms styles*/
@@ -284,7 +310,7 @@ form{
   width: 50%;
   margin: auto;
   font-size: 18px;
-  font-weight: 500;
+  font-weight: 550;
   margin-top: 15px;
   padding: 5px; 
   text-align: center;
@@ -318,29 +344,7 @@ input[type="submit"]{
 input[type="checkbox"]{
   width: 10%;
 }
-/* starting cleanup for upload button */
-/* .imageclass {
-	width: 0.1px;
-	height: 0.1px;
-	opacity: 0;
-	overflow: hidden;
-	position: absolute;
-	z-index: -1;
-}
-.imageclass + label {
-  font-size: 1.25em;
-  font-weight: 700;
-  color: white;
-  background-color: black;
-  display: block;
-}
 
-.imageclass:focus + label,
-.imageclass + label:hover {
-  background-color: rgba(90, 140, 250, 1);
-  cursor: pointer;
-} */
-/* end upload button */
 .imageclass{
   padding: 8px;
   display: content-box;
@@ -485,14 +489,14 @@ ul.pagination a{
 th{
   padding: 15px;
   border: 1px solid rgb(99, 100, 102);
-  background-color: rgba(241, 120, 44, 0.75);
-  font-weight: 200;
+  background-color: rgba(241, 120, 44, .95);
+  font-weight: 500;
 }
 td{
   padding: 15px;
   border: 1px solid rgb(99, 100, 102);
   font-weight: 500;
-  background-color: rgba(241, 120, 44, 0.90);
+  background-color: rgba(241, 120, 44, 0.95);
 }
 .editpostbutton{
   background-color: unset;
@@ -558,10 +562,10 @@ td{
 .postheader{
   font-size: 13pt;
   display: inline-block;
-  background-color: rgba(241, 120, 44, 0.60);
+  background-color: rgba(241, 120, 44, 0.90);
   border:1px solid rgb(99, 100, 102);
   border-radius: 2px;
-  width: 25%;
+  width: 50%;
   text-align: center;
   padding: 4px;
   margin: 2%;
@@ -681,16 +685,23 @@ td{
     max-width: 360px;
     text-align: center;
   }
+  .ListScheduled{
+    width: 75%;
+  }
+  table{
+    width: 80%;
+  }
   th{
     padding: 1px;
     border: 1px solid rgb(99, 100, 102);
     border-collapse: collapse;
-    background-color: rgba(241, 120, 44, 0.75);
-    font-weight: 200;
+    background-color: rgba(241, 120, 44, 0.90);
+    font-weight: 500;
   }
   td{
     border: 1px solid rgb(99, 100, 102);
     border-collapse: collapse;
+    width: 50%;
     font-weight: 500;
     background-color: rgba(241, 120, 44, 0.90);
   }
