@@ -18,8 +18,8 @@ class User(AbstractUser):
     #     )   
     # to add groupme
     gm_auth_token = models.TextField(null=True, help_text='GroupMe Authentication Token', blank=True,)
-    instagram_username = models.TextField(null=True,help_text='Instagram Username',blank=True,)
-    instagram_username = models.TextField(null=True,help_text='Instagram Password',blank=True)
+    # instagram_username = models.TextField(null=True,help_text='Instagram Username',blank=True,)
+    # instagram_username = models.TextField(null=True,help_text='Instagram Password',blank=True)
     USERNAME_FIELD = 'username'
 
 class SocialPost(models.Model):
@@ -45,13 +45,13 @@ class SocialPost(models.Model):
         )
 
     def __str__(self):
-        return '{} {} {} {} {} {} {} {} {}'.format(
+        return '{} {} {} {} {} {} {}'.format(
             self.post_time, 
             self.message, 
             self.picture, 
             self.GroupMe,
-            self.Instagram,
-            self.Facebook,
+            # self.Instagram,
+            # self.Facebook,
             self.GroupMeGroups,
             self.completed,
             self.updated_by,
@@ -127,10 +127,10 @@ class GroupMePosts(models.Model):
                 group.post(text=key, attachments=attachment_to_send)
 
 
-class InstagramPosts(models.Model):
+# class InstagramPosts(models.Model):
 
-    def postpicture(self, username, password, picture, caption):
-        instagram_username = username
-        instagram_password = password
-        instagram_picture = picture
-        instagram_caption = caption
+#     def postpicture(self, username, password, picture, caption):
+#         instagram_username = username
+#         instagram_password = password
+#         instagram_picture = picture
+#         instagram_caption = caption
