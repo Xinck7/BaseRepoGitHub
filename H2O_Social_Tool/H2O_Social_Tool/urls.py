@@ -27,4 +27,4 @@ urlpatterns = [
     #url(r'^oauth/', include('social_django.urls', namespace='social')),
     path('accounts/', include('allauth.urls')),
     path('', include('H2O_Portal.urls')),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] #+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

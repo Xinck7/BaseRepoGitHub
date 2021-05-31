@@ -117,7 +117,7 @@ input, select {
   font-family: 'Lato', sans-serif;  
 }
 body{
-  background-color: rgb(240, 240, 240);
+  background-color: rgb(220, 220, 220);
 }
 
 /*Header*/
@@ -129,7 +129,8 @@ body{
 header {
   text-align: center;
   font-size: 40px;
-  color: rgb(99, 100, 102);
+  /* color: rgb(99, 100, 102); */
+  color: black;
 }
 /*End Header*/
 
@@ -148,10 +149,10 @@ ul li{
   font-size: 13pt;
   padding: 12px;
   margin: 5px;
-  font-weight: 500;
+  font-weight: 600;
   background-color: rgba(243, 130, 60, 1);
   border-radius: 8px;
-  border: 3px solid rgb(99, 100, 102);
+  border: 2px solid rgb(99, 100, 102);
 }
 /*global link settings that are redirects and not real click this links*/
 ul a:link, ul a:visited, .editpostbutton a:visited, .editpostbutton a:link, .deletebutton a:visited, .deletebutton a:link{
@@ -216,13 +217,21 @@ ul#startpage a{
 }
 /*End Positioning for the login stuff*/
 
+/* Slogan styling */
+#Slogan{
+  color: rgb(250,90,90);
+  display: inline-flexbox;
+  width: 50%;
+}
+/* End Slogan styling */
+
 /*Manage credentials*/
 .managecredslinks{
   display: inline-block;
   padding: 10px;
   margin: 5px;
   background-color: rgba(243, 130, 60, 1);
-  border: 3px solid rgb(99, 100, 102);
+  border: 2px solid rgb(99, 100, 102);
   border-radius: 8px;
 }
 .managecredslinks:hover{
@@ -272,19 +281,36 @@ ul#startpage a{
 textarea[name="gm_auth_token"]{
   height: 30px;
 }
+.cleartoken{
+    padding: 1%;
+    margin-bottom: 15px;
+    border-radius: 3px;
+    width:50%;
+    color: white;
+    background-color: rgba(143, 142, 142, 1);
+    font-size: 14pt;
+    inline-size: auto;
+    border: none;
+    text-decoration: none;
+  }
+.cleartoken:hover{
+  color: black;
+  background-color: rgb(143, 142, 142);
+}
+
 /*End Manage credentials*/
 
 /*Forms styles*/
 form{
   background-color: rgba(243, 130, 60, .99);
-  border: 3px solid rgb(99, 100, 102);
+  border: 2px solid rgb(99, 100, 102);
   border-radius: 8px;
   color: black;
   box-sizing: content-box;
   width: 50%;
   margin: auto;
   font-size: 18px;
-  font-weight: 500;
+  font-weight: 550;
   margin-top: 15px;
   padding: 5px; 
   text-align: center;
@@ -310,6 +336,7 @@ input[type="submit"]{
   padding: 1%;
   margin-top: 13px;
   margin-bottom: 15px;
+  width: 50%;
   background-color: rgba(90, 140, 250, 1);
   font-size: 14pt;
   border: none;
@@ -317,35 +344,13 @@ input[type="submit"]{
 input[type="checkbox"]{
   width: 10%;
 }
-/* starting cleanup for upload button */
-/* .imageclass {
-	width: 0.1px;
-	height: 0.1px;
-	opacity: 0;
-	overflow: hidden;
-	position: absolute;
-	z-index: -1;
-}
-.imageclass + label {
-  font-size: 1.25em;
-  font-weight: 700;
-  color: white;
-  background-color: black;
-  display: block;
-}
 
-.imageclass:focus + label,
-.imageclass + label:hover {
-  background-color: rgba(90, 140, 250, 1);
-  cursor: pointer;
-} */
-/* end upload button */
 .imageclass{
   padding: 8px;
   display: content-box;
   margin: 10px;
   font-size: 12pt;
-  border-radius: 3px;
+  border-radius: 2px;
   border: none;
   width:100%;
 }
@@ -354,7 +359,7 @@ input[type="checkbox"]{
 }
 .imageclass #id_picture{
   display: block;
-  border-radius: 3px;
+  border-radius: 2px;
   margin-left: 20%;
   width: 50%;
 }
@@ -373,6 +378,7 @@ input[type="submit"]:hover, #resubmitbutton:hover, .confirmbutton:hover{
 .groupmegroups{
   display: block;
   text-align: left;
+  margin: inherit;
 }
 #centergroupmegroups{
   box-sizing: content-box;
@@ -387,7 +393,7 @@ input[type="submit"]:hover, #resubmitbutton:hover, .confirmbutton:hover{
   margin-left: 10%;
 }
 #centerinstructions{
-  width: 45%;
+  width: 50%;
   text-align: center;
 }
 @media (max-width: 1500px){
@@ -440,7 +446,95 @@ input[type="submit"]:hover, #resubmitbutton:hover, .confirmbutton:hover{
 .resubmitbutton:hover{
   background-color: rgba(90, 250, 125, 0.7);
 }
+#cancelbutton{
+  padding: 1%;
+  margin-bottom: 15px;
+  border-radius: 3px;
+  width:50%;
+  color: white;
+  background-color: rgba(143, 142, 142, 1);
+  font-size: 14pt;
+  inline-size: auto;
+  border: none;
+  text-decoration: none;
+}
+#cancelbutton:hover{
+  color: black;
+  background-color: rgb(143, 142, 142);
+}
+/*End Edit Post Pane*/
+
+/*List Posts Pane*/
+.posttables{
+  padding: 2%;
+  display: inline-block;
+  min-width: 880px;
+  text-align: center;
+}
+ul.pagination a{
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+  padding: 1.4em;
+  margin: -1em;
+}
+.pagination{
+  display: inline-block;
+  width: 50%;
+  inline-size: auto;
+}
+.paginate{
+  float: left;
+}
+th{
+  padding: 15px;
+  border: 1px solid rgb(99, 100, 102);
+  background-color: rgba(241, 120, 44, .95);
+  font-weight: 500;
+}
+td{
+  padding: 15px;
+  border: 1px solid rgb(99, 100, 102);
+  font-weight: 500;
+  background-color: rgba(241, 120, 44, 0.95);
+}
+.editpostbutton{
+  background-color: unset;
+  border-collapse: unset;
+  border: unset;
+  padding: 15px;
+}
+.editpostbutton a{
+  display: inline-block;
+  background-color: rgba(68, 122, 238, 0.90);
+  position: relative;
+  z-index: 1;
+  padding: 1.5em;
+  margin: -1.0em;
+  text-decoration: none;
+}
+.editpostbutton a:hover{
+  background-color: rgba(68, 122, 238, 1);
+}
 .deletebutton{
+  background-color: unset;
+  border-collapse: unset;
+  border: unset;
+  padding: 15px;
+}
+.deletebutton a{
+  display: inline-block;
+  background-color: rgba(238, 68, 68,0.90);
+  position: relative;
+  z-index: 1;
+  padding: 1.5em;
+  margin: -1.0em;
+  text-decoration: none;
+}
+.deletebutton a:hover{
+  background-color: rgba(238, 68, 68,1);
+}
+/* .deletebutton{
   padding: 1%;
   margin-bottom: 15px;
   border-radius: 3px;
@@ -464,91 +558,17 @@ input[type="submit"]:hover, #resubmitbutton:hover, .confirmbutton:hover{
 }
 .deletebutton:hover{
   background-color: grey;
-}
-#cancelbutton{
-  padding: 1%;
-  margin-bottom: 15px;
-  border-radius: 3px;
-  width:50%;
-  color: black;
-  background-color: rgba(90, 140, 250, 1);
-  font-size: 14pt;
-  inline-size: auto;
-  border: none;
-  text-decoration: none;
-}
-#cancelbutton:hover{
-  color: white;
-  background-color: rgb(143, 142, 142);
-}
-/*End Edit Post Pane*/
-
-/*List Posts Pane*/
-.posttables{
-  padding: 1%;
-  display: inline-block;
-  min-width: 880px;
-  text-align: center;
-}
-ul.pagination a{
-  display: inline-block;
-  position: relative;
-  z-index: 1;
-  padding: 1.4em;
-  margin: -1em;
-}
-.pagination{
-  display: inline-block;
-  width: 50%;
-  inline-size: auto;
-}
-.paginate{
-  float: left;
-}
-th{
-  padding: 15px;
-  border: 1px solid rgb(99, 100, 102);
-  border-collapse: collapse;
-  background-color: rgba(241, 120, 44, 0.75);
-  font-weight: 200;
-}
-td{
-  padding: 15px;
-  border: 1px solid rgb(99, 100, 102);
-  border-collapse: collapse;
-  font-weight: 500;
-  background-color: rgba(241, 120, 44, 0.90);
-}
-.editpostbutton{
-  background-color: unset;
-  border-collapse: unset;
-  border: unset;
-  padding: 15px;
-}
-.editpostbutton a{
-  display: inline-block;
-  background-color: rgba(68, 122, 238, 0.60);
-  position: relative;
-  z-index: 1;
-  padding: 1.5em;
-  margin: -1.0em;
-  text-decoration: none;
-}
-.editpostbutton a:hover{
-  background-color: rgba(68, 122, 238, 1);
-}
+} */
 .postheader{
   font-size: 13pt;
   display: inline-block;
-  background-color: rgba(241, 120, 44, 0.60);
-  border-top: 1px solid rgb(99, 100, 102);
-  border-right:1px solid rgb(99, 100, 102);
-  border-left:1px solid rgb(99, 100, 102);
+  background-color: rgba(241, 120, 44, 0.90);
+  border:1px solid rgb(99, 100, 102);
   border-radius: 2px;
-  width: 25%;
+  width: 50%;
   text-align: center;
   padding: 4px;
-  border-collapse: collapse;
+  margin: 2%;
 }
 /*End List Posts Pane*/
 
@@ -640,27 +660,48 @@ td{
   .managecredslinks{
     display: block;
   }
+  ul.pagination a{
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    padding: 1.4em;
+    margin: -1em;
+  }
   .pagination{
     display: inline-block;
-    width: 50%;
+    max-width: 50%;
   }
   .paginate{
-    float: left;
+    float: inline-start;
   }
   .editpostbutton a{
     display:block;
     height: 100%;
   }
+  .posttables{
+    padding: 2%;
+    display: inline-block;
+    min-width: 0px;
+    max-width: 360px;
+    text-align: center;
+  }
+  .ListScheduled{
+    width: 75%;
+  }
+  table{
+    width: 80%;
+  }
   th{
     padding: 1px;
     border: 1px solid rgb(99, 100, 102);
     border-collapse: collapse;
-    background-color: rgba(241, 120, 44, 0.75);
-    font-weight: 200;
+    background-color: rgba(241, 120, 44, 0.90);
+    font-weight: 500;
   }
   td{
     border: 1px solid rgb(99, 100, 102);
     border-collapse: collapse;
+    width: 50%;
     font-weight: 500;
     background-color: rgba(241, 120, 44, 0.90);
   }
