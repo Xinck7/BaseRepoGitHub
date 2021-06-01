@@ -7,12 +7,7 @@ url: https://h2osocialtool.com
 Groupme<br>
 <h3>In progress: </h3>
 Facebook <br>
-
-<h3>Incompatible Apps:</h3>
-<b>Instagram: </b><br>
-This is in closed beta with facebook and not accepting more apps or applications to the beta <br>
-Also 'unofficial' methods have resulted in banned accounts.<br>
-  If this changes in the future I will absolutely add the functionality<br>
+Instagram:<br>
 
 
 <br><br>
