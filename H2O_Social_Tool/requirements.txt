@@ -1,10 +1,8 @@
-Django==3.0
-django-allauth==0.40.0
-django-picklefield==2.0
-django-social-api==0.1.1
-django-sslserver==0.22
-facebook-sdk==3.1.0
+Django==3.2.3
+django-allauth==0.44.0
+django-picklefield==3.0.1
 GroupyAPI==0.10.3
-Pillow==6.2.1
+gunicorn==20.1.0
+Pillow==8.2.0
+psycopg2-binary==2.8.6
 python-decouple==3.3
-aws-psycopg2==1.1.1
