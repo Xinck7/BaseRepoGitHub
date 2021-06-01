@@ -9,7 +9,7 @@ class Command(BaseCommand):
         all_users = User.objects.all()
         utc=pytz.UTC
         current_time = datetime.datetime.now() 
-        est_delta = datetime.timedelta(hours=5)
+        est_delta = datetime.timedelta(hours=4)
         adjusted_time = current_time - est_delta
         for post in unposted:
             if post.post_time <= utc.localize(adjusted_time):

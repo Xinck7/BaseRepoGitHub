@@ -23,8 +23,9 @@
             {% if post.picture.url != None %}
                 <td><img src="{{ post.picture.url }}" alt="Picture unavailable" width="75" height="75"/></td>
                 {% else %}
-                <td></td>
-            {% endif %} 
+                    <td></td>
+            {% endif %}
+            <td>{{ post.post_time }}</td>
             {% if post.GroupMeGroups == None %}
                 <td></td>
                 {% else %}
