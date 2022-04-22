@@ -1,4 +1,4 @@
-Django==3.2.3
+Django==3.2.13
 django-allauth==0.44.0
 django-picklefield==3.0.1
 GroupyAPI==0.10.3
